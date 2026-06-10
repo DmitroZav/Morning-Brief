@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, June 10, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .alert-box {
+      background: #fef2f2;
+      border: 1.5px solid #fca5a5;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.875rem;
+    }
+    .alert-box strong { color: var(--red); }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, June 10, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Rate decision day: the Bank of Canada announces at 9:45 this morning</div>
+    <p>Today at 9:45 AM ET, the Bank of Canada (Canada's central bank — it sets the base interest rate that every variable mortgage and line of credit follows) announces its rate decision. Markets put roughly 97% odds on a HOLD at 2.25%, where the rate has sat since the April 29 meeting. Governor Tiff Macklem takes questions at 10:30.</p>
+    <p><strong>This brief was written before the announcement dropped</strong> — that's your opportunity, not a problem. Film a reaction the moment it lands and you're one of the first Toronto voices out (full script below, with both outcomes covered).</p>
+    <p><em>Why it's video-worthy: it's the one day a month when "boring central bank news" directly touches every renter and homeowner's wallet — and same-day reaction content wins the algorithm.</em></p>
+  </div>
+
+  <!-- ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Everyone's watching today's rate announcement — but the bond market (3.15%) already decided your fixed mortgage rate won't get cheaper this summer.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th></tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td>
+          <td>2.25% (Apr 29)</td>
+          <td class="tag-flat">Decision TODAY 9:45 ET</td>
+          <td class="plain-meaning">The base rate variable mortgages follow. Markets price ~97% odds of no change.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.15% (Jun 9)</td>
+          <td>3.19%</td>
+          <td class="tag-down">▼ 0.04 pts</td>
+          <td class="plain-meaning">Bond yield = the interest the government pays to borrow. It drives FIXED mortgage rates. Stuck in the low-3s = no cheap fixed rates coming.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Typical 5-yr fixed mortgage</td>
+          <td>~4.04% (best rates)</td>
+          <td>~4.0–4.1%</td>
+          <td class="tag-flat">No real change</td>
+          <td class="plain-meaning">Lenders price these off the bond yield above, not off today's BoC decision.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Variable mortgage (best)</td>
+          <td>~3.35%</td>
+          <td>~3.35%</td>
+          <td class="tag-flat">No change</td>
+          <td class="plain-meaning">Follows the BoC rate. Today's decision is the one that moves this.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, April)</td>
+          <td>2.8% y/y</td>
+          <td>2.4% (March)</td>
+          <td class="tag-up">▲ 0.4 pts</td>
+          <td class="plain-meaning">CPI = the average price change of everyday stuff. Jump driven by gas (+28.6% y/y). Core inflation (what the BoC actually watches) eased to ~2.1% — that's why a hold is expected, not a hike.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Jobs (May, StatCan)</td>
+          <td>+88,000 jobs · unemployment 6.6%</td>
+          <td>6.9%</td>
+          <td class="tag-up">▲ Blowout</td>
+          <td class="plain-meaning">Way above forecasts — first big job gain since Nov 2025. Strong jobs = the BoC has zero pressure to cut rates. Don't bank on cheaper mortgages this year.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA market (TRREB, May)</td>
+          <td>Avg $1,069,700 · 6,583 sales</td>
+          <td>May 2025</td>
+          <td class="tag-down">Price ▼ 4.6% y/y · Sales ▲ 6.3%</td>
+          <td class="plain-meaning">Prices still cheaper than last year, BUT new listings fell 18.9% and sales jumped 10% month-over-month — the market is quietly tightening.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National sales/price (CREA)</td>
+          <td colspan="3" class="tag-flat">No new data — May report due mid-June</td>
+          <td class="plain-meaning">Nothing to act on today.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC)</td>
+          <td colspan="3" class="tag-flat">No release in the last 24h</td>
+          <td class="plain-meaning">No change.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>First-time buyer:</strong> Toronto prices are 4.6% cheaper than a year ago — but sellers are pulling back (listings down 18.9%) while buyers come back (sales up). If that continues, the discount window starts closing. The deal isn't "wait forever," it's "the market is telling you something this month."</p>
+    <p><strong>Mortgage shopper:</strong> whatever the BoC says at 9:45, your fixed rate is set by the bond market — and it's been parked in the low 3s for weeks. Waiting for 2.99% fixed is a strategy of hope, not a plan.</p>
+    <p><strong>Renter / newcomer:</strong> 88,000 new jobs in May, with Ontario adding 42,000 and construction leading. Hiring is back — which helps your income, but also means rates stay where they are. Good news for jobs is bad news for rate cuts.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <div class="alert-box">
+      <strong>Technical note:</strong> YouTube RSS feeds weren't readable on this run (feeds returned empty) and web search surfaced no confirmed uploads from the watchlist in the last 24h. No posts are being invented — instead, here's the tactical read for today.
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Ron Butler</span> <span class="creator-platform">· YouTube @angrymortgage</span><br>
+      <span class="verdict verdict-na">NOT CONFIRMED TODAY</span>
+      <div class="creator-note">Near-certain to post a blunt BoC reaction within hours of 9:45. His angle will be rates and lender behaviour — your edge is the newcomer/first-buyer translation he never does.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Daniel Foch</span> <span class="creator-platform">· YouTube @daniel_foch</span><br>
+      <span class="verdict verdict-na">NOT CONFIRMED TODAY</span>
+      <div class="creator-note">Expect a data-heavy decision breakdown. Worth watching tonight to sanity-check your own numbers for tomorrow's follow-up.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Tom Storey · Ragona Sisters · Russell Matthews · Dmitry Banchik</span> <span class="creator-platform">· YouTube</span><br>
+      <span class="verdict verdict-na">NOT CONFIRMED TODAY</span>
+      <div class="creator-note">No confirmed last-24h uploads found. Channel IDs verified and cached for future runs.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">IG / TikTok watchlist</span> <span class="creator-platform">· Tatiana Londono, Ron the mortgage guy, Moretuzzo, Dylan Page, Zamani</span><br>
+      <span class="verdict verdict-na">NOT CHECKABLE</span>
+      <div class="creator-note">IG and TikTok not checkable today (no reliable public feeds).</div>
+    </div>
+    <p style="margin-top:10px;"><strong>Today's takeaway:</strong> every Canadian RE creator will post the same BoC reaction by tonight. The ones who win post by noon. Be one of them.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The 9:45 Reaction — film at 10 AM today</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: same-day news + a decision every viewer's wallet feels. Speed is the whole edge — post before noon.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: stakes / "this costs you"</strong>
+        On-screen text (frame 1): <b>"The Bank of Canada just decided your mortgage."</b><br>
+        Spoken: "Ten minutes ago, the Bank of Canada made a decision that touches every mortgage and every rent payment in this country."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (30–45s) — two endings, pick one after 9:45</div>
+        <p><strong>Hook:</strong> (above)</p>
+        <p><strong>Body — IF HOLD (expected):</strong> "They held at 2.25% — fourth meeting in a row. What does that mean in normal language? If you have a variable mortgage, nothing changes — your payment stays put. If you're waiting for cheaper fixed rates… here's the part nobody tells you: fixed rates don't follow this announcement. They follow the bond market, and bonds are saying 'no discounts this summer.' And rate cuts? Canada just added 88,000 jobs in May. A strong economy gives the Bank zero reason to cut. I live here, I sell here — and I'm planning around rates staying put, not dropping."</p>
+        <p><strong>Body — IF SURPRISE (cut or hike):</strong> "They actually moved — and almost nobody saw it coming. Markets gave this a 3% chance. Here's what changes for you starting today: every variable mortgage in Canada just moved [up/down] within hours. On a $500K mortgage that's roughly $70 a month per quarter-point. This is why I always say: don't build your homebuying plan on guessing the Bank of Canada."</p>
+        <p><strong>CTA:</strong> "Comment RATE and I'll send you what this means for your exact situation — renter, buyer, or mortgage renewal. Follow for tomorrow's brief."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">2.25% — HELD</span>
+        <span class="onscreen-tag">Variable = no change</span>
+        <span class="onscreen-tag">Fixed follows BONDS, not this</span>
+        <span class="onscreen-tag">+88,000 jobs = no cuts</span>
+        <span class="onscreen-tag">Comment "RATE"</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"Bank of Canada building Ottawa" · "interest rate chart animation" · "Toronto skyline morning" · "person checking phone banking app" · screen-record the BoC press release at 9:45</div>
+        <div class="ai-prompt">Higgsfield 9:16: Cinematic slow push-in on a grand stone central bank facade at golden hour, Canadian flag waving, shallow depth of field, news-broadcast mood, photorealistic.</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">"Toronto is on sale — but sellers just left the store"</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: contrarian take on fresh TRREB data — everyone reports the price drop, almost nobody reports the listings collapse.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: contrarian</strong>
+        On-screen text (frame 1): <b>"Toronto prices dropped. So why am I worried?"</b><br>
+        Spoken: "Toronto homes are 4.6% cheaper than last year — and that's exactly why buyers might be running out of time."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (40–60s)</div>
+        <p><strong>Hook:</strong> (above)</p>
+        <p><strong>Body:</strong> "Three numbers from the official Toronto data this week. One: the average home is $1,069,700 — down 4.6% from last year. A real discount. Two: sales are UP 6.3% — buyers are coming back. Three — and this is the one nobody posts about: new listings are down almost 19%. Sellers are refusing to list at these prices. So picture a store having a sale… while quietly emptying its shelves. That's Toronto right now. I bought my condo near the peak — I know what overpaying feels like, and I'm not telling you to rush. I'm telling you what the data says: fewer homes plus more buyers never means cheaper for long."</p>
+        <p><strong>CTA:</strong> "Save this for your house-hunt. And comment your neighbourhood — I'll tell you if listings are drying up there too."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">$1,069,700 avg (−4.6%)</span>
+        <span class="onscreen-tag">Sales ▲ 6.3%</span>
+        <span class="onscreen-tag">Listings ▼ 18.9%</span>
+        <span class="onscreen-tag">Sale + empty shelves</span>
+        <span class="onscreen-tag">SAVE this</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"Toronto residential street spring" · "for sale sign lawn" · "empty store shelves" · "open house interior" · "couple looking at listings laptop"</div>
+        <div class="ai-prompt">Higgsfield 9:16: Photorealistic dolly shot down a leafy Toronto residential street, brick semi-detached homes, one lonely FOR SALE sign, soft overcast light, melancholic real-estate documentary tone.</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Why GOOD job news is BAD mortgage news</div>
+        <span class="format-tag">Reel or Carousel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: number-shock + counterintuitive logic — teaches one concept beginners genuinely don't know.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: question that can't be ignored</strong>
+        On-screen text (frame 1): <b>"88,000 new jobs. Why is that bad for you?"</b><br>
+        Spoken: "Canada just added 88,000 jobs in one month. Great news, right? Not if you're waiting for a cheaper mortgage."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (30–45s)</div>
+        <p><strong>Body:</strong> "Here's the connection nobody explained to me when I moved here. The Bank of Canada cuts interest rates when the economy is weak — to help it. When the economy is strong, there's no reason to cut. May: 88,000 new jobs, smashing every forecast. Unemployment down to 6.6%. Ontario alone added 42,000. So everyone hoping rates fall this year just got the strongest 'don't count on it' signal in months. If your plan to buy a home starts with 'when rates drop' — the jobs data just voted against your plan. Plan for today's rates. If they drop, that's a bonus."</p>
+        <p><strong>CTA:</strong> "Follow for tomorrow's brief — I read the boring news so you don't have to."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">+88,000 jobs in May</span>
+        <span class="onscreen-tag">Unemployment 6.6% ▼</span>
+        <span class="onscreen-tag">Strong economy = no cuts</span>
+        <span class="onscreen-tag">Plan for TODAY'S rates</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"construction workers Toronto site" · "busy office workers" · "now hiring sign" · "rising graph animation" · "Toronto commuters morning"</div>
+        <div class="ai-prompt">Higgsfield 9:16: Energetic photorealistic montage feel — construction crane over a growing city skyline at sunrise, workers in hi-vis walking to site, optimistic light, then a subtle cut to a calculator and mortgage papers on a kitchen table.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/bank-of-canada-interest-rate-announcement-2026-06-10/">Bank of Canada — Interest Rate Announcement, June 10, 2026 (9:45 ET)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/04/fad-press-release-2026-04-29/">Bank of Canada — policy rate held at 2.25% (April 29, 2026)</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Canada 5-year bond yield — 3.15% (June 9, 2026)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed ~4.04%, variable ~3.35%</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260519/dq260519a-eng.htm">Statistics Canada — CPI, April 2026 (2.8% y/y; core ~2.1%)</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260605/dq260605a-eng.htm">Statistics Canada — Labour Force Survey, May 2026 (+88,000 jobs, 6.6%)</a></li>
+      <li><a href="https://trreb.ca/spring-home-sales-stronger-than-last-year/">TRREB — May 2026 Market Watch (avg $1,069,700; sales +6.3%; listings −18.9%)</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/economics/2026/06/05/economy-adds-88000-jobs-as-unemployment-rate-falls-to-66-statcan/">BNN Bloomberg — May jobs report reaction</a></li>
+      <li><a href="https://cdhowe.org/publication/mpcjune2026/">C.D. Howe Institute — Monetary Policy Council: hold at 2.25% expected</a></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Morning Brief · generated 9:15 AM ET, June 10, 2026 — before the 9:45 BoC announcement.<br>
+    I live here. I sell here. 🇨🇦
+  </div>
+
+</div>
+</body>
+</html>
