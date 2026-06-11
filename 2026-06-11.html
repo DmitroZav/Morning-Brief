@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Thursday, June 11, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, June 11, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">The Bank of Canada held at 2.25% — and admitted it's stuck</div>
+    <p>Yesterday the Bank of Canada kept its key rate at 2.25% for the fifth straight time. Governor Tiff Macklem's reason, in plain words: the economy is weak (his words: "weak, but not clearly in recession"), which normally means cut rates — but war-driven oil prices are pushing inflation up (CPI 2.8% in April), which normally means raise them. So they did nothing, and Macklem openly said the next move could be a hike OR a cut. Next decision: July 15.</p>
+    <p><em>Why it's video-worthy: every variable mortgage and renewal in the country hangs on this — and "even the Bank doesn't know what's next" is a hook normal people instantly feel.</em></p>
+  </div>
+
+  <!-- ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Buried in the BoC's report: about 1 in 10 Toronto mortgage holders may not qualify to refinance next year — falling home prices ate the equity they'd need. That's the "refinance trap," and it's exactly your audience.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th></tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% — HELD (Jun 10)</td>
+          <td>2.25%</td>
+          <td class="tag-flat">5th straight hold</td>
+          <td class="plain-meaning">Variable mortgages: no change in your payment. Macklem: next move could be a hike or a cut — genuinely undecided.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.1%</td>
+          <td>3.15%</td>
+          <td class="tag-flat">Little changed</td>
+          <td class="plain-meaning">Bond yield = the interest the government pays to borrow; it drives FIXED mortgage rates. The hold was fully expected, so bonds barely moved.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Typical 5-yr fixed / variable</td>
+          <td>~4.04% / ~3.35%</td>
+          <td>same</td>
+          <td class="tag-flat">No change</td>
+          <td class="plain-meaning">No cheaper mortgages from yesterday's decision. Fixed follows bonds, variable follows the BoC — both flat.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Toronto refinance risk (BoC)</td>
+          <td>~10% of mortgage holders</td>
+          <td>—</td>
+          <td class="tag-up">▲ NEW warning</td>
+          <td class="plain-meaning">May not qualify to refinance at renewal next year — home values fell, so the equity isn't there. They can still renew, but can't pull money out or shop freely.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Toronto arrears (high-debt borrowers)</td>
+          <td>1.33% (Mar 2026)</td>
+          <td>0.78% a year ago</td>
+          <td class="tag-up">▲ Sharply</td>
+          <td class="plain-meaning">Arrears = 60+ days behind on payments. Was ~0.1% in 2018–19. Small numbers, fast climb.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Typical Canadian home price (BoC)</td>
+          <td>−5% y/y · −20% from 2022 peak</td>
+          <td>—</td>
+          <td class="tag-down">▼</td>
+          <td class="plain-meaning">Drops concentrated in Ontario and BC, where new listings outpace sales.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI) / Jobs</td>
+          <td colspan="3" class="tag-flat">No new releases in 24h</td>
+          <td class="plain-meaning">Still: CPI 2.8% (April), jobs +88K (May). May CPI lands June 23.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA national (May)</td>
+          <td colspan="3" class="tag-flat">Due ~June 15</td>
+          <td class="plain-meaning">Watch for it early next week.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>Mortgage holder renewing in 2026–27:</strong> there's a difference nobody explains: <em>renewing</em> (same lender, new term — almost everyone qualifies) vs <em>refinancing</em> (new loan, pull out equity, consolidate debt — you must re-qualify). The BoC says ~10% in Toronto will be locked out of the second option. If your plan was "I'll refinance to pay off the credit cards," check your home's value now, not at renewal.</p>
+    <p><strong>First-time buyer:</strong> prices down 20% from peak sounds like a gift — but the same falling prices are why sellers aren't listing and why some owners can't move. Slow, picky markets reward buyers with financing arranged in advance.</p>
+    <p><strong>Variable-rate holder / renter:</strong> nothing changed yesterday and likely nothing changes July 15. Budget on today's numbers, not on hoped-for cuts.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24–36h) — RSS pipeline fixed ✅</div>
+    <div class="creator-item">
+      <span class="creator-name">Ron Butler</span> <span class="creator-platform">· YouTube @angrymortgage · today 7:55 AM</span><br>
+      <span class="verdict verdict-steal">STEAL</span> — "10% Of Mortgages Are STUCK" (4.2K views in ~2h)
+      <div class="creator-note">Summary: the BoC refinance-trap warning — renew yes, refinance no, stuck with your lender. His angle is industry-blunt. <strong>Your angle:</strong> you ARE the demographic — "I bought near the peak; this warning is about people like me." Define renew vs refinance for newcomers; he never defines terms, you always do.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Daniel Foch</span> <span class="creator-platform">· YouTube @daniel_foch · yesterday</span><br>
+      <span class="verdict verdict-steal">STEAL</span> — "BoC Just Warned: 25% House Price Crash If Unemployment Spikes" (9.4K views + a Short)
+      <div class="creator-note">Summary: BoC stress test models prices falling another 25% in a severe-shock scenario — Foch stresses it's a what-if, not a forecast. <strong>Your angle:</strong> the honesty play — "what the Bank of Canada ACTUALLY said about a 25% crash" — calm the doom headlines, build trust.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Ron Butler</span> <span class="creator-platform">· YouTube · yesterday</span><br>
+      <span class="verdict verdict-watch">WATCH</span> — "Bank of Canada NO CHANGE" (19K views)
+      <div class="creator-note">Standard hold reaction. Only steal if you skipped filming yesterday's reaction.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Dmitry Banchik</span> <span class="creator-platform">· YouTube (RU) · yesterday</span><br>
+      <span class="verdict verdict-watch">WATCH</span> — "Рынок труда Канады удивил, но есть один нюанс!" (5.8K views)
+      <div class="creator-note">Jobs-report nuance for the Russian-speaking audience. See which caveat he picked — useful for your Ukrainian-audience version.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Ragona Sisters</span> <span class="creator-platform">· YouTube · 3 Shorts in 24h</span><br>
+      <span class="verdict verdict-skip">SKIP</span> — underwater mortgages / cottages / failed closings
+      <div class="creator-note">High volume, modest views (36–1.4K). Their "Trapped Underwater" short overlaps your Idea 1 — yours goes deeper with the actual BoC numbers.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Tom Storey · Russell Matthews</span> <span class="creator-platform">· YouTube</span><br>
+      <span class="verdict verdict-na">NO NEW POSTS</span>
+      <div class="creator-note">Nothing in the last 36h. IG/TikTok watchlist: still best-effort, not checkable today.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The Refinance Trap — "this warning is about people like me"</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fresh BoC warning + Butler proving demand this morning (4K views in 2 hours) + your peak-buyer story makes it unfakeable.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: personal stakes</strong>
+        On-screen text (frame 1): <b>"The Bank of Canada just warned about ME."</b><br>
+        Spoken: "I bought my condo near the market peak. Yesterday the Bank of Canada published a warning about people exactly like me."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (45–60s)</div>
+        <p><strong>Body:</strong> "Here's what they said: about 1 in 10 mortgage holders in Toronto won't qualify to REFINANCE next year. Quick translation, because nobody explained this to me when I moved here. Renewing — same bank, new term — almost everyone can do that; you won't lose your home. Refinancing — that's a new loan where you pull out home equity to pay off debts or renovate. To do it, your home needs enough value. And if you bought in 2021–2022, prices in parts of the GTA dropped enough that the equity just… isn't there. You're not losing the house — you're losing options. Stuck with your lender, stuck with their rate, no equity to tap. If your renewal is coming in 2026 or 2027: check what your home is worth today, and talk to a broker months before, not weeks."</p>
+        <p><strong>CTA:</strong> "Comment RENEWAL and I'll send you the 3 questions to ask before your mortgage comes up. I live here, I sell here — and I'm in this with you."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">1 in 10 can't refinance</span>
+        <span class="onscreen-tag">RENEW ≠ REFINANCE</span>
+        <span class="onscreen-tag">Equity gone = options gone</span>
+        <span class="onscreen-tag">Check value NOW</span>
+        <span class="onscreen-tag">Comment "RENEWAL"</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"Toronto condo buildings exterior" · "person reviewing mortgage documents" · "calculator bills kitchen table" · "bank branch exterior Canada" · screen-record the BNN/Globe headline</div>
+        <div class="ai-prompt">Higgsfield 9:16: Photorealistic close-up of hands holding house keys over a kitchen table covered in mortgage papers, soft morning window light, shallow depth of field, quiet tension, documentary realism.</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">"Even the Bank of Canada doesn't know what's next"</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: turns yesterday's "boring hold" into the real story — the dilemma — which nobody else frames for beginners.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: contrarian</strong>
+        On-screen text (frame 1): <b>"Rates didn't move. That's the scary part."</b><br>
+        Spoken: "The Bank of Canada did nothing yesterday — and that's actually the most honest thing they could do."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (30–45s)</div>
+        <p><strong>Body:</strong> "Fifth meeting in a row at 2.25%. Why? They're trapped between two fires. The economy is weak — that screams CUT rates. But oil prices from the war keep pushing inflation up — that screams HIKE. The governor literally said the next move could be either one. What do you do with that? Don't build your plan on a rate cut that may never come. Renewing? Budget at today's rates. If a cut happens — that's your bonus, not your plan."</p>
+        <p><strong>CTA:</strong> "Save this for your renewal talk. Follow for tomorrow's brief — I read the boring stuff so you don't have to."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">2.25% × 5 meetings</span>
+        <span class="onscreen-tag">Weak economy → cut?</span>
+        <span class="onscreen-tag">Oil inflation → hike?</span>
+        <span class="onscreen-tag">Plan = today's rates</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"Bank of Canada Ottawa building" · "tug of war rope" · "gas station prices Canada" · "person budgeting laptop" · BoC press conference screen-record</div>
+        <div class="ai-prompt">Higgsfield 9:16: Cinematic shot — a balance scale silhouetted against a dusk sky, one side glowing warm (oil barrel), other side cool blue (small house), moody, symbolic, photorealistic.</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">"A 25% crash? Here's what the Bank ACTUALLY said"</div>
+        <span class="format-tag">Reel or Carousel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: doom headlines are everywhere (Foch's version: 9.4K views) — the calm-truth counter-take builds exactly the trust your brand is about.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: "nobody's telling you"</strong>
+        On-screen text (frame 1): <b>"25% crash? Read the fine print."</b><br>
+        Spoken: "You'll see headlines this week saying the Bank of Canada predicts a 25% house price crash. That's not what they said."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (40–50s)</div>
+        <p><strong>Body:</strong> "What the Bank actually did is called a stress test — a what-if exercise. The what-if: a severe shock where unemployment jumps. In THAT scenario, they modelled prices falling another 25%. It's a fire drill, not a fire. Here's the real picture from the same report: typical Canadian home prices are down about 5% in a year, 20% from the 2022 peak, and most households are keeping up with payments. Is there risk? Yes — that's why they test. Is a crash their forecast? No. Anyone using that number to scare you into buying or panic you into selling isn't reading the report — they're farming your fear."</p>
+        <p><strong>CTA:</strong> "Follow for the daily brief — real numbers, no panic. Comment STRESS if you want the simple breakdown of the full report."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Stress test ≠ forecast</span>
+        <span class="onscreen-tag">Fire drill, not fire</span>
+        <span class="onscreen-tag">Real: −5% y/y, −20% from peak</span>
+        <span class="onscreen-tag">No panic. Numbers.</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"newspaper headlines scary" · "fire drill office calm" · "Toronto houses aerial spring" · "person reading report magnifying glass" · FSR report page screen-record</div>
+        <div class="ai-prompt">Higgsfield 9:16: Photorealistic macro shot of a magnifying glass moving over a printed financial report, words sharp inside the lens and blurred outside, warm desk lamp light, investigative mood.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/opening-statement-2026-06-10/">Bank of Canada — Macklem's opening statement, June 10 decision (hold at 2.25%)</a></li>
+      <li><a href="https://www.cbc.ca/news/business/interest-rate-bank-of-canada-june-2026-9.7229759">CBC — BoC keeps rate at 2.25%, balancing competing risks</a></li>
+      <li><a href="https://www.theglobeandmail.com/business/article-toronto-mortgage-holders-refinance-boc-housing-market/">Globe & Mail — Almost 10% of Toronto mortgage holders won't qualify to refinance next year (BoC)</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/06/09/around-10-per-cent-of-toronto-mortgage-holders-could-have-trouble-refinancing-in-2027-boc/">BNN Bloomberg — Toronto refinancing trouble in 2027</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/06/falling-home-prices-could-trap-some-toronto-borrowers-at-renewal-boc/">Canadian Mortgage Trends — falling prices could trap borrowers at renewal</a></li>
+      <li><a href="https://www.bankofcanada.ca/publications/financial-stability-report/financial-stability-report-2026/households/">Bank of Canada — Financial Stability Report 2026: Households (−5% y/y, −20% from peak, arrears data)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — current best fixed/variable rates</a></li>
+      <li>Creator Watch: <a href="https://www.youtube.com/watch?v=-RSPGS_L8B0">Butler — 10% Of Mortgages Are STUCK</a> · <a href="https://www.youtube.com/watch?v=k9I_xfuPNUM">Foch — 25% stress test</a> · <a href="https://www.youtube.com/watch?v=6f9MeBKhHSU">Banchik — jobs nuance</a></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Morning Brief · generated 9:45 AM ET, June 11, 2026<br>
+    I live here. I sell here. 🇨🇦
+  </div>
+
+</div>
+</body>
+</html>
