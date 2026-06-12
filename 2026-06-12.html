@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Friday, June 12, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Friday, June 12, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Today, 3 PM: Canada's first-ever men's World Cup home game — in Toronto</div>
+    <p>The biggest World Cup in history kicked off yesterday, and today Canada plays Bosnia and Herzegovina at BMO Field — the first men's World Cup match Canada has ever hosted. The city expects hundreds of thousands of visitors over six Toronto matches, with an estimated $940M boost to the GTA economy.</p>
+    <p>Here's the twist for your niche: the housing windfall everyone predicted is flopping. Hosts who pulled units off the long-term rental market hoping for 300% Airbnb prices are sitting on <em>empty</em> condos this week — fans booked hotels or skipped the markup. Meanwhile Mayor Chow caught flak (Ron Butler's video this morning) over the city reselling its free FIFA tickets.</p>
+    <p><em>Why it's video-worthy: a once-in-a-lifetime national moment + a "greedy landlord plan backfired" wallet story in one. Both audiences — culture and real estate — care today.</em></p>
+  </div>
+
+  <!-- ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">GTA homes aren't just sitting — they're disappearing. Sellers are pulling listings at one of the fastest rates in years rather than cut their price. New listings were down 18.9% in May vs last year. The "shortage" you see on Realtor.ca is partly sellers hiding in the bushes.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th></tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td>
+          <td>2.25%</td>
+          <td class="tag-flat">No change (held Jun 10)</td>
+          <td class="plain-meaning">No rate news in the last 24h. Next decision July 15. Variable mortgage payments: unchanged.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.1%</td>
+          <td>~3.1%</td>
+          <td class="tag-flat">Holding</td>
+          <td class="plain-meaning">Bond yield = the interest the government pays to borrow; it drives FIXED mortgage rates. Watch 3.2% — if it gets there, fixed rates tick up.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Typical 5-yr fixed / variable</td>
+          <td>~4.04% / ~3.35%</td>
+          <td>same</td>
+          <td class="tag-flat">No change</td>
+          <td class="plain-meaning">Quiet day for mortgage pricing. Fixed follows bonds, variable follows the BoC — both flat.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA new listings (May, TRREB)</td>
+          <td>17,698</td>
+          <td>21,819 (May 2025)</td>
+          <td class="tag-up">▼ 18.9% y/y</td>
+          <td class="plain-meaning">Sellers are delisting or not listing at all rather than accept lower prices. Less real choice for buyers than the headlines suggest.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (May, TRREB)</td>
+          <td>$1,069,700 · 6,583 sales</td>
+          <td>$1,121,300 · 6,191</td>
+          <td class="tag-down">Price ▼ 4.6% · Sales ▲ 6.3%</td>
+          <td class="plain-meaning">More deals happening, at lower prices. Buyers are coming back — but only where sellers got realistic.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI) / Jobs</td>
+          <td colspan="3" class="tag-flat">No new releases in 24h</td>
+          <td class="plain-meaning">Still: CPI 2.8% (April), jobs +88K (May). May CPI lands June 23.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA national (May) · CMHC starts (May)</td>
+          <td colspan="3" class="tag-flat">Both due ~June 15</td>
+          <td class="plain-meaning">Big data day Monday — Monday's brief will be heavy.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>Buyer:</strong> that "new listing" you're excited about may not be new — sellers delist and relist to reset the days-on-market counter and hide price cuts. Always ask your agent for the full listing history (every delist, relist, and price change). It's free and it changes your negotiation.</p>
+    <p><strong>Renter:</strong> the World Cup was supposed to gut the rental market — landlords pulling units for Airbnb gold. It mostly didn't work: many of those units sit empty this week. If your landlord hinted at "selling" or "family moving in" right before the tournament, know your rights — bad-faith evictions for short-term rental profit are illegal in Ontario.</p>
+    <p><strong>Seller:</strong> a third of GTA sellers are testing the market with 2022 prices and quietly pulling out. Honest pricing is the only thing selling right now — sales are UP 6.3% for the people who price real.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24–36h)</div>
+    <div class="creator-item">
+      <span class="creator-name">Ragona Sisters</span> <span class="creator-platform">· YouTube · yesterday 5 PM + 2 Shorts</span><br>
+      <span class="verdict verdict-steal">STEAL</span> — "Sellers Are Pulling Their Listings At An Alarming Rate — And Nobody Is Talking About It"
+      <div class="creator-note">Summary: delistings surging as GTA sellers refuse to meet the market; their Short on relisting tricks ("is that listing really new?") got 679 views in hours. <strong>Your angle:</strong> they talk to sellers — you talk to BUYERS. "How to spot a zombie listing" with the listing-history trick is a practical lifehack video they didn't make. Beginner-defines everything: delist, relist, days on market.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Ron Butler</span> <span class="creator-platform">· YouTube @angrymortgage · today 7:15 AM</span><br>
+      <span class="verdict verdict-watch">WATCH</span> — "Toronto Mayor Chow: TICKET SCALPER" (2.9K views in ~2h)
+      <div class="creator-note">Summary: city hall taking heat over reselling its free FIFA tickets. Fun rage-bait, but it's his lane (political snark), not yours. Borrow only the World Cup-money angle for Idea 2.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Tom Storey</span> <span class="creator-platform">· YouTube · yesterday 12 PM</span><br>
+      <span class="verdict verdict-watch">WATCH</span> — "The Bank Of Canada Is Worried About Toronto Mortgages" (2.1K views)
+      <div class="creator-note">Summary: polished walkthrough of the same BoC refinance-trap report you covered yesterday. You already shot this angle — watch for his framing/pacing only.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Russell Matthews</span> <span class="creator-platform">· YouTube · yesterday 7 PM</span><br>
+      <span class="verdict verdict-watch">WATCH</span> — "Canada's PM JUST Accidentally Revealed Our Biggest Financial Risk" (13.4K views)
+      <div class="creator-note">Summary: macro/debt commentary off the PM's remarks — performs well for him, but it's investor-doom positioning. Too far from your beginner-newcomer lane to steal today.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Daniel Foch · Dmitry Banchik</span> <span class="creator-platform">· YouTube</span><br>
+      <span class="verdict verdict-na">NO NEW POSTS</span>
+      <div class="creator-note">Nothing in the last 36h. IG/TikTok watchlist (Londono, Ron the mortgage guy, Moretuzzo, Dylan Page, Zamani): not checkable today — no reliable feed.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Zombie listings — "that 'new' listing is lying to you"</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fresh data (−18.9% listings), Ragona proving demand on the seller side, and nobody has made the buyer-side "how to catch it" version. Practical lifehack = saves.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: hidden trick exposed</strong>
+        On-screen text (frame 1): <b>"That 'NEW' listing? It's 8 months old."</b><br>
+        Spoken: "Toronto sellers are pulling homes off the market at one of the fastest rates in years — and then putting them back like nothing happened."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (45–60s)</div>
+        <p><strong>Body:</strong> "Here's what's happening. New listings in the GTA were down almost 19% in May compared to last year. Not because nobody wants to sell — because sellers aren't getting their price, so they delist. Delist means: take the home off the market. Then weeks later it comes back as a 'new' listing — and the days-on-market counter, the number that shows how long a home has been sitting, starts from zero. It looks fresh. It's not. Why does this matter to you as a buyer? A home that's been quietly failing to sell for 8 months is a home where you have negotiating power — IF you know. So here's the move: ask your agent for the full listing history. Every delisting, every relisting, every price cut. It's free, it takes two minutes, and I do it for every single client. The market has a memory. Use it."</p>
+        <p><strong>CTA:</strong> "Comment HISTORY and I'll send you exactly what to ask for. I live here, I sell here — and I check the receipts."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Listings ▼19% — why?</span>
+        <span class="onscreen-tag">Delist → relist → "NEW"</span>
+        <span class="onscreen-tag">Days on market = reset</span>
+        <span class="onscreen-tag">Ask for listing HISTORY</span>
+        <span class="onscreen-tag">Comment "HISTORY"</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"for sale sign removed lawn" · "Toronto residential street spring" · "laptop real estate listings scrolling" · "magnifying glass documents" · screen-record a listing-history page (HouseSigma)</div>
+        <div class="ai-prompt">Higgsfield 9:16: Photorealistic suburban Toronto house at dusk, a "FOR SALE" sign flickering like a glitch between SOLD, NEW and blank, subtle eerie tone, cinematic shallow depth of field.</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">The World Cup Airbnb flop — "the 300% windfall that never came"</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: World Cup is THE topic in Toronto today — riding the wave with a wallet angle nobody in your niche is covering. Renters will share this.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: schadenfreude + stakes</strong>
+        On-screen text (frame 1): <b>"They evicted tenants for World Cup gold. Oops."</b><br>
+        Spoken: "Toronto landlords pulled apartments off the rental market expecting 300% Airbnb prices during the World Cup. This week, a lot of those condos are sitting empty."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (40–55s)</div>
+        <p><strong>Body:</strong> "Canada plays its first-ever home men's World Cup match today at BMO Field — historic day, I'm genuinely excited. But here's the housing story underneath. For months, hosts were told fans would pay anything. Some landlords pushed out long-term tenants to list on Airbnb. Airbnb even offered Toronto hosts $1,000 bonuses to list. And now? Hotels held prices, fans booked smart, and short-term rental owners are crying foul over empty calendars. Two lessons. If you're a renter: a landlord can't evict you in bad faith to chase Airbnb money — in Ontario that's illegal, and the penalties are real. If you're an investor: an asset that only works in a fantasy scenario was never an investment. It was a lottery ticket."</p>
+        <p><strong>CTA:</strong> "Watching the match today? Comment your score prediction — and follow for what the World Cup actually does to Toronto rent. I read the boring stuff so you don't have to."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">First home WC match EVER</span>
+        <span class="onscreen-tag">300% prices… nobody paid</span>
+        <span class="onscreen-tag">Empty Airbnbs</span>
+        <span class="onscreen-tag">Bad-faith eviction = illegal</span>
+        <span class="onscreen-tag">Drop your score ⚽</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"BMO Field Toronto exterior" · "soccer fans street celebration Canada" · "empty modern condo interior" · "Airbnb app phone scrolling" · "Toronto skyline CN Tower summer"</div>
+        <div class="ai-prompt">Higgsfield 9:16: Cinematic contrast shot — roaring soccer stadium crowd in red at golden hour cuts to a silent, immaculate empty condo living room with skyline view, dust in the light beams, photorealistic.</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">"I came here as an immigrant. Today my country hosts the World Cup."</div>
+        <span class="format-tag">Reel — light, fast turnaround</span>
+      </div>
+      <div class="idea-why">Why it'll perform: pure community/identity play on the day everyone's feed is World Cup. Low effort, high connection — shoot on your phone near the fan zones.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: identity + moment</strong>
+        On-screen text (frame 1): <b>"My new home plays in the World Cup today."</b><br>
+        Spoken: "A few years ago I arrived in Canada with two suitcases. Today the country I now call home plays its first World Cup match on home soil — in my city."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (20–30s)</div>
+        <p><strong>Body:</strong> "Canada vs Bosnia, 3 PM, BMO Field. Six matches in Toronto this month, fans from everywhere, the city is electric. Whatever brought you to Canada — war, work, love, luck — today it's everyone's team. That's the thing about this country that statistics never show."</p>
+        <p><strong>CTA:</strong> "Where are you watching from? Drop your city and your flag in the comments. 🇨🇦🇺🇦"</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">CAN 🆚 BIH · 3 PM</span>
+        <span class="onscreen-tag">First home WC match</span>
+        <span class="onscreen-tag">Everyone's team today</span>
+        <span class="onscreen-tag">Your city + flag 👇</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"Toronto fan zone crowd" · "Canada flag waving slow motion" · "diverse soccer fans cheering" · your own phone footage downtown — this one should be REAL footage, not AI</div>
+        <div class="ai-prompt">Higgsfield 9:16 (only if needed): Photorealistic crowd of diverse fans in red jerseys walking toward a stadium at midday, Canadian flags, handheld documentary feel, warm summer light.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.theglobeandmail.com/real-estate/toronto/article-toronto-home-sellers-declining-market/">Globe & Mail — Toronto-area home sellers capitulate to a declining market (delistings)</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB Market Watch — May 2026: 6,583 sales (+6.3%), $1,069,700 avg (−4.6%), new listings −18.9%</a></li>
+      <li><a href="https://www.theglobeandmail.com/canada/article-fifa-world-cup-accommodations-airbnbs-hotels-toronto-vancouver/">Globe & Mail — Short-term rental hosts cry foul over lack of World Cup demand</a></li>
+      <li><a href="https://globalnews.ca/news/11726567/airbnb-toronto-world-cup-offer/">Global News — Airbnb offers $1K to Toronto World Cup landlords</a></li>
+      <li><a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/canada/toronto">FIFA — Toronto host city, Canada vs Bosnia June 12, BMO Field</a></li>
+      <li><a href="https://www.toronto.ca/legdocs/mmis/2025/fwc/bgrd/backgroundfile-253733.pdf">City of Toronto — World Cup economic impact ($940M GTA output)</a></li>
+      <li><a href="https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/">Bank of Canada — policy rate 2.25% (held June 10; next decision July 15)</a></li>
+      <li><a href="https://www.truenorthmortgage.ca/blog/mortgage-rate-forecast">True North Mortgage — 5-yr bond yield ~3.1%, fixed-rate watch</a></li>
+      <li>Creator Watch: <a href="https://www.youtube.com/watch?v=b4LNP-6cnYY">Ragona — Sellers Pulling Listings</a> · <a href="https://www.youtube.com/watch?v=rm_VchI9E9U">Butler — Chow ticket scalper</a> · <a href="https://www.youtube.com/watch?v=K5hbnmqjGNo">Storey — BoC worried about Toronto mortgages</a> · <a href="https://www.youtube.com/watch?v=viizVM2lWdQ">Matthews — PM financial risk</a></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Morning Brief · generated 9:40 AM ET, June 12, 2026<br>
+    I live here. I sell here. 🇨🇦
+  </div>
+
+</div>
+</body>
+</html>
