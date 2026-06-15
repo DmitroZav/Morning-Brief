@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Monday, June 15, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, June 15, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">The Iran war is now showing up in your mortgage rate</div>
+    <p>This week's G7 summit in France has PM Carney meeting world leaders while the Israel-Iran war — now over 100 days old — keeps shaking oil markets. Israel struck targets in Iran again over the weekend, oil prices jumped, and bond yields (the interest rate governments pay to borrow) climbed with them.</p>
+    <p>Here's the Canada connection nobody explains: when bond yields rise, banks raise FIXED mortgage rates within days — even though the Bank of Canada itself hasn't moved. So a war on the other side of the world can change your mortgage quote this week without the Bank of Canada lifting a finger.</p>
+    <p><em>Why it's video-worthy: it's the story everyone's scrolling past on the news app, but almost nobody connects it to "why did my mortgage pre-approval just get worse." That gap is your video.</em></p>
+  </div>
+
+  <!-- ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The Bank of Canada held rates steady on June 10 — but bond yields are creeping UP because of oil prices tied to the Iran war. If you're shopping for a FIXED mortgage, that's the number to watch this week, not the BoC rate.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th></tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td>
+          <td>2.25%</td>
+          <td class="tag-flat">No change (held Jun 10)</td>
+          <td class="plain-meaning">This is the rate the Bank of Canada controls directly — it sets the floor for variable mortgages. Held since October 2025. Next decision: July 15.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.0–3.1% (edging up)</td>
+          <td>~3.0%</td>
+          <td class="tag-up">▲ slightly, oil-driven</td>
+          <td class="plain-meaning">Bond yield = interest the government pays to borrow money. Banks price FIXED mortgages off this. Oil prices spiking from the Iran war are pushing it up.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Typical 5-yr fixed mortgage</td>
+          <td>~4.4% – 4.6%</td>
+          <td>~4.4% – 4.6%</td>
+          <td class="tag-flat">No change yet — but at risk</td>
+          <td class="plain-meaning">If bond yields keep climbing this week, expect lenders to nudge fixed rates up. If you're locking a rate, sooner beats later right now.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Variable mortgage / prime</td>
+          <td>4.45%</td>
+          <td>4.45%</td>
+          <td class="tag-flat">No change</td>
+          <td class="plain-meaning">Follows the BoC rate directly. Steady since October 2025.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI)</td>
+          <td>2.8% (April)</td>
+          <td>2.4% (March)</td>
+          <td class="tag-flat">No new release in 24h</td>
+          <td class="plain-meaning">May's number drops June 22 — gas prices from the Iran war will likely push it higher again.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, May)</td>
+          <td>$1,069,700 · 6,583 sales</td>
+          <td>$1,121,300 · 6,191 (May 2025)</td>
+          <td class="tag-down">Price ▼ 4.6% · Sales ▲ 6.3%</td>
+          <td class="plain-meaning">Still the most current GTA numbers. More buyers are active, but at lower prices — a market that rewards realistic sellers.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA national (May) · CMHC starts</td>
+          <td colspan="3" class="tag-flat">Both expected this week</td>
+          <td class="plain-meaning">No release in the last 24h — watch for these over the next few days.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>Buyer shopping for a fixed-rate mortgage:</strong> the BoC didn't move, but bond yields are creeping up because of oil and war headlines overseas. If your pre-approval rate is being held, ask your broker how long the hold lasts — and don't assume "no BoC news" means "no mortgage news."</p>
+    <p><strong>Variable-rate holder:</strong> nothing changes for you today — your rate tracks the BoC, which is on hold until July 15. Use the calm to plan, not the news cycle to panic.</p>
+    <p><strong>Newcomer / anyone helping older parents:</strong> with everything happening overseas it's easy to miss local risks closer to home — like the title fraud wave hitting Ontario seniors with paid-off homes (more in Creator Watch below). If your parents own their home outright, this is worth 5 minutes of your time this week.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <div class="creator-item">
+      <span class="creator-name">Ragona Sisters</span> <span class="creator-platform">· YouTube · 3 posts in last 24h</span><br>
+      <span class="verdict verdict-steal">STEAL</span> — "Ontario Seniors Are Losing Their Homes to a Scam No One is Warning Them About"
+      <div class="creator-note">Summary: title fraud — criminals forge documents to put a senior's paid-off home in someone else's name, then take out a mortgage on it and disappear, leaving the real owner to fight to get their home back. Ontario lawyers report cases happening multiple times a week. <strong>Your angle:</strong> a huge share of your audience are immigrants whose parents — here or back home — own property outright and don't check it. Make this the "call your parents this week" video: explain title fraud in plain language, and the $900 fix (title insurance) that most people have never heard of.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Ragona Sisters (Shorts x2)</span> <span class="creator-platform">· YouTube · last 24h</span><br>
+      <span class="verdict verdict-watch">WATCH</span> — "What's the REAL Legal Protection in Real Estate?" / "Where is the real estate value in Ontario Cottage Country?"
+      <div class="creator-note">Summary: a legal-protection short and a cottage-country value short. Both are solid evergreen formats but not breaking news — good style reference for short, single-point Shorts, not urgent to copy today.</div>
+    </div>
+    <div class="creator-item">
+      <span class="creator-name">Ron Butler · Daniel Foch · Tom Storey · Russell Matthews · Dmitry Banchik</span> <span class="creator-platform">· YouTube</span><br>
+      <span class="verdict verdict-na">NO NEW REAL-ESTATE POSTS</span>
+      <div class="creator-note">Nothing new in the GTA real estate lane from these channels in the last 24h. IG/TikTok watchlist (Londono, Ron the mortgage guy, Moretuzzo, Dylan Page, Zamani): not checkable today — no reliable feed.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">A war overseas can raise your mortgage rate here — here's how</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: connects the G7/Iran headlines everyone is already seeing to a wallet outcome nobody explains. Educational + timely = strong save/share potential.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: surprising connection</strong>
+        On-screen text (frame 1): <b>"A war 9,000km away just touched your mortgage."</b><br>
+        Spoken: "The Bank of Canada didn't change interest rates this week. So why might your mortgage quote just get worse?"
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (40–55s)</div>
+        <p><strong>Body:</strong> "Quick lesson nobody teaches you when you move here. The Bank of Canada sets ONE rate — it controls variable mortgages and lines of credit directly. But your FIXED mortgage rate doesn't come from the Bank of Canada. It comes from the bond market — basically, the interest rate the government pays when it borrows money for 5 years. Right now, oil prices are spiking because of the war between Israel and Iran, and that's pushing bond yields up. When bond yields go up, banks raise fixed mortgage rates within days — sometimes faster than the news cycle. So: BoC rate — unchanged, held at 2.25% since October. Fixed mortgage rates — at risk of creeping up this week because of something happening on the other side of the planet. If you're mid-shopping for a pre-approval, this is the week to ask your broker: how long is my rate held, and what happens if it expires?"</p>
+        <p><strong>CTA:</strong> "Comment LOCK and I'll send you the exact questions to ask your broker this week. I live here, I sell here — and I read the boring bond reports so you don't have to."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">BoC rate: unchanged</span>
+        <span class="onscreen-tag">Bond yields: rising</span>
+        <span class="onscreen-tag">= fixed rates at risk</span>
+        <span class="onscreen-tag">Ask: "rate hold" length</span>
+        <span class="onscreen-tag">Comment "LOCK"</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"oil pump jack sunset" · "stock market ticker board" · "Canadian bank branch exterior" · "person signing mortgage documents" · "newspaper financial pages close up"</div>
+        <div class="ai-prompt">Higgsfield 9:16: Split-scene cinematic — left half an oil rig silhouette at dusk with red sky, right half a calm Toronto suburban street with a "FOR SALE" sign, connected by a glowing line of light, photorealistic.</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Call your parents: the $900 fix for a scam that's stealing paid-off homes</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: highly personal, fear-relevant, and directly serves immigrant families whose older relatives own homes outright. Ragona's version is general — yours adds the "newcomer family" lens nobody else is using.</div>
+      <div class="hook-box">
+        <strong>Hook (first 2 seconds) — formula: stakes-first warning</strong>
+        On-screen text (frame 1): <b>"If your parents own their home outright, watch this."</b><br>
+        Spoken: "There's a scam happening in Ontario right now that can take a paid-off home away from its real owner — and the owner often doesn't find out until it's too late."
+      </div>
+      <div class="script-block">
+        <div class="script-label">Script (45–60s)</div>
+        <p><strong>Body:</strong> "It's called title fraud. Title is the legal document that says who owns a property. Criminals forge that document — fake ID, fake signatures — and transfer the title of someone's home into their own name, without the real owner knowing. Then they take out a mortgage against the house, collect the cash, and disappear. The real owner is left fighting in court to get their home back. Lawyers in the Toronto area say this is happening multiple times a week. Who's most at risk? People with NO mortgage — because nobody's bank is watching the title closely. That's a huge number of immigrant families: parents who paid off their home over 20-30 years and now own it free and clear. The fix is simple and cheap: title insurance. On a million-dollar home it's about $900, one-time, and it covers you for as long as you own the property. If your parents own their home outright — here in Canada — this is a five-minute phone call that could save everything."</p>
+        <p><strong>CTA:</strong> "Comment TITLE and I'll send you what to ask for and who to call. Share this with your parents today — I live here, I sell here, and this one's personal."</p>
+      </div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Title = legal proof of ownership</span>
+        <span class="onscreen-tag">Forged docs = stolen title</span>
+        <span class="onscreen-tag">Paid-off homes = highest risk</span>
+        <span class="onscreen-tag">Fix: title insurance (~$900)</span>
+        <span class="onscreen-tag">Comment "TITLE"</span>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div class="broll-terms">"elderly couple home kitchen" · "hand signing legal document close up" · "house keys on table" · "land registry office Ontario" · "phone call to parents senior"</div>
+        <div class="ai-prompt">Higgsfield 9:16: Warm, photorealistic shot of an elderly couple sitting at a kitchen table looking at house documents, soft afternoon light through window, cozy suburban Canadian home, gentle and reassuring tone.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/">Bank of Canada — policy rate 2.25% (held June 10; next decision July 15)</a></li>
+      <li><a href="https://www.truenorthmortgage.ca/blog/mortgage-rate-forecast">True North Mortgage — 5-yr bond yield and fixed-rate forecast</a></li>
+      <li><a href="https://www.cnbc.com/2026/06/07/iran-war-100-days-trump-stocks-sp500-bonds-oil.html">CNBC — 100 days of the Iran war: markets, oil, and bonds</a></li>
+      <li><a href="https://www.cbc.ca/lite/story/1.7560332">CBC — Oil prices surge after Israel's strikes on Iran</a></li>
+      <li><a href="https://www.cbc.ca/news/politics/g7-leaders-carney-2026-9.7230802">CBC — Carney heads to Europe for G7 summit amid Iran war</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB Market Watch — May 2026: 6,583 sales (+6.3%), $1,069,700 avg (−4.6%)</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260519/dq260519a-eng.htm">Statistics Canada — CPI April 2026 (2.8% y/y); May data due June 22</a></li>
+      <li><a href="https://www.sauvelaw.ca/title-fraud-stolen-mortgages-ontario-real-estate-protection">Sauve Law — The Rise of Title Fraud in Ontario</a></li>
+      <li><a href="https://www.ontario.ca/page/victims-real-estate-fraud">Government of Ontario — Victims of Real Estate Fraud</a></li>
+      <li>Creator Watch: <a href="https://www.youtube.com/watch?v=bAZwlYMVSQ4">Ragona Sisters — Ontario Seniors Losing Homes to Title Fraud Scam</a></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Morning Brief · generated 9:40 AM ET, June 15, 2026<br>
+    I live here. I sell here. 🇨🇦
+  </div>
+
+</div>
+</body>
+</html>
