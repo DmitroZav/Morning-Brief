@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, June 16, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .live-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { background: #b71c1c; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, June 16, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Banks are in a price war over your mortgage — and buyers are winning</div>
+    <p>For 8 weeks straight, Canada's banks have been undercutting each other on fixed mortgage rates. Mortgage broker Ron Butler called it out this morning: two major banks keep slashing rates below the rest, forcing everyone else to follow. This is not normal — banks almost never compete this openly on mortgages.</p>
+    <p>Meanwhile, CREA released May sales data today showing the national average home price hit $702,079 — the first time it's cracked $700K in nearly two years. Sales jumped 5.5% from April to May. The spring market is finally showing up, just a month late.</p>
+    <p><em>Why it's video-worthy: "banks fighting over your mortgage" is a news hook that actually helps people. It's rare, it's happening now, and most viewers have no idea it's going on.</em></p>
+  </div>
+
+  <!-- ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">National home sales jumped 5.5% in May and the average price is back above $700K for the first time in 23 months — while banks are openly competing on fixed rates. If you've been sitting on the fence, the market just gave you two reasons to pay attention.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th></tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td>
+          <td>2.25%</td>
+          <td class="tag-flat">No change (held Jun 10)</td>
+          <td class="plain-meaning">The rate the Bank of Canada controls directly. It sets the floor for variable mortgages. Next decision: July 15.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.01%</td>
+          <td>3.04%</td>
+          <td class="tag-down">▼ slightly eased</td>
+          <td class="plain-meaning">Bond yield = the interest the government pays to borrow money. Banks price FIXED mortgages off this. A slight easing is a small positive for fixed rates.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Typical 5-yr fixed mortgage</td>
+          <td>~4.04% – 4.6%</td>
+          <td>~4.4% – 4.6%</td>
+          <td class="tag-down">▼ bank rate war pushing best rates lower</td>
+          <td class="plain-meaning">The rate war means some lenders are now offering 5-yr fixed near 4.04%. Shop around — the gap between the best and worst lender is unusually wide right now.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Variable mortgage / prime</td>
+          <td>4.45%</td>
+          <td>4.45%</td>
+          <td class="tag-flat">No change</td>
+          <td class="plain-meaning">Follows the BoC rate directly. Steady since October 2025.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI)</td>
+          <td>2.8% (April)</td>
+          <td>2.4% (March)</td>
+          <td class="tag-flat">No new release in 24h</td>
+          <td class="plain-meaning">May's number drops June 22. Gas prices from global tensions will likely push it higher. Above 2% means the BoC isn't in a rush to cut again.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, May)</td>
+          <td>$1,069,700 · 6,583 sales</td>
+          <td>$1,121,000 · 6,192 sales (May 2025)</td>
+          <td class="tag-up">Price ▼ 4.6% YoY · Sales ▲ 6.3% YoY</td>
+          <td class="plain-meaning">More buyers are coming back to Toronto but paying less than last year. Sellers need to price right — buyers still have the upper hand.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg price + sales (CREA, May)</td>
+          <td>$702,079 · 47,014 sales</td>
+          <td>$691,767 (May 2025) · 49,522 sales</td>
+          <td class="tag-up">Price ▲ 1.5% YoY · Sales ▲ 5.5% MoM</td>
+          <td class="plain-meaning">First time above $700K nationally in 23 months. Sales momentum is building month-over-month even if year-over-year is still soft.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC, May trend)</td>
+          <td>258,010 annualized</td>
+          <td>257,720</td>
+          <td class="tag-flat">Virtually flat (+0.5%)</td>
+          <td class="plain-meaning">New construction barely budged. Regulatory hurdles and economic uncertainty are keeping builders cautious. More supply is needed but not arriving fast.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD / USD</td>
+          <td>$0.714 USD</td>
+          <td>$0.713 USD</td>
+          <td class="tag-flat">Roughly flat</td>
+          <td class="plain-meaning">1 Canadian dollar buys about 71 cents US. Affects cost of imported goods — including building materials, which impacts construction costs.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer:</strong> the bank rate war is genuinely good news — it means shopping around for your mortgage right now could save you thousands. Don't just take the rate your bank offers. Get 3 quotes.</p>
+    <p><strong>If you're a renter watching the market:</strong> prices are still down year-over-year in Toronto, but the month-over-month momentum is shifting. The window where buyers have leverage may be narrowing.</p>
+    <p><strong>If you're a newcomer:</strong> the national average is $702K but Toronto is $1.07M. The city is expensive, but outside the GTA — Hamilton, Kitchener, London — you can still find homes well below the national average. Geography is everything in Canada right now.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch — Last 24h</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · @angrymortgage · YouTube</div>
+      <div class="creator-platform">"Bank Rate WAR!" — Jun 16, 5,690 views</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note">Ron breaks down how two major banks have been undercutting everyone else on fixed rates for 8 straight weeks — proof banks aren't colluding, they're fighting. Great data hook.</div>
+      <div class="creator-note" style="margin-top:4px;color:#15803d;"><strong>Your angle:</strong> "I've been a realtor for [X months]. I've never seen banks fight over mortgages like this. Here's what it means if you're buying this summer." Immigrant lens: "back home banks didn't compete — in Canada, you can negotiate."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · @angrymortgage · YouTube</div>
+      <div class="creator-platform">"Canadians Are Running Out Of Options" — Jun 15, 37,381 views</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note">High-performing video (37K views in under 24h). Strong pain-point hook. Watch for his framing of the affordability squeeze — it maps directly to your audience's fears about buying in Canada.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · @daniel_foch · YouTube</div>
+      <div class="creator-platform">"Claude Fable 5: Realtors don't realize what's about to hit them" — Jun 16, 1,063 views</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note">AI replacing realtors — he's framing it as a threat. Consider a counter-take: "I'm a brand-new realtor and I'm using AI to compete with 20-year veterans. Here's how." Turns a fear narrative into a credibility play for you.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · @TomStorey · YouTube</div>
+      <div class="creator-platform">"You Won't Believe What's Happening to Toronto Condos" — Jun 15, 7,832 views</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note">Toronto condo market is a recurring high-interest topic. TRREB Q1 data shows condo prices down 9.1% YoY — there's a separate condo video in this data if you want to go deep.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · @TomStorey · YouTube</div>
+      <div class="creator-platform">"The best part of the World Cup being in Toronto? The tourists!" — Jun 16, 718 views</div>
+      <span class="verdict verdict-skip">SKIP</span>
+      <div class="creator-note">Low engagement, off-niche. Not worth your time unless you want a light lifestyle crossover.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Dmitry Banchik · @Dmitry.Banchik · YouTube</div>
+      <div class="creator-platform">"КАНАДА: Всё хорошо! Тогда почему средний класс в ловушке?" — Jun 15, 6,461 views</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note">Title = "CANADA: Everything is fine! So why is the middle class trapped?" Russian-language, 6.4K views — proof this pain point resonates hard with your shared Slavic-speaking audience.</div>
+      <div class="creator-note" style="margin-top:4px;color:#15803d;"><strong>Your angle (in English or Ukrainian):</strong> "Canada looks great on paper. Low unemployment, stable rates. But the middle class feels poorer every year. Here's why." Anchor it to the CREA data — prices up again, but wages haven't kept pace.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Russell Matthews · @russellmatthews · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">N/A</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters · @RagonaSistersTv · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">N/A</span>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The Bank Rate War Nobody's Talking About</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: hooks into breaking financial news; "banks fighting over your money" triggers curiosity and share instinct. Ron's "Bank Rate WAR!" just got 5,690 views in hours — there's appetite right now.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1)</strong>
+          Banks are fighting each other. You win.
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "For the first time in years, Canada's banks are actually cutting each other on mortgage rates. And most people have no idea."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 40s)</div>
+        <p><strong>Hook:</strong> "For the first time in years, banks in Canada are in an open price war on mortgages. And if you're buying this summer, that's actually great news."</p>
+        <p><strong>Body:</strong> "For 8 weeks straight, two major banks have been slashing their 5-year fixed rates — undercutting everyone else. Best rates are now around 4%. That might not sound exciting, but on a $700,000 mortgage, the difference between 4% and 4.6% is roughly $250 a month. That's real money. The key thing? Your bank won't call you to tell you this. You have to go ask — or better, use a mortgage broker who shops dozens of lenders at once."</p>
+        <p><strong>CTA:</strong> "Comment 'RATE' below and I'll send you how to find the best mortgage rate in Canada right now."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Banks cutting rates 🔥</span>
+        <span class="onscreen-tag">5-yr fixed ~4%</span>
+        <span class="onscreen-tag">$250/month difference</span>
+        <span class="onscreen-tag">Shop around</span>
+        <span class="onscreen-tag">Comment "RATE" ⬇️</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real footage</div>
+        <div class="broll-terms">Canadian bank branch exterior · person signing mortgage documents · calculator on table · bank logos on Bay Street · person on phone with realtor</div>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div class="ai-prompt">Cinematic slow-motion close-up of a hand signing a mortgage contract on a wooden desk, warm afternoon light, shallow depth of field, 9:16 vertical</div>
+        <div class="ai-prompt" style="margin-top:6px;">Aerial view of Toronto Bay Street financial district at golden hour, skyscrapers reflecting sunset, smooth drone push-in, 9:16 vertical</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">The Canadian Middle Class Trap (Immigrant Edition)</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Dmitry Banchik got 6,400 views on this exact topic in Russian — your English + Ukrainian audience is wider. High emotional resonance, strong comment bait.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1)</strong>
+          Canada is fine. So why do you feel broke?
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "Canada has low unemployment, stable interest rates, and rising home prices. So why does every Ukrainian family I talk to feel like they're falling behind?"
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 45s)</div>
+        <p><strong>Hook:</strong> "Canada looks great on paper. Unemployment is low. Rates are stable. Prices are going up. So why does it feel like no matter how hard you work, you can't get ahead?"</p>
+        <p><strong>Body:</strong> "Here's the trap: the national average home price just crossed $700,000 again — for the first time in two years. But wages haven't kept up. So every year, the gap between what you earn and what a home costs gets a little wider. And if you're a newcomer who arrived in the last 3 years? You missed the low-rate window AND you're competing against people who already have equity. It's not your fault. The system changed while you were learning how it worked."</p>
+        <p><strong>CTA:</strong> "If you moved to Canada in the last 5 years and want to buy a home — follow me. I'm going to show you what actually works."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Average price: $702,079</span>
+        <span class="onscreen-tag">Wages haven't kept up</span>
+        <span class="onscreen-tag">Newcomer disadvantage</span>
+        <span class="onscreen-tag">Not your fault</span>
+        <span class="onscreen-tag">Follow for the fix ⬆️</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real footage</div>
+        <div class="broll-terms">immigrant family in Toronto neighbourhood · person looking at home listing on phone · grocery store price tags · Toronto skyline at dusk · "For Sale" sign in front of house</div>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI prompt (9:16, paste-ready)</div>
+        <div class="ai-prompt">A young couple standing outside a Toronto row house looking through the window, overcast sky, documentary style, handheld camera feel, 9:16 vertical</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">The Spring Market is Back — One Month Late</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: timely data peg (CREA released today); buyer-decision urgency; simple "market update" format that performs consistently.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1)</strong>
+          The market just woke up. Here's what changed.
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "The spring housing market was dead in April. But May just changed everything — and the data came out this morning."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35s)</div>
+        <p><strong>Hook:</strong> "The spring market everyone was waiting for? It was just delayed by a month."</p>
+        <p><strong>Body:</strong> "CREA released national numbers this morning. Home sales jumped 5.5% from April to May. The average price is back above $700,000 — the highest in two years. In Toronto specifically, sales are up 6.3% year-over-year. More buyers are coming back. And new listings are actually down 19% compared to last year — meaning if you're a buyer, you have fewer choices and more competition than you did 12 months ago. This is the shift everyone's been watching for."</p>
+        <p><strong>CTA:</strong> "Save this video — things are moving fast. And if you want to know what neighbourhoods still have inventory, DM me the word 'MAP'."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Sales +5.5% in May</span>
+        <span class="onscreen-tag">Avg price $702K</span>
+        <span class="onscreen-tag">Listings down 19%</span>
+        <span class="onscreen-tag">Spring market = delayed not dead</span>
+        <span class="onscreen-tag">DM "MAP" 📍</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real footage</div>
+        <div class="broll-terms">open house exterior with crowd · "For Sale" sign in suburban neighbourhood · busy real estate agent showing home · Toronto residential street spring greenery · MLS listing on laptop</div>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI prompt (9:16, paste-ready)</div>
+        <div class="ai-prompt">Busy open house in a modern Toronto semi-detached home, multiple buyers walking through, soft natural light, realistic documentary style, 9:16 vertical</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/" target="_blank">Bank of Canada — Rate Hold Press Release, June 10, 2026</a></li>
+      <li><a href="https://www.cbc.ca/news/business/interest-rate-bank-of-canada-june-2026-9.7229759" target="_blank">CBC News — Bank of Canada keeps rate at 2.25%, June 2026</a></li>
+      <li><a href="https://www.globenewswire.com/news-release/2026/06/16/3312330/0/en/Canadian-Home-Sales-Jump-Following-Slower-Spring-Start.html" target="_blank">CREA / GlobeNewswire — Canadian Home Sales Jump, June 16, 2026</a></li>
+      <li><a href="https://www.cbc.ca/news/business/home-sales-crea-may-2026-9.7236863" target="_blank">CBC News — May home sales down 5.1% YoY but CREA sees positive momentum</a></li>
+      <li><a href="https://wowa.ca/toronto-housing-market" target="_blank">WOWA — Toronto Housing Market, TRREB May 2026 data</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-may-2026" target="_blank">CMHC — Housing Starts and Construction Data, May 2026</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260519/dq260519a-eng.htm" target="_blank">Statistics Canada — Consumer Price Index, April 2026</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates" target="_blank">Ratehub.ca — Best Mortgage Rates Canada, June 2026</a></li>
+      <li><a href="https://news.fundsforngos.org/2026/06/02/canada-and-ontario-launch-8-8-billion-program-to-reduce-housing-costs-and-boost-construction/" target="_blank">Canada + Ontario — $8.8B Development Charge Reduction Program, June 2026</a></li>
+      <li><a href="https://www.youtube.com/watch?v=LSF5o3YgFbI" target="_blank">Ron Butler (@angrymortgage) — "Bank Rate WAR!", June 16, 2026</a></li>
+      <li><a href="https://www.youtube.com/watch?v=CfvKI-74EOs" target="_blank">Ron Butler (@angrymortgage) — "Canadians Are Running Out Of Options", June 15, 2026</a></li>
+      <li><a href="https://www.youtube.com/watch?v=k0Ow-xiN0gM" target="_blank">Daniel Foch (@daniel_foch) — "Claude Fable 5: Realtors don't realize what's about to hit them", June 16, 2026</a></li>
+      <li><a href="https://www.youtube.com/watch?v=ezrZThbCNJc" target="_blank">Tom Storey (@TomStorey) — "You Won't Believe What's Happening to Toronto Condos", June 15, 2026</a></li>
+      <li><a href="https://www.youtube.com/watch?v=91op0VhZe4I" target="_blank">Dmitry Banchik (@Dmitry.Banchik) — "КАНАДА: Всё хорошо! Тогда почему средний класс в ловушке?", June 15, 2026</a></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    🇨🇦 Morning Brief · Dmytro · Toronto Real Estate · June 16, 2026<br>
+    <em>I live here. I sell here.</em>
+  </div>
+
+</div>
+</body>
+</html>
