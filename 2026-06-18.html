@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Thursday, June 18, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .live-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { background: #b71c1c; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, June 18, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- LIVE LINK -->
+  <div class="card" style="text-align:center; padding: 16px;">
+    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:8px;">View the live version online</p>
+    <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-06-18.html" target="_blank">🌐 Open Live Brief</a>
+  </div>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada plays Qatar at the World Cup — at home, today</div>
+    <p>Canada's national men's soccer team kicks off against Qatar today at 3 PM at BC Place in Vancouver — their second group-stage game of the 2026 FIFA World Cup, which Canada is co-hosting. Prime Minister Carney is attending. The country is watching. After a draw against Bosnia on June 12, Canada needs a win to keep its knockout-round hopes alive.</p>
+    <p>This is history. Canada is hosting the biggest sporting event on the planet. Millions of newcomers — including Ukrainians — who moved here partly because of what this country represents are watching Canada compete on Canadian soil. It's a once-in-a-generation national moment.</p>
+    <p><em>Why it's video-worthy: this is a rare chance for you to speak as a newcomer who chose Canada, about what it feels like to watch Canada play at home. It's not about soccer — it's about belonging. That's your angle. Ukrainian flag + Canadian flag. Post it tonight.</em></p>
+  </div>
+
+  <!-- ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">CREA's May data just dropped: the national average home price broke $700,000 for the first time in two years — but don't let the headline fool you. Sales are still down 5.1% year-over-year. This is a bounce, not a boom. Know the difference before you advise a client.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th>
+          <th>Latest</th>
+          <th>Prior</th>
+          <th>Change</th>
+          <th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td>
+          <td>2.25%</td>
+          <td class="tag-flat">No change</td>
+          <td><span class="plain-meaning">Held for 4th straight meeting on June 10. Next decision: July 15. This is the rate the Bank of Canada charges banks to borrow from each other — it directly drives variable mortgage rates.</span></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't bond yield</td>
+          <td>~3.03%</td>
+          <td>~3.0%</td>
+          <td class="tag-up">▲ slightly</td>
+          <td><span class="plain-meaning">Bond yield = the interest the government pays to borrow money. When it rises, banks raise fixed mortgage rates too. At ~3%, fixed rates stay in the low 4s.</span></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Typical 5-yr fixed mortgage</td>
+          <td>3.99–4.34%</td>
+          <td>~4.3–4.9%</td>
+          <td class="tag-down">▼ improving</td>
+          <td><span class="plain-meaning">Best brokers advertising ~3.99% insured; big banks around 4.34–4.93%. Shopping around could save you thousands per year.</span></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Variable / prime rate</td>
+          <td>~4.45%</td>
+          <td>~4.45%</td>
+          <td class="tag-flat">No change</td>
+          <td><span class="plain-meaning">Prime rate = BoC rate + ~2.2%. Variable mortgages are priced around prime minus a discount. No cut expected until at least July.</span></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, latest)</td>
+          <td>2.8% YoY</td>
+          <td>2.4% (Mar)</td>
+          <td class="tag-up">▲ ticked up</td>
+          <td><span class="plain-meaning">April 2026 data. Driven partly by higher oil prices and Middle East tensions. May data releases June 22. Higher inflation = BoC stays cautious about cutting.</span></td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price (TRREB, May)</td>
+          <td>$1,069,700</td>
+          <td>$1,121,000 (May '25)</td>
+          <td class="tag-down">▼ -4.6% YoY</td>
+          <td><span class="plain-meaning">GTA prices are still lower than a year ago, but 6,583 sales in May was up 6.3% from last May. More buyers coming back, not fewer.</span></td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg price (CREA, May)</td>
+          <td>$702,079</td>
+          <td>$692,000 (May '25)</td>
+          <td class="tag-up">▲ +1.5% YoY</td>
+          <td><span class="plain-meaning">First time above $700K in 23 months. Sales up 5.5% month-over-month, but down 5.1% year-over-year. MLS Home Price Index (the more reliable measure) still down 4.1% YoY.</span></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC, May)</td>
+          <td>261,377 SAAR</td>
+          <td>278,380 (Apr)</td>
+          <td class="tag-down">▼ -6% MoM</td>
+          <td><span class="plain-meaning">SAAR = Seasonally Adjusted Annual Rate — how many homes we'd build in a full year at this pace. Toronto starts down 12% YoY. Less new supply coming = more pressure on prices later.</span></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>$0.714 USD</td>
+          <td>~$0.72 USD</td>
+          <td class="tag-down">▼ weaker CAD</td>
+          <td><span class="plain-meaning">1 Canadian dollar buys about 71 US cents. A weaker loonie makes imported goods and US travel more expensive for Canadians.</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p>The national average crossing $700K looks like a headline win, but the more honest number — the MLS Home Price Index — is still down 4.1% from last year. That means prices are still lower than they were. For a first-time buyer sitting on the sidelines, this is actually still a better entry point than 2024 was, especially with 5-year fixed rates creeping toward 3.99%.</p>
+    <p>For renters: housing starts dropping 6% means fewer new units are coming to market. Less supply added over the next 18 months = more upward pressure on rents. If you're thinking of buying, the window of softer prices may not stay open much longer.</p>
+    <p>For newcomers specifically: Canada added nearly 180,000 purpose-built rental units currently under construction — that's a 7%+ boost to the rental stock when they complete. Relief is coming, but slowly.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch — Last 24h</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · @angrymortgage · YouTube</div>
+      <div class="creator-platform">Posted: June 18, 2026</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <p class="creator-note"><strong>"DIVORCED: What Do I Do Now? 💔 (Real Estate Advice)"</strong> — Q&amp;A episode on divorce and real estate decisions. What to do with the house when a marriage ends. Solid topic with high emotional stakes but very niche audience right now.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · @angrymortgage · YouTube</div>
+      <div class="creator-platform">Posted: June 17, 2026 · 18,634 views</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <p class="creator-note"><strong>"MOST Asked Question"</strong> — "When should I buy a condo in Toronto? Dog crate prices have fallen far — is it time?" Ron says: Hell NO, not yet. Prices have further to drop, maybe 8–9 more years.</p>
+      <p class="creator-note"><strong>Your angle:</strong> "As a Ukrainian who bought near the peak and felt it — here's my honest answer to the same question." You have lived credibility Ron doesn't. That's your edge. Make it personal: what you would do differently. 30-second Reel, direct to camera.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · @daniel_foch · YouTube</div>
+      <div class="creator-platform">Posted: June 17, 2026 · 1,869 views (full video)</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <p class="creator-note"><strong>"Don't Fall for the May Sales Headlines — Here's What Actually Happened"</strong> — Foch pushes back hard on CREA's "jump" language. Sales up MoM from a bad starting point is still a weak market. Regional split matters more than the national number.</p>
+      <p class="creator-note"><strong>Your angle:</strong> "Everyone's sharing the $700K headline. Here's what the number they're not showing you says." Beginners don't know the difference between average price and the HPI (Home Price Index). You explain it in 45 seconds. Use the "two charts" frame: the flashy headline vs. the honest one.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · @daniel_foch · YouTube Short</div>
+      <div class="creator-platform">Posted: June 17, 2026</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <p class="creator-note"><strong>"May home sales bounced. That does not mean Canada's housing market is back."</strong> — Short version of the same thesis. Good hook study: declarative statement that calls out optimism bias.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · @TomStorey · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <div class="verdict verdict-na">—</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Russell Matthews · @russellmatthews · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <div class="verdict verdict-na">—</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Dmitry Banchik · @Dmitry.Banchik · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <div class="verdict verdict-na">—</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters · @RagonaSistersTv · YouTube Short</div>
+      <div class="creator-platform">Posted: June 17, 2026</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <p class="creator-note"><strong>"Your Retirement Savings Could Be Cut?"</strong> — OAS (Old Age Security) cuts being proposed by a policy group. Big fear for people in or near retirement. Not directly your niche but watch the hook structure — high emotion, personal stakes framing.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters · @RagonaSistersTv · YouTube Short</div>
+      <div class="creator-platform">Posted: June 17, 2026 · 860 views</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <p class="creator-note"><strong>"Could Your Home Be Stolen?"</strong> — Property fraud, liens, title theft. Fear-based hook. High concern for newcomers who may not know about title insurance. File this idea for a future video — title insurance is an under-explained topic for your audience.</p>
+    </div>
+
+    <div class="creator-item">
+      <div style="color: var(--muted); font-size: 0.82rem;">IG / TikTok not checked today — YouTube covered for all watchlist creators.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The $700K Headline Is Lying to You</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: data myth-busting with a strong counter-headline. Beginners share things that make them feel smarter than their friends — this does exactly that.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1):</strong>
+          Canada's housing market is NOT back
+        </div>
+        <div class="hook-box">
+          <strong>Spoken:</strong>
+          "Everyone's talking about the $700,000 number. Here's what it's actually hiding."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 40–50s)</div>
+        <p><strong>Hook:</strong> "CREA just said the national average home price hit $702,000 — the first time above $700K in two years. The headlines say the market is back. I want to show you the number they're not talking about."</p>
+        <p><strong>Body:</strong> "There are two ways to measure prices. The average price — which just went up — includes all the expensive luxury sales that skew the number high. The Home Price Index, or HPI, is the honest one. It compares apples to apples. And the HPI? Still down 4.1% from last year. Sales overall are still 5% below where they were 12 months ago. This is a bounce from a low point. Not a boom. If you're a first-time buyer, that actually means prices are still softer than they were in 2024. The window isn't closed. But don't let a single number rush you into a decision."</p>
+        <p><strong>CTA:</strong> "Comment 'HPI' and I'll explain the difference in more detail. Follow for tomorrow's update."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Avg Price: $702K ⬆️</span>
+        <span class="onscreen-tag">HPI still down 4.1% ⬇️</span>
+        <span class="onscreen-tag">Sales: -5.1% YoY</span>
+        <span class="onscreen-tag">Not a boom. A bounce.</span>
+        <span class="onscreen-tag">Still cheaper than 2024</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <div class="broll-terms">Toronto skyline aerial, Canadian real estate sign, person on phone with calculator, home buyers walking through house, newspaper headline close-up</div>
+        <div class="ai-prompt">Higgsfield prompt (9:16): "Cinematic slow zoom into a Canadian newspaper front page, headline about housing prices, shallow depth of field, warm indoor lighting, photorealistic"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">I Bought Near the Peak — Here's What I'd Do Differently</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: raw personal credibility, inspired by Ron Butler's "when to buy condos" video. Your lived experience is the hook — nobody else on your feed has this exact story.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1):</strong>
+          I bought at the wrong time (here's the truth)
+        </div>
+        <div class="hook-box">
+          <strong>Spoken:</strong>
+          "People keep asking me: is now a good time to buy? I bought near the peak. Let me be honest with you."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 45–60s)</div>
+        <p><strong>Hook:</strong> "I'm a realtor. I also bought a condo near the top of the market. And I felt it."</p>
+        <p><strong>Body:</strong> "When I moved to Canada from Ukraine, I was told: get in fast, prices only go up. I did. And then they didn't. Now people ask me — has the market bottomed? Is it safe to buy? Here's my honest answer: we're not in a boom. Sales are still lower than last year. The HPI, which is the real price tracker, is still down 4% from 2025. But here's what I also know: rates are better than they've been in years. The best 5-year fixed right now is under 4%. If I were a first-time buyer today, and I could stay in the home for 5+ years — I would look hard at this window. Not because prices are low. Because the combination of softer prices AND lower rates may not last together for long."</p>
+        <p><strong>CTA:</strong> "If you're wondering whether now is your time, send me a DM with 'READY' and let's talk."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Bought near peak ✓</span>
+        <span class="onscreen-tag">Still down 4% from peak</span>
+        <span class="onscreen-tag">5-yr fixed: under 4%</span>
+        <span class="onscreen-tag">5+ year horizon = safer</span>
+        <span class="onscreen-tag">DM me "READY"</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <div class="broll-terms">person holding house keys, condo building Toronto, real estate agent talking to couple, person on laptop looking at mortgage rates, Ukrainian Canadian flag</div>
+        <div class="ai-prompt">Higgsfield prompt (9:16): "Young man standing in front of a Toronto condo building at golden hour, thoughtful expression, camera slowly pulling back, cinematic 4K, warm late-afternoon light"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Canada vs Qatar — What It Means to Watch This as a Newcomer</div>
+        <span class="format-tag">Reel (post tonight)</span>
+      </div>
+      <div class="idea-why">Why it'll perform: cultural moment + newcomer identity content. Fast to shoot, no data needed. Post during or right after the game for maximum reach. This is community-building content, not real estate — that's fine, you need both.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1):</strong>
+          What it feels like to cheer for Canada 🇨🇦
+        </div>
+        <div class="hook-box">
+          <strong>Spoken:</strong>
+          "I moved here from Ukraine. And today Canada plays at the World Cup — on Canadian soil. I wasn't born here. But this feels like home."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 20–30s — keep it short and emotional)</div>
+        <p><strong>Hook:</strong> "I came to Canada a few years ago. I didn't grow up watching hockey, I didn't know what Tim Hortons was, I had to figure everything out from scratch."</p>
+        <p><strong>Body:</strong> "But today Canada plays Qatar at the FIFA World Cup. In Vancouver. At home. And I genuinely don't care about soccer. What I care about is what it means — that this country opened its doors, and now I get to stand here and cheer with everyone else."</p>
+        <p><strong>CTA:</strong> "If you moved here and you know this feeling — comment 🍁 below."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">🇺🇦 → 🇨🇦</span>
+        <span class="onscreen-tag">FIFA World Cup 2026</span>
+        <span class="onscreen-tag">Canada at home</span>
+        <span class="onscreen-tag">Comment 🍁</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll</div>
+        <div class="broll-terms">BC Place Vancouver aerial, Canada soccer fans cheering, Toronto fan zone, Canadian flag crowd, World Cup stadium</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/" target="_blank">Bank of Canada — Rate Hold June 10, 2026</a></li>
+      <li><a href="https://wowa.ca/bank-of-canada-interest-rate" target="_blank">WOWA — BoC Interest Rate History</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/06/16/may-home-sales-down-51-per-cent-from-year-earlier-but-crea-says-momentum-building/" target="_blank">BNN Bloomberg — CREA May 2026 Sales Data</a></li>
+      <li><a href="https://www.cbc.ca/news/business/home-sales-crea-may-2026-9.7236863" target="_blank">CBC News — May Home Sales CREA 2026</a></li>
+      <li><a href="https://wowa.ca/toronto-housing-market" target="_blank">WOWA — Toronto Housing Market (TRREB May 2026)</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-may-2026" target="_blank">CMHC — Housing Starts May 2026</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260519/dq260519a-eng.htm" target="_blank">Statistics Canada — CPI April 2026</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed" target="_blank">Ratehub — Best 5-Year Fixed Mortgage Rates</a></li>
+      <li><a href="https://wowa.ca/canada-5-year-bond-yield" target="_blank">WOWA — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://globalnews.ca/news/11900050/canada-bosnia-world-cup-fifa/" target="_blank">Global News — Canada FIFA World Cup Schedule</a></li>
+      <li><a href="https://www.youtube.com/watch?v=MSQqwD0yGis" target="_blank">Ron Butler (@angrymortgage) — "MOST Asked Question" (Condo timing)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=fMYlEZFH920" target="_blank">Daniel Foch — "Don't Fall for the May Sales Headlines"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  🇨🇦 Morning Brief · Generated June 18, 2026 · For Dmytro · <em>I live here. I sell here.</em>
+</div>
+
+</body>
+</html>
