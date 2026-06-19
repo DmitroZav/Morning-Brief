@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Friday, June 19, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .live-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { background: #b71c1c; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Friday, June 19, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- LIVE LINK -->
+  <div class="card" style="text-align:center; padding: 16px;">
+    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:8px;">View the live version online</p>
+    <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-06-19.html" target="_blank">🌐 Open Live Brief</a>
+  </div>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">🔥 Big Story</div>
+    <div class="section-title">Canada in Technical Recession — But Recovery Already Showing</div>
+    <p>Canada's economy shrank 0.1% in Q1 2026 (that's two quarters of shrinking in a row — the textbook definition of a <em>technical recession</em>). The main culprits: U.S. tariff uncertainty killing business investment, weak housing, and a surprising spike in gold imports that skewed the math. But StatCan's early read for April is already showing a 0.4% rebound — meaning the worst may already be behind us.</p>
+    <p>Why it's video-worthy: "Canada is in a recession" is a headline everyone's family group chat is sharing — and most people have no idea what it actually means for their mortgage, rent, or job. You can be the one who explains it plainly.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canadian home sales jumped 5.5% in May — the biggest single-month gain since late 2024 — and the national average price crossed $700,000 for the first time in nearly two years. The market is waking up, but it's not back to the peak.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior / Compare</th>
+            <th>Change</th>
+            <th>Plain English</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC Overnight Rate</td>
+            <td>2.25%</td>
+            <td>2.25% (Jun 10)</td>
+            <td class="tag-flat">⏸ No change</td>
+            <td class="plain-meaning">5th hold in a row. Bank of Canada — Canada's central bank — is not cutting or raising rates right now. Next decision: July 15.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't Bond Yield</td>
+            <td>~3.03%</td>
+            <td>~3.0% last week</td>
+            <td class="tag-flat">≈ Flat</td>
+            <td class="plain-meaning">The bond yield (the interest Ottawa pays to borrow money) drives fixed mortgage rates. Flat = fixed rates staying put for now.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr Fixed Mortgage</td>
+            <td>~3.99%</td>
+            <td>~4.04% prior week</td>
+            <td class="tag-down">▼ Slight dip</td>
+            <td class="plain-meaning">Best available insured fixed rate. On a $600K mortgage, 3.99% vs 4.5% saves roughly $250/month.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Variable Rate / Prime</td>
+            <td>3.35% / 4.45%</td>
+            <td>3.35% / 4.45%</td>
+            <td class="tag-flat">⏸ No change</td>
+            <td class="plain-meaning">Variable mortgage rate follows the BoC overnight rate. Stable here means no surprise payment increases this month.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation / CPI (Apr 2026)</td>
+            <td>2.8% YoY</td>
+            <td>2.4% (Mar 2026)</td>
+            <td class="tag-up">▲ Up</td>
+            <td class="plain-meaning">Groceries, gas, and energy costs rose. May CPI drops June 22. Above the BoC's 2% target — reason they're not cutting rates yet.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA Avg Price (TRREB May)</td>
+            <td>$1,069,700</td>
+            <td>$1,121,327 (May 2025)</td>
+            <td class="tag-down">▼ -4.6% YoY</td>
+            <td class="plain-meaning">6,583 sales in May (+6.3% YoY, +10% MoM). Prices are still lower than last year — still good news for buyers.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">National Avg Price (CREA May)</td>
+            <td>$702,079</td>
+            <td>$691,700 (May 2025)</td>
+            <td class="tag-up">▲ +1.5% YoY</td>
+            <td class="plain-meaning">First time above $700K in 23 months. Sales up 5.5% MoM — buyers returning. MLS HPI (a cleaner measure) still -4.1% vs last year.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Housing Starts (CMHC May)</td>
+            <td>258,010 SAAR</td>
+            <td>256,777 (Apr 2026)</td>
+            <td class="tag-up">▲ +0.5%</td>
+            <td class="plain-meaning">SAAR = seasonally adjusted annual rate (how many homes would be built in a year at this pace). Barely budging — builders are still cautious.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>0.7056</td>
+            <td>~0.72 Jan 2026</td>
+            <td class="tag-up">▼ Weakening</td>
+            <td class="plain-meaning">Every Canadian dollar buys about 70.5 US cents — near the lowest of 2026. U.S. travel is more expensive; imported goods cost more.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>For first-time buyers:</strong> GTA prices are still 4.6% below last year. A technical recession sounds scary, but it often means sellers are more willing to negotiate and rates aren't going up anytime soon. If you're pre-approved and sitting on the fence, this window may not last forever.</p>
+    <p><strong>For renters:</strong> Canada's population shrank for a third quarter in a row (immigration cuts kicking in). Fewer newcomers arriving = slightly less demand pressure on rentals in the short term. But supply isn't growing fast either — 258,000 housing starts per year is far below what Canada needs.</p>
+    <p><strong>For mortgage holders coming up for renewal:</strong> Fixed rates are near 4% right now — that's the lowest in two years. If you're renewing in the next 6 months, lock in a rate conversation with your broker now. Variable is cheaper today but the BoC's next move in July is uncertain.</p>
+    <p><strong>For newcomers:</strong> The weak Canadian dollar (70.5 cents US) is tough if you're sending money abroad or comparing your salary to what you could earn elsewhere — but it also makes Canadian exports cheaper, which helps jobs in manufacturing and energy.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch — Last 24h</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · @angrymortgage · YouTube</div>
+      <div class="creator-platform">3 Shorts + 1 long-form posted today/yesterday</div>
+      <span class="verdict verdict-steal">⭐ STEAL</span>
+      <div class="creator-note">
+        Short: <strong>"The market is NOT TURNING"</strong> — Ron's contrarian call against the CREA sales bounce. Perfect tension: CREA says sales up 5.5%, Ron says don't get excited. <em>Your angle:</em> Do a duet — "Ron says the market isn't turning. Here's what the data actually says — and what it means if you're trying to buy right now." Immigrant-realtor lens: "I live in this market. Here's what I'm seeing on the ground."<br><br>
+        Short: <strong>"It's rough right now!"</strong> — Short but honest. Mirror this with your own "It's rough, but here's who wins in a rough market."<br><br>
+        Short: <strong>"Pay Down The Mortgage Or Invest?"</strong> — evergreen topic with great engagement. WATCH for structure.
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · @daniel_foch · YouTube</div>
+      <div class="creator-platform">2 posts today/yesterday</div>
+      <span class="verdict verdict-steal">⭐ STEAL</span>
+      <div class="creator-note">
+        Full video: <strong>"Canada's negative immigration is crushing house prices"</strong> — Major data story. Daniel goes analytical; you can go personal. <em>Your angle:</em> "I came to Canada as an immigrant. Now Canada is getting FEWER immigrants. Here's what that means for the housing market — and for people like me."<br><br>
+        Short: <strong>"Canada's population fell for a third straight quarter."</strong> — Great hook seed. STEAL the stat, make it human.
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · @TomStorey · YouTube</div>
+      <div class="creator-platform">1 post — June 18</div>
+      <span class="verdict verdict-watch">👀 WATCH</span>
+      <div class="creator-note">
+        <strong>"You Won't Believe What THIS Reveals About Toronto Real Estate"</strong> — Clickbait title, but Tom usually backs it up with solid data. Watch to see what the data reveal — could be a hook idea for tomorrow.
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Russell Matthews · @russellmatthews · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">— Nothing today</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Dmitry Banchik · @Dmitry.Banchik · YouTube</div>
+      <div class="creator-platform">1 post — June 18</div>
+      <span class="verdict verdict-watch">👀 WATCH</span>
+      <div class="creator-note">
+        <strong>"КАНАДА УЗНАЛА ПРАВДУ: Мікрофон записав «відвертості» Карні"</strong> (Canada Learned the Truth: Mic Caught Carney's Off-the-Record Comments) — Russian/Ukrainian-language creator. Hot political topic — PM Carney apparently caught on an open mic. Keep an eye: if this blows up in the Ukrainian-Canadian community, it's worth a reaction short. Politics passes the filter if it affects housing/immigration policy.
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters · @RagonaSistersTv · YouTube</div>
+      <div class="creator-platform">4 posts today/yesterday — very active</div>
+      <span class="verdict verdict-steal">⭐ STEAL</span>
+      <div class="creator-note">
+        Short: <strong>"Did Mortgage Fraud Cause Brampton's Delinquency Spike?"</strong> — Wild hook. Brampton has one of the highest mortgage delinquency rates in Canada. <em>Your angle:</em> "Is it fraud, or is it something else? Here's the honest answer about what's happening in Brampton real estate."<br><br>
+        Full video: <strong>"Top 5 Places Near the GTA to Retire Mortgage Free and Keep $500K"</strong> — High-value content for the 45–65 crowd who own their GTA home and are thinking about cashing out. STEAL this format: do a "Top 3 places near Toronto where your money goes twice as far" for the newcomer/first-time buyer audience.
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Canada Is in a Recession — Here's What That Actually Means for Your Home</div>
+        <span class="format-tag">Reel / Short</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Every news outlet is running this headline. Most people are scared. You can be the calm voice that explains it simply — and shows them the opportunity hidden inside the fear.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — First 2 Seconds</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1):</strong>
+          "Canada is in a recession. Don't panic yet."
+        </div>
+        <div class="hook-box">
+          <strong>Spoken:</strong>
+          "Canada is officially in a technical recession. Before you freak out — let me tell you what that actually means for your home."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~45s)</div>
+        <p><strong>Hook:</strong> Canada is officially in a technical recession. Before you freak out — let me tell you what that actually means for your home.</p>
+        <p><strong>Body:</strong> A technical recession just means the economy shrank two quarters in a row. In Q1 of 2026, Canada's GDP dropped 0.1%. Sounds small — and it is. The main reason? American tariffs made businesses too scared to invest. But here's the thing the headlines won't tell you: April's early numbers already show a rebound. The worst was probably last quarter. Now — what does this mean for you as a buyer, renter, or homeowner? Number one: interest rates are staying put. The Bank of Canada isn't going to raise rates into a shrinking economy. Number two: sellers are more motivated. Sales just jumped 10% in Toronto month over month — buyers are coming back because prices are still down 4-5% from last year. I bought near the peak. I felt the pain. And right now, the numbers look better for first-time buyers than they have in two years.</p>
+        <p><strong>CTA:</strong> If you want me to break down how this affects YOUR situation specifically — drop "RECESSION" in the comments and I'll reach out.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">GDP shrank 0.1%</span>
+        <span class="onscreen-tag">BoC rate: 2.25% — held</span>
+        <span class="onscreen-tag">GTA prices: -4.6% vs last year</span>
+        <span class="onscreen-tag">Sellers more motivated NOW</span>
+        <span class="onscreen-tag">Comment "RECESSION"</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real Footage Search Terms</div>
+        <div class="broll-terms">Toronto skyline aerial, worried couple looking at laptop, Canadian housing neighbourhood, Bank of Canada building Ottawa, person signing mortgage documents</div>
+        <div class="ai-prompt">Higgsfield prompt (9:16): "Cinematic slow pan over a quiet Toronto residential street at golden hour, soft focus on detached homes, warm melancholic mood, handheld, no people"</div>
+        <div class="ai-prompt">Higgsfield prompt (9:16): "Close-up of hands holding a house key, shallow depth of field, warm natural light, hopeful mood, vertical format"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">I Came to Canada as an Immigrant. Now Canada Has Fewer Immigrants. Here's What That Does to House Prices.</div>
+        <span class="format-tag">Reel / Short</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Personal story + data + topic everyone is talking about. Your immigrant identity is a massive differentiator here — this isn't a story Ron Butler or Tom Storey can tell the same way.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — First 2 Seconds</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1):</strong>
+          "Canada's population is shrinking. What does that mean for rent?"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken:</strong>
+          "I moved to Canada as an immigrant. And now Canada's population is actually shrinking. Here's the honest truth about what that means for housing prices."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~40s)</div>
+        <p><strong>Hook:</strong> I moved to Canada as an immigrant. And now Canada's population is actually shrinking. Here's the honest truth about what that means for housing.</p>
+        <p><strong>Body:</strong> For years we were told housing prices are high because too many immigrants are coming. Now Canada's population fell for a third straight quarter — immigration targets were slashed. So prices should be crashing, right? Not exactly. Here's the thing: fewer people arriving does reduce demand. We're already seeing prices pull back — the GTA average is down 4.6% from last year. But builders haven't caught up — only about 258,000 new homes are starting construction per year. Canada still needs 3 to 4 times that to get ahead of the shortage. So the price pressure isn't gone. It's just less intense for now. Translation: a small window has opened. But it won't stay open forever.</p>
+        <p><strong>CTA:</strong> Follow for tomorrow — I'm breaking down which GTA neighbourhoods have the most room to move right now.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Population: ↓ 3 quarters in a row</span>
+        <span class="onscreen-tag">GTA prices -4.6% YoY</span>
+        <span class="onscreen-tag">258K housing starts — not enough</span>
+        <span class="onscreen-tag">Window is open — not forever</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real Footage Search Terms</div>
+        <div class="broll-terms">immigrants arriving Canada airport, Toronto multicultural neighbourhood, census data chart animation, new housing construction crane, family moving into home</div>
+        <div class="ai-prompt">Higgsfield prompt (9:16): "Aerial drone shot of a Toronto suburb neighbourhood, rows of detached homes stretching to the horizon, overcast dramatic sky, cinematic vertical format"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">3 Places Near Toronto Where Your Money Goes Twice as Far Right Now</div>
+        <span class="format-tag">Reel or Carousel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Evergreen, high-save content. Stolen from Ragona Sisters' "Top 5 GTA Retirement Places" — repositioned for newcomers and first-time buyers, not retirees. Save-bait is the fastest path to reach.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — First 2 Seconds</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1):</strong>
+          "You can't afford Toronto? Try these 3 spots."
+        </div>
+        <div class="hook-box">
+          <strong>Spoken:</strong>
+          "You don't need a million dollars to own a home near Toronto. Here are 3 places where your money goes twice as far — right now."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> You don't need a million dollars to own a home near Toronto. Here are 3 places where your money goes twice as far right now.</p>
+        <p><strong>Body:</strong> Number one — Hamilton. About an hour west of Toronto. Average home price around $650,000. GO Train connects you to Union Station. Still affordable for first-time buyers and lots of Ukrainian community there. Number two — Oshawa. East of Toronto, 40 minutes on the highway. Homes averaging around $700,000 — and with May sales numbers up across the GTA, deals are still out there. Number three — Barrie. Ninety minutes north. Average around $600,000. Remote work made this city boom — but prices came back down from the peak. Great quality of life, growing community. All three pass what I call the "commute test" — you can still get to Toronto for work when you need to. Save this video. And when you're ready to actually make a move, you know where to find me.</p>
+        <p><strong>CTA:</strong> Save this so you don't lose it. And comment which city you'd pick — I read every one.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Hamilton ~$650K</span>
+        <span class="onscreen-tag">Oshawa ~$700K</span>
+        <span class="onscreen-tag">Barrie ~$600K</span>
+        <span class="onscreen-tag">All within commute range</span>
+        <span class="onscreen-tag">Save this video 📌</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real Footage Search Terms</div>
+        <div class="broll-terms">Hamilton Ontario downtown, Oshawa neighbourhood homes, Barrie waterfront, GO train Toronto commute, aerial Ontario suburb</div>
+        <div class="ai-prompt">Higgsfield prompt (9:16): "Cinematic aerial glide over a small Ontario city lakefront at sunrise, golden light, peaceful suburban homes, vertical 9:16 format"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/" target="_blank">Bank of Canada — June 10, 2026 Rate Decision (2.25% hold)</a></li>
+      <li><a href="https://www.crea.ca/media-hub/news/canadian-home-sales-activity-little-changed-in-march-2-2/" target="_blank">CREA — May 2026 National Home Sales (+5.5% MoM, avg $702,079)</a></li>
+      <li><a href="https://trreb.ca/spring-home-sales-stronger-than-last-year/" target="_blank">TRREB — May 2026 GTA Market Watch (6,583 sales, avg $1,069,700)</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-may-2026" target="_blank">CMHC — May 2026 Housing Starts (258,010 SAAR)</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260519/dq260519a-eng.htm" target="_blank">Statistics Canada — CPI April 2026 (+2.8% YoY)</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/economics/2026/05/29/canada-slips-into-technical-recession-as-economy-stalls-in-q1-statcan/" target="_blank">BNN Bloomberg — Canada Q1 2026 GDP (-0.1%, technical recession)</a></li>
+      <li><a href="https://bondyieldwatch.ca/" target="_blank">Bond Yield Watch — Canada 5-yr Bond ~3.03% (Jun 17, 2026)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates" target="_blank">Ratehub — Best Mortgage Rates Canada (Jun 18, 2026)</a></li>
+      <li><a href="https://www.theglobeandmail.com/business/article-real-estate-housing-news-june-19/" target="_blank">Globe & Mail — Canadian Real Estate News Week of June 19</a></li>
+      <li><a href="https://www.pwc.com/ca/en/services/tax/publications/tax-insights/us-tariffs-steel-aluminum-copper-imports-update-2026.html" target="_blank">PwC — US Tariffs on Canada Steel/Aluminum (June 2026 update)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lAu6QMz4JX4" target="_blank">Ron Butler (@angrymortgage) — YouTube</a></li>
+      <li><a href="https://www.youtube.com/watch?v=Jd9U1WSiQz4" target="_blank">Daniel Foch (@daniel_foch) — "Canada's negative immigration is crushing house prices"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=61vkICYBUnk" target="_blank">Tom Storey (@TomStorey) — "What THIS Reveals About Toronto Real Estate"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=_5pPp_D1fS8" target="_blank">Ragona Sisters — "Top 5 Places Near GTA to Retire Mortgage Free"</a></li>
+    </ul>
+  </div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  🇨🇦 Morning Brief · Friday, June 19, 2026 · Built for Dmytro · "I live here. I sell here."
+</div>
+
+</body>
+</html>
