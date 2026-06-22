@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Monday, June 22, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .live-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { background: #b71c1c; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, June 22, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- LIVE LINK -->
+  <div class="card" style="text-align:center; padding: 16px;">
+    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:8px;">View the live version online</p>
+    <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-06-22.html" target="_blank">🌐 Open Live Brief</a>
+  </div>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">🔥 Big Story</div>
+    <div class="section-title">Inflation Just Jumped to 3.2% — Released This Morning</div>
+    <p>Statistics Canada released May's inflation numbers this morning: prices are rising at 3.2% per year, up from 2.8% in April. The main culprit is gasoline — up a stunning 33% compared to last May, driven by ongoing conflict in the Middle East cutting global oil supply. Groceries are up 4.3% year-over-year, the 16th month in a row they've outpaced overall inflation.</p>
+    <p>Why it matters: The Bank of Canada wants inflation near 2% before cutting rates. At 3.2%, rate cuts are off the table for the foreseeable future — meaning mortgage rates stay where they are. Anyone hoping for cheaper borrowing in the next few months just got bad news.</p>
+    <p>Why it's video-worthy: "Inflation went up AGAIN" is landing in everyone's news feed right now. You can be the person who explains in 45 seconds exactly what that means for their mortgage — before anyone else does.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Inflation hit 3.2% in May — the highest in over a year — and it's almost entirely driven by gasoline up 33%. Until inflation comes back down to 2%, the Bank of Canada won't cut rates, and your mortgage costs won't drop.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior / Compare</th>
+            <th>Change</th>
+            <th>Plain English</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC Overnight Rate</td>
+            <td>2.25%</td>
+            <td>2.25% (Jun 10)</td>
+            <td class="tag-flat">⏸ No change</td>
+            <td class="plain-meaning">5th hold in a row. Bank of Canada — Canada's central bank — sets the base rate that all other rates follow. Next decision: July 15. Today's inflation number makes a July cut very unlikely.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't Bond Yield</td>
+            <td>~3.05%</td>
+            <td>~3.03% (Jun 19)</td>
+            <td class="tag-up">▲ Slight uptick</td>
+            <td class="plain-meaning">Bond yield = the interest the government pays to borrow money. When it rises, fixed mortgage rates tend to follow. Watch for it to tick up further now that inflation surprised to the upside.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr Fixed Mortgage</td>
+            <td>~3.99–4.04%</td>
+            <td>~3.99% (last week)</td>
+            <td class="tag-flat">⏸ Flat</td>
+            <td class="plain-meaning">Best broker rates available today. On a $600K mortgage, 4.0% vs 4.5% saves roughly $250/month — still worth shopping around. Don't just take your bank's posted rate.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Variable Rate / Prime</td>
+            <td>3.30–3.35% / 4.45%</td>
+            <td>3.35% / 4.45%</td>
+            <td class="tag-flat">⏸ No change</td>
+            <td class="plain-meaning">Variable mortgage rate follows the BoC overnight rate. No cut expected soon — today's inflation data confirms it. Variable is still cheaper than fixed, but the gap is narrowing.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation / CPI (May 2026)</td>
+            <td>3.2% YoY ⚠️</td>
+            <td>2.8% (Apr 2026)</td>
+            <td class="tag-up">▲ Up 0.4 pts</td>
+            <td class="plain-meaning">RELEASED TODAY. Above the BoC's 2% target. Gas up 33% YoY, groceries up 4.3% YoY. Excluding gasoline, CPI was 2.2% — still above target. Not good news for rate-cut hopes.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA Avg Price (TRREB May)</td>
+            <td>$1,069,700</td>
+            <td>$1,121,327 (May 2025)</td>
+            <td class="tag-down">▼ -4.6% YoY</td>
+            <td class="plain-meaning">6,583 sales in May (+6.3% YoY). More people buying, but prices still below last year — gives buyers some breathing room. Condo avg: $639K (down 6.4% YoY).</td>
+          </tr>
+          <tr>
+            <td class="metric-name">National Avg Price (CREA May)</td>
+            <td>$702,079</td>
+            <td>$691,717 (May 2025)</td>
+            <td class="tag-up">▲ +1.5% YoY</td>
+            <td class="plain-meaning">First time above $700K in 23 months. Sales jumped 5.5% MoM — buyers coming back nationally. Ontario and BC still weak (-5.5% and -5.2% YoY benchmark), East Coast booming.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Housing Starts (CMHC May)</td>
+            <td>261,377 SAAR</td>
+            <td>278,380 (Apr 2026)</td>
+            <td class="tag-up">▼ -6% MoM</td>
+            <td class="plain-meaning">SAAR = pace of building if maintained all year. Toronto starts down 12% YoY — builders are still pulling back. Fewer new homes being built = tighter supply ahead.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>0.7048</td>
+            <td>~0.72 (Jan 2026)</td>
+            <td class="tag-up">▼ Weakening</td>
+            <td class="plain-meaning">Every Canadian dollar buys about 70.5 US cents. Imported goods (including gas) cost more in Canada, which feeds directly into today's inflation number.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>For first-time buyers:</strong> Today's inflation number is frustrating — it means the BoC almost certainly won't cut rates at the July 15 meeting. The mortgage rates you're seeing today (~4%) are probably the rates for the rest of summer. If you've been waiting for rates to drop before buying, that plan just got pushed back. On the flip side: GTA prices are still 4.6% cheaper than last May — that discount won't last forever either.</p>
+    <p><strong>For renters:</strong> Gas up 33% and groceries up 4.3% is money directly out of your pocket every month. Less cash left over for rent means more financial stress. Advertised rents across Canada did fall to a 33-month low earlier this year as immigration slowed — but with inflation rising, landlords will feel pressure to push rents up again at renewal.</p>
+    <p><strong>For mortgage holders renewing soon:</strong> Today's inflation surprise means don't count on rate drops before your renewal. Lock in a conversation with a mortgage broker now. Fixed rates near 4% are historically reasonable — better to renew with clarity than gamble on a cut that may not come until 2027.</p>
+    <p><strong>For newcomers:</strong> When gasoline goes up 33%, everything gets more expensive — delivery, groceries, services. The weak Canadian dollar (70.5 cents US) amplifies this since Canada imports a lot of goods. This is the real cost-of-living squeeze that doesn't show up in the headline number.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch — Last 24h</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · @angrymortgage · YouTube</div>
+      <div class="creator-platform">3 posts in last 36h — very active</div>
+      <span class="verdict verdict-steal">⭐ STEAL</span>
+      <div class="creator-note">
+        <strong><a href="https://www.youtube.com/watch?v=JFJZudFkzcY" target="_blank">"Condo Developer BAILOUT"</a></strong> — 27,175 views, posted June 21. Ron goes hard on the Carney/Eby $3.2B plan to buy 2,200 unsold BC condos. Massive engagement — this story is catching fire. <em>Your angle:</em> "The government just spent $3.2 billion buying condos nobody wanted. Here's what a regular person needs to know." Immigrant-realtor lens: you live here, you sell these products — what does this mean for buyers looking at pre-construction right now? Does it help or hurt them?<br><br>
+        <strong><a href="https://www.youtube.com/watch?v=5HiTLDyH1Uc" target="_blank">"Normal Canadians Can't Buy Homes"</a></strong> — 12,491 views, June 21. Ron talks to a mortgage CEO about the ongoing mortgage rate war between lenders. Good intelligence — lenders are competing hard, which means best rates are really available if you shop. <em>Your angle:</em> "Banks are fighting over your mortgage right now. Here's how to use that to your advantage." WATCH.<br><br>
+        <strong>"Ron Goes to The Yukon!"</strong> — 1,358 views, today. Travel/lifestyle, not relevant. SKIP.
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · @daniel_foch · YouTube</div>
+      <div class="creator-platform">1 short posted June 21</div>
+      <span class="verdict verdict-skip">✕ SKIP</span>
+      <div class="creator-note">
+        "June 21, 2026" — generic date-title short with 302 views. No description available. Low engagement, nothing to steal today. Watch the next long-form when it drops.
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · @TomStorey · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">— Nothing today</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Russell Matthews · @russellmatthews · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">— Nothing today</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Dmitry Banchik · @Dmitry.Banchik · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">— Nothing today</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters · @RagonaSistersTv · YouTube</div>
+      <div class="creator-platform">3 posts in last 36h</div>
+      <span class="verdict verdict-watch">👀 WATCH</span>
+      <div class="creator-note">
+        <strong><a href="https://www.youtube.com/watch?v=yuV3-j9O-aU" target="_blank">"My Neighbour Tanked My Home Sale — I Lost $200,000"</a></strong> — 9,384 views, June 21. Strong engagement on a topic most people haven't thought about. How a bad neighbour can kill your property value and blow up your sale. <em>Your angle (to steal tomorrow):</em> "Before you make an offer, do THIS one thing your realtor probably won't tell you." Practical newcomer content — due diligence most first-time buyers skip entirely.<br><br>
+        Shorts: "Your House Is Gone? Scam Uncovered" (1,016 views) and "Did Your Bank Get Your Mortgage Math Wrong?" (1,365 views) — low views, SKIP.
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Inflation Hits 3.2% — What It Means For Your Mortgage</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Breaking news that just dropped this morning. Everyone's seeing the inflation headline — you can be the plain-English explainer before anyone else posts. Timely = algorithm boost.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (First 2 Seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1):</strong>
+          "Canada's inflation just jumped to 3.2%"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken:</strong>
+          "The government just released Canada's inflation numbers — and it's not good news if you're trying to get a cheaper mortgage."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~40 seconds)</div>
+        <p><strong>Hook:</strong> The government just released Canada's inflation numbers this morning — and it's not good news if you have a mortgage or want one.</p>
+        <p><strong>Body:</strong> Inflation jumped to 3.2% in May. That's up from 2.8% in April. Gas is up 33% compared to last year — that's why you're feeling it at the pump. Groceries are up another 4.3%. And here's why this matters to you directly: the Bank of Canada — Canada's central bank — won't cut interest rates until inflation gets back down to about 2%. We're at 3.2%. So the mortgage rates you see right now — around 4% for a 5-year fixed — that's probably what they'll be for the rest of this summer. Maybe longer. I live here. I sell here. And what I'm telling my clients is: if you were waiting for rates to drop before buying, that plan just got pushed back. But GTA prices are still 4.6% cheaper than last May. That window won't stay open forever.</p>
+        <p><strong>CTA:</strong> Comment "RATES" and I'll send you what today's best mortgage rates actually look like — from brokers, not banks.</p>
+      </div>
+
+      <div class="section-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Inflation: 3.2% 🔴</span>
+        <span class="onscreen-tag">Gas up 33%</span>
+        <span class="onscreen-tag">Groceries up 4.3%</span>
+        <span class="onscreen-tag">BoC target: 2%</span>
+        <span class="onscreen-tag">No rate cuts soon</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <div class="broll-terms">gas station price sign canada · grocery store checkout canada · canadian money cash · bank of canada ottawa building · person checking phone news</div>
+        <div class="ai-prompt">Higgsfield prompt (9:16): Cinematic close-up of a Canadian gas station price sign showing high prices, shallow depth of field, warm late afternoon light, photorealistic, slight camera pull-back reveal</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">The Government Bought 2,200 Condos Nobody Wanted</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Ron Butler's video on this hit 27,000 views in under 24 hours. The "condo bailout" is a hot debate topic — controversial angle drives comments. Perfect for the Ukrainian immigrant audience who may be considering pre-construction.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (First 2 Seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1):</strong>
+          "The government just spent $3.2 billion on condos"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken:</strong>
+          "Last week, the Canadian government announced it's buying 2,200 brand-new condos that developers couldn't sell. Here's what nobody's telling you about what this means."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50 seconds)</div>
+        <p><strong>Hook:</strong> Last week, Prime Minister Carney and BC Premier David Eby announced they're buying 2,200 unsold condos — condos that sat empty because nobody would buy them. They're turning them into subsidized affordable housing.</p>
+        <p><strong>Body:</strong> The total price tag? $3.2 billion — split between the federal government and BC. Critics are calling it a bailout for developers who built condos the market didn't want. Supporters say it's smart: instead of building new affordable housing from scratch, buy what's already sitting empty. Here's the part that matters to you as a buyer. If you're looking at pre-construction condos right now — especially in BC or Ontario where the market is softest — this signals something important: developers are struggling. That means you have more negotiating power than you think. Ask for upgrades. Ask for incentives. Ask for price drops. The developer needs you more than you need them. Comment "CONDO" below if you want to know what questions to ask before signing a pre-con agreement.</p>
+        <p><strong>CTA:</strong> Comment "CONDO" — I'll DM you the 5 questions every buyer should ask before signing a pre-construction deal.</p>
+      </div>
+
+      <div class="section-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">$3.2 Billion</span>
+        <span class="onscreen-tag">2,200 unsold condos</span>
+        <span class="onscreen-tag">Bailout or smart move?</span>
+        <span class="onscreen-tag">Buyers have leverage</span>
+        <span class="onscreen-tag">Pre-con tips below</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <div class="broll-terms">empty condo building construction toronto · Vancouver high rise condo development · Mark Carney press conference · government building canada · new condo units interior empty</div>
+        <div class="ai-prompt">Higgsfield prompt (9:16): Aerial drone shot of a newly built Toronto condo tower at dusk, windows unlit and empty, city lights in background, cinematic, photorealistic, slightly ominous mood</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">The One Thing Your Realtor Won't Tell You Before You Make an Offer</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Inspired by Ragona Sisters' 9K-view video on bad neighbours. Trust-building content for buyers — especially newcomers who don't know what to look for. Strong save rate, drives DMs.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (First 2 Seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text (frame 1):</strong>
+          "I've seen buyers lose $200,000 for this reason"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken:</strong>
+          "Before you make an offer on any home in Toronto, do this one thing that most realtors forget to mention."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~35 seconds)</div>
+        <p><strong>Hook:</strong> I've seen buyers close on a home and then find out their neighbour is in a years-long dispute with the city, has a grow op, or parks commercial vehicles on the street. You don't find that out at the showing.</p>
+        <p><strong>Body:</strong> Here's what to do before you make an offer. One: knock on the neighbours' doors. Introduce yourself. Ask how long they've lived there and if they like the area. Most people will tell you everything. Two: search the property address in the city's bylaw complaint database — it's public record. Three: check if any homes on the street have liens or code violations. Your lawyer can do this for $50. When I came to Canada, I didn't know any of this. Nobody told me. Now I make sure every single client I work with knows these three steps before they commit. I live here. I sell here. This is the stuff that actually matters.</p>
+        <p><strong>CTA:</strong> Save this video before you make your next offer. And follow me — I share these tips every week.</p>
+      </div>
+
+      <div class="section-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Do this first</span>
+        <span class="onscreen-tag">Knock on doors</span>
+        <span class="onscreen-tag">City bylaw database</span>
+        <span class="onscreen-tag">Lien search = $50</span>
+        <span class="onscreen-tag">Nobody told me this</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <div class="broll-terms">toronto residential street houses · person knocking on door neighbourhood · realtor showing house buyers · canada suburban street · couple looking at home outside</div>
+        <div class="ai-prompt">Higgsfield prompt (9:16): Person walking up a sunny residential Toronto street, approaching a semi-detached house, camera follows from behind, golden hour light, cinematic, photorealistic, warm neighbourhood feel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260622/dq260622a-eng.htm" target="_blank">Statistics Canada — Consumer Price Index, May 2026 (released June 22, 2026)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/" target="_blank">Bank of Canada — Policy Rate Hold at 2.25%, June 10, 2026</a></li>
+      <li><a href="https://wowa.ca/bank-of-canada-interest-rate" target="_blank">WOWA — Bank of Canada Interest Rate History</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed" target="_blank">Ratehub — Best 5-Year Fixed Mortgage Rates Canada</a></li>
+      <li><a href="https://trreb.ca/spring-home-sales-stronger-than-last-year/" target="_blank">TRREB — May 2026 Market Watch (GTA Sales & Prices)</a></li>
+      <li><a href="https://creastats.crea.ca/en-ca/" target="_blank">CREA — June 16, 2026 Statistics Release (May 2026 data)</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-may-2026" target="_blank">CMHC — Housing Starts and Construction Data, May 2026</a></li>
+      <li><a href="https://www.biv.com/news/carney-and-eby-announce-32b-developer-subsidy-plan-to-buy-unsold-bc-condos-12442807" target="_blank">BIV — Carney and Eby Announce $3.2B Condo Plan</a></li>
+      <li><a href="https://www.cbc.ca/news/canada/british-columbia/critics-slam-government-plan-to-bail-out-sagging-condo-sector-9.7242851" target="_blank">CBC — Critics Slam BC Condo "Bailout" Plan</a></li>
+      <li><a href="https://www.youtube.com/watch?v=JFJZudFkzcY" target="_blank">Ron Butler (@angrymortgage) — "Condo Developer BAILOUT" (27K views)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=5HiTLDyH1Uc" target="_blank">Ron Butler (@angrymortgage) — "Normal Canadians Can't Buy Homes" (12K views)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=yuV3-j9O-aU" target="_blank">Ragona Sisters — "My Neighbour Tanked My Home Sale — I Lost $200,000" (9K views)</a></li>
+      <li><a href="https://immigration.ca/canada-population-growth-stalls-in-early-2026-amid-lower-immigration-targets/" target="_blank">Immigration.ca — Canada Population Growth Stalls, 2026</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  🇨🇦 Morning Brief · Generated June 22, 2026 · For Dmytro — I live here. I sell here.
+</div>
+
+</body>
+</html>
