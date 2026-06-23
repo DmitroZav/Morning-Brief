@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, June 23, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .live-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { background: #b71c1c; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, June 23, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- LIVE LINK -->
+  <div class="card" style="text-align:center; padding: 16px;">
+    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:8px;">View the live version online</p>
+    <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-06-23.html" target="_blank">🌐 Open Live Brief</a>
+  </div>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">🔥 Big Story</div>
+    <div class="section-title">Canada's Biggest Trade Deal Dies in 7 Days — Unless Someone Blinks</div>
+    <p>CUSMA — the Canada-US-Mexico trade agreement that covers $2.7 trillion in trade every year — hits its mandatory review deadline on July 1. Canada formally asked the US to renew it for 16 more years. Trump says he'd rather cancel it entirely. The US trade rep has told Canada its retaliatory tariffs are "a problem" for negotiations.</p>
+    <p>Why you care: CUSMA is the reason most of the goods you buy are priced the way they are. If it collapses or gets renegotiated on bad terms, expect more tariffs, higher prices on imported goods, job losses in Ontario and Quebec (the most trade-exposed provinces), and a weaker Canadian dollar — all of which feed directly into inflation and make home ownership even harder to reach.</p>
+    <p>Why it's video-worthy: Every Canadian should know July 1 isn't just Canada Day — it's the deadline on a deal that shapes the price of everything in their life. You can be the first real estate creator to connect the dots between trade talks and people's mortgages.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Power of sales (bank-forced home sales) are rising sharply in Ontario, according to a real estate lawyer speaking on Ron Butler's channel today. More forced sellers = potential buyer opportunities, but also a warning sign that financial stress is building in the market.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior / Compare</th>
+            <th>Change</th>
+            <th>Plain English</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC Overnight Rate</td>
+            <td>2.25%</td>
+            <td>2.25% (Jun 10)</td>
+            <td class="tag-flat">⏸ No change</td>
+            <td class="plain-meaning">The Bank of Canada (BoC) sets the rate all other rates follow. Held for the 5th time in a row. Next decision July 15. Yesterday's 3.2% inflation reading makes a July cut nearly impossible.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't Bond Yield</td>
+            <td>~3.05%</td>
+            <td>~3.03% (Jun 19)</td>
+            <td class="tag-up">▲ Slight uptick</td>
+            <td class="plain-meaning">Bond yield = the interest the government pays to borrow money. When it rises, fixed mortgage rates tend to follow. Moved up after yesterday's hot CPI print — watch for lenders to reprice fixed rates this week.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr Fixed Mortgage</td>
+            <td>~4.04%</td>
+            <td>~3.99% (last week)</td>
+            <td class="tag-up">▲ Edging up</td>
+            <td class="plain-meaning">Still near historic lows by long-run standards. On a $600K mortgage, the difference between 4.0% and 4.5% is about $250/month. Don't take your bank's posted rate — broker rates are significantly lower.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Variable Rate / Prime</td>
+            <td>3.35% / 4.45%</td>
+            <td>3.35% / 4.45%</td>
+            <td class="tag-flat">⏸ No change</td>
+            <td class="plain-meaning">Variable rate moves when the BoC cuts or hikes. No cut in sight. Variable is still cheaper than fixed, but with no cuts expected until late 2026 at earliest, the math is less obvious than it was a year ago.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation / CPI (May 2026)</td>
+            <td>3.2% YoY ⚠️</td>
+            <td>2.8% (Apr 2026)</td>
+            <td class="tag-up">▲ Released Jun 22</td>
+            <td class="plain-meaning">FRESH DATA (released yesterday). Highest since December 2023. Gas up 33% YoY due to Middle East conflict. Groceries up 4.3% for 16 months straight. Shelter inflation actually slowed to 1.7% — rents are the one thing not getting worse right now.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA Avg Price (TRREB May)</td>
+            <td>$1,069,700</td>
+            <td>$1,121,327 (May 2025)</td>
+            <td class="tag-down">▼ -4.6% YoY</td>
+            <td class="plain-meaning">6,583 sales in May (+6.3% YoY) — more buyers coming back, but prices still below last year. Condo benchmark down 6.4% YoY. June 2026 data not out yet.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">National Avg Price (CREA May)</td>
+            <td>$702,079</td>
+            <td>$691,717 (May 2025)</td>
+            <td class="tag-up">▲ +1.5% YoY</td>
+            <td class="plain-meaning">First time above $700K in nearly 2 years. Ontario and BC still weak (-5.5% and -5.2% YoY). East Coast booming — Newfoundland +11.3%, New Brunswick +10.1%.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>0.7059</td>
+            <td>~0.72 (Jan 2026)</td>
+            <td class="tag-up">▼ Weakening</td>
+            <td class="plain-meaning">1 Canadian dollar = ~70.6 US cents. A weaker loonie means imported goods cost more — that feeds into inflation. CUSMA uncertainty is keeping downward pressure on the dollar.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>For first-time buyers:</strong> The "wait for rates to drop" strategy just got shakier. Yesterday's 3.2% inflation print killed any chance of a July rate cut, and the CUSMA uncertainty is adding economic noise that could push bond yields higher — meaning fixed mortgage rates may edge up before they come down. GTA prices are still 4.6% below last May's peak. That discount window exists now. It may not last through fall.</p>
+    <p><strong>For renters:</strong> If CUSMA gets renegotiated badly or collapses, expect prices on almost everything — food, clothing, appliances, cars — to jump. Ontario and Quebec are most exposed because their economies depend heavily on cross-border manufacturing and trade. More economic pressure means less money left over for rent, savings, or a down payment.</p>
+    <p><strong>For mortgage holders:</strong> Power of sales rising in Ontario is the quiet signal worth watching. Power of sale (also called "foreclosure" in other countries) is when a lender forces a homeowner to sell because they missed too many mortgage payments. More of them showing up means some homeowners are breaking under today's rates. If you're renewing soon, this is a reminder to call a broker now — not when you get the renewal letter.</p>
+    <p><strong>For newcomers:</strong> CUSMA is the deal that makes Canada-US trade work. Most goods in Canadian stores cross the US border at some point. If that deal frays, prices go up and jobs in manufacturing get hit. As newcomers building financial stability here, you're more exposed to this than people with deep savings cushions. Worth following the July 1 deadline closely.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch — Last 24h</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · @angrymortgage · YouTube</div>
+      <div class="creator-platform">2 posts in last 36h — very active</div>
+      <span class="verdict verdict-steal">⭐ STEAL</span>
+      <div class="creator-note">
+        <strong><a href="https://www.youtube.com/watch?v=V2opAPSrmcg" target="_blank">"The Sheriff Is Coming For Homes"</a></strong> — 3,825 views, posted today (June 23). Guest: Mark Morris, a real estate lawyer from Legal Closing. Topic: startling increase in power of sales (forced bank sales) and developing trends in residential purchases, sales, and power of sales across Southern Ontario. This is fresh, specific, and scary — which is exactly what performs.<br><br>
+        <em>Your angle:</em> "A real estate lawyer just told me something scary about the Ontario housing market. Here's what it means for buyers and sellers right now." Walk your audience through what a power of sale is (most newcomers have no idea), why it's happening, and whether it's actually a buying opportunity. Your immigrant-realtor credibility: you sell in this market, you see this happening. This is a STEAL — the topic is live, emotional, and locally specific to your GTA audience.<br><br>
+        <strong>"Ron Goes to The Yukon!"</strong> — 12,652 views, June 22. Travel/lifestyle content. No real estate angle. SKIP.
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters · @RagonaSistersTv · YouTube</div>
+      <div class="creator-platform">2 shorts posted June 22</div>
+      <span class="verdict verdict-watch">👁 WATCH</span>
+      <div class="creator-note">
+        <strong><a href="https://www.youtube.com/shorts/xOt9Ce7PpGY" target="_blank">"Denied Mortgage? It's Not Your Credit Score!"</a></strong> — 923 views, June 22. Covers hidden "timing traps" and lender rules that get mortgages denied even when your credit is fine. Low views but solid evergreen topic. Watch their format, then make your own version with examples from people you've actually worked with.<br><br>
+        <strong><a href="https://www.youtube.com/shorts/ZiMtdBKHI6Q" target="_blank">"Canada's Student Housing Crisis: What Really Happened?"</a></strong> — 2,898 views, June 22. Covers how 800,000+ international students created a housing-as-business model that exploited the rental system, particularly in Brampton. The immigration + housing angle is evergreen gold for your Ukrainian newcomer audience. WATCH — consider a version framed specifically at newcomers who felt the rental squeeze firsthand.
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · @daniel_foch · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">— Nothing today</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · @TomStorey · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">— Nothing today</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Russell Matthews · @russellmatthews · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">— Nothing today</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Dmitry Banchik · @Dmitry.Banchik · YouTube</div>
+      <div class="creator-platform">No posts in last 36h</div>
+      <span class="verdict verdict-na">— Nothing today</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">IG / TikTok creators</div>
+      <div class="creator-platform">Best-effort — not reliably checkable today</div>
+      <span class="verdict verdict-na">— Not checked</span>
+      <div class="creator-note">Instagram and TikTok block automated scraping. YouTube covered above via RSS. Check manually if needed.</div>
+    </div>
+
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Banks Are Taking Homes in Ontario — What Nobody's Telling You</div>
+        <span class="format-tag">REEL</span>
+      </div>
+      <div class="idea-why">Why it'll perform: "Power of sale" is alarming language most people don't understand — fear + education combo that drives saves and comments. Extremely relevant to GTA audience right now.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          "Banks are forcing people to sell their homes in Ontario right now"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "A real estate lawyer told me something today that I need to share with you."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 45–55s)</div>
+        <p><strong>Hook:</strong> A real estate lawyer just revealed that power of sales — forced bank sales — are rising sharply across Southern Ontario right now.</p>
+        <p><strong>Body:</strong> So what is a power of sale? It's when someone stops making their mortgage payments and the bank steps in and forces them to sell the home — usually below market value, and fast. It's basically a foreclosure, Canadian style. I live here, I sell here — and I'm starting to see this in the market. What does it mean for you? Two things. One: if you're a buyer, power of sales can sometimes mean a discounted property — but they come with risks you need to know about. Two: if you're a homeowner struggling with payments, this is a warning signal. Don't wait until the bank makes that call.</p>
+        <p><strong>CTA:</strong> Comment "POW" below and I'll share what to actually look for if you're considering a power of sale purchase — and how to protect yourself.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Power of sale = forced bank sale</span>
+        <span class="onscreen-tag">Rising across Ontario right now</span>
+        <span class="onscreen-tag">Below market = risky</span>
+        <span class="onscreen-tag">Don't wait for the bank's call</span>
+        <span class="onscreen-tag">Comment "POW" 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <div class="broll-terms">Ontario house with bank notice on door · court documents real estate · stressed homeowner reviewing mortgage · Toronto suburban house exterior · realtor reviewing legal papers</div>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI Prompts (9:16, paste-ready)</div>
+        <div class="ai-prompt">"Cinematic vertical shot of a suburban home at dusk with a legal notice on the front door, desaturated blue-grey tones, dramatic lighting, photorealistic, 9:16"</div>
+        <div class="ai-prompt">"Close-up of a stressed person's hands holding mortgage documents at a kitchen table, warm interior lighting fading to cool shadow, realistic depth of field, 9:16"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Canada's Biggest Trade Deal Dies in 7 Days — What That Means for Your Wallet</div>
+        <span class="format-tag">REEL</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Hard news + clear personal impact + countdown deadline = urgency. Most people have no idea CUSMA exists — being the one who explains it simply wins trust fast.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          "Canada's biggest trade deal ends in 7 days"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "Most Canadians have no idea what's about to happen on July 1st — and it's not just Canada Day."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 45–55s)</div>
+        <p><strong>Hook:</strong> Most Canadians have no idea what's about to happen on July 1st. Yes, it's Canada Day. But it's also the deadline on CUSMA — the trade deal that keeps prices on almost everything you buy from exploding.</p>
+        <p><strong>Body:</strong> CUSMA — think of it as the handshake between Canada, the US, and Mexico that covers $2.7 trillion in trade every year. It's why your groceries, your car, your building materials, your appliances are priced the way they are. Canada just asked the US to renew it for 16 more years. Trump said he'd rather cancel it. We have seven days to find out which way this goes. As someone who came here and built a life in Canada — the uncertainty is real, and I think people need to understand the stakes. If this deal falls apart or gets renegotiated badly, expect prices to go up and jobs in Ontario to get squeezed harder.</p>
+        <p><strong>CTA:</strong> Follow for updates — I'll be covering what happens July 1 and exactly what it means for housing costs. And drop a comment: are you worried about this?</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">CUSMA = $2.7T/year trade deal</span>
+        <span class="onscreen-tag">Deadline: July 1</span>
+        <span class="onscreen-tag">Trump: wants to cancel</span>
+        <span class="onscreen-tag">Canada: wants 16 more years</span>
+        <span class="onscreen-tag">Affects your grocery bill</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <div class="broll-terms">Canada USA border crossing · trade trucks highway · grocery store price tags · Canadian parliament exterior · handshake business deal</div>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI Prompts (9:16, paste-ready)</div>
+        <div class="ai-prompt">"Aerial cinematic shot of a busy Canada-US border crossing at sunrise, trucks lined up, maple leaf flag visible, golden hour light, 9:16"</div>
+        <div class="ai-prompt">"Close-up of a Canadian grocery store shelf with price tags, shallow depth of field, warm but slightly ominous lighting, 9:16"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Your Mortgage Got Denied — But Your Credit Score Is Fine. Here's Why.</div>
+        <span class="format-tag">REEL</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Evergreen pain point, highly searchable, drives DM conversations with potential clients. Inspired by Ragona Sisters' video but told through your newcomer-realtor lens.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          "Denied mortgage. Good credit. What went wrong?"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "Your credit score is 750, your income looks good — and the bank still said no. Here's what nobody tells you about the hidden mortgage rules."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 40–50s)</div>
+        <p><strong>Hook:</strong> Credit score: 750. Income: solid. Bank's answer: no. This happens to more people than you'd think — especially newcomers.</p>
+        <p><strong>Body:</strong> The bank doesn't just look at your credit score. There are timing rules that can kill an approval nobody warns you about. Things like: how recently you changed jobs, how long you've had your current income, whether you're still on probation at work, how much of your credit limit you're using, or whether you applied for a car loan in the last 60 days. As someone who came here without a Canadian credit history, I know exactly how confusing this system is. The good news: most denials are fixable with the right timing and the right broker.</p>
+        <p><strong>CTA:</strong> DM me "DENIED" and I'll connect you with the right people to figure out your next move. This is fixable.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Good credit ≠ guaranteed approval</span>
+        <span class="onscreen-tag">Timing rules matter</span>
+        <span class="onscreen-tag">Probation = problem</span>
+        <span class="onscreen-tag">Recent car loan = red flag</span>
+        <span class="onscreen-tag">DM me "DENIED" 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <div class="broll-terms">person rejected at bank · confused person looking at computer · mortgage application documents · credit score app on phone · realtor consulting couple</div>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI Prompts (9:16, paste-ready)</div>
+        <div class="ai-prompt">"A young couple looking stressed looking at a letter at their kitchen table, soft window light, realistic, cinematic grain, 9:16"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/" target="_blank">Bank of Canada — Rate Hold June 10, 2026 (2.25%)</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260622/dq260622a-eng.htm" target="_blank">Statistics Canada — Consumer Price Index, May 2026 (released June 22)</a></li>
+      <li><a href="https://www.cbc.ca/news/business/cpi-may-2026-9.7244063" target="_blank">CBC News — Canada's inflation rate rose to 3.2% in May</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/" target="_blank">TRREB — Market Watch (May 2026 GTA data)</a></li>
+      <li><a href="https://wowa.ca/reports/canada-housing-market" target="_blank">WOWA — Canadian Housing Market Report June 2026</a></li>
+      <li><a href="https://www.cbc.ca/news/world/cusma-usmca-canada-us-mexico-trade-agreement-9.7219102" target="_blank">CBC — Canada tells US it wants CUSMA renewed</a></li>
+      <li><a href="https://refdesk.ca/blog/cusma-review-july-2026-trade-agreement-what-canadians-need-to-know" target="_blank">Refdesk — CUSMA Trade Deal Review: What Canadians Need to Know</a></li>
+      <li><a href="https://www.cbc.ca/news/world/trump-tariffs-trade-canada-cusma-usmca-negotiations-9.7228645" target="_blank">CBC — Trump unlikely to rip up CUSMA</a></li>
+      <li><a href="https://ca.investing.com/rates-bonds/canada-5-year-bond-yield" target="_blank">Investing.com — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed" target="_blank">Ratehub — Best 5-Year Fixed Mortgage Rates Canada</a></li>
+      <li><a href="https://www.youtube.com/watch?v=V2opAPSrmcg" target="_blank">Ron Butler @angrymortgage — "The Sheriff Is Coming For Homes" (Jun 23, 2026)</a></li>
+      <li><a href="https://www.youtube.com/shorts/xOt9Ce7PpGY" target="_blank">Ragona Sisters — "Denied Mortgage? It's Not Your Credit Score!" (Jun 22, 2026)</a></li>
+      <li><a href="https://www.youtube.com/shorts/ZiMtdBKHI6Q" target="_blank">Ragona Sisters — "Canada's Student Housing Crisis" (Jun 22, 2026)</a></li>
+      <li><a href="https://robinhood.com/us/en/prediction-markets/fx/events/canadian-dollar-to-us-dollar-exchange-rate-june-23-2026-jun-23-2026/" target="_blank">CAD/USD June 23, 2026 — 0.7059</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  🇨🇦 Morning Brief · Tuesday, June 23, 2026 · Prepared for Dmytro
+</div>
+
+</body>
+</html>
