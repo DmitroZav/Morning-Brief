@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, June 24, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .live-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { background: #b71c1c; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, June 24, 2026 &nbsp;·&nbsp; Canadian Real Estate &amp; Economy</div>
+  <div style="margin-top:14px;">
+    <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-06-24.html">View Live Online</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="section-label">☀️ Big Story of the Day</div>
+    <span class="badge">Breaking</span>
+    <div class="section-title">Up to $130,000 Off a New Home — It's Now the Law</div>
+    <p>Bill C-26 — the Improving Housing Supply Act — received Royal Assent on June 19. The big headline: Ontario buyers of new homes priced up to $1.5 million can now get up to <strong>$130,000 back in combined federal and provincial HST (the sales tax on new builds)</strong>. HST is the combined federal + Ontario sales tax — typically 13% — that gets tacked onto the price of a brand-new home or condo. Until now, this tax made new construction significantly more expensive than resale.</p>
+    <p>The federal government is also sending $1.7 billion to provinces to cut development fees — extra costs builders pay to cities that ultimately get passed to buyers.</p>
+    <p><strong>Video-worthy because:</strong> This is the single biggest cost reduction for new-home buyers in years. Your audience needs to hear it from someone who lives here and understands the pain of that 13% hit. One catch: final rules aren't locked in yet, and builders are already looking for workarounds — worth flagging honestly.</p>
+  </div>
+
+  <!-- ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="section-title">Market Pulse Today</div>
+    <div class="big-text">The government just cut the tax on new homes by up to $130K — but rents are still falling, insolvencies are at a 17-year high, and Canadians are leaving the country faster than any time in 74 years. The market is moving. But who exactly is it moving for?</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="section-title">Key Numbers</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>Plain English</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC Overnight Rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">No change</td>
+            <td class="plain-meaning">5th straight hold. Next decision: July 15.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't Bond Yield</td>
+            <td>~3.05%</td>
+            <td>~3.0%</td>
+            <td class="tag-up">↑ slightly</td>
+            <td class="plain-meaning">Drives fixed mortgage rates — when this rises, your 5-yr fixed goes up too.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Fixed Mortgage (best insured)</td>
+            <td>~4.04–4.09%</td>
+            <td>—</td>
+            <td class="tag-flat">Stable</td>
+            <td class="plain-meaning">On a $600K mortgage, that's ~$3,100/mo. Shop around — rates vary widely.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Variable Mortgage / Prime</td>
+            <td>~3.35% / 4.45%</td>
+            <td>—</td>
+            <td class="tag-flat">No change</td>
+            <td class="plain-meaning">Variable is ~0.7% cheaper than fixed right now — rare reversal from last year.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation / CPI (May 2026)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ 0.4%</td>
+            <td class="plain-meaning">Gas prices and groceries (vegetables +9%) pushed it up. Core inflation still ~2%, so BoC isn't panicking yet.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA Avg Price (TRREB May)</td>
+            <td>$1,069,700</td>
+            <td>$1,121,217 (May '25)</td>
+            <td class="tag-down">↓ 4.6% YoY</td>
+            <td class="plain-meaning">Sales up 6.3% but prices still down year-over-year. New listings also fell 18.9% — less supply coming in.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">National Avg Price (CREA)</td>
+            <td>~$667,700</td>
+            <td>~$660,000 (Apr)</td>
+            <td class="tag-up">↑ slightly</td>
+            <td class="plain-meaning">4th monthly gain in a row nationally — but still 20%+ below the 2022 peak.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg Asking Rent (Canada)</td>
+            <td>$2,027/mo</td>
+            <td>$2,127 (Jun '25)</td>
+            <td class="tag-down">↓ 4.7% YoY</td>
+            <td class="plain-meaning">19 straight months of rent declines. If you're renting, this is good news.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD/USD</td>
+            <td>$0.705</td>
+            <td>$0.715 (Jun 16)</td>
+            <td class="tag-down">↓ weak</td>
+            <td class="plain-meaning">Loonie weakened this week. Imports, travel, and US goods cost more for Canadians.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <div class="section-title">The Plain-Language Takeaway</div>
+    <p><strong>If you're a first-time buyer:</strong> The HST relief is real and it's big — but only on new builds, and the fine print isn't finalized yet. Don't sign anything based on the headline alone. Ask your agent and lawyer what's confirmed.</p>
+    <p><strong>If you're a renter:</strong> Rents have dropped 19 months in a row. You have more negotiating power than you did two years ago. If you haven't asked your landlord to renegotiate, now might be the moment.</p>
+    <p><strong>If you're carrying debt:</strong> 1 in 7 dollars of the average Canadian household income now goes just to servicing debt — before groceries. Insolvencies hit a 17-year high in April. The rate holds don't help people who are already maxed out.</p>
+    <p><strong>If you're watching the condo market:</strong> The federal government quietly approved a $3.2 billion bailout for condo developers in BC — your tax dollars propping up developers who overbuilt. Ron Butler is loud about this today. Worth watching how it plays out nationally.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch — Last 24h</div>
+    <div class="section-title">What the Watchlist Posted</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · <span class="creator-platform">@angrymortgage · YouTube</span></div>
+      <p style="margin:6px 0 4px;font-size:0.88rem;">"<strong>Carney's Condo Bailout</strong>" — posted June 24, 3,884 views</p>
+      <p class="creator-note">Ron goes full throttle on the $3.2B federal bailout for BC condo developers, calling it an outrageous waste of taxpayer money to rescue ultra-rich developers who overbuilt. His usual blunt style.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note"><strong>Your angle:</strong> "The government just gave $3.2 billion to condo developers. Meanwhile, I'm watching first-time buyers get priced out every day. Here's what I think about that — as someone who lives here." Your immigrant/everyday-person lens makes this more relatable than Ron's finance-world framing.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · <span class="creator-platform">@daniel_foch · YouTube</span></div>
+      <p class="creator-note">No new posts in the last 36 hours.</p>
+      <span class="verdict verdict-na">N/A</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · <span class="creator-platform">@TomStorey · YouTube</span></div>
+      <p style="margin:6px 0 4px;font-size:0.88rem;">"<strong>The Canadian Housing Market Has Crashed…Now What?</strong>" — posted June 23, 4,463 views</p>
+      <p class="creator-note">Post-crash framing: what should buyers and sellers actually do now? Polished GTA agent perspective.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Study the structure. Tom is great at turning market anxiety into actionable advice — that's the format to learn from here.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Russell Matthews · <span class="creator-platform">@russellmatthews · YouTube</span></div>
+      <p style="margin:6px 0 4px;font-size:0.88rem;">"<strong>It Started: Canada's Banks Just Asked For Help</strong>" — posted June 23, 34,772 views</p>
+      <p class="creator-note">High engagement — banks signaling stress is a hook that resonates. Russell has strong investing-lens framing and this video clearly touched a nerve.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note"><strong>Your angle:</strong> "Canada's banks are asking for help. What does that actually mean for your mortgage renewal?" Bring it down to the person renewing in 2026–2027 — that's your audience's real fear.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Dmitry Banchik · <span class="creator-platform">@Dmitry.Banchik · YouTube</span></div>
+      <p style="margin:6px 0 4px;font-size:0.88rem;">"<strong>КАНАДА: Населення падає, іміграцію скорочують, Карні знову «рятує» всіх!</strong>" — posted June 23, 9,306 views</p>
+      <p class="creator-note">Russian/Ukrainian-language video covering Canada's population decline, immigration cuts, and Carney's economic moves. His audience overlaps directly with yours — but Dmytro, you can make an English-language version of this story with your lived-experience edge.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note"><strong>Your angle:</strong> "I came to Canada as an immigrant. Now Canada is actually losing people — Canadians are leaving faster than they have in 74 years. Here's what that means for housing, rent, and the economy we're all living in."</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters · <span class="creator-platform">@RagonaSistersTv · YouTube</span></div>
+      <p style="margin:6px 0 4px;font-size:0.88rem;">"<strong>Canada Has $6 Trillion in Housing Wealth — And the Government Is Running Out of Places to Look</strong>" — posted June 23, 6,208 views</p>
+      <p class="creator-note">Strong long-form piece on the government eyeing untaxed home equity. Also posted multiple shorts today — one about a GTA homeowner losing $200K in value due to a neighbour dispute (only 25 views so far, very early).</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">The $6 trillion / home equity tax angle is important to track — if this gains traction it'll be a major story for homeowners. File it for next week if it picks up.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT IDEAS -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+    <div class="section-title">Ideas Ranked by Performance Potential</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">$130,000 Off a New Home — What the New Law Actually Means</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Tax savings = instant wallet impact. Big number, new law, clear CTA to save. This is the kind of video people share to family group chats.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-Screen Text</strong>
+          The government just cut $130,000 off new homes
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "The federal government just passed a law that could save you up to $130,000 on a new home in Ontario. Here's what it means — and what to watch out for."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (target ~45s)</div>
+        <p><strong>Hook:</strong> The government just passed a law that could save you up to $130,000 on a brand-new home in Ontario.</p>
+        <p><strong>Body:</strong> Here's the deal. When you buy a new build — a condo, a townhouse, anything newly constructed — you pay HST on top of the price. That's 13% in Ontario. On a $1 million home, that's $130,000 just in tax. Until now, only part of it was rebated. Bill C-26 just changed that. Ontario and the federal government are combining their relief so eligible buyers of new homes up to $1.5 million could get the full HST back. I live here. I sell here. This is real. But — and this matters — the final rules aren't written yet. Builders are already looking for ways around it. So don't go signing contracts based on the headline alone. Talk to your agent and your lawyer first.</p>
+        <p><strong>CTA:</strong> "Save this video and share it with anyone looking at new construction. And comment 'HST' below — I'll DM you what questions to ask before you sign anything."</p>
+      </div>
+
+      <div class="script-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">HST = 13% tax on new builds</span>
+        <span class="onscreen-tag">Up to $130K saved</span>
+        <span class="onscreen-tag">Homes up to $1.5M</span>
+        <span class="onscreen-tag">Bill C-26 = law as of June 19</span>
+        <span class="onscreen-tag">⚠️ Final rules not finalized yet</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real Footage Search Terms</div>
+        <div class="broll-terms">new condo construction Toronto, townhouse development aerial, signing real estate contract, Canadian dollar bills, new home keys handover</div>
+        <div class="ai-prompt">
+          <div class="broll-label" style="color:#a5b4fc;">Higgsfield AI Prompt (9:16, paste-ready)</div>
+          Cinematic vertical shot, new glass condo tower under construction against a blue Toronto sky, crane in frame, golden hour light, photorealistic, no text<br><br>
+          Close-up vertical shot of a person's hands holding a set of house keys outside a newly built home, warm sunlight, shallow depth of field, hopeful mood, photorealistic
+        </div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">I Came to Canada to Build a Life. Now Canadians Are Leaving.</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Emotional contrast hook. Ukrainians + English-speaking Canadians both feel this. High comment potential ("why are Canadians leaving?").</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-Screen Text</strong>
+          I moved TO Canada. Now Canadians are leaving.
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "I came to Canada for a better life. But right now, Canadians are leaving this country at the fastest rate in 74 years."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (target ~40s)</div>
+        <p><strong>Hook:</strong> I came to Canada to build a better life. But right now, Canadians are leaving faster than any time since 1952.</p>
+        <p><strong>Body:</strong> Statistics Canada just reported that Canada's population actually shrank for a third straight quarter. People are leaving — not tourists, not temporary workers. Permanent residents and citizens. 30,000 in just Q1 of this year alone — a record. At the same time, immigration is being cut. Fewer people coming in. More leaving. What does this mean for housing? Less demand. Which is part of why rents have fallen every single month for the past 19 months, and why the GTA housing market is still soft. I live here. I watch this every day. And I'll be honest — it's complicated. Canada has real issues right now. But it's still the place I chose, and I think it's worth staying informed.</p>
+        <p><strong>CTA:</strong> "If you're wondering whether now is the time to buy or wait — comment WAIT or BUY below. I read every comment."</p>
+      </div>
+
+      <div class="script-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">30,000 left in Q1 2026 — record</span>
+        <span class="onscreen-tag">Population fell 3 quarters in a row</span>
+        <span class="onscreen-tag">Rents down 19 months straight</span>
+        <span class="onscreen-tag">I still chose Canada</span>
+        <span class="onscreen-tag">Comment: WAIT or BUY</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real Footage Search Terms</div>
+        <div class="broll-terms">Toronto street walking people, Toronto skyline time lapse, empty apartment for rent sign, airplane window flying away, immigrant family arriving airport</div>
+        <div class="ai-prompt">
+          <div class="broll-label" style="color:#a5b4fc;">Higgsfield AI Prompt (9:16, paste-ready)</div>
+          Cinematic vertical slow-motion shot of a busy downtown Toronto sidewalk at dusk, diverse crowd walking, city lights, thoughtful melancholic mood, photorealistic, no text
+        </div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">1 in 7 Dollars Gone Before You Even Buy Groceries</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Debt pain is universal. The "1 in 7" stat is visceral and sharable. High save rate from people who feel seen.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-Screen Text</strong>
+          1 in 7 dollars of your income is already gone
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "Before you buy a single grocery, 1 out of every 7 dollars you earn is already gone — just on debt payments."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (target ~35s)</div>
+        <p><strong>Hook:</strong> 1 in 7 dollars of the average Canadian household income goes to debt — before food, before rent, before anything.</p>
+        <p><strong>Body:</strong> That's what new data shows. The debt-service ratio hit 14.75% in Canada — a number that sounds small until you realize it means for every $7,000 someone earns, $1,000 is already spoken for just in interest and loan payments. And insolvencies — when people officially say they can't pay their debts anymore — just hit a 17-year high. Meanwhile, the Bank of Canada is holding rates, not cutting. The good news? Rents have come down. But if you're carrying a mortgage, a car loan, and credit card debt, lower rent doesn't help you. If you're in this situation — you're not alone. I see it every day in this market.</p>
+        <p><strong>CTA:</strong> "Save this and share it with someone who needs to hear they're not alone. Follow for tomorrow's brief."</p>
+      </div>
+
+      <div class="script-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Debt ratio: 14.75%</span>
+        <span class="onscreen-tag">Insolvencies = 17-year high</span>
+        <span class="onscreen-tag">$124B in credit card debt</span>
+        <span class="onscreen-tag">BoC holding — no relief soon</span>
+        <span class="onscreen-tag">You're not alone</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real Footage Search Terms</div>
+        <div class="broll-terms">person checking wallet empty, credit card payment declined, grocery store checkout, Canadian family budget stress, bills on kitchen table</div>
+        <div class="ai-prompt">
+          <div class="broll-label" style="color:#a5b4fc;">Higgsfield AI Prompt (9:16, paste-ready)</div>
+          Cinematic vertical close-up of hands sorting through receipts and bills on a wooden kitchen table, warm home lighting, stressed but determined mood, photorealistic, no text
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-label">📌 Sources</div>
+    <div class="section-title">Today's Research</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/" target="_blank">Bank of Canada — Rate Hold June 10, 2026</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260622/dq260622a-eng.htm" target="_blank">Statistics Canada — CPI May 2026 (inflation 3.2%)</a></li>
+      <li><a href="https://www.canada.ca/en/department-finance/news/2026/06/legislation-passes-to-boost-housing-supply-and-help-make-housing-more-attainable-for-all-canadians.html" target="_blank">Government of Canada — Bill C-26 Royal Assent, HST Relief</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/06/ontarios-new-home-hst-relief-awaits-final-rules-as-builders-explore-workarounds/" target="_blank">Canadian Mortgage Trends — Ontario HST relief, builders exploring workarounds</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/" target="_blank">TRREB Market Watch — GTA May 2026 sales and prices</a></li>
+      <li><a href="https://thehub.ca/2026/06/22/canadians-hitting-financial-breaking-point-as-homeowners-claiming-insolvency-rise-1-in-7-dollars-of-household-income-now-services-debt/" target="_blank">The Hub — Canadian insolvencies, debt service ratio June 2026</a></li>
+      <li><a href="https://betterdwelling.com/this-weeks-top-stories-canadians-flee-at-fastest-pace-in-74-years-home-prices-hit-new-highs/" target="_blank">Better Dwelling — Canadians leaving at fastest pace in 74 years</a></li>
+      <li><a href="https://wowa.ca/mortgage-rates" target="_blank">WOWA.ca — Current mortgage rates Canada</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sKaUpHZG400" target="_blank">Ron Butler (@angrymortgage) — "Carney's Condo Bailout"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=Nza_jaYSnjg" target="_blank">Russell Matthews — "It Started: Canada's Banks Just Asked For Help"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQ5ZBaLFonE" target="_blank">Tom Storey — "The Canadian Housing Market Has Crashed…Now What?"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=KTq9_PPcmus" target="_blank">Dmitry Banchik — Canada population / immigration video (June 23)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=4gGeBCJSChI" target="_blank">Ragona Sisters — "$6 Trillion in Housing Wealth"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  🇨🇦 Morning Brief · June 24, 2026 · Built for Dmytro · I live here. I sell here.
+</div>
+
+</body>
+</html>
