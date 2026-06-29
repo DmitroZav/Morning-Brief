@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Monday, June 29, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .live-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { background: #b71c1c; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, June 29, 2026 &nbsp;·&nbsp; Canadian Real Estate &amp; Economy</div>
+  <div style="margin-top:14px;">
+    <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-06-29.html">View Live Online</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="section-label">☀️ Big Story of the Day</div>
+    <span class="badge">Major Shift</span>
+    <div class="section-title">Canada Is Shrinking — and It's Changing the Housing Market</div>
+    <p>For the first time since Confederation (that's when Canada became a country, in 1867), Canada's population is declining. Statistics Canada confirmed this week that the population dropped <strong>for a third consecutive quarter</strong> in Q2 2026 — we now have about 41.4 million people, down 55,000 from January. The main reason: the federal government dramatically cut immigration targets. Canada went from welcoming over 500,000 new permanent residents per year to a target of 380,000 in 2026 — and non-permanent residents (students, temporary workers) dropped by nearly 118,000 in a single quarter.</p>
+    <p>Why does this matter for housing? For years, the go-to explanation for why Canadian homes cost so much was "too many people, not enough houses." Now the equation is flipping. Fewer people means less demand for rentals and homes — especially in cities that relied heavily on international students and newcomers to fill condos. Toronto, Vancouver, and their suburbs are already feeling this.</p>
+    <p><strong>Video-worthy because:</strong> Your audience is living this. Ukrainian newcomers who came here expecting the dream are now watching Canada change direction on immigration. This is personal, relevant, and gets comments.</p>
+  </div>
+
+  <!-- ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="section-title">Today's Single Biggest Idea</div>
+    <div class="big-text">Fixed mortgage rates are quietly dropping right now — not because the Bank of Canada cut rates, but because bond markets moved. If you're renewing soon, this week matters.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="section-title">Key Numbers</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>Plain English</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC Overnight Rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">No change</td>
+            <td class="plain-meaning">Held at June 10 meeting — 4th hold in a row. Next decision July 15.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't Bond Yield</td>
+            <td>3.01%</td>
+            <td>3.08%</td>
+            <td class="tag-down">↓ 0.07 (past month)</td>
+            <td class="plain-meaning">Bond yield = what the gov't pays to borrow. When it falls, FIXED mortgage rates tend to follow.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr Fixed Mortgage</td>
+            <td>~4.04%</td>
+            <td>~4.19%</td>
+            <td class="tag-down">↓ Trending down</td>
+            <td class="plain-meaning">Quietly falling. On a $600K mortgage, each 0.15% drop saves ~$75/month.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr Variable / Prime</td>
+            <td>3.45% / 4.45%</td>
+            <td>Same</td>
+            <td class="tag-flat">No change</td>
+            <td class="plain-meaning">Variable still lower than fixed. Prime rate = what banks charge their best customers; your variable rate is prime minus a discount.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May 2026)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ Jumped</td>
+            <td class="plain-meaning">Gas prices up 33% YoY (Iran conflict). Core inflation still ~2.1% — the BoC isn't panicking yet, but a rate cut in July is looking less likely.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA Avg Price (TRREB, May)</td>
+            <td>$1,069,700</td>
+            <td>$1,121,210 (May '25)</td>
+            <td class="tag-down">↓ 4.6% YoY</td>
+            <td class="plain-meaning">Prices are lower than last year. Sales are up 6.3% — more people buying, but at lower prices. Market tightening slightly.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">National Avg Price (CREA, May)</td>
+            <td>$702,079</td>
+            <td>$691,717 (May '25)</td>
+            <td class="tag-up">↑ 1.5% YoY</td>
+            <td class="plain-meaning">Outside Toronto and BC, prices are actually rising. 7 provinces hit all-time highs in May.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Housing Starts (CMHC, May)</td>
+            <td>261,377 (SAAR)</td>
+            <td>278,380 (Apr)</td>
+            <td class="tag-up">↓ 6% MoM</td>
+            <td class="plain-meaning">SAAR = "seasonally adjusted annual rate" — how many homes we'd build in a year at this pace. Toronto starts down 12% YoY. Fewer new homes being started.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD/USD</td>
+            <td>1 CAD = $0.704 USD</td>
+            <td>$0.724 (month ago)</td>
+            <td class="tag-up">↓ Weakening</td>
+            <td class="plain-meaning">Canadian dollar lost 2.5% in a month. Imports cost more. Puts pressure on inflation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <div class="section-title">The "So What" for Regular People</div>
+    <p>If you're renting right now, the population decline is actually something to watch — less demand for rentals could give renters more leverage than they've had in years, especially as condo investors who bought pre-construction are starting to offload units. We already see mortgage arrears (that means people 90+ days behind on payments) at a 12-year high across Canada.</p>
+    <p>If you're thinking about buying, fixed rates are quietly drifting down even without a BoC cut — because bond markets are moving. Ron Butler posted a video today called "RATES ARE FALLING" that already has 19,000 views. That's a sign this story is resonating. Now is a good moment to at least get pre-approved and see what rate you can lock in.</p>
+    <p>If you own a Toronto condo: TD Bank just published a report today saying the condo correction in Toronto could last until 2028 — calling it the "longest correction on record." That's not a reason to panic sell, but it is a reason to have a clear plan and not assume prices bounce back quickly.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch — Last 24h</div>
+    <div class="section-title">What the Competition Posted</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler <span class="creator-platform">· @angrymortgage · YouTube</span></div>
+      <div style="margin: 4px 0;">"<strong>RATES ARE FALLING</strong>"</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note">19,247 views already — posted this morning. Ron breaks down why fixed mortgage rates are dropping even without a BoC cut (bond yields falling). This is the clearest, most timely explainer for your audience right now. <strong>Your angle:</strong> "I came to Canada when rates were at 5%. Here's what falling rates actually mean for a newcomer trying to buy their first home — in real numbers." Lead with your personal story, then explain the bond yield mechanic in 30 seconds flat. Much more relatable than Ron's finance-bro delivery.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler <span class="creator-platform">· @angrymortgage · YouTube</span></div>
+      <div style="margin: 4px 0;">"<strong>Brampton's Shocking Effect On Lending</strong>"</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note">33,368 views — huge number for a mortgage channel. Lenders are tightening up specifically because of Brampton's high mortgage default rate. Relevant context for any client buying in the 905 area. Not an immediate content play for you, but good intelligence.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler <span class="creator-platform">· @angrymortgage · YouTube</span></div>
+      <div style="margin: 4px 0;">"<strong>Dog Crates Are The New Starter Home</strong>"</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note">14,755 views. Headline is provocation about how absurdly unaffordable entry-level housing has become. Good hook study — notice how he uses extreme comparisons to make a point. This is a technique worth borrowing.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey <span class="creator-platform">· @TomStorey · YouTube</span></div>
+      <div style="margin: 4px 0;">"<strong>'Longest Correction On Record': TD Says Toronto Condo Prices Will Drop Until 2028</strong>"</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note">Just posted (679 views, very fresh). TD Bank's report is a credible, alarming data point. <strong>Your angle:</strong> "Should you buy a Toronto condo right now? I'm a realtor. Here's my honest answer." Your immigrant lens adds authenticity — you can say "I bought near the peak and felt it. Here's what I'd tell my past self." That personal honesty gets saves and shares.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters <span class="creator-platform">· @RagonaSistersTv · YouTube</span></div>
+      <div style="margin: 4px 0;">"<strong>One Power of Sale Could Change Your Entire Street</strong>"</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note">2,836 views. "Power of sale" = when a bank forces the sale of a home because the owner stopped paying the mortgage. This is rising across the GTA. <strong>Your angle:</strong> "What happens to your home's value when your neighbour loses their house to the bank?" Explain what power of sale means in plain language for newcomers who've never heard the term. Very shareable — people tag their friends who own condos.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch <span class="creator-platform">· @daniel_foch · YouTube</span></div>
+      <span class="verdict verdict-na">NO POST</span>
+      <div class="creator-note">Nothing in the last 36 hours.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Russell Matthews <span class="creator-platform">· @russellmatthews · YouTube</span></div>
+      <span class="verdict verdict-na">NO POST</span>
+      <div class="creator-note">Nothing in the last 36 hours.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Dmitry Banchik <span class="creator-platform">· @Dmitry.Banchik · YouTube</span></div>
+      <span class="verdict verdict-na">NO POST</span>
+      <div class="creator-note">Nothing in the last 36 hours.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">IG / TikTok creators</div>
+      <span class="verdict verdict-na">NOT CHECKABLE</span>
+      <div class="creator-note">Instagram and TikTok block feed scraping. YouTube covered above is reliable.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+    <div class="section-title">Ideas Ranked by Performance Potential</div>
+
+    <!-- Idea 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Fixed Rates Are Falling — What It Means For Your Mortgage Payment</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Ron Butler's version has 19K views in hours. Your immigrant-realtor angle makes it more relatable. High save rate — people share rate content with anyone in their life thinking about buying.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          Fixed rates are dropping — and nobody's talking about it
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "The Bank of Canada didn't cut rates. But your mortgage payment could still go down — here's why."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~45 seconds)</div>
+        <p><strong>Hook:</strong> "The Bank of Canada hasn't cut rates since last year. But fixed mortgage rates are actually falling right now — and most people have no idea why."</p>
+        <p><strong>Body:</strong> "Here's the simple version. Fixed mortgage rates are tied to something called the 5-year government bond yield — basically, the interest rate the Canadian government pays when it borrows money. When that number goes down, lenders can offer you a cheaper fixed rate. And right now, that yield just dropped to 3.01%, its lowest in a month. The best 5-year fixed rate you can get today is around 4.04%. A few months ago it was closer to 4.5%. On a $600,000 mortgage, that difference is about $150 a month. That's real money. I live here. I sell here. If you're renewing a mortgage this year or thinking about buying — this is the week to call a broker and lock in a rate."</p>
+        <p><strong>CTA:</strong> "Comment 'RATE' and I'll send you the lenders offering the best deals right now."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">BoC didn't cut</span>
+        <span class="onscreen-tag">But fixed rates ARE falling</span>
+        <span class="onscreen-tag">Bond yield → your mortgage</span>
+        <span class="onscreen-tag">4.04% best rate today</span>
+        <span class="onscreen-tag">$150/month difference on $600K</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real Footage Search Terms (Pexels / Storyblocks)</div>
+        <div class="broll-terms">Toronto skyline morning, person reviewing mortgage documents, Canadian bank exterior, couple looking at laptop home finance, Toronto condo building</div>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI Prompt (9:16, paste-ready)</div>
+        <div class="ai-prompt">Cinematic vertical shot, Toronto financial district at dawn, glass towers reflecting golden light, slow upward pan, soft bokeh, photorealistic, 4K</div>
+      </div>
+    </div>
+
+    <!-- Idea 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">TD Says Toronto Condos Will Drop Until 2028 — My Honest Take</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Credible bank report + "longest correction on record" framing = headline material. Your lived experience of buying near the peak gives you genuine authority here that big channels can't replicate.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          TD Bank just said Toronto condos won't recover until 2028
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "A major Canadian bank just said Toronto condo prices will keep falling for two more years. As a realtor who owns one — here's what I actually think."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50 seconds)</div>
+        <p><strong>Hook:</strong> "TD Bank just published a report calling Toronto's condo market the 'longest correction on record' — and predicting prices will keep dropping all the way to 2028."</p>
+        <p><strong>Body:</strong> "Here's the context. Toronto condo prices are down about 6.7% compared to last year. The MLS HPI — that's an index that tracks the typical home value — has been falling. Why? Too many condos sitting empty, fewer newcomers coming to Canada, investors who bought pre-construction and can't cover their costs. Now they're being forced to sell. I bought a condo near the market peak. I felt this personally. So when TD says it might not recover for two years, I take that seriously. But here's the flip side — a falling market is a buying opportunity if your timeline is 5+ years and you buy the right unit in the right building. The worst thing you can do right now is panic sell without a plan."</p>
+        <p><strong>CTA:</strong> "Are you a condo owner right now? Tell me in the comments — I read every single one."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">TD: "Longest correction on record"</span>
+        <span class="onscreen-tag">GTA condos down 6.7% YoY</span>
+        <span class="onscreen-tag">Too many empty units</span>
+        <span class="onscreen-tag">Don't panic sell without a plan</span>
+        <span class="onscreen-tag">I bought near the peak — here's my take</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real Footage Search Terms</div>
+        <div class="broll-terms">Toronto condo tower construction, empty condo apartment interior, for sale sign GTA, young couple worried about finances, realtor on phone</div>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI Prompt (9:16, paste-ready)</div>
+        <div class="ai-prompt">Cinematic vertical, aerial drone shot descending toward a row of Toronto condo towers at dusk, moody blue-orange sky, realistic architectural detail, slow motion</div>
+      </div>
+    </div>
+
+    <!-- Idea 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Canada Is Shrinking — Here's What That Means for Housing</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Wild, counterintuitive story — Canada's population declining for the first time since Confederation. Hits your Ukrainian audience directly (immigration cuts affect them and people like them). Generates strong emotional reactions and comments.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          Canada's population is shrinking for the first time in 159 years
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "Canada is shrinking. Not a joke. For the first time since this country was founded, the population is actually going down."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~40 seconds)</div>
+        <p><strong>Hook:</strong> "Canada's population just dropped for a third straight quarter. That hasn't happened since Confederation — 1867."</p>
+        <p><strong>Body:</strong> "For years we've been told Canadian homes are expensive because too many people are coming here. Now that's reversing. The government slashed immigration targets. International students got capped. Temporary workers are leaving. Canada lost about 55,000 people just in the first quarter of 2026. What does that mean for housing? Fewer renters, fewer buyers, more condos sitting empty. In cities like Toronto, where condo investors counted on newcomers to fill their units — this is already showing up in falling rents and rising vacancies. I came here as an immigrant. I watched this market from the inside. And I'll tell you — what's happening right now is something nobody predicted."</p>
+        <p><strong>CTA:</strong> "Save this if you're watching what's happening to the market. And follow for tomorrow's update."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">First population drop since 1867</span>
+        <span class="onscreen-tag">55,000 fewer people in Q1 2026</span>
+        <span class="onscreen-tag">Immigration cuts = less demand</span>
+        <span class="onscreen-tag">Condo investors feeling it now</span>
+        <span class="onscreen-tag">I live here. I sell here.</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real Footage Search Terms</div>
+        <div class="broll-terms">Toronto Pearson airport arrivals, empty apartment, Canada flag immigration ceremony, city street timelapse, map of Canada</div>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI Prompt (9:16, paste-ready)</div>
+        <div class="ai-prompt">Cinematic vertical, slow dolly through a quiet empty Toronto street at golden hour, few pedestrians, long shadows, melancholy atmosphere, photorealistic</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-label">📌 Sources</div>
+    <div class="section-title">Today's References</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/" target="_blank">Bank of Canada — Rate Hold, June 10, 2026</a></li>
+      <li><a href="https://ca.investing.com/rates-bonds/canada-5-year-bond-yield" target="_blank">Canada 5-Year Bond Yield — Investing.com</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed" target="_blank">Best 5-Year Fixed Mortgage Rates — Ratehub.ca</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260622/dq260622a-eng.htm" target="_blank">Statistics Canada — Consumer Price Index, May 2026</a></li>
+      <li><a href="https://www.cbc.ca/news/business/cpi-may-2026-9.7244063" target="_blank">CBC News — Canada's Inflation Rate Rose to 3.2% in May</a></li>
+      <li><a href="https://trreb.ca/spring-home-sales-stronger-than-last-year/" target="_blank">TRREB — Spring Home Sales Stronger Than Last Year (May 2026)</a></li>
+      <li><a href="https://wowa.ca/reports/canada-housing-market" target="_blank">WOWA — Canadian Housing Market Report, CREA May 2026</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-may-2026" target="_blank">CMHC — Housing Starts and Construction Data, May 2026</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260617/dq260617a-eng.htm" target="_blank">Statistics Canada — Population Estimates, Q1 2026</a></li>
+      <li><a href="https://www.cbc.ca/news/business/population-drop-first-quarter-2026-9.7238364" target="_blank">CBC News — Canada's Population Drops in Q1 2026</a></li>
+      <li><a href="https://www.canada.ca/en/department-finance/news/2026/06/legislation-passes-to-boost-housing-supply-and-help-make-housing-more-attainable-for-all-canadians.html" target="_blank">Government of Canada — Bill C-26 Improving Housing Supply Act</a></li>
+      <li><a href="https://www.youtube.com/watch?v=5mITq2xetAE" target="_blank">Ron Butler — "RATES ARE FALLING" (YouTube, June 29)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=K9dvBDcJcdQ" target="_blank">Tom Storey — "TD Says Toronto Condo Prices Will Drop Until 2028" (YouTube, June 29)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=WbUt10d6b0w" target="_blank">Ragona Sisters — "One Power of Sale Could Change Your Entire Street" (YouTube, June 28)</a></li>
+      <li><a href="https://betterdwelling.com/" target="_blank">Better Dwelling — Canadian Real Estate News</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  🇨🇦 Morning Brief · Dmytro Zavhorodniuk · Toronto Real Estate &amp; Economy · June 29, 2026
+</div>
+
+</body>
+</html>
