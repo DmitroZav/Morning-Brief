@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, June 30, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .broll-terms { color: var(--dark); }
+    .ai-prompt {
+      margin-top: 6px;
+      background: #1e1b4b;
+      color: #c7d2fe;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+    }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .live-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { background: #b71c1c; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 12px 40px; }
+      td, th { padding: 8px 7px; }
+      .idea-card { padding: 13px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, June 30, 2026 &nbsp;·&nbsp; Canadian Real Estate &amp; Economy</div>
+  <div style="margin-top:14px;">
+    <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-06-30.html">📱 View Live</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="section-label">☀️ Big Story of the Day</div>
+    <div class="big-story .badge"><span class="badge">Must-Know</span></div>
+    <div class="section-title">Iran-US Peace + Gas Prices: What It Means for Your Wallet</div>
+    <p>The US and Iran signed a peace framework on June 18, ending a brief but brutal conflict that had spiked global oil prices to their highest levels since 2022. Gas at Canadian pumps had jumped 33% year-over-year by May — the main reason Canada's inflation hit 3.2%, the highest since late 2023. With the conflict winding down, relief is on the way, but economists warn it will take months to fully show up in prices.</p>
+    <p>Why it's video-worthy: every Canadian felt it at the pump. Inflation was the #1 housing affordability killer this year — and now that story is turning. Perfect "things are finally moving in the right direction" angle for your audience.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="section-title">Fixed Mortgage Rates Are Quietly Coming Down — But Still High</div>
+    <p class="big-text">Best 5-year fixed is now around 4.04%. Still painful if you locked in at 2% a few years ago — but the slow drop is real, and it changes the math for buyers sitting on the fence.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="section-title">Numbers That Matter Today</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>Plain English</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">No change</td>
+            <td class="plain-meaning">Held since Oct 2025. Next decision: July 15. This controls variable mortgages.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't bond yield</td>
+            <td>3.01%</td>
+            <td>~3.10%</td>
+            <td class="tag-down">↓ Easing</td>
+            <td class="plain-meaning">Drives FIXED mortgage rates. When this falls, fixed rates follow — with a lag.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr fixed mortgage</td>
+            <td>~4.04%</td>
+            <td>~4.20%</td>
+            <td class="tag-down">↓ Slowly falling</td>
+            <td class="plain-meaning">Still double what many paid in 2021, but moving in the right direction.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Variable rate / prime</td>
+            <td>~3.30% / 4.45%</td>
+            <td>Same</td>
+            <td class="tag-flat">No change</td>
+            <td class="plain-meaning">Tracks BoC rate. Stable until at least July 15.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May 2026)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ Higher</td>
+            <td class="plain-meaning">Gas up 33% drove the jump. Core inflation (ex-energy) is a calmer 2.2%.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA avg price (TRREB, May)</td>
+            <td>$1,069,700</td>
+            <td>$1,051,400 (Apr)</td>
+            <td class="tag-up">+1.7% MoM / -4.6% YoY</td>
+            <td class="plain-meaning">Creeping up month-to-month but still cheaper than a year ago. Buyer's window.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">National avg price (CREA, May)</td>
+            <td>$702,079</td>
+            <td>$695,171 (Apr)</td>
+            <td class="tag-up">+1.5% YoY</td>
+            <td class="plain-meaning">First time above $700K in 23 months. National market quietly firming up.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Housing starts (CMHC, May)</td>
+            <td>258,010 (ann.)</td>
+            <td>Flat</td>
+            <td class="tag-flat">Virtually flat</td>
+            <td class="plain-meaning">Not enough homes being built. Toronto starts down 12% YoY. Supply crunch continues.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg asking rent (May)</td>
+            <td>$2,029</td>
+            <td>$2,202 (peak)</td>
+            <td class="tag-down">-4.7% YoY</td>
+            <td class="plain-meaning">20 straight months of declining rents. Still expensive, but getting better for renters.</td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD/USD</td>
+            <td>1 CAD = $0.703 USD</td>
+            <td>$0.724 (1 mo ago)</td>
+            <td class="tag-up">↓ Loonie weaker</td>
+            <td class="plain-meaning">A weaker loonie makes imports pricier — adds to inflation pressure on everyday goods.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <div class="section-title">The Plain-Language Takeaway</div>
+    <p><strong>Renewing your mortgage this year?</strong> About 1.15 million Canadians are expected to renew in 2026. If you locked in at 2% in 2021, you're looking at roughly 4% now — that's hundreds of extra dollars per month. The good news is fixed rates are slowly falling; if you can, a shorter term (1–2 year fixed) might let you catch lower rates sooner.</p>
+    <p><strong>Thinking about buying?</strong> GTA prices are still 4.6% lower than a year ago — you're getting a discount compared to 2025 buyers. But don't sleep on it: the market tightened in May with sales up and new listings down. Inventory is shrinking quietly.</p>
+    <p><strong>Renting?</strong> This is your best rental market in two years. Average asking rent is down almost 8% from the peak. If your lease is up, now is actually a decent time to negotiate or shop around.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch — Last 36h</div>
+    <div class="section-title">What the Competition Posted</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · @angrymortgage · YouTube</div>
+      <div class="creator-platform">Posted 3 times in 36h</div>
+      <div style="margin:6px 0;">
+        <span class="verdict verdict-steal">STEAL</span>
+        <div class="creator-note">"RATES ARE FALLING" — 38,720 views (his biggest recent hit). Ron explains why fixed mortgage rates are starting to drop. <strong>Your angle:</strong> "I was paying attention to rates when I bought my condo near the peak. Here's what I wish someone had told me then — and what it means for you now." Use your lived experience to make this personal, not just a data dump.</div>
+      </div>
+      <div style="margin:6px 0;">
+        <span class="verdict verdict-watch">WATCH</span>
+        <div class="creator-note">"Too Much Debt" (today, 1,799 views) — Ron's new full video on household debt levels. Worth watching before your next mortgage/affordability video.</div>
+      </div>
+      <div style="margin:6px 0;">
+        <span class="verdict verdict-skip">SKIP</span>
+        <div class="creator-note">"We're not part of the club!" (Short, 3,746 views) — unclear angle, low engagement for a Ron short. Not worth adapting.</div>
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · @TomStorey · YouTube</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note">"Longest Correction On Record: TD Says Toronto Condo Prices Will Drop Until 2028" — 3,337 views. TD Bank published a formal report saying Toronto condos are in their longest price correction ever — and it's not over. <strong>Your angle:</strong> as a Ukrainian newcomer who almost bought a condo, this hits home. "Should newcomers buy a condo right now? A TD Bank report just changed my answer." Super relatable for your audience.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters · @RagonaSistersTv · YouTube</div>
+      <div style="margin:6px 0;">
+        <span class="verdict verdict-steal">STEAL</span>
+        <div class="creator-note">"You Downsized — You're Paying MORE Every Month" — 5,948 views. They expose the hidden costs of downsizing that trap Canadians: land transfer tax on the new place, realtor commissions on the sale, moving costs, possible condo fees, and a mortgage at today's rates instead of yesterday's low ones. <strong>Your angle:</strong> "3 things Ukrainians ask me about selling their home — and why the math isn't as simple as it looks."</div>
+      </div>
+      <div style="margin:6px 0;">
+        <span class="verdict verdict-watch">WATCH</span>
+        <div class="creator-note">"Can't Sell Your Home Right Now?" (Short, 1,194 views) — Vaughan market stat: over half of homes unsold this month. Good local data point to reference.</div>
+      </div>
+      <div style="margin:6px 0;">
+        <span class="verdict verdict-skip">SKIP</span>
+        <div class="creator-note">"What Are Your Top 5 Regrets?" (Short, 24 views) — too vague, no traction.</div>
+      </div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · Russell Matthews · Dmitry Banchik</div>
+      <span class="verdict verdict-na">No posts in last 36h</span>
+      <div class="creator-note">Nothing to review today from these three.</div>
+    </div>
+
+    <div class="creator-item" style="border-bottom:none;">
+      <div class="creator-name">IG / TikTok creators</div>
+      <span class="verdict verdict-na">Not checkable today</span>
+      <div class="creator-note">IG/TikTok block automated access. YouTube covered above.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play — 3 Ideas</div>
+    <div class="section-title">Ready-to-Shoot Scripts</div>
+
+    <!-- Idea 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Fixed Rates Are Falling — Here's When to Lock In</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Ron Butler just got 38K views on the same topic. Ride the wave with your immigrant-realtor angle and you'll capture viewers looking for a relatable take.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — First 2 seconds</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          "Fixed mortgage rates are finally dropping"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "If you've been waiting for mortgage rates to come down — they actually are. But there's a catch."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (~45s)</div>
+        <p><strong>Hook:</strong> "Fixed mortgage rates are quietly coming down. The best 5-year fixed is around 4% right now. A year ago it was closer to 5. So what's happening — and should you lock in now?"</p>
+        <p><strong>Body:</strong> "Here's the short version. Fixed rates are tied to something called the 5-year government bond yield — basically, the interest the government pays to borrow money. When that falls, lenders can offer you a lower fixed rate. And bond yields have been easing because oil prices are dropping after the Iran conflict started wrapping up. I know — it sounds complicated. But all you need to remember is: lower oil prices → lower inflation → lower bond yields → lower fixed rates. The question is, do you lock in at 4% now, or wait for more drops? Honestly — if you're renewing in the next 6 months, talk to a broker. If you have time? A shorter 1–2 year term might let you catch even lower rates later."</p>
+        <p><strong>CTA:</strong> "Comment the word RATE below and I'll send you a breakdown of what this means specifically for someone buying in the GTA right now."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Best fixed rate: ~4.04%</span>
+        <span class="onscreen-tag">Was 5%+ a year ago</span>
+        <span class="onscreen-tag">Bond yields driving this</span>
+        <span class="onscreen-tag">Should you lock in?</span>
+        <span class="onscreen-tag">Talk to a broker first</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real footage (Pexels/Storyblocks)</div>
+        <div class="broll-terms">mortgage calculator on phone · bank building exterior Toronto · person signing documents at table · gas station pump · couple reviewing paperwork</div>
+        <div class="ai-prompt">Higgsfield 9:16 prompt: "A young couple reviewing paperwork at a kitchen table in a Toronto condo at golden hour, natural light, cinematic color grade, realistic, documentary style, no text"</div>
+      </div>
+    </div>
+
+    <!-- Idea 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Should You Buy a Toronto Condo Right Now? A TD Bank Report Just Changed My Answer</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: "TD Bank says prices drop until 2028" is a credible, scary stat. Your newcomer perspective adds authenticity that no Bay Street analyst can match.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — First 2 seconds</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          "TD Bank: Toronto condos dropping until 2028"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "One of Canada's biggest banks just said Toronto condos are in the longest price correction in history — and it's not over."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (~50s)</div>
+        <p><strong>Hook:</strong> "TD Bank just published a report calling Toronto's condo market the longest correction on record. Prices have been falling for over two years — and they say it's not done until 2028. I live here, I sell here, and I want to tell you what that actually means."</p>
+        <p><strong>Body:</strong> "When I moved to Toronto, everyone told me: buy a condo, it only goes up. But since the peak in 2022, condo prices in the GTA have dropped significantly — and there are more condos for sale than ever. Too many were built during the construction boom, and investors who bought pre-construction are now selling because they can't make the numbers work as rentals. Add in high interest rates and a flood of new supply, and you get this: a buyer's market for condos. So should you buy one? If you're planning to live in it for 7-10 years minimum — maybe yes. If you're looking at it as a short-term investment — the data says wait."</p>
+        <p><strong>CTA:</strong> "Drop CONDO in the comments and I'll share what I personally look at before recommending a condo to a client."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">TD: longest correction ever</span>
+        <span class="onscreen-tag">Prices dropping until 2028</span>
+        <span class="onscreen-tag">Too much supply</span>
+        <span class="onscreen-tag">Buy to live, not to flip</span>
+        <span class="onscreen-tag">7–10 year horizon minimum</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real footage (Pexels/Storyblocks)</div>
+        <div class="broll-terms">Toronto condo towers construction · for sale sign condo building · empty condo living room · downtown Toronto skyline dusk · person looking at apartment listings on phone</div>
+        <div class="ai-prompt">Higgsfield 9:16 prompt: "Aerial cinematic shot of Toronto condo towers at dusk, city lights reflecting off glass buildings, moody atmosphere, shot on RED camera, vertical format"</div>
+      </div>
+    </div>
+
+    <!-- Idea 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Rents Are Down 5% — Is It Finally a Good Time to Be a Renter?</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: huge chunk of Dmytro's audience are renters or recent newcomers. Positive news for renters is shareable and drives comments ("finally!"). Easy CTA for community building.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — First 2 seconds</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          "Canadian rents just fell for the 20th month in a row"
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "If you're renting in Canada right now, I have some actual good news for you."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (~35s)</div>
+        <p><strong>Hook:</strong> "Canadian rents have been falling — for 20 months straight. The average asking rent is now $2,029. Down almost 8% from the peak of $2,202. Is now the time to renegotiate or move?"</p>
+        <p><strong>Body:</strong> "When I came to Toronto, rent was the scariest part of the budget. So I get why this matters. Here's what the data is telling us: landlords are competing for tenants again. That means if your lease is up — or even if it's not — you have more leverage than you've had in years. You can ask your landlord to hold the rent where it is, or shop around and potentially find something cheaper. Now this doesn't mean rent is cheap — $2,029 is still a lot. But the trend is your friend right now."</p>
+        <p><strong>CTA:</strong> "Are you currently renting in Canada? Comment your city below — I want to know what you're paying."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Avg rent: $2,029</span>
+        <span class="onscreen-tag">Down 4.7% year-over-year</span>
+        <span class="onscreen-tag">20 months falling</span>
+        <span class="onscreen-tag">Negotiate your lease now</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Real footage (Pexels/Storyblocks)</div>
+        <div class="broll-terms">apartment building exterior Toronto · person looking out window apartment · signing rental lease · moving boxes apartment · smiling person at laptop searching apartments</div>
+        <div class="ai-prompt">Higgsfield 9:16 prompt: "Young person sitting by a large apartment window in a bright Toronto unit, golden afternoon light, relaxed and hopeful, cinematic 9:16 vertical, documentary feel, no text"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/" target="_blank">Bank of Canada — Rate hold at 2.25%, June 10, 2026</a></li>
+      <li><a href="https://ca.investing.com/rates-bonds/canada-5-year-bond-yield" target="_blank">Canada 5-Year Bond Yield — Investing.com (~3.01%)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed" target="_blank">Ratehub — Best 5-Year Fixed Mortgage Rates Canada</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260622/dq260622a-eng.htm" target="_blank">Statistics Canada — CPI May 2026 (3.2%)</a></li>
+      <li><a href="https://www.cbc.ca/news/business/cpi-may-2026-9.7244063" target="_blank">CBC — Canada inflation rose to 3.2% in May, driven by gas prices</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/" target="_blank">TRREB — Market Watch, May 2026 (GTA avg $1,069,700)</a></li>
+      <li><a href="https://creastats.crea.ca/en-ca/" target="_blank">CREA — National stats May 2026 ($702,079 avg)</a></li>
+      <li><a href="https://www.newswire.ca/news-releases/housing-starts-and-construction-data-for-may-2026-827584288.html" target="_blank">CMHC — Housing starts May 2026 (258,010 annual pace)</a></li>
+      <li><a href="https://wowa.ca/reports/canada-housing-market" target="_blank">WOWA — Canadian Housing Market Report June 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency" target="_blank">Trading Economics — CAD/USD rate (1 CAD = ~$0.703 USD)</a></li>
+      <li><a href="https://www.aljazeera.com/economy/2026/6/18/oil-prices-fall-stocks-rally-as-us-iran-sign-framework-to-end-war" target="_blank">Al Jazeera — Oil prices fall as US, Iran sign peace framework</a></li>
+      <li><a href="https://www.youtube.com/watch?v=5mITq2xetAE" target="_blank">Ron Butler @angrymortgage — "RATES ARE FALLING" (38,720 views)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=K9dvBDcJcdQ" target="_blank">Tom Storey — "Longest Correction On Record: TD Says Toronto Condo Prices Will Drop Until 2028"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=9eZhExQ1ovQ" target="_blank">Ragona Sisters — "You Downsized — You're Paying MORE Every Month" (5,948 views)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  🇨🇦 Morning Brief · June 30, 2026 · Built for Dmytro · I live here. I sell here.
+</div>
+
+</body>
+</html>
