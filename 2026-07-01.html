@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, July 1, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, July 1, 2026</div>
+  <div class="canada-day-badge">🎉 Happy Canada Day — 159 years</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-01.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">Canada Day 2026 — and it's a big one</div>
+    <p>Today is Canada's 159th birthday. But this year is different: Canada is co-hosting the FIFA World Cup this summer, with games happening right here in Toronto and Vancouver. That's the whole world watching us while we figure out if people can still afford to live here.</p>
+    <p>Meanwhile, in a quieter piece of news dropped yesterday, the government is actively reviewing the foreign buyer ban (which expires January 2027) — with a likely pivot to the Australia model: foreigners can buy <em>new builds</em> but not existing homes. That's a potentially big shift for the condo market, and it's worth knowing about.</p>
+    <p><strong>Video-worthy because:</strong> Canada Day = emotions are high, reach is up, and the contrast of "celebrating Canada while housing is still broken" is exactly the kind of honest tension your audience connects with.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canada is quietly reviewing whether to let foreign buyers back in — and if it passes, they'll only be able to buy new condos and pre-construction, not your neighbour's resale home.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">No change</td>
+            <td><span class="plain-meaning">The Bank of Canada held rates on June 10. Next decision: July 15. Variable mortgages stay put.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Prime rate</td>
+            <td>4.45%</td>
+            <td>4.45%</td>
+            <td class="tag-flat">No change</td>
+            <td><span class="plain-meaning">Prime rate = what banks charge each other + their customers. Variable mortgages are priced off this.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't bond yield</td>
+            <td>~3.0%</td>
+            <td>~3.0%</td>
+            <td class="tag-flat">Stable</td>
+            <td><span class="plain-meaning">Drives fixed mortgage rates. Stable here = fixed rates aren't moving much right now.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr fixed mortgage</td>
+            <td>4.04%</td>
+            <td>~4.1%</td>
+            <td class="tag-down">↓ Slight drop</td>
+            <td><span class="plain-meaning">Best available rate via brokers. Big banks still at ~4.34%. Shop around — the gap is real.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May 2026)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ Higher</td>
+            <td><span class="plain-meaning">Gas prices up 33% YoY (Iran conflict). Core inflation still at 2.1% — so the BoC isn't panicking yet. But your grocery bill isn't lying to you.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA avg price (TRREB, May)</td>
+            <td>$1,069,700</td>
+            <td>$1,121,000 (May '25)</td>
+            <td class="tag-down">↓ –4.6% YoY</td>
+            <td><span class="plain-meaning">Sales up 6.3% YoY — more people buying, but prices still lower than last year. A buyer's window is open.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">National avg price (CREA, May)</td>
+            <td>$702,079</td>
+            <td>$695,171 (Apr)</td>
+            <td class="tag-up">↑ +1.0% MoM</td>
+            <td><span class="plain-meaning">First real monthly gain of the year. Sales up 5.5% MoM. The national market is waking up — slowly.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Housing starts (CMHC, May)</td>
+            <td>261,377 annualized</td>
+            <td>278,380 (Apr)</td>
+            <td class="tag-up">↓ –6% MoM</td>
+            <td><span class="plain-meaning">Builders started fewer homes than last month. Toronto down 12% YoY. Less supply coming = more price pressure later.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg asking rent (Canada, May)</td>
+            <td>$2,029/mo</td>
+            <td>$2,128/mo (May '25)</td>
+            <td class="tag-down">↓ –4.7% YoY</td>
+            <td><span class="plain-meaning">20 straight months of rent declines nationally. Good news for renters — finally.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p>If you're renting right now, rents are actually going down — the first sustained drop in years. If you're trying to buy in the GTA, prices are still 4–5% below last year, fixed rates have edged down, and the BoC isn't expected to raise rates. That combination hasn't existed in a long time.</p>
+    <p>The foreign buyer ban review is the wildcard. If Canada follows Australia and opens new construction to foreign buyers in 2027, pre-construction condos and new builds could see a surge in demand. If you're sitting on the fence about a pre-con purchase, this is worth knowing.</p>
+    <p>And one number that should shake everyone: 30,092 people left Canada in Q1 alone — the biggest Q1 emigration on record. Housing cost is the #1 reason cited. This isn't just a policy debate. It's real people giving up and leaving.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch — Last 24h</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · @angrymortgage · YouTube</div>
+      <div class="creator-platform">Posted: "Too Much Debt" — June 30 · 21,687 views</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note">Big engagement on this one (21K views). Ron's talking about Canada's overall debt load — connects directly to why so many buyers are stretched and why banks are tightening. Good intelligence on what the mortgage world is worried about. Also posted "HAPPY BIRTHDAY CANADA" today (Canada Day content) — 1,150 views so far.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · @daniel_foch · YouTube</div>
+      <div class="creator-platform">No posts in last 36h.</div>
+      <span class="verdict verdict-na">NO POST</span>
+      <div class="creator-note">Nothing new today. Check back tomorrow.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · @TomStorey · YouTube</div>
+      <div class="creator-platform">Posted: "Canada's Foreign buyer ban could be ending" — July 1 · 1,564 views</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note">He's on the same story as today's One Thing. Tom posted a short on the foreign buyer ban review — exactly the right topic. His angle is likely GTA agent perspective. <strong>Your angle:</strong> Same topic but through the newcomer lens — "I came to Canada from Ukraine. I lived through the housing pain. Here's what the foreign buyer ban actually means for people like us who are already here." That lived-experience frame is yours. He doesn't have it.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Russell Matthews · @russellmatthews · YouTube</div>
+      <div class="creator-platform">No posts in last 36h.</div>
+      <span class="verdict verdict-na">NO POST</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Dmitry Banchik · @Dmitry.Banchik · YouTube</div>
+      <div class="creator-platform">No posts in last 36h.</div>
+      <span class="verdict verdict-na">NO POST</span>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ragona Sisters · @RagonaSistersTv · YouTube</div>
+      <div class="creator-platform">Posted: "Is a Condo Shortage Coming? The Data Says Otherwise" — July 1 · 33 views</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note">Contrarian take on the condo market — pushes back on the "condo shortage will save prices" narrative. Worth 2 minutes of your time. Also posted "What happens when you lose your home to Power of Sale?" (June 30, 538 views) — the Power of Sale topic is worth filing for a future video.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- Idea 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The foreign buyer ban is almost over — here's what changes</div>
+        <span class="format-tag">Reel / Short</span>
+      </div>
+      <div class="idea-why">Why it'll perform: This is breaking news territory with real stakes. Tom Storey already posted on it, which means the algorithm is primed. Post your angle TODAY while the conversation is fresh.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          Foreign buyers could be back in 2027
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "Canada is about to lift the ban that kept foreign investors out of the housing market — and if you're trying to buy a home here, you need to understand what this means."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (target ~45s)</div>
+        <p><strong>Hook:</strong> Canada is about to lift the ban that kept foreign investors out of the housing market — and if you're trying to buy a home here, you need to understand what this means.</p>
+        <p><strong>Body:</strong> Since 2023, there's been a law in Canada that says if you're not a Canadian citizen or permanent resident, you can't buy a home here. It was meant to cool down prices. Does it work? Honestly — the jury's still out. Prices fell, but mostly because of interest rates, not because of this ban. Now the ban expires in January 2027, and the government is considering a new model: follow Australia. Foreign buyers can only buy <em>new</em> homes — condos being built, pre-construction — but not your neighbour's resale house. Why does this matter to you? Because it could push demand into the new condo market fast. Pre-con prices could start moving again. If you're a buyer sitting on the fence about a new build, this is your heads-up.</p>
+        <p><strong>CTA:</strong> Comment "BAN" and I'll explain exactly how this affects buying in the GTA this year.</p>
+      </div>
+
+      <div class="script-label" style="margin-top:10px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Foreign buyer ban → expires Jan 2027</span>
+        <span class="onscreen-tag">New model: new builds only</span>
+        <span class="onscreen-tag">Pre-con condos could see demand jump</span>
+        <span class="onscreen-tag">Resale homes still protected</span>
+        <span class="onscreen-tag">Comment "BAN" for more</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <p>Toronto skyline construction cranes · condo building under construction · "sold" sign GTA · foreign investment concept money globe · Canada Parliament building</p>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI Prompts (9:16, paste-ready)</div>
+        <p>"Cinematic drone shot rising past a Toronto glass condo tower under construction at golden hour, cranes visible against the skyline, soft warm light, ultra-realistic"</p>
+        <p>"Close-up of a small model house on a wooden desk with a Canadian flag in the background, shallow depth of field, natural window light, 4K cinematic"</p>
+      </div>
+    </div>
+
+    <!-- Idea 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Happy Birthday Canada. 159 years old and housing still doesn't make sense.</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Canada Day = highest organic reach day of the year. Emotional, honest, slightly irreverent. Relatable to every person who moved here with big dreams and hit the housing wall.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          Happy Birthday Canada 🎂 (but can we talk about the housing thing?)
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "Happy Birthday Canada. 159 years old. Still one of the best countries in the world. And still — somehow — one of the least affordable places to buy a home."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (target ~40s)</div>
+        <p><strong>Hook:</strong> Happy Birthday Canada. 159 years old. Still one of the best countries in the world. And still — somehow — one of the least affordable places to buy a home.</p>
+        <p><strong>Body:</strong> I'm Ukrainian. I came here because Canada represented something. Freedom, safety, opportunity. I still believe that. But I also live the reality: the average home in the GTA costs over a million dollars. Rents were $2,500 a month until recently. 30,000 people left this country in just the first three months of this year — a record. Not because they stopped loving Canada. Because they couldn't make the numbers work. I get it. I really do. But here's what I also know — prices are down from the peak. Rates are stabilizing. And for the first time in years, there are actual opportunities for people who stayed. I'm here to help you find them.</p>
+        <p><strong>CTA:</strong> If you're still here and still figuring it out — follow. That's what this page is for.</p>
+      </div>
+
+      <div class="script-label" style="margin-top:10px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">159 years of Canada 🎂</span>
+        <span class="onscreen-tag">Avg GTA home: $1,069,700</span>
+        <span class="onscreen-tag">30K people left in Q1 2026</span>
+        <span class="onscreen-tag">But: prices down from peak</span>
+        <span class="onscreen-tag">Opportunities exist — if you know where</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <p>Canada Day fireworks Toronto · CN Tower Canada flag · immigrant family happy Canada · Toronto neighbourhood walking · house keys new home</p>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI Prompts (9:16, paste-ready)</div>
+        <p>"Aerial drone shot of Toronto cityscape at dusk with a Canadian flag waving in the foreground, warm red and gold tones, cinematic wide angle, 9:16"</p>
+      </div>
+    </div>
+
+    <!-- Idea 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">30,000 people left Canada this quarter — and housing is why</div>
+        <span class="format-tag">Reel / Short</span>
+      </div>
+      <div class="idea-why">Why it'll perform: Shocking stat, directly relevant to your Ukrainian newcomer audience who are asking themselves "did I make the right choice?" You can speak to this personally and authentically in a way no Canadian-born creator can.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook (first 2 seconds)</div>
+        <div class="hook-box">
+          <strong>On-screen text</strong>
+          30,000 people left Canada this quarter. Here's why.
+        </div>
+        <div class="hook-box">
+          <strong>Spoken</strong>
+          "30,000 people left Canada in the first three months of this year. That's the highest number ever recorded for a single quarter. And housing is the number one reason."
+        </div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (target ~50s)</div>
+        <p><strong>Hook:</strong> 30,000 people left Canada in the first three months of this year. That's the highest number ever recorded for a single quarter. And housing is the number one reason.</p>
+        <p><strong>Body:</strong> Statistics Canada just released this data. Canadians, permanent residents — people who did everything right — leaving. Half of them from Ontario. Many of them headed to the US, Portugal, Eastern Europe. Why? Because they couldn't afford to stay. A million-dollar mortgage on a family home with 5-6% rates — the math just doesn't work for a lot of people. Now, I'm not going to tell you Canada is bad. I moved here from Ukraine. I know what "bad country" actually looks like. Canada is still one of the best places in the world to build a life. But this housing crisis is real, and it's pushing people out. Here's the thing though — prices have come down almost 21% from the pandemic peak nationally. Rents are actually falling. For the people who stay and learn how to navigate this market right now, there's a real window opening up. I'm here every week showing you exactly that.</p>
+        <p><strong>CTA:</strong> If you're questioning whether Canada is still worth it — save this video and comment "WORTH IT." Let's talk.</p>
+      </div>
+
+      <div class="script-label" style="margin-top:10px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">30,092 left Canada — Q1 record</span>
+        <span class="onscreen-tag">Half from Ontario</span>
+        <span class="onscreen-tag">Prices down 21% from peak</span>
+        <span class="onscreen-tag">Rents falling for 20 months</span>
+        <span class="onscreen-tag">Comment "WORTH IT"</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Real Footage Search Terms</div>
+        <p>airport departure suitcase · moving boxes packing · Toronto street empty winter · family walking away from home · graph showing population decline</p>
+        <div class="broll-label" style="margin-top:8px;">Higgsfield AI Prompts (9:16, paste-ready)</div>
+        <p>"Slow motion shot of a family walking away with suitcases through an airport terminal, warm soft lighting, shallow focus, cinematic, emotional, 9:16"</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/">Bank of Canada — Rate Hold June 10, 2026</a></li>
+      <li><a href="https://wowa.ca/bank-of-canada-interest-rate">WOWA — BoC Interest Rate History (2.25% current)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-Year Fixed Rates (4.04%)</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260622/dq260622a-eng.htm">Statistics Canada — CPI May 2026 (3.2%)</a></li>
+      <li><a href="https://www.cbc.ca/news/business/cpi-may-2026-9.7244063">CBC — Canada Inflation 3.2% May 2026</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA — National Housing Stats (May 2026, $702,079)</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — GTA Market Watch (May 2026, $1,069,700)</a></li>
+      <li><a href="https://www.newswire.ca/news-releases/housing-starts-and-construction-data-for-may-2026-827584288.html">CMHC — Housing Starts May 2026</a></li>
+      <li><a href="https://thehub.ca/2026/06/29/canadians-and-permanent-residents-leaving-canada-at-highest-rate-since-1950s-over-150000-emigrated-in-last-5-quarters/">The Hub — Record Emigration Q1 2026</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2025-12-22/canada-weighs-opening-its-housing-market-to-more-foreign-capital">Bloomberg — Canada considers easing foreign buyer ban</a></li>
+      <li><a href="https://www.mpamag.com/ca/news/general/canada-housing-starts-in-may-2026-held-near-flat/578985">Canadian Mortgage Professional — Housing starts May 2026</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kO4eyMHocXQ">Ron Butler — "HAPPY BIRTHDAY CANADA" (July 1, 2026)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=ujCL-sM8t5g">Ron Butler — "Too Much Debt" (June 30, 2026)</a></li>
+      <li><a href="https://www.youtube.com/shorts/wb2x8ug9sh0">Tom Storey — "Canada's Foreign buyer ban could be ending" (July 1, 2026)</a></li>
+      <li><a href="https://www.youtube.com/shorts/NZZ1pH_xbLI">Ragona Sisters — "Is a Condo Shortage Coming?" (July 1, 2026)</a></li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
