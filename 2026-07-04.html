@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Saturday, July 4, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Saturday, July 4, 2026</div>
+  <div class="canada-day-badge">📊 Real Estate · Economy · Politics</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-04.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">The "condo bailout" fight is the story everyone's arguing about this weekend — and it's your tax money</div>
+    <p>Ottawa and BC are teaming up on a $1.45-billion plan to buy roughly 2,200 empty, unsold condos in Metro Vancouver and turn them into rent-to-own homes. The federal share is about $145 million (10%), BC covers the rest. PM Mark Carney says it's about creating affordable housing. Critics — including opposition leader Pierre Poilievre — call it a developer rescue, a "transfer of wealth from the have-nots to the have-yachts."</p>
+    <p>Why it's boiling over now: there are about 4,376 finished condos sitting empty in Metro Vancouver, up 76% from a year ago. Developers built them for investors who never showed up. So the question is simple and uncomfortable: should the government spend public money buying units nobody wanted at prices that keep developers whole?</p>
+    <p><strong>Video-worthy because:</strong> This is a proper debate — two reasonable sides, real money, and it touches every renter and taxpayer, not just buyers. Debate = comments. This is your best engagement play of the week if you present both sides honestly and ask viewers where they land.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The housing rebound isn't just a Toronto thing anymore. Vancouver June sales rose 9.6% year-over-year — almost the exact same jump as Toronto's 9.4%. Two of Canada's biggest markets turned in the same month. The "wait for the bottom" era is quietly ending.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">It's Saturday — markets are closed, so no rate or bond move today. The fresh data this weekend is the June sales picture from Toronto (out Thursday) and Vancouver. The big calendar date is <strong>July 15</strong>: Bank of Canada rate decision <em>and</em> CREA's national June numbers land the same day.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">no change</td>
+            <td><span class="plain-meaning">Held 5 meetings straight. Next call July 15 — markets expect another hold. This is the rate that sets your variable and prime.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+            <td>3.05% (Jul 3 close)</td>
+            <td>~3.09% (month ago)</td>
+            <td class="tag-down">↓ –0.04</td>
+            <td><span class="plain-meaning">This drives FIXED mortgage rates. Drifting down slightly = fixed rates unlikely to jump near-term. Closed for the weekend.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Typical 5-yr fixed mortgage</td>
+            <td>~4.04–4.09%</td>
+            <td>~4.05%</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Best high-ratio 5-yr fixed sits around 4.04%. Steady, not falling — don't wait for a big drop that isn't coming.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr variable / prime</td>
+            <td>~3.45% / prime 4.45%</td>
+            <td>same</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Variable is cheaper than fixed right now. Expected to stay put until late 2026, then possibly tick up.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ +0.4</td>
+            <td><span class="plain-meaning">Ran hotter — gas up 33% YoY, food up 3.8%. Hot inflation is why the Bank isn't cutting. June print comes late July.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA sales (TRREB, June)</td>
+            <td>6,770 sales</td>
+            <td>6,189 (Jun '25)</td>
+            <td class="tag-up">↑ +9.4% YoY</td>
+            <td><span class="plain-meaning">Highest June sales in almost 2 years. Buyers came back; new listings fell 12.9%. That combo pushes prices up.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA avg price (TRREB, June)</td>
+            <td>$1,058,658</td>
+            <td>~$1,101,600 (Jun '25)</td>
+            <td class="tag-down">↓ –3.9% YoY</td>
+            <td><span class="plain-meaning">Still below last year, but the yearly gap is shrinking and month-over-month (seasonally adjusted) ticked up.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Vancouver sales (REBGV, June)</td>
+            <td>2,390 sales</td>
+            <td>2,181 (Jun '25)</td>
+            <td class="tag-up">↑ +9.6% YoY</td>
+            <td><span class="plain-meaning">Same turn as Toronto — but still 12% below the 10-year average. Rebound is real but not a boom yet.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">National sales/price (CREA, May)</td>
+            <td>$702,079 avg</td>
+            <td>~$691,700 (May '25)</td>
+            <td class="tag-up">↑ +1.5% YoY</td>
+            <td><span class="plain-meaning">National average back above $700k for the first time in 23 months. June national data lands July 15.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg asking rent (national)</td>
+            <td>$2,029</td>
+            <td>~$2,129 (May '25)</td>
+            <td class="tag-down">↓ –4.7% YoY</td>
+            <td><span class="plain-meaning">20 straight months of yearly rent declines. Quiet good news for renters and newcomers — leverage to negotiate.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>0.7043 USD</td>
+            <td>~0.706 (mid-week)</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">1 CAD ≈ 70 US cents (1 USD ≈ $1.42 CAD). Weak loonie = pricier US goods and travel.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>First-time buyer:</strong> Two big markets turning up in the same month is your signal that the "just wait, it'll keep falling" bet is getting risky. Prices aren't up yet, but sales are, listings are shrinking, and boards are calling for growth. If you're pre-approved, this is a "shop seriously" moment — not a panic-buy, but don't assume more discounts are coming.</p>
+    <p><strong>Renter / newcomer:</strong> Asking rents are down 4.7% and have fallen for 20 straight months. That's real leverage — ask for a better deal or a free month at renewal. And on the condo bailout: whatever the politics, it means the government is worried about too many empty units, which is quietly good news for renters.</p>
+    <p><strong>Mortgage holder:</strong> No rate move today, and probably none July 15. Fixed rates are flat around 4%, variable near 3.45%. If you renew this year, run both — variable is cheaper now but the gap is thin.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Checked ~29 YouTube channels via RSS. 27 posts in the last 36h — most reacting to the same rebound + bailout threads. Only the ones worth stealing or studying are below; the rest skipped. IG/TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · YouTube</div>
+      <div class="creator-platform">"I Can't Believe What The Toronto Housing Market Just Did 📈"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Reaction to TRREB's June rebound — sales up, board calling for price growth. Clean "market just turned" framing.<br><strong>Your angle:</strong> Pair Toronto's +9.4% with Vancouver's +9.6% he didn't mention — make it the <em>national</em> turn story. Add your immigrant lens: "I waited too long once. Here's what these two numbers mean for you."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · YouTube</div>
+      <div class="creator-platform">"Canada's Housing Market Just Hit Rock Bottom (Worst Market Ever)… Here's What Happens Next"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Contrarian data take — the "worst ever" framing as a bottom signal. Strong hook study.<br><strong>Your angle:</strong> Borrow the mechanism (the bottom is loud and scary), not the words. "Everyone's saying 'worst market ever.' That's usually exactly when the turn starts — here's the proof from this week."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi · YouTube</div>
+      <div class="creator-platform">"Why So Many Toronto Homes Are Getting SEIZED? (Real Listings)"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Power-of-sale / foreclosure listings walkthrough — the pain side of the market.<br><strong>Your angle:</strong> This is your Video 3. Tie "seized homes" to mortgage-renewal stress and the "I can't afford it anymore" reality — plain-language on what power of sale actually is, since most newcomers have never heard the term.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage (Ron Butler) · YouTube</div>
+      <div class="creator-platform">"I CAN'T AFFORD THE MORTGAGE ANYMORE"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Blunt take on renewal-shock households. Great emotional hook framing.<br><strong>Why watch:</strong> Study his opening line and pacing — he names the fear in the first 2 seconds. Fuel for your Video 3 hook.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">CondoWong / Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"The Real Reason for the Government's Housing Rescue" / "Pipeline for Condo Bailout"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Both are hammering the BC condo buyout from the critical side.<br><strong>Why watch:</strong> They give you the "bailout" counter-argument cleanly. Use their framing as the "critics say" half of your balanced Video 1 — then let your audience decide.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">The "condo bailout" — is Ottawa saving buyers or developers?</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a real two-sided debate about tax money and housing. Debate drives comments — your #1 engagement play this week.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Stakes / "this costs you"</strong>
+        <div>On-screen: <em>"Your taxes just bought 2,200 empty condos"</em></div>
+        <div>Spoken: "The government is spending $1.45 billion buying condos nobody wanted. Some of that is your money — let me show you where it's going."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen: <em>"'Affordable housing' or a developer rescue?"</em></div>
+        <div>Spoken: "They're calling it affordable housing. Critics are calling it a bailout for developers who guessed wrong. Here's how to tell which one it really is."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"4,376 empty condos. Whose problem is it?"</em></div>
+        <div>Spoken: "There are 4,376 finished condos sitting empty in Vancouver — up 76% in a year. Should the government buy them? I genuinely can't decide."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~45s)</div>
+        <p><strong>Hook:</strong> "The government is spending $1.45 billion buying condos nobody wanted — and some of it is your tax money."</p>
+        <p><strong>Body:</strong> "Here's the deal. Vancouver has about 4,376 finished condos sitting empty, up 76% in a year. Developers built them for investors who never showed up. So Ottawa and BC want to buy roughly 2,200 of them and turn them into rent-to-own homes. Carney says it's affordable housing. The other side — Poilievre and a lot of housing folks — call it a bailout: 'a transfer of wealth from the have-nots to the have-yachts.' Both have a point. If you're a renter, more affordable units is good. If you're a taxpayer, you're rescuing developers who overbuilt. I live here, I sell here, and honestly I'm torn on this one."</p>
+        <p><strong>CTA:</strong> "So tell me straight — smart housing move or bailout? Comment BAILOUT or HOUSING and I'll pin the best argument from each side."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">$1.45B</span>
+        <span class="onscreen-tag">2,200 condos</span>
+        <span class="onscreen-tag">Empty up 76%</span>
+        <span class="onscreen-tag">Affordable or bailout?</span>
+        <span class="onscreen-tag">You decide 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Vancouver condo towers skyline, empty new condo interior, "for sale" condo signs, Canadian parliament exterior, tax form / money counting</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, rows of glass condo towers in Vancouver at blue-hour, several units glowing empty, moody overcast sky, slow drone push-in, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, close-up of a hand placing a stack of Canadian dollar bills onto a miniature condo model, soft window light, shallow focus, documentary tone"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">The rebound went national — Toronto AND Vancouver turned in the same month</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: two matching numbers make an undeniable "the turn is real" story. Timely, data-backed, screenshots as proof.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Number shock</strong>
+        <div>On-screen: <em>"Toronto +9.4%. Vancouver +9.6%. Same month."</em></div>
+        <div>Spoken: "Two different cities, two different markets, almost the exact same jump in sales — in the same month. That's not a coincidence."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen: <em>"Stop waiting for the crash"</em></div>
+        <div>Spoken: "Everyone's still waiting for prices to fall more. Meanwhile the two biggest markets in Canada just quietly turned. Let me show you the numbers."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Personal stakes (his edge)</strong>
+        <div>On-screen: <em>"I waited too long once"</em></div>
+        <div>Spoken: "I bought near the peak and I've watched people wait years for the bottom. This week, two numbers told me the bottom might already be behind us."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~40s)</div>
+        <p><strong>Hook:</strong> "Toronto sales up 9.4%. Vancouver up 9.6%. Same month. That's not random."</p>
+        <p><strong>Body:</strong> "For two years the story was 'wait, prices are falling.' But look what just happened in June. In Toronto, buyers bought 6,770 homes — the most in almost two years — while new listings dropped almost 13%. In Vancouver, sales jumped 9.6% too. More buyers, fewer homes for sale — that's the exact setup that stops prices from falling and starts pushing them back up. Prices aren't up yet, they're still a bit below last year. But both real estate boards are now openly saying growth is coming. I'm not telling you to panic-buy. I'm telling you the 'it'll just keep dropping' bet is getting risky."</p>
+        <p><strong>CTA:</strong> "Are you still waiting, or getting serious? Comment WAIT or READY — and follow, I post these market signals every morning."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Toronto +9.4%</span>
+        <span class="onscreen-tag">Vancouver +9.6%</span>
+        <span class="onscreen-tag">Listings ↓ 13%</span>
+        <span class="onscreen-tag">Boards say: growth coming</span>
+        <span class="onscreen-tag">WAIT or READY?</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Toronto skyline CN Tower, Vancouver skyline mountains, "sold" real estate sign, line chart going up screen-record, young couple house keys</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, split-screen of Toronto CN Tower skyline and Vancouver harbour skyline, warm summer light, subtle upward camera tilt, photoreal, hopeful tone"</div>
+        <div>2. "Cinematic vertical 9:16, a glowing red upward-trending line graph reflected in a window overlooking a city, minimalist, shallow depth of field, financial-documentary mood"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">"Power of sale" — why Toronto homes are getting seized, explained for newcomers</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fear + education. Most newcomers have never heard "power of sale" and the emotional hook stops the scroll.</div>
+
+      <div class="hook-box"><strong>Hook 1 — "Nobody's telling you"</strong>
+        <div>On-screen: <em>"These homes are getting SEIZED"</em></div>
+        <div>Spoken: "More Toronto homes are getting seized by the bank right now — and nobody explained to me what 'power of sale' even means when I moved here. Let me fix that."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Personal stakes / fear named</strong>
+        <div>On-screen: <em>"I can't afford my mortgage anymore"</em></div>
+        <div>Spoken: "'I can't afford the mortgage anymore.' More people are saying it this year — and here's exactly what happens next if you miss payments."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"New to Canada? Learn this word first"</em></div>
+        <div>Spoken: "If you're new to Canada and buying a home, there's one phrase you need to understand before you sign anything: power of sale. Here's what it means for your money."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~45s)</div>
+        <p><strong>Hook:</strong> "More Toronto homes are getting seized right now — and nobody explained 'power of sale' to me when I moved here."</p>
+        <p><strong>Body:</strong> "Quick plain-language version. When someone stops paying their mortgage, the lender can force a sale to get their money back. In Ontario that's usually 'power of sale' — the bank sells your home, takes what you owe, and hands you whatever's left. The scary part: they mainly want to cover the loan, so these homes often list fast and a little under market. Why it's happening more: people who bought at low rates are renewing at 4%+, and some just can't carry it. If that's you, don't hide from it — call your lender early, ask about extending your amortization or switching to interest-only for a bit. Options disappear once you've missed payments. I live here, I sell here, and I've watched this hurt good families who just didn't know the rules."</p>
+        <p><strong>CTA:</strong> "Want my one-page 'renewal survival' checklist? Comment RENEW and I'll DM it to you."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Power of sale = bank sells your home</span>
+        <span class="onscreen-tag">Renewal shock: 2% → 4%+</span>
+        <span class="onscreen-tag">Call your lender EARLY</span>
+        <span class="onscreen-tag">Options vanish after you miss</span>
+        <span class="onscreen-tag">Comment RENEW</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Foreclosure / power of sale listing sign, empty house interior, person stressed at kitchen table with bills, mortgage documents close-up, bank building exterior</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a suburban Toronto house with a red 'power of sale' sign on the lawn, overcast morning, slow dolly-in, photoreal, somber documentary tone"</div>
+        <div>2. "Cinematic vertical 9:16, close-up of a worried person's hands sorting through mortgage bills at a kitchen table, soft window light, muted colors, shallow depth of field"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cbc.ca/news/canada/british-columbia/prime-minister-mark-carney-responds-vancouver-bc-condo-plan-9.7248862">CBC — Carney defends $1.45B plan to convert distressed BC condos to rent-to-own</a></li>
+      <li><a href="https://www.theglobeandmail.com/opinion/article-carneys-ridiculous-myopic-plan-to-bail-out-condo-developers/">Globe & Mail (opinion) — Carney's plan to bail out condo developers</a></li>
+      <li><a href="https://thehub.ca/2026/06/23/fact-checking-carneys-claim-that-government-buying-2200-b-c-condo-units-will-help-affordable-housing-crisis/">The Hub — Fact-check: 2,200 BC condo units and affordability</a></li>
+      <li><a href="https://www.cp24.com/news/money/2026/07/03/greater-toronto-home-sales-up-94-in-june-as-board-predicts-price-growth-could-come/">CP24 — GTA home sales up 9.4% in June, TRREB predicts price growth</a></li>
+      <li><a href="https://www.gvrealtors.ca/market-watch/monthly-market-report/june-2026.html">Greater Vancouver Realtors — June 2026 market report (+9.6% sales)</a></li>
+      <li><a href="https://www.cbc.ca/news/business/cpi-may-2026-9.7244063">CBC — Canada inflation 3.2% in May, driven by gas prices</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/">Bank of Canada — Rate held at 2.25% (June 10); next decision July 15</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-year bond yield 3.05% (Jul 3)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-yr fixed/variable mortgage rates</a></li>
+      <li><a href="https://www.theglobeandmail.com/business/article-ai-home-listings-condo-sales-ndas-canadian-real-estate-news-july-3/">Globe & Mail — Weekly RE news: condo discounts, AI listings (July 3)</a></li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:8px;">Generated automatically · Saturday, July 4, 2026 · "I live here. I sell here." 🇨🇦</p>
+
+</div>
+
+</body>
+</html>
