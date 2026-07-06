@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Monday, July 6, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, July 6, 2026</div>
+  <div class="canada-day-badge">📊 Real Estate · Economy · Politics</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-06.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">Canada is building a giant new oil pipeline to the BC coast — to sell to Asia instead of the US</div>
+    <p>Over the weekend the biggest national story kept growing: Prime Minister Mark Carney, Alberta Premier Danielle Smith, and BC Premier David Eby lined up behind a new "West Coast" oil pipeline — a project estimated at $35–44 billion that would carry about 1 million barrels of oil a day from Alberta, across British Columbia, to the Pacific coast. The point is to ship Canadian oil to Asia instead of depending on the United States as our one big customer.</p>
+    <p>In plain language: right now Canada sells almost all its oil to the US, often at a discount, because we don't have an easy way to get it anywhere else. A pipeline to the coast means more buyers, better prices, and — the government hopes — more jobs and tax money. The trade-off: BC keeps its northern-coast oil-tanker ban, Ottawa is putting in $10 billion to expand the Port of Vancouver, and environmental groups plus Alberta separatists are already fighting over it from opposite sides.</p>
+    <p><strong>Video-worthy because:</strong> this is the rare "big Canada" story a total non-news-follower still wants explained — and nobody's tying it back to a normal person's wallet. That's your lane: what a pipeline in BC has to do with the loonie in your pocket, gas prices, and jobs.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Toronto home sales jumped 9.4% in June — but prices are still down and it's very much a buyer's market. More people are buying, yet the crowd hasn't come back enough to push prices up. If you're a serious buyer, this is your window.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Markets were closed over the weekend, so the rate, bond, and currency lines below are Friday's closes and June board data — they reopen today (Monday). Two dates to circle: <strong>July 10</strong> (StatCan June jobs report) and <strong>July 15</strong> (Bank of Canada rate decision <em>and</em> CREA's national June numbers land the same day).</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">no change</td>
+            <td><span class="plain-meaning">Held since October 2025. Next call July 15 — most banks expect another hold. This rate sets your variable and prime.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+            <td>~3.05% (Jul 3 close)</td>
+            <td>~2.99% (June avg)</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">Drives FIXED mortgage rates. Holding near 3% = fixed rates aren't jumping. Forecasts see it in a 3.0–3.5% range this year.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Typical 5-yr fixed mortgage</td>
+            <td>~4.0–4.6%</td>
+            <td>~4.0–4.6%</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Best high-ratio deals still near ~4.0%; typical offers run 4.4–4.6%. Steady, not falling — don't wait for a big drop that isn't coming.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr variable / prime</td>
+            <td>~3.45% / prime 4.45%</td>
+            <td>same</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Variable is cheaper than fixed right now and expected to hold most of 2026.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ +0.4</td>
+            <td><span class="plain-meaning">Ran hotter — the main reason the Bank isn't cutting. June print comes late July.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA home sales (TRREB, June)</td>
+            <td>6,770 sales</td>
+            <td>~6,190 (Jun '25)</td>
+            <td class="tag-up">↑ +9.4% YoY</td>
+            <td><span class="plain-meaning">More people are buying. But new listings fell 12.9% YoY, so it's activity returning — not a price boom.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA avg price (TRREB, June)</td>
+            <td>$1,058,658</td>
+            <td>~$1,101,600 (Jun '25)</td>
+            <td class="tag-down">↓ –3.9% YoY</td>
+            <td><span class="plain-meaning">Whole-market average still below last year, but the yearly gap is shrinking.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA benchmark price (June)</td>
+            <td>$940,800</td>
+            <td>~$994,500 (Jun '25)</td>
+            <td class="tag-down">↓ –5.4% YoY</td>
+            <td><span class="plain-meaning">The "typical home" measure. Down –5.4% YoY and –0.6% month-over-month — still no upward pressure.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Toronto condo avg price (June)</td>
+            <td>$630,688</td>
+            <td>~$696,000 (Jun '25)</td>
+            <td class="tag-down">↓ –9.4% YoY</td>
+            <td><span class="plain-meaning">Back near late-2019 levels — the weakest link in the market, and the best entry point for a first buyer.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">National sales/price (CREA, May)</td>
+            <td>$702,079 avg</td>
+            <td>~$691,700 (May '25)</td>
+            <td class="tag-up">↑ +1.5% YoY</td>
+            <td><span class="plain-meaning">National average back above $700k. June national data lands July 15.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg asking rent (national)</td>
+            <td>~$2,029</td>
+            <td>~$2,129 (yr ago)</td>
+            <td class="tag-down">↓ –4.7% YoY</td>
+            <td><span class="plain-meaning">Rents still sliding — quiet good news for renters and newcomers. Real leverage to negotiate.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Unemployment rate</td>
+            <td>6.9%</td>
+            <td>6.9%</td>
+            <td class="tag-flat">flat / high</td>
+            <td><span class="plain-meaning">Stuck near a multi-year high; economy in a "technical recession." June jobs report July 10.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>~0.704 USD</td>
+            <td>~0.706 (week ago)</td>
+            <td class="tag-down">↓ soft</td>
+            <td><span class="plain-meaning">1 CAD ≈ 70 US cents (1 USD ≈ $1.42 CAD), near a one-year low on weaker oil. Weak loonie = pricier US goods and travel.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>First-time buyer / newcomer:</strong> Sales jumped almost 10% but prices didn't — that gap is the whole story. It means demand is waking up while sellers still can't dictate terms, so you can still negotiate, ask for conditions, and take your time. The condo, near 2019 prices, is the cheapest door in. If you're pre-approved and buying to live, this is a "shop seriously" window, not a bidding war.</p>
+    <p><strong>Renter:</strong> Asking rents are down about 4.7% from a year ago and still sliding, helped by fewer newcomers arriving (Canada cut PR targets and international students, and the population actually shrank in 2025). That's genuine negotiating power — ask for a lower renewal, a free month, or a parking spot thrown in.</p>
+    <p><strong>Everyone (the pipeline angle):</strong> Carney's new pipeline won't change your rent this year, but it points at the bigger picture — a weak loonie (70 US cents) makes US travel, online shopping, and imported food pricier, and the government is betting big projects will create jobs in an economy that's technically in recession. Cheaper US-bound oil sold at a discount is part of why the loonie is soft. Watch jobs (July 10) more than the pipeline headlines.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Checked all ~29 YouTube channels via RSS. Ten posted in the last ~36h; below are only the ones worth stealing or studying. TikTok/IG not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · YouTube</div>
+      <div class="creator-platform">"The Real Reason Toronto Home Sales Jumped (Spoiler: It's Not Good News)"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Sales up 9.4%, but he argues it's still a buyer's market and condos are the weak link — activity is not the same as recovery.<br><strong>Your angle:</strong> Borrow the mechanism (sales up ≠ prices up), not the words. Flip his "not good news" into "actually good news if you're the one buying." This is your Video 1.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"Why Toronto Condos Just Became Cheaper Than Montreal After 16 Years"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Same Toronto-vs-Montreal condo affordability milestone you covered yesterday — now spreading to bigger channels.<br><strong>Your angle:</strong> Don't repeat it. Post a follow-up: "Remember that Toronto-cheaper-than-Montreal thing? Big channels just picked it up — here's the part they're missing." Positions you as early.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">That Agent Kelly · YouTube</div>
+      <div class="creator-platform">"The Condo Bailout Is NOT About Affordable Housing"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Argues the Vancouver empty-condo buyout is really a developer rescue, not housing help — same thread you ran yesterday.<br><strong>Why watch:</strong> Confirms the bailout debate still has legs. Study how she frames "NOT about X" as a hook — that negation structure works.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"Mark Carney: 'We can't afford to retrain Oil &amp; Gas'…"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Reacts to Carney's energy comments — ties directly into today's pipeline big story from the jobs/economy side.<br><strong>Why watch:</strong> Good fuel for your pipeline video. He's connecting energy policy to the housing/economy picture — a bridge you can use.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage (Ron Butler) · YouTube</div>
+      <div class="creator-platform">"'Shall I Sell My Condo At A Loss?' | Canada Real Estate"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Blunt take on the emotional math of selling an underwater condo — the exact fear condo owners feel right now.<br><strong>Why watch:</strong> Study how he says the scary quiet part out loud in the first 2 seconds. Fuel for a future "should you sell at a loss?" video.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Toronto sales jumped 10% — why that's GOOD news if you're buying</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fresh June data + a belief-flip (headlines say "market's back," you say "it's still yours"). Ties to Foch's steal and speaks straight to nervous first-time buyers.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Contrarian</strong>
+        <div>On-screen: <em>"Sales are up. Prices aren't. Good."</em></div>
+        <div>Spoken: "Toronto home sales just jumped almost 10%, and every headline is screaming 'the market's back.' Here's why they're wrong — and why that's great news if you actually want to buy."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Number shock</strong>
+        <div>On-screen: <em>"6,770 sales. Prices still down 5%."</em></div>
+        <div>Spoken: "6,770 homes sold in Toronto last month — up 9.4%. But the typical price is still down over 5% from a year ago. Let me show you what that gap actually means for you."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"New here? Don't panic-buy this news"</em></div>
+        <div>Spoken: "If you're new to Canada and just saw 'Toronto sales are surging,' don't panic. More people buying doesn't mean you missed it — here's why the window's still open."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~45s)</div>
+        <p><strong>Hook:</strong> "Toronto home sales just jumped almost 10%, and every headline says 'the market's back.' Here's why that's actually good news if you're the one buying."</p>
+        <p><strong>Body:</strong> "Here's the plain version. In June, 6,770 homes sold across the GTA — up 9.4% from a year ago. Sounds like a boom. But look at the other number: the typical home price is still down about 5.4%, and condos are down more than 9%. So more people are buying, but they're not paying more. That only happens in one kind of market — a buyer's market. Why? New listings actually dropped almost 13%, and investors, the people who used to bid these up, still aren't back in force. So the buyers who are out there aren't fighting a crowd. Translation for you: you can still put conditions on your offer, take a few days to think, and negotiate — the stuff that disappears the second prices start climbing. I bought near the peak with none of that room. Right now you've got it. Sales going up is your early warning, not your closed door."</p>
+        <p><strong>CTA:</strong> "Want the 3 questions I'd ask before making an offer in a market like this? Comment OFFER and I'll send them."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Sales ↑ 9.4%</span>
+        <span class="onscreen-tag">Prices ↓ 5.4%</span>
+        <span class="onscreen-tag">Still a buyer's market</span>
+        <span class="onscreen-tag">You can still negotiate</span>
+        <span class="onscreen-tag">Comment OFFER 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Toronto real estate sold sign, condo skyline downtown, buyer signing offer paperwork, line chart sales vs price screen-record, couple touring empty condo</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, downtown Toronto condo towers at golden hour, a 'SOLD' sign in the foreground, slow drone push-in, photoreal, hopeful tone, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a young couple sitting at a kitchen table reviewing a real estate offer with a calm agent, warm morning light, documentary realism, muted color grade"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">What a $40B pipeline in BC has to do with the money in YOUR pocket</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's the biggest national story of the weekend, but everyone's covering the politics. You're the only one translating it into rent, gas, and jobs — your exact "what's in it for you" lane. Debate topic = comments.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"A pipeline in BC. Why should YOU care?"</em></div>
+        <div>Spoken: "Canada just committed to a 40-billion-dollar pipeline across British Columbia. Sounds like it has nothing to do with you. It has everything to do with the money in your pocket — here's how."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Stakes / "this costs you"</strong>
+        <div>On-screen: <em>"Why your loonie is worth 70 cents"</em></div>
+        <div>Spoken: "Your Canadian dollar is worth about 70 US cents right now, and it's part of the reason your groceries and US trips cost more. This new pipeline is the government's bet to fix that. Let me explain simply."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"New to Canada? This explains the economy"</em></div>
+        <div>Spoken: "If you moved to Canada and the economy confuses you, this one story explains a lot — why the dollar's weak, why jobs feel shaky, and what the government's actually trying to do about it."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "Canada just backed a 40-billion-dollar oil pipeline across BC. Sounds like it has nothing to do with you — but it explains why your dollar's weak and your groceries cost more."</p>
+        <p><strong>Body:</strong> "Here's the plain version. Canada sells almost all its oil to one customer — the United States — and because we can't easily ship it anywhere else, we often sell it at a discount. Selling your best product cheap, to one buyer, is bad business. That weak oil money is part of why the Canadian dollar is only worth about 70 US cents right now, which makes anything priced in US dollars — online shopping, food, trips to Florida — more expensive for you. So Carney, Alberta, and BC just agreed to build a pipeline to the Pacific coast to sell that oil to Asia instead. The pitch: more buyers, better prices, more jobs, more tax money — in an economy that's technically in a recession. The catch: it's tens of billions of dollars, years away, and environmental groups and Alberta separatists are already fighting over it. I'm not here to tell you it's good or bad. I'm here so that when people argue about it, you actually understand what's at stake — your dollar, your jobs, your cost of living."</p>
+        <p><strong>CTA:</strong> "Good idea or waste of money? Tell me BUILD or STOP in the comments — I'll pin the sharpest argument from each side."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">$35–44B pipeline</span>
+        <span class="onscreen-tag">1M barrels/day to Asia</span>
+        <span class="onscreen-tag">Loonie = 70¢ US</span>
+        <span class="onscreen-tag">Less reliance on the US</span>
+        <span class="onscreen-tag">BUILD or STOP? 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>oil pipeline construction aerial, Vancouver port container ships, Canadian dollar bills close-up, gas station price sign, Parliament Hill / BC legislature exterior, oil tanker at sea</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a long oil pipeline cutting through British Columbia mountains toward the Pacific coast at sunset, slow aerial drone shot, epic scale, photoreal, moody"</div>
+        <div>2. "Cinematic vertical 9:16, close-up of a Canadian one-dollar coin on a table slowly shrinking beside a US dollar bill, soft studio light, conceptual, clean documentary look"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Renters have quiet leverage right now — and most don't use it</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: speaks to the biggest slice of your audience (renters/newcomers), gives them a concrete win they can act on today, and reframes falling rent + fewer newcomers into personal power.</div>
+
+      <div class="hook-box"><strong>Hook 1 — "Nobody's telling you"</strong>
+        <div>On-screen: <em>"Your landlord won't tell you this"</em></div>
+        <div>Spoken: "Rents have been falling for almost two years, and your landlord is really hoping you haven't noticed. Here's how to use that before your next renewal."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Number shock</strong>
+        <div>On-screen: <em>"Rents down 4.7%. Ask for the difference."</em></div>
+        <div>Spoken: "Average asking rent in Canada is down about 4.7% from a year ago. That's not just a stat — that's money you can literally ask for. Let me show you how."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"New here? You have more power than you think"</em></div>
+        <div>Spoken: "When I first rented in Canada, I took the first price I was given — nobody told me you could negotiate. Right now newcomers have more leverage than they realize. Here's why."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~45s)</div>
+        <p><strong>Hook:</strong> "Rents have been quietly falling for almost two years, and your landlord is hoping you didn't notice. Here's how to use that before your next renewal."</p>
+        <p><strong>Body:</strong> "Here's what's happening. Average asking rent across Canada is down about 4.7% from a year ago, and it's been sliding for 20-plus months. Why? Fewer newcomers. Canada cut permanent-resident targets and international student permits, and the population actually shrank last year — the first time since the Second World War. Fewer new arrivals means fewer people competing for the same apartments, so landlords are the ones sweating now. Some are offering free months and parking just to fill units. So what do you do? One: check what similar units in your building are listing for today — not what you paid two years ago. Two: at renewal, don't just accept the increase; ask for a hold or a small drop, with those comparable listings in hand. Three: if you're newcomer and shy about negotiating like I was — remember the market shifted in your favour. Politely asking costs you nothing. The worst they say is no."</p>
+        <p><strong>CTA:</strong> "Want my word-for-word script to ask for a lower renewal? Comment RENT and I'll DM it to you."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Rents ↓ 4.7% YoY</span>
+        <span class="onscreen-tag">20+ months falling</span>
+        <span class="onscreen-tag">Fewer newcomers = your leverage</span>
+        <span class="onscreen-tag">Negotiate your renewal</span>
+        <span class="onscreen-tag">Comment RENT 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>apartment for rent sign Toronto, person scrolling rental listings phone, tenant signing lease, empty apartment tour, "free month" rental promo sign, keys handed over</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a young renter comparing apartment listings on a phone in a bright empty apartment, soft daylight, hopeful mood, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, close-up of a hand pointing at a lower rent number on a lease document across a table from a landlord, warm office light, documentary realism"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.aljazeera.com/economy/2026/7/3/canadas-carney-secures-deal-for-pipeline-to-expand-oil-exports-beyond-us">Al Jazeera — Carney secures deal for pipeline to expand oil exports beyond US (1M barrels/day)</a></li>
+      <li><a href="https://www.cbc.ca/news/canada/british-columbia/eby-carney-british-columbia-economic-agreeement-pipeline-9.7255633">CBC — North Coast tanker ban upheld, Port of Vancouver expanding in BC–Ottawa deal</a></li>
+      <li><a href="https://www.nationalobserver.com/2026/07/02/news/government-owned-trans-mountain-lead-35-45-billion-oil-pipeline-bc-lower-mainland">National Observer — Trans Mountain to lead $35–44B pipeline to BC Lower Mainland</a></li>
+      <li><a href="https://ici.radio-canada.ca/rci/en/news/2258627/carney-addresses-technical-recession-says-economy-going-through-settling-in-period">Radio-Canada — Carney addresses technical recession, "settling-in" period</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — June 2026 Market Watch: 6,770 sales (+9.4%), avg $1,058,658 (–3.9% YoY)</a></li>
+      <li><a href="https://www.zolo.ca/toronto-real-estate/trends">Zolo — Toronto benchmark $940,800 (–5.4% YoY, –0.6% MoM); condo avg $630,688 (–9.4% YoY)</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — 5-yr GoC bond yield ~3.05% (Jul 3); overnight rate 2.25%</a></li>
+      <li><a href="https://rates.ca/mortgage-report">Rates.ca — 5-yr fixed offers ~4.4–4.6%; variable expected to hold in 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — CAD near 1.42 per USD (~0.70 US cents), near one-year low on soft oil</a></li>
+      <li><a href="https://prepareforcanada.com/housing/settlement-journey/pre-arrival/rental-market-canada-2026-newcomers">Prepare for Canada — 2026 rental market: rents easing, PR targets cut to 380k, population shrank ~100k in 2025</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA — May national avg $702,079 (+1.5% YoY); June national data lands July 15</a></li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:8px;">Generated automatically · Monday, July 6, 2026 · "I live here. I sell here." 🇨🇦</p>
+
+</div>
+
+</body>
+</html>
