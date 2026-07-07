@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, July 7, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, July 7, 2026</div>
+  <div class="canada-day-badge">📊 Real Estate · Economy · Politics</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-07.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">The US refused to renew our big trade deal — so now it gets reviewed every single year</div>
+    <p>Here's what happened while everyone was watching the pipeline: on July 1 the three countries in our North American free-trade deal — Canada, the US, and Mexico — sat down for a mandatory review of CUSMA (the deal that replaced NAFTA). The United States <strong>declined to lock it in for another 16 years</strong>. The deal doesn't die — it still runs to 2036 — but instead of being reviewed once every six years, it now gets picked apart <strong>every single year</strong>. Yesterday (July 6), Canada's trade minister Dominic LeBlanc said Canada is "seeking clarity" and wants those annual talks to finally kill the US tariffs still hitting our steel, aluminum, autos, and lumber.</p>
+    <p>In plain language: about 90% of what Canada sells to the US still crosses the border tariff-free because of this deal — that's the good news, and it's why your job and grocery prices didn't just blow up. The bad news: the punishing tariffs on a few big industries (steel, aluminum, cars, lumber) are still there, and now the whole agreement is up for a fight every year instead of being settled for a generation. That means more uncertainty for anyone whose paycheque touches those industries — and uncertainty is exactly what makes businesses stop hiring.</p>
+    <p><strong>Video-worthy because:</strong> everyone reported "trade deal survives" or "Trump blocks extension" as a political headline. Nobody translated it into: does my job feel safer or shakier this morning? That's your lane.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Roughly 1.15 million Canadian mortgages come up for renewal this year — most locked in near 2% and are now renewing near 4%. Missed-payment rates in Ontario have already jumped about 52% in a year. If you renew in 2026, the time to prepare is now, not the week it's due.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Rates, bonds and the loonie are Monday's (July 6) levels. Three dates to circle: <strong>July 10</strong> (StatCan June jobs report), <strong>July 15</strong> (Bank of Canada rate decision <em>and</em> CREA's national June numbers, same day). New today: the mortgage-arrears row — the renewal wave is starting to show up in the data.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">no change</td>
+            <td><span class="plain-meaning">Held since October 2025. Next call July 15 — most banks still expect a hold. This rate sets your variable and prime.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+            <td>~3.0%</td>
+            <td>~2.99% (June avg)</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">Drives FIXED mortgage rates. Sitting right around 3% means fixed rates aren't moving much either way.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Typical 5-yr fixed mortgage</td>
+            <td>~4.4–4.6%</td>
+            <td>~4.4–4.6%</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Best insured deals near ~3.9–4.0%; typical offers 4.4–4.6%. Steady — don't wait for a big drop that forecasts say isn't coming.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr variable / prime</td>
+            <td>~3.3–3.45% / prime 4.45%</td>
+            <td>same</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Variable is cheaper than fixed right now and expected to hold most of 2026.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Mortgage arrears (90+ days)</td>
+            <td>ON ~0.36% · Toronto ~0.38%</td>
+            <td>ON ~0.24% (yr ago)</td>
+            <td class="tag-up">↑ +52% YoY (ON)</td>
+            <td><span class="plain-meaning">NEW: Share of people 90+ days behind. Still low overall, but rising fast in Ontario. Brampton highest at ~0.64%. Driven by the renewal wave.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ +0.4</td>
+            <td><span class="plain-meaning">Ran hotter — the main reason the Bank isn't cutting. June print comes late July.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA home sales (TRREB, June)</td>
+            <td>6,770 sales</td>
+            <td>~6,190 (Jun '25)</td>
+            <td class="tag-up">↑ +9.4% YoY</td>
+            <td><span class="plain-meaning">More buyers back, led by condos (+13.5%). But new listings fell, so it's activity returning — not a price boom yet.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA avg price (TRREB, June)</td>
+            <td>$1,058,658</td>
+            <td>~$1,101,600 (Jun '25)</td>
+            <td class="tag-down">↓ –3.9% YoY</td>
+            <td><span class="plain-meaning">Still below last year, but the yearly gap keeps shrinking. TRREB now says prices could start rising in H2.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA benchmark price (June)</td>
+            <td>$940,800</td>
+            <td>~$994,500 (Jun '25)</td>
+            <td class="tag-down">↓ –5.4% YoY</td>
+            <td><span class="plain-meaning">The "typical home" measure — a cleaner read than the average. Still down, still no upward pressure yet.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Toronto condo avg price (June)</td>
+            <td>$630,688</td>
+            <td>~$696,000 (Jun '25)</td>
+            <td class="tag-down">↓ –9.4% YoY</td>
+            <td><span class="plain-meaning">Near late-2019 levels — the weakest link, and the cheapest door in for a first-time buyer.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">National sales/price (CREA, May)</td>
+            <td>$702,079 avg</td>
+            <td>~$691,700 (May '25)</td>
+            <td class="tag-up">↑ +1.5% YoY</td>
+            <td><span class="plain-meaning">National average back above $700k. June national data lands July 15.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg asking rent (national)</td>
+            <td>~$2,029</td>
+            <td>~$2,129 (yr ago)</td>
+            <td class="tag-down">↓ –4.7% YoY</td>
+            <td><span class="plain-meaning">Rents still sliding — quiet good news for renters and newcomers. Real leverage at renewal.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Unemployment rate</td>
+            <td>6.9%</td>
+            <td>6.9%</td>
+            <td class="tag-flat">flat / high</td>
+            <td><span class="plain-meaning">Stuck near a multi-year high. June jobs report July 10 — the number to watch this week.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>~0.703 USD</td>
+            <td>~0.706 (week ago)</td>
+            <td class="tag-down">↓ soft</td>
+            <td><span class="plain-meaning">1 CAD ≈ 70 US cents (1 USD ≈ $1.42 CAD), near a one-year low. Weak loonie = pricier US goods, food, and travel.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>Homeowner renewing in 2026:</strong> This is your year and your section. If you signed near 2% in 2020–2021, your new payment could be several hundred dollars a month higher. That's not a maybe — it's math. The people getting hurt aren't the reckless ones; they're regular families who did nothing wrong except renew in the wrong year. Call your lender or a broker <em>before</em> the renewal letter, shop the rate (don't just sign the first offer), and if the payment jump is scary, ask about extending the amortization to soften it. Prepare early and it's a bump. Ignore it and it's a crisis.</p>
+    <p><strong>First-time buyer / newcomer:</strong> Here's the flip side of that same story. Investors and move-up buyers are quieter, so first-time buyers are now the biggest group buying in Ontario. The condo, near 2019 prices, is the cheapest entry point. But TRREB is now openly saying prices could start climbing in the second half of the year as buyers return. Translation: you still have negotiating room today, but the "everyone's scared, take your time" window is the kind of thing that closes quietly, not with a bell.</p>
+    <p><strong>Everyone (the trade angle):</strong> The US refusing to renew CUSMA won't hit your rent this month, but it keeps a cloud over jobs in steel, autos, aluminum and lumber — and job worry is what makes people freeze on big purchases like homes. Roughly 90% of our exports still cross the border duty-free, so this is uncertainty, not disaster. Watch Friday's jobs report (July 10) far more closely than the trade headlines.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Checked all 29 YouTube channels via RSS — 15 posted in the last ~36h. Below are only the ones worth stealing or studying. TikTok/IG not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · YouTube</div>
+      <div class="creator-platform">"First-time homebuyers are now the biggest buyer in Ontario's housing market"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: With investors and move-up buyers on the sidelines, first-timers are now the single largest buyer group in Ontario — a real shift.<br><strong>Your angle:</strong> This is your Video 1. Borrow the data point, not the words. Flip it to "you're not late to the market — you ARE the market right now," aimed straight at nervous newcomers.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen (Toronto Property Finders) · YouTube</div>
+      <div class="creator-platform">"They're Lying About Toronto Home Prices Again"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Calls out the gap between the scary "average price" headline and the calmer benchmark/typical-home number.<br><strong>Your angle:</strong> Perfect explainer for beginners — "average price vs benchmark, and which one the news uses to scare you." You can teach this in 40 seconds and own the trust.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">"I'm Canada" · YouTube</div>
+      <div class="creator-platform">"Complete revamp of OINP and what it means for immigrants"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Breaks down big changes to the Ontario Immigrant Nominee Program (a main path to PR through Ontario).<br><strong>Your angle:</strong> Immigration = your core audience's #1 worry. Don't copy the immigration detail (verify it first), but a "what OINP changes mean for newcomers who want to buy a home here" bridge is gold for your Ukrainian audience.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Alex Applegate · YouTube</div>
+      <div class="creator-platform">"It's Over: TORONTO'S REAL ESTATE Market Just Flipped | July 2026"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Argues the June numbers mark a turning point from buyer's to a more balanced market.<br><strong>Why watch:</strong> Same "market flipped" thread as TRREB's H2 prediction. Study the "It's Over" hook structure — big claim + date stamp — but don't overclaim; the data still says buyer's market.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage Clips (Ron Butler) · YouTube</div>
+      <div class="creator-platform">"Canada Is Lucky To Have Carney?" + "HUH?! IT was always wrong!!"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Blunt reactions to Carney's economy and a rates/policy take.<br><strong>Why watch:</strong> Good fuel for your CUSMA/economy video. Study how he opens with pure reaction in the first 2 seconds — it's a hook masterclass, even when the take is spicy.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Jon Flynn Real Estate Stats · YouTube</div>
+      <div class="creator-platform">"When Will Housing ACTUALLY Be Affordable Again? (The Answer is Alarming)"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Data-driven look at how far off "affordable" still is even after the price drops.<br><strong>Why watch:</strong> Great counter-weight if you ever feel too optimistic. Note the "(The Answer is Alarming)" curiosity-gap in the title — that parenthetical trick reliably lifts clicks.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">You're not late — first-time buyers are now the biggest buyers in Ontario</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fresh Foch data point + a fear-flip aimed at your exact audience (newcomers who think they missed it). Positive, shareable, and it makes people feel like the market is finally theirs.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Contrarian</strong>
+        <div>On-screen: <em>"You didn't miss it. You ARE the market."</em></div>
+        <div>Spoken: "If you think you're too late to buy in Ontario, I've got news that flips the whole story — first-time buyers are now the single biggest group buying homes here. You're not late. You're the market."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Number shock</strong>
+        <div>On-screen: <em>"#1 buyer in Ontario right now? It's you."</em></div>
+        <div>Spoken: "Guess who's buying the most homes in Ontario right now — not investors, not rich move-up buyers. It's first-time buyers. Let me show you why that's a bigger deal than it sounds."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"New to Canada? This is YOUR window."</em></div>
+        <div>Spoken: "When I moved to Canada I thought buying a home was for people who'd been here 20 years. Right now the numbers say the opposite — newcomers and first-timers are leading this market. Here's how to use that."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~45s)</div>
+        <p><strong>Hook:</strong> "If you think you're too late to buy in Ontario, this flips the whole story — first-time buyers are now the single biggest group buying homes here. You're not late. You're the market."</p>
+        <p><strong>Body:</strong> "Here's the plain version. For years the market was ruled by two groups: investors buying condos to rent out, and move-up buyers trading their house for a bigger one. Both of them have gone quiet. Investors got scared off by high rates and falling condo prices; move-up buyers can't sell easily, so they're sitting tight. That left a gap — and first-time buyers walked right into it. In Ontario they're now the number one buyer group. Why does that matter for you? Because when the aggressive buyers step back, the pressure comes off. You get to put conditions on your offer, take a few days to think, and actually negotiate — the stuff that vanishes the second a crowd shows up. The catch: the real estate board is now openly saying prices could start rising again later this year as more buyers return. So this isn't 'wait forever.' It's 'you have room right now that you won't have in a hot market.' I bought near the peak with none of that room. You've got it today."</p>
+        <p><strong>CTA:</strong> "Want the 3 things I'd check before making a first offer in this market? Comment FIRST and I'll send them."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">First-timers = #1 buyer in ON</span>
+        <span class="onscreen-tag">Investors stepped back</span>
+        <span class="onscreen-tag">You can still negotiate</span>
+        <span class="onscreen-tag">Prices may rise in H2</span>
+        <span class="onscreen-tag">Comment FIRST 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>young couple getting house keys, first-time buyer signing paperwork, Toronto condo tour empty unit, sold sign in front yard, hopeful person looking at listings on phone</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a young immigrant couple standing in the doorway of their first empty condo holding keys, warm morning light through the window, hopeful, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, over-the-shoulder shot of a young buyer scrolling home listings on a phone at a kitchen table with a coffee, soft daylight, documentary realism, muted color grade"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">1.15 million Canadians renew their mortgage this year — here's how to not get crushed</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: massive, specific stakes (a real payment jump) hitting a huge slice of homeowners, plus a concrete action plan. Fear + a fix = saves and shares. Ties to the arrears data that's brand-new today.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Stakes / "this costs you"</strong>
+        <div>On-screen: <em>"Renewing in 2026? Read this first."</em></div>
+        <div>Spoken: "If your mortgage renews this year, your payment could jump by hundreds of dollars a month — and most people don't find out until the letter arrives. Here's how to get ahead of it."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Number shock</strong>
+        <div>On-screen: <em>"1.15 million mortgages. 2% → 4%."</em></div>
+        <div>Spoken: "1.15 million Canadian mortgages renew this year, most of them jumping from around 2% to around 4%. That's why missed payments in Ontario just spiked 52%. Let me show you how to not be one of them."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — "Nobody's telling you"</strong>
+        <div>On-screen: <em>"Your bank won't call you first."</em></div>
+        <div>Spoken: "Your bank is hoping you'll just sign the renewal they mail you — because it's almost never their best rate. Here's what to do the month before your mortgage comes due."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "If your mortgage renews this year, your payment could jump hundreds of dollars a month — and most people don't find out until the letter shows up. Here's how to get ahead of it."</p>
+        <p><strong>Body:</strong> "Here's what's happening. About 1.15 million Canadian mortgages come up for renewal in 2026. A lot of these people locked in around 2% back in 2020 and 2021. Today they're renewing closer to 4%. On a normal Toronto mortgage, that's often several hundred dollars more every single month — same house, same family, way bigger payment. And it's already showing: the share of Ontario homeowners 90-plus days behind on their mortgage just jumped about 52% in a year. So what do you actually do? One: don't wait for the letter. Reach out to your lender or a mortgage broker two or three months before your renewal date. Two: don't just sign the first offer the bank sends — that renewal rate is usually not their best one; shop it, or have a broker shop it for you. Three: if the new payment genuinely scares you, ask about stretching the amortization — the number of years to pay it off. It costs you more interest long-term, but it lowers the monthly hit and buys you breathing room now. The people getting hurt here didn't do anything wrong. They just renewed in a bad year. Prepare early and this is a bump, not a crisis."</p>
+        <p><strong>CTA:</strong> "Renewing this year? Comment RENEW and I'll send you the exact questions to ask your lender before you sign."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">1.15M renewals in 2026</span>
+        <span class="onscreen-tag">2% → ~4%</span>
+        <span class="onscreen-tag">ON missed payments ↑ 52%</span>
+        <span class="onscreen-tag">Don't sign the first offer</span>
+        <span class="onscreen-tag">Comment RENEW 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>mortgage renewal letter close-up, person worried looking at bills at table, calculator and bank statements, broker meeting handshake, Toronto houses street view, calendar with date circled</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a middle-aged homeowner sitting at a kitchen table looking worried at a mortgage statement, soft window light, documentary realism, shallow depth of field, muted tones"</div>
+        <div>2. "Cinematic vertical 9:16, close-up of a hand holding a bank renewal letter next to a calculator and coffee cup, warm morning light, photoreal, clean and serious mood"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">The US just refused to renew our trade deal — should you be worried?</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's the biggest national story right now, everyone framed it as politics, and you're the only one asking the question a normal person actually has — is my job and my cost of living okay? Debate + reassurance = comments.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"US won't renew our trade deal. Panic?"</em></div>
+        <div>Spoken: "The United States just refused to renew Canada's biggest trade deal. Sounds terrifying. So should you actually be worried about your job and your grocery bill? Let me break it down without the politics."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen: <em>"Scary headline. Boring reality. Mostly."</em></div>
+        <div>Spoken: "Every headline says the US 'blocked' our trade deal, like the sky's falling. The boring truth: 90% of what we sell them still crosses the border tariff-free. But there's one part you should actually watch — here it is."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"New to Canada? This explains the job jitters."</em></div>
+        <div>Spoken: "If you moved to Canada and keep hearing scary trade and tariff news, this one story explains a lot — why jobs feel shaky, why the dollar's weak, and what actually changed this month."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "The United States just refused to renew Canada's biggest trade deal. Sounds terrifying. So should you actually be worried about your job and your grocery bill? Let me break it down without the politics."</p>
+        <p><strong>Body:</strong> "Here's the plain version. Canada, the US and Mexico share a free-trade deal called CUSMA — it's what replaced NAFTA. It's supposed to get a big review every six years, and one of those was July 1st. The US said no to locking it in for another 16 years. So instead of being settled for a generation, the deal now gets reviewed every single year. Here's the part the headlines skip: the deal didn't die. It runs to 2036, and about 90% of everything Canada sells to the US still crosses the border with no tariff. That's why your job and your groceries didn't just blow up. The real problem is the few big industries that DO still get hit — steel, aluminum, cars, and lumber. Those tariffs are still there, and now the whole agreement is a yearly fight instead of a done deal. Why should you care? Because uncertainty is what makes companies stop hiring. If you work anywhere near those industries, or you're job-hunting as a newcomer, this is the cloud to keep an eye on. I'm not here to tell you to panic or relax — I'm here so when people argue about it online, you actually know what changed and what didn't."</p>
+        <p><strong>CTA:</strong> "Does this make you feel better or worse about the economy? Comment BETTER or WORSE — I'll pin the sharpest take from each side."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">US declined to renew CUSMA</span>
+        <span class="onscreen-tag">Now reviewed every year</span>
+        <span class="onscreen-tag">90% still tariff-free</span>
+        <span class="onscreen-tag">Steel, autos, lumber still hit</span>
+        <span class="onscreen-tag">BETTER or WORSE? 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Canada US border crossing trucks, cargo container port, steel factory workers, auto assembly line, grocery store checkout, Parliament Hill exterior, Canadian and US flags</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a long line of transport trucks crossing the Canada-US border checkpoint at dawn, slow aerial drone shot, photoreal, serious documentary tone"</div>
+        <div>2. "Cinematic vertical 9:16, sparks flying in a steel factory with a worker in silhouette, dramatic industrial lighting, photoreal, moody, sense of uncertainty"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.canada.ca/en/global-affairs/news/2026/07/statement-by-minister-leblanc-following-trilateral-cusma-joint-review-meeting.html">Global Affairs Canada — Minister LeBlanc statement after CUSMA joint review (July 2026)</a></li>
+      <li><a href="https://www.nationalobserver.com/2026/07/06/news/leblanc-says-canada-seeking-clarity-after-us-opts-annual-cusma-review">National Observer — LeBlanc says Canada seeking clarity after US opts for annual CUSMA review (July 6)</a></li>
+      <li><a href="https://www.whitecase.com/insight-alert/usmca-2026-joint-review-united-states-declines-extend-agreement-triggering-annual">White &amp; Case — US declines to extend USMCA/CUSMA, triggering annual reviews</a></li>
+      <li><a href="https://www.cbc.ca/news/politics/what-next-cusma-usmca-us-canada-mexico-trump-tariffs-9.7255435">CBC — Analysis: what's next for Canada after US blocks CUSMA extension</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/observer/2026/mortgage-renewal-wave-strains-some-regions-borrowers">CMHC — Mortgage renewal wave strains some regions and borrowers (~1.15M renewals in 2026)</a></li>
+      <li><a href="https://pegasuslending.com/blog/ontario-mortgage-delinquency-rates/">Pegasus Lending — Ontario 90+ day delinquency ~0.36% (+~52% YoY); Toronto ~0.38%, Brampton ~0.64%</a></li>
+      <li><a href="https://www.globenewswire.com/news-release/2026/07/03/3321730/0/en/Market-Gains-Traction-with-Strong-Home-Sales-in-June-and-First-Half-of-the-Year.html">TRREB — June 2026 Market Watch: 6,770 sales (+9.4%), avg $1,058,658 (–3.9% YoY); prices could rise in H2</a></li>
+      <li><a href="https://www.cp24.com/news/money/2026/07/03/greater-toronto-home-sales-up-94-in-june-as-board-predicts-price-growth-could-come/">CP24 — GTA home sales up 9.4% in June; board predicts price growth could come</a></li>
+      <li><a href="https://www.zolo.ca/toronto-real-estate/trends">Zolo — Toronto benchmark $940,800 (–5.4% YoY); condo avg $630,688 (–9.4% YoY)</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — 5-yr GoC bond yield ~3.0%; overnight rate 2.25%; next decision July 15</a></li>
+      <li><a href="https://rates.ca/mortgage-report">Rates.ca — 5-yr fixed offers ~4.4–4.6%; variable ~3.3–3.4%, expected to hold in 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — CAD ~0.703 USD (~1.42 per USD), near a one-year low on soft oil</a></li>
+      <li><a href="https://globalnews.ca/news/11888907/canada-economy-rebound-recession-oecd/">Global News — OECD: Canadian economy expected to strengthen after technical recession</a></li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:8px;">Generated automatically · Tuesday, July 7, 2026 · "I live here. I sell here." 🇨🇦</p>
+
+</div>
+
+</body>
+</html>
