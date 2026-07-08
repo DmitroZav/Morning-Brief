@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, July 8, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, July 8, 2026</div>
+  <div class="canada-day-badge">📊 Real Estate · Economy · Politics</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-08.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">Canada is about to cut immigration again — and this time it's aimed straight at housing</div>
+    <p>The Carney government is moving to tighten immigration further, with new caps on international students and temporary foreign workers, and the stated reason is housing. The logic the government is selling: fewer people arriving each year means less competition for the same short supply of homes and apartments, which is supposed to cool rents and prices. This lands on top of the lower permanent-resident targets already set for 2025–2027.</p>
+    <p>In plain language: Ottawa has decided that the fastest lever it can actually pull on the housing crisis isn't building more homes (that takes years) — it's slowing how many people come in. For anyone already here, that's a mixed bag. If you rent, less competition <em>could</em> ease the pressure over time. If you're a newcomer still trying to bring family, switch from a study or work permit to permanent residency, or you run a business that hires temporary workers, the door is getting narrower, not wider.</p>
+    <p><strong>Video-worthy because:</strong> every outlet is covering this as a politics-and-numbers story. Nobody is answering the question your Ukrainian audience is actually asking at the kitchen table: "does this make it harder for ME and my family to stay and build a life here?" That's your lane — the human translation.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">For the first time in 16 years, a Toronto condo is now more affordable than a Montreal one (RBC). Toronto condo prices have rolled all the way back to late-2019 levels — the cheapest door into this market in years, right as the city keeps telling newcomers it's "unaffordable."</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Rates, bonds and the loonie are Tuesday's (July 7) levels. Two dates to circle: <strong>Friday July 10</strong> (StatCan June jobs report) and <strong>July 15</strong> (Bank of Canada rate decision <em>and</em> CREA's national June numbers, same day). New today: the RBC condo-affordability flip — Toronto is now cheaper than Montreal.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">no change</td>
+            <td><span class="plain-meaning">Held since October 2025, sitting in the "neutral" zone. Next call July 15 — banks still expect a hold. This rate sets your variable and prime.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+            <td>~3.0%</td>
+            <td>~2.99% (June avg)</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">Drives FIXED mortgage rates. Around 3% = fixed rates aren't moving much. Forecasters see it drifting toward ~3.5% by year-end, which would nudge fixed rates up, not down.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Typical 5-yr fixed mortgage</td>
+            <td>~4.4–4.6%</td>
+            <td>~4.4–4.6%</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Best insured deals near ~4.0%; typical offers 4.4–4.6%. Steady — don't hold out for a big drop the forecasts say isn't coming.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr variable / prime</td>
+            <td>~3.3% / prime 4.45%</td>
+            <td>same</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Variable is still cheaper than fixed and expected to hold most of 2026. The small risk now leans toward a hike late 2026, not a cut.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Toronto condo affordability (RBC)</td>
+            <td>36.1% of income</td>
+            <td>Montreal 36.3%</td>
+            <td class="tag-down">↓ Toronto now cheaper</td>
+            <td><span class="plain-meaning">NEW: Share of pre-tax income the typical family spends on a condo. First time in 16 years Toronto beats Montreal — GTA prices corrected that hard.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Toronto condo avg price (June)</td>
+            <td>$630,688</td>
+            <td>~$696,000 (Jun '25)</td>
+            <td class="tag-down">↓ –9.4% YoY</td>
+            <td><span class="plain-meaning">Near late-2019 levels — the weakest link, and the cheapest entry point for a first-time buyer. Sales actually up +13.5% YoY as buyers return at lower prices.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, latest)</td>
+            <td>~2.8%</td>
+            <td>~3.2% (spring)</td>
+            <td class="tag-flat">still elevated</td>
+            <td><span class="plain-meaning">Shelter has cooled to ~1.8%, but a gasoline spike (~+29%) is keeping headline inflation sticky. Next print late July. Main reason the Bank isn't cutting.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA home sales (TRREB, June)</td>
+            <td>6,770 sales</td>
+            <td>~6,190 (Jun '25)</td>
+            <td class="tag-up">↑ +9.4% YoY</td>
+            <td><span class="plain-meaning">More buyers back, led by condos. New listings fell, so it's activity returning — not yet a price boom.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA avg price (TRREB, June)</td>
+            <td>$1,058,658</td>
+            <td>~$1,101,600 (Jun '25)</td>
+            <td class="tag-down">↓ –3.9% YoY</td>
+            <td><span class="plain-meaning">Still below last year, but the yearly gap keeps shrinking. TRREB thinks prices could start rising in the second half.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA benchmark price (June)</td>
+            <td>$940,800</td>
+            <td>~$994,500 (Jun '25)</td>
+            <td class="tag-down">↓ –5.4% YoY</td>
+            <td><span class="plain-meaning">The "typical home" measure — a cleaner read than the average. Still down, still no upward pressure yet.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">National sales/price (CREA, May)</td>
+            <td>$702,079 avg</td>
+            <td>~$691,700 (May '25)</td>
+            <td class="tag-up">↑ +1.5% YoY</td>
+            <td><span class="plain-meaning">National average above $700k. Inventory tightened — months of supply fell to 4.8 from 5.3. June data lands July 15.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg asking rent (national)</td>
+            <td>~$2,029</td>
+            <td>~$2,129 (yr ago)</td>
+            <td class="tag-down">↓ –4.7% YoY</td>
+            <td><span class="plain-meaning">Rents still sliding — quiet good news for renters and newcomers. Real leverage at renewal. Immigration caps could extend this.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Unemployment rate</td>
+            <td>6.9%</td>
+            <td>6.9%</td>
+            <td class="tag-flat">flat / high</td>
+            <td><span class="plain-meaning">Stuck near a multi-year high. June jobs report Friday July 10 — the number to watch this week.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>~0.705 USD</td>
+            <td>~0.703 (day before)</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">1 CAD ≈ 70.5 US cents (1 USD ≈ $1.42 CAD). Ticked up slightly on firmer trade data, still near a one-year low. Weak loonie = pricier US goods, food, travel.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>Newcomer / immigrant:</strong> This is your headline today. Tighter caps on students and temporary workers mean the path to staying is getting more competitive, not less — so if you're planning to switch from a study or work permit to permanent residency, or bring family, treat this year as "move earlier, not later." The flip side: fewer arrivals could keep rents soft, which quietly helps your monthly budget while you settle. Watch the policy, but don't panic-read one headline — get the actual rule that applies to your situation before you make a decision.</p>
+    <p><strong>First-time buyer:</strong> Here's the good-news story hiding under the scary ones. A Toronto condo just became more affordable than a Montreal one for the first time in 16 years, and prices are back near 2019. You have room to put conditions on an offer, take a few days, and negotiate — the stuff that vanishes the moment a crowd shows up. But TRREB is openly saying prices could tick up in the second half. So this isn't "wait forever." It's "you have leverage right now that a hotter market takes away."</p>
+    <p><strong>Renter:</strong> Rents are down about 4.7% from a year ago, and if immigration slows, that softness could stick around. Your leverage is real at renewal — don't just accept the first increase your landlord floats. But don't over-count on it either: the same slowdown that helps your rent is also what's keeping jobs and wages flat.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Checked all 29 YouTube channels via RSS — 12 posted in the last ~24–36h. Below are only the fresh ones worth stealing or studying (skipping repeats already covered yesterday). TikTok/IG not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate · YouTube</div>
+      <div class="creator-platform">"50 Years Wiped Out (Toronto Home Prices)"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Dramatic framing that Toronto price gains have been "wiped out" — a big scary number designed to stop the scroll.<br><strong>Your angle:</strong> This is your Video 3. Don't repeat the doom — flip it. "You keep seeing '50 years wiped out.' Here's what that headline leaves out, and why it's actually your opening." Teach average vs benchmark, calm the panic, own the trust.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · YouTube</div>
+      <div class="creator-platform">"First-time buyers are FINALLY back on top… BUT they're older than ever"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Fresh twist on yesterday's data — first-timers are the #1 buyer group, but the average first-time buyer is now older than in past decades.<br><strong>Your angle:</strong> Great reassurance hook for newcomers who feel "behind." "If you think you're too old or too late to buy your first place in Canada — the data says you're actually right on time." Ties perfectly into your first-time-buyer content.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · YouTube</div>
+      <div class="creator-platform">"Don't Upsize in Toronto Until You Watch This (9 Costly Mistakes)"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Practical list-style video on the traps of trading up to a bigger home in this market.<br><strong>Why watch:</strong> Not your core newcomer topic, but study the "9 costly mistakes" list structure — numbered-mistakes hooks reliably drive saves. Bank the format for a future "5 mistakes newcomers make buying their first home" reel.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Amrit Walia · YouTube</div>
+      <div class="creator-platform">"The Future of the Toronto Condo Market"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Forward-looking take on where GTA condos go from here.<br><strong>Why watch:</strong> Same condo-bottom thread as your One Thing today. Good sanity-check on the "is now the time?" question — but lead with your sharper angle (Toronto now cheaper than Montreal) rather than a generic "future of the market" framing.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Canada is cutting immigration again — what it really means if you want to stay</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's the biggest story of the day AND it hits your core Ukrainian audience's #1 fear directly. Everyone else is doing politics; you're answering "can my family still build a life here?" That's saves, shares, and heavy comments.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Stakes / "this costs you"</strong>
+        <div>On-screen: <em>"Canada is closing the door a little more."</em></div>
+        <div>Spoken: "Canada is about to cut immigration again — and if you're a newcomer trying to stay, the timeline just got tighter. Here's what actually changes for you."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Newcomer lens</strong>
+        <div>On-screen: <em>"They're blaming us for the housing crisis."</em></div>
+        <div>Spoken: "The government just said the fix for housing is fewer of us coming in. I'm an immigrant and a realtor — let me tell you the honest version of what that means for your family and your rent."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"Fewer newcomers = cheaper homes?"</em></div>
+        <div>Spoken: "Will cutting immigration actually make housing cheaper? The government is betting yes. Here's who it helps, who it hurts, and where you land in that."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "Canada is about to cut immigration again — and if you're a newcomer trying to stay, the timeline just got tighter. Here's what actually changes for you."</p>
+        <p><strong>Body:</strong> "Here's the plain version. The government wants to bring housing costs down, and the fastest lever it can pull isn't building homes — that takes years — it's slowing how many people arrive. So they're adding new caps on international students and temporary foreign workers, on top of already-lower permanent-resident targets for the next couple of years. What does that mean for a real person? Two sides. If you rent, fewer newcomers competing for the same apartments could keep rents soft — they're already down almost 5% from a year ago. That's quietly good for your monthly budget. But if you're on a study or work permit and your plan is to become a permanent resident, or bring your family over, the road is getting more crowded, not less. My honest take as someone who did this myself: don't panic off one headline, but don't sit on your hands either. Find the exact rule that applies to your situation, and if your window to apply is open, move earlier rather than later. 'I'll do it next year' is the sentence that hurts people most."</p>
+        <p><strong>CTA:</strong> "Are you trying to get PR or bring family right now? Comment STAY and I'll put together a plain-language breakdown of what these changes mean for your path."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">New caps on students + workers</span>
+        <span class="onscreen-tag">Housing = the stated reason</span>
+        <span class="onscreen-tag">Renters: could ease rents</span>
+        <span class="onscreen-tag">PR path: move earlier</span>
+        <span class="onscreen-tag">Comment STAY 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Toronto Pearson airport arrivals, newcomer family with suitcases, IRCC website on laptop, apartment for rent sign, immigrants walking downtown Toronto, hand signing permit paperwork</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a young immigrant family standing in an airport arrivals hall with suitcases looking uncertain but hopeful, soft natural light, photoreal, shallow depth of field, documentary realism"</div>
+        <div>2. "Cinematic vertical 9:16, close-up of hands filling out an immigration permit form at a kitchen table with a laptop open beside it, warm morning light, photoreal, quiet serious mood"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">A Toronto condo is now cheaper than a Montreal one — first time in 16 years</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: surprising, specific, and it flips the "Toronto is impossible" belief your audience holds. Positive first-time-buyer story with a hard RBC data point behind it. Shareable "wait, really?" energy.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Number shock</strong>
+        <div>On-screen: <em>"Toronto condo &lt; Montreal condo. Yes, really."</em></div>
+        <div>Spoken: "For the first time in 16 years, a condo in Toronto is more affordable than one in Montreal. If you've been told Toronto is impossible — the numbers just changed the story."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen: <em>"Everyone says 'wait.' The data says now."</em></div>
+        <div>Spoken: "Everyone keeps telling newcomers to wait forever to buy in Toronto. Here's one number from RBC that quietly flips that advice on its head."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Personal stakes (his edge)</strong>
+        <div>On-screen: <em>"I bought at the peak. This is different."</em></div>
+        <div>Spoken: "I bought my condo near the top of the market and felt the pain. What's happening to Toronto condo prices right now is the opposite of what I walked into — let me show you."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~45s)</div>
+        <p><strong>Hook:</strong> "For the first time in 16 years, a condo in Toronto is more affordable than one in Montreal. If you've been told Toronto is impossible — the numbers just changed the story."</p>
+        <p><strong>Body:</strong> "Here's the plain version. RBC measures affordability as the share of a typical family's income it takes to carry a home. On condos, Toronto just came in slightly below Montreal — 36.1% versus 36.3%. That hasn't happened since 2009. Why? Toronto condo prices have fallen so hard they're back near where they were in late 2019 — around $630,000 on average, down more than 9% in a year. Meanwhile incomes kept rising. Put those together and the pandemic-era jump in unaffordability has basically been erased. Now, I'm not telling you to run out and buy today. I'm telling you the 'Toronto is only for the rich' story you keep hearing is out of date. Investors have stepped back, so as a first-time buyer you actually have room to negotiate right now. The catch: the real estate board thinks prices could start climbing again later this year. So the window where you have the leverage isn't going to stay open forever. I bought at the peak with none of this room. You have it today — use it or at least go look."</p>
+        <p><strong>CTA:</strong> "Want the 3 things I'd check before touring your first condo in this market? Comment CONDO and I'll send them over."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Toronto 36.1% vs Montreal 36.3%</span>
+        <span class="onscreen-tag">First time since 2009</span>
+        <span class="onscreen-tag">Condos back to 2019 prices</span>
+        <span class="onscreen-tag">You can still negotiate</span>
+        <span class="onscreen-tag">Comment CONDO 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Toronto condo skyline CN Tower, empty condo unit tour, Montreal vs Toronto split screen, young buyer looking at listings on phone, condo balcony city view, sold sign condo lobby</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a young buyer standing at the window of an empty modern Toronto condo looking out at the skyline at golden hour, hopeful, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, over-the-shoulder shot of a person comparing two condo listings on a phone at a cafe table, soft daylight, documentary realism, muted color grade"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">"50 years wiped out" — is Toronto real estate really collapsing?</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: myth-buster reacting to a viral doom headline going around right now (Team Sessa). Beginners are confused by "average price" vs "benchmark" — teach it in 40 seconds and you become the calm, trusted voice in a panicky feed. Debate + education = comments and saves.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Contrarian</strong>
+        <div>On-screen: <em>"'50 years wiped out.' Calm down."</em></div>
+        <div>Spoken: "You've probably seen the '50 years of Toronto home prices wiped out' headline. Before you panic or celebrate — here's the part they don't show you."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — "Nobody's telling you"</strong>
+        <div>On-screen: <em>"The news uses the scary number on purpose."</em></div>
+        <div>Spoken: "There are two ways to measure home prices, and the news almost always picks the scarier one. Once you know the difference, those headlines stop controlling you."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"Is Toronto crashing — or on sale?"</em></div>
+        <div>Spoken: "Is the Toronto market actually collapsing, or is it quietly on sale? Same data, two completely different stories — let me show you which one is real."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "You've probably seen the '50 years of Toronto home prices wiped out' headline. Before you panic or celebrate — here's the part they don't show you."</p>
+        <p><strong>Body:</strong> "Here's the plain version. When you see a scary real estate headline, it's almost always built on the 'average price' — you add up every sale and divide. The problem: one month with a few extra cheap condos or a few missing mansions swings that number hard. It's noisy. There's a second number called the benchmark, or 'typical home' price. It tracks the same kind of home over time, so it strips out that noise. Right now in the GTA the average is about 1.06 million and down around 4% from last year, and the benchmark is about 940,000 and down about 5%. So yes — prices are lower than a year ago, that part is true. But 'a healthy correction back to 2019 condo prices' and '50 years wiped out' are describing the exact same market with two very different volumes turned up. Why do you care? Because if a headline makes you too scared to even look, you miss that this is one of the few moments in years where a first-time buyer actually has negotiating room. Read the benchmark, not the panic. That's how you stay calm while everyone else reacts."</p>
+        <p><strong>CTA:</strong> "Want me to break down 'average vs benchmark' with real Toronto examples? Comment PRICE and I'll make it. Which number does YOUR local news use — tell me below."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">"Average" = the noisy, scary number</span>
+        <span class="onscreen-tag">Benchmark = typical home</span>
+        <span class="onscreen-tag">Avg $1.06M / benchmark $940K</span>
+        <span class="onscreen-tag">Prices down, not collapsing</span>
+        <span class="onscreen-tag">Comment PRICE 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>scary news headline zoom, red stock chart falling, Toronto houses street aerial, person scrolling phone worried, calm realtor explaining to camera, line graph on laptop screen</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a dramatic red downward stock-style chart glowing on a dark screen with a blurred worried face reflected, moody lighting, photoreal, sense of media panic"</div>
+        <div>2. "Cinematic vertical 9:16, calm confident person explaining something to camera in a bright modern kitchen, holding a phone, warm daylight, photoreal, trustworthy documentary tone"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.mpamag.com/ca/mortgage-industry/industry-trends/carney-set-to-further-limit-immigration-to-ease-housing-pressures/534419">Canadian Mortgage Professional — Carney set to further limit immigration (new caps on students & temporary workers) to ease housing pressures</a></li>
+      <li><a href="https://www.nationalobserver.com/2026/07/08/news/canada-resource-development-housing">National Observer (July 8) — Canada's resource push meets a housing crunch in northwest BC</a></li>
+      <li><a href="https://realestatemagazine.ca/toronto-condo-affordability-back-to-2019-levels-as-smaller-markets-close-the-gap-rbc/">Real Estate Magazine / RBC — Toronto condo affordability back to 2019 levels; Toronto now cheaper than Montreal (36.1% vs 36.3%)</a></li>
+      <li><a href="https://torontolife.com/real-estate/montreal-condos-toronto-affordability-housing/">Toronto Life — Montreal's condos are now more expensive than Toronto's (first time in 16 years)</a></li>
+      <li><a href="https://www.zolo.ca/toronto-real-estate/trends">Zolo — Toronto condo avg $630,688 (–9.4% YoY); benchmark $940,800 (–5.4%); condo sales +13.5% YoY</a></li>
+      <li><a href="https://www.globenewswire.com/news-release/2026/07/03/3321730/0/en/Market-Gains-Traction-with-Strong-Home-Sales-in-June-and-First-Half-of-the-Year.html">TRREB — June 2026 Market Watch: 6,770 sales (+9.4%), avg $1,058,658 (–3.9% YoY); prices could rise in H2</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — 5-yr GoC bond yield ~3.0%; overnight rate 2.25%; next decision July 15</a></li>
+      <li><a href="https://rates.ca/mortgage-report">Rates.ca — 5-yr fixed ~4.4–4.6% (best insured ~4.0%); variable ~3.3%, prime 4.45%</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — GoC 5-yr yield forecast drifting toward ~3.5% by year-end; fixed rates expected to edge up</a></li>
+      <li><a href="https://www.marketscreener.com/news/canadian-dollar-edges-higher-as-trade-data-boosts-growth-outlook-ce7f5ed8da8df324">MarketScreener — Loonie edges higher to ~0.705 USD (1.419 per USD) on firmer trade data (July 7)</a></li>
+      <li><a href="https://betterdwelling.com/canadas-real-estate-correction-is-now-the-largest-in-history/">Better Dwelling — Canada's correction now the largest in history; prices back to ~2021 levels nominally, 2016 real</a></li>
+      <li><a href="https://www.aljazeera.com/economy/2026/7/3/canadas-carney-secures-deal-for-pipeline-to-expand-oil-exports-beyond-us">Al Jazeera — Carney secures BC/Alberta pipeline deal to expand oil exports beyond the US (context)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lPjK4zzT6TM">Creator Watch — Team Sessa "50 Years Wiped Out (Toronto Home Prices)" (July 7)</a></li>
+      <li><a href="https://www.youtube.com/shorts/v6JjtW_VaLg">Creator Watch — Daniel Foch "First-time buyers back on top… but older than ever" (July 7)</a></li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:8px;">Generated automatically · Wednesday, July 8, 2026 · "I live here. I sell here." 🇨🇦</p>
+
+</div>
+
+</body>
+</html>
