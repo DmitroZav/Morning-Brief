@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Saturday, July 11, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Saturday, July 11, 2026</div>
+  <div class="canada-day-badge">📊 Real Estate · Economy · Politics</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-11.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">Banks are quietly selling Toronto condos — and the people getting hurt aren't the ones you'd expect</div>
+    <p>Here's the story building all week and all over the real estate feed this weekend: a wave of Toronto and Vancouver condos is being sold by banks and lenders, not by happy owners. The numbers are ugly — Ontario "power of sale" listings (that's when a lender takes over and sells a home because the owner can't pay) are up about 59% this year, and fresh appraisals are coming in $50,000 to $150,000 <em>below</em> what buyers agreed to pay a few years ago. In Vancouver, some condo buyers are watching $200,000 evaporate on units they signed for at the peak.</p>
+    <p>In plain language: a lot of people bought pre-construction condos back in 2021–2022 as an investment, betting prices would keep climbing. Prices went the other way. Now those buildings are finishing, the units are worth far less than the contract price, and the "assignment" market — where you sell your spot in line before closing — has basically frozen. So the units end up sold by the bank, cheap. It's painful for the speculators. But here's the part the doom headlines skip: for a regular person who just wants a home to live in, this is quietly the cheapest door into the condo market in years.</p>
+    <p><strong>Video-worthy because:</strong> every creator is running the scary version ("buyers losing everything," "the meltdown"). Almost nobody flips it into the honest, useful version for a normal first-time buyer: someone else's bad bet can become your reasonable first home — if you know what you're looking at.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Circle Wednesday, July 15 — it's a double header. The Bank of Canada decides on rates (expected to hold at 2.25% for the 6th straight time) AND CREA drops its new national housing forecast, both the same morning. If your plan is "wait for a cheaper mortgage before I buy," Wednesday is likely the 6th time in a row that plan goes nowhere.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Weekend read — rates, bonds and the loonie are Friday's levels; markets are closed. The big movers this week were June's jobs report (unemployment fell to 6.5%) and TRREB's June numbers. Everything points to <strong>Wednesday, July 15</strong>: Bank of Canada rate decision + fresh Monetary Policy Report + CREA's new national forecast, all the same day.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">no change</td>
+            <td><span class="plain-meaning">Held 5 straight meetings. Wed July 15 is the 6th call — economists widely expect another hold, cut odds are tiny. This rate sets your variable and prime.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+            <td>~3.1%</td>
+            <td>~3.0%</td>
+            <td class="tag-up">↑ slightly</td>
+            <td><span class="plain-meaning">Drives FIXED mortgage rates. Up on the stronger jobs report and higher oil. Higher yield = fixed rates lean up, not down.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr fixed mortgage</td>
+            <td>~3.94%</td>
+            <td>~4.0%</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">Sharpest insured deals just under 4%; typical offers 4.3–4.6%. Steady — the data isn't pointing to a big drop.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr variable / prime</td>
+            <td>~3.25% / prime 4.45%</td>
+            <td>same</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Variable still cheaper than fixed and expected to hold. With no cut coming Wed, don't bank on variable falling further this year.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, latest)</td>
+            <td>~2.8%</td>
+            <td>~2.8%</td>
+            <td class="tag-flat">elevated</td>
+            <td><span class="plain-meaning">Still above the Bank's 2% target, partly on gasoline. Next print late July. The main reason rates aren't being cut.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA sales + price (TRREB, June)</td>
+            <td>6,770 sales · HPI −5.4% YoY</td>
+            <td>Jun '25</td>
+            <td class="tag-up">↑ sales +9.4%</td>
+            <td><span class="plain-meaning">Sales up strongly year-over-year, but the benchmark price is still down 5.4%. More buyers returning while prices stay soft — that gap is buyer leverage.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA new listings (June)</td>
+            <td>17,282</td>
+            <td>~19,840 (Jun '25)</td>
+            <td class="tag-down">↓ −12.9% YoY</td>
+            <td><span class="plain-meaning">Fewer new listings than last year, yet still plenty of choice on the market. Sellers who don't need to move are sitting out.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA resale condo benchmark</td>
+            <td>−10% YoY (Q1)</td>
+            <td>—</td>
+            <td class="tag-down">↓ still sliding</td>
+            <td><span class="plain-meaning">Condos are the softest corner of the market. Painful for owners, but the cheapest condo entry point in years for a patient buyer.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">National forecast (CREA)</td>
+            <td>New print Wed Jul 15</td>
+            <td>May avg ~$702k</td>
+            <td class="tag-flat">watch this</td>
+            <td><span class="plain-meaning">CREA already downgraded 2026 sales once. Wednesday's update lands with the BoC decision — a big day for the national picture.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Housing starts (CMHC, 2026)</td>
+            <td>~247,000 forecast</td>
+            <td>259,000 (2025)</td>
+            <td class="tag-down">↓ building less</td>
+            <td><span class="plain-meaning">Builders are pulling back on new construction — high costs, weak demand, unsold units. Fewer new homes later can tighten supply down the road.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg asking rent (national)</td>
+            <td>~$2,029</td>
+            <td>~$2,129 (yr ago)</td>
+            <td class="tag-down">↓ −4.7% YoY</td>
+            <td><span class="plain-meaning">Rents still sliding — quiet good news for renters and newcomers. Real leverage at renewal.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>~0.705 USD</td>
+            <td>~0.705</td>
+            <td class="tag-flat">≈ flat / low</td>
+            <td><span class="plain-meaning">1 CAD ≈ 70.5 US cents (1 USD ≈ $1.42 CAD). Stuck near a 14-month low. The Canada–U.S. rate gap keeps the loonie weak = pricier US goods, food, travel.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>First-time buyer:</strong> This is your window, but for a different reason than you think. It's not the interest rate that's helping you — that's staying put Wednesday. It's the price. Condos are down about 10% and there's real distress in the pre-construction market, which means motivated sellers and bank sales you can actually negotiate on. The leverage is in the price and the choice on the market right now, not in a rate cut that isn't coming.</p>
+    <p><strong>Renter:</strong> Rents are still down about 4.7% from a year ago, and a soft-but-not-crashing market keeps that in play. Use it at renewal — don't just accept the first increase. And if you're saving to buy, know that the "wait for lower rates" story is weaker than the "use today's price leverage" one.</p>
+    <p><strong>Newcomer:</strong> The distressed-condo and bank-sale story sounds scary, but if you've been priced out, it's the opposite — it's the market coming back toward you. Just go in with a real mortgage pre-approval and eyes open: understand what a power-of-sale or assignment purchase actually involves before you fall for a "too cheap to be true" listing. Watch the soft spots too — manufacturing keeps shedding jobs under U.S. tariffs, so factory-town job markets are still shaky.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Checked all 29 YouTube channels via RSS — 13 posted in the last ~24–36h. Below are only the fresh ones worth stealing or studying. Today's dominant theme across the feed: <strong>condo distress, bank sales, and a coming wave of supply.</strong> TikTok/IG not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen (Toronto Property Finders) · YouTube</div>
+      <div class="creator-platform">"I Found The Cheapest Freehold Bank Sales In Toronto"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Tours the cheapest bank / power-of-sale freehold listings in the city right now.<br><strong>Your angle:</strong> This is your Video 1. Don't just gawk at cheap listings — teach what "power of sale" actually means in plain words, who's behind these sales, and the 3 things a first-timer must check before chasing a "too cheap" one. Calm translator, not hype.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler (Angry Mortgage) · YouTube</div>
+      <div class="creator-platform">"Boomers Are About To Sell Everything"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Argues an aging generation that owns most of Canada's homes is about to become a wave of sellers.<br><strong>Your angle:</strong> This is your Video 3. Flip the fear into a buyer lens — more supply coming = more choice and less bidding-war pressure for the patient buyer. Beginner-friendly, no doom.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"Why Vancouver Condo Buyers Are Losing $200K Overnight"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Breaks down how peak-era pre-construction condo buyers are now deeply underwater.<br><strong>Your angle:</strong> Perfect fuel for the Big Story / Video 1. Use the $200K figure as a hook, then honestly explain who it hits (speculators) vs who it helps (patient first-time buyers). Your "I bought at the peak" story is the trust bridge.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate · YouTube</div>
+      <div class="creator-platform">"This Is Damaging Real Estate (Brampton, Mississauga, Ajax, Whitby, Pickering Home Prices)"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: 905-suburb price breakdown arguing conditions are hurting sellers.<br><strong>Why watch:</strong> Great real-world backup for the buyer's-market thread. Steal the specific suburb data points, but lead with buyer empowerment instead of the doom-for-sellers framing.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi · YouTube</div>
+      <div class="creator-platform">"Why Every Toronto Condo Built After 2015 Feels Wrong (But You Can't Explain Why)"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Design/quality critique of the shrinking, awkward layouts of newer Toronto condos.<br><strong>Why watch:</strong> Not a news reel, but a strong "buyer education" angle — if you're shopping the cheap-condo wave, this is what to actually inspect. Study the curiosity-gap hook structure.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"The Fiscal Bazooka is Coming — The Loonie Hour Ep. 250" (+ inflation & military-spending clips)</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Macro podcast on government spending, the weak loonie, inflation, and rates.<br><strong>Why watch:</strong> Not a reel to copy, but the best intelligence layer today for the rates/loonie backdrop. Mine it for one plain-language line on why the weak dollar hits a normal grocery bill.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Living In Vancouver (Vancouver Life) · YouTube</div>
+      <div class="creator-platform">"Canada's Housing Market Just Erased a Decade of Gains"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Big-claim framing that recent declines have wiped out years of price growth.<br><strong>Why watch:</strong> Study the "erased a decade" hook — it's a number/time-shock structure you can adapt honestly. Sanity-check the claim against the real HPI data before repeating it.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Banks are selling Toronto condos cheap — someone's disaster is your first home</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's the loudest theme in the whole feed today (bank sales, $200K losses, the "condo meltdown") but flipped into the useful, empowering version nobody's making. Fear headline + honest payoff = comments and saves.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Number shock</strong>
+        <div>On-screen: <em>"Power of sale listings up 59%."</em></div>
+        <div>Spoken: "Bank sales of Toronto condos just jumped 59% in a year — and if you actually want a home to live in, that's not scary news, it's the cheapest door into the market in years."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen: <em>"Someone else's disaster is your down payment."</em></div>
+        <div>Spoken: "Investors are losing two hundred grand on condos they bought at the peak. Brutal for them — but if you've been priced out, this is the moment the market comes back toward you."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Personal stakes (his edge)</strong>
+        <div>On-screen: <em>"I bought at the peak. These buyers didn't get out."</em></div>
+        <div>Spoken: "I bought my condo near the top, so I know that sinking feeling. The people behind these bank sales are living it — here's how a patient buyer turns it into a win without getting burned."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "Bank sales of Toronto condos just jumped 59% in a year — and if you actually want a home to live in, that's not scary news, it's the cheapest door into the market in years."</p>
+        <p><strong>Body:</strong> "Here's the plain version. A few years ago, at the peak, tons of people bought pre-construction condos as an investment — you sign a contract today for a unit that's finished years later. They bet prices would keep climbing. Prices dropped instead. Now those buildings are done, the units are worth $50,000 to $150,000 less than the contract price, and the market to resell early has frozen. So a lot of these end up as 'power of sale' — that's when the lender takes over and sells the home because the owner can't pay. That's what's behind the scary headlines. It's real, but it's mostly hitting speculators, not people who bought a home to live in. And here's what the doom videos skip: all that distress is pushing condo prices to the cheapest entry point in years. If you've got a real mortgage pre-approval and some patience, someone else's bad bet can quietly become your reasonable first home. But do it right — a cheap listing isn't automatically a good one. Check the maintenance fees, the building's finances, and get your own inspection. Don't buy the panic. Understand it, then use it."</p>
+        <p><strong>CTA:</strong> "Want the 3 questions I'd ask before touching a bank sale or an underwater condo? Comment CONDO and I'll send them."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Power of sale up 59%</span>
+        <span class="onscreen-tag">"Power of sale" = the bank sells it</span>
+        <span class="onscreen-tag">Mostly hits speculators, not homebuyers</span>
+        <span class="onscreen-tag">Cheapest condo entry in years</span>
+        <span class="onscreen-tag">Comment CONDO 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Toronto condo towers skyline, "for sale" condo sign, empty new condo interior, scary red news headline zoom, person scrolling listings on phone, keys handed over in a condo, mortgage paperwork being signed</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a cluster of glass condo towers under a moody Toronto sky with a subtle sense of tension, photoreal, documentary realism, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a calm young first-time buyer standing in an empty new condo holding keys, soft window light and city view behind, hopeful mood, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Two big things drop Wednesday — and neither one lowers your mortgage</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's timely (a hard date this week), it kills a myth your whole audience believes ("just wait for the rate cut"), and it's wallet-direct. The "wait, is my plan wrong?" reel that drives saves and comments.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"Circle Wednesday. It changes your mortgage math."</em></div>
+        <div>Spoken: "This Wednesday, two things land on the same morning that decide whether waiting to buy is smart — or a trap. Let me save you the guesswork."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen: <em>"Stop waiting for the July rate cut."</em></div>
+        <div>Spoken: "Everyone's holding off buying until the Bank of Canada cuts rates on Wednesday. Here's the problem — almost nobody thinks it's actually going to cut."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Stakes / "this costs you"</strong>
+        <div>On-screen: <em>"6th hold in a row = your wait isn't paying off."</em></div>
+        <div>Spoken: "If your plan is 'wait for a cheaper mortgage before I buy,' Wednesday is about to be the sixth time in a row that plan goes absolutely nowhere. Here's what to do instead."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "This Wednesday, two things land on the same morning that decide whether waiting to buy is smart — or a trap. Let me save you the guesswork."</p>
+        <p><strong>Body:</strong> "Here's the plain version. Wednesday, July 15, the Bank of Canada announces its next interest rate decision. The rate they set — it's 2.25% right now — controls variable mortgages and prime. Everyone waiting to buy is hoping for a cut. But the economy actually got a little stronger: unemployment fell, wages went up. The Bank cuts rates when the economy is weak and needs help — a stronger economy tells it the opposite, 'no rush.' So economists widely expect a hold. That would be the sixth pause in a row. Same morning, CREA — the national real estate association — drops its updated housing forecast. So you'll get two big signals at once, and neither of them is a cheaper mortgage. Here's the takeaway: if your whole strategy has been 'wait for rates to drop, then buy,' that strategy keeps not paying off. The thing actually moving in your favour is price — the GTA is soft, condos are down about 10%, and you can negotiate. Chase the thing that's moving, not the one that isn't."</p>
+        <p><strong>CTA:</strong> "Want the plain-language breakdown of what Wednesday means for a first-time buyer? Comment JULY15 and I'll send it."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Wed Jul 15: rate decision + CREA forecast</span>
+        <span class="onscreen-tag">Rate held at 2.25% — 6th time</span>
+        <span class="onscreen-tag">Strong economy = no cut</span>
+        <span class="onscreen-tag">The leverage is in the price</span>
+        <span class="onscreen-tag">Comment JULY15 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Bank of Canada building exterior, calendar with date circled, mortgage rate sign at a bank branch, person at kitchen table with a calculator, "sold" sign on a house, news ticker with interest rate headline</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, the stone facade of a central bank building in morning light with people walking past, serious documentary tone, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, close-up of a young person at a kitchen table looking at a laptop with a mortgage calculator, thoughtful, warm daylight, photoreal"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">A wave of homes is coming — what "boomers selling" really means for buyers</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals the Ron Butler / Angry Mortgage theme trending today but flips it from doom to opportunity, with a newcomer lens. Big-picture + slightly contrarian = "is that really true?" comments and saves.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Number shock</strong>
+        <div>On-screen: <em>"The biggest wave of listings is coming."</em></div>
+        <div>Spoken: "The generation that owns most of Canada's homes is about to start selling — and that flood of listings could hand buyers the upper hand for years, not months."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen: <em>"Everyone fears a crash. Watch the supply instead."</em></div>
+        <div>Spoken: "Forget the crash talk. The boring number that actually moves prices in your favour is how many homes are for sale — and that number is about to jump."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"New to Canada? Time might be on your side."</em></div>
+        <div>Spoken: "If you moved here thinking you'll never afford a place, here's a shift nobody's explaining: the people who own the homes are aging out, and all those homes have to go somewhere."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~45s)</div>
+        <p><strong>Hook:</strong> "The generation that owns most of Canada's homes is about to start selling — and that flood of listings could hand buyers the upper hand for years, not months."</p>
+        <p><strong>Body:</strong> "Here's the plain version. Baby boomers — Canadians roughly in their sixties and seventies — own a huge share of the homes in this country. Over the next several years, a lot of them will downsize, move into retirement living, or pass homes on. That means more homes coming up for sale. And here's the thing that actually decides prices: it's supply and demand. When lots of homes hit the market and buyers aren't in a frenzy, sellers lose their power — you get to put conditions on your offer, take your time, and negotiate. That's already happening in pockets today, and this wave could stretch it out. Now, the honest part: this isn't a reason to wait forever, because rates and jobs still matter, and nobody times the bottom perfectly. But if you've felt like you're chasing a market that keeps running away from you — the long-term math is quietly tilting back toward the buyer. That's worth understanding before everyone else notices."</p>
+        <p><strong>CTA:</strong> "Want me to break down which types of homes this supply wave hits first? Comment SUPPLY and I'll make it."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Boomers own most of Canada's homes</span>
+        <span class="onscreen-tag">More sellers = more choice for you</span>
+        <span class="onscreen-tag">Supply is what moves prices</span>
+        <span class="onscreen-tag">The math is tilting to buyers</span>
+        <span class="onscreen-tag">Comment SUPPLY 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>multiple "for sale" signs on a suburban street, older couple outside a family home, moving boxes in a house, GTA suburban homes aerial, young couple touring an open house, keys on a kitchen counter</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a quiet residential Canadian street lined with several 'for sale' signs on front lawns, soft summer daylight, photoreal, documentary realism"</div>
+        <div>2. "Cinematic vertical 9:16, a hopeful young immigrant couple walking up to a suburban house for sale, warm natural light, optimistic mood, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/07/interest-rate-announcement-and-monetary-policy-report-july-15-2026/">Bank of Canada — Interest Rate Announcement + Monetary Policy Report scheduled July 15, 2026</a></li>
+      <li><a href="https://dailyhive.com/vancouver/bank-of-canada-rate-july-2026">Daily Hive — BoC widely expected to hold at 2.25% July 15 (6th consecutive pause)</a></li>
+      <li><a href="https://www.rbc.com/en/economics/forward-guidance/forward-guidance-our-weekly-preview/">RBC Economics — BoC set to hold as inflation and growth concerns fade</a></li>
+      <li><a href="https://trreb.ca/market-gains-traction-with-strong-home-sales-in-june-and-first-half-of-the-year/">TRREB — June 2026: 6,770 sales (+9.4% YoY), new listings 17,282 (−12.9%), HPI Composite −5.4% YoY</a></li>
+      <li><a href="https://www.zoocasa.com/blog/trreb-june-2026/">Zoocasa — TRREB June sales jump 9.4%; is the GTA market turning?</a></li>
+      <li><a href="https://www.crea.ca/housing-market-stats/canadian-housing-market-stats/quarterly-forecasts/">CREA — Downgraded resale forecast; next forecast published July 15, 2026</a></li>
+      <li><a href="https://economics.td.com/ca-gta-condo-market-outlook">TD Economics — GTA resale condo benchmark down ~10% YoY (Q1 2026); long correction</a></li>
+      <li><a href="https://remaxpluscity.com/blog.html/why-ontario-power-of-sale-listings-surged-59-in-2026-9079454">RE/MAX Plus City — Ontario power of sale listings surged 59% in 2026</a></li>
+      <li><a href="https://www.deeded.ca/blog/toronto-condo-meltdown-whats-really-going-on-and-how-did-we-get-here">Deeded — Toronto condo meltdown: appraisals $50k–$150k below purchase price; assignment market frozen</a></li>
+      <li><a href="https://globalnews.ca/news/11661284/housing-market-outlook-2026/">Global News — CMHC: housing market faces possible mild recession in 2026 amid subdued demand; starts ~247,000</a></li>
+      <li><a href="https://wowa.ca/mortgage-rates">WOWA — Best 5-yr fixed ~3.94%, 5-yr variable ~3.25%, prime 4.45% (July 9–10)</a></li>
+      <li><a href="https://wealthnorth.ca/investing/etfs-and-index-funds/canada-5-year-bond-yield/">WealthNorth — Canada 5-yr bond yield ~3.1% on stronger jobs + oil</a></li>
+      <li><a href="https://thehub.ca/2026/07/01/cusma-renewal-deadline-passed-u-s-tariffs-remain-what-it-means-for-canada-and-its-economy/">The Hub — CUSMA review deadline passed July 1; U.S. tariffs remain, annual reviews ahead</a></li>
+      <li><a href="https://www.youtube.com/@TorontoPropertyFinders">Creator Watch — Karl Nielsen "I Found The Cheapest Freehold Bank Sales In Toronto" (Jul 11)</a></li>
+      <li><a href="https://www.youtube.com/@AngryMortgageClips">Creator Watch — Ron Butler / Angry Mortgage "Boomers Are About To Sell Everything" (Jul 11)</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=property+daily+vancouver+condo+buyers+losing+200k">Creator Watch — Property Daily "Why Vancouver Condo Buyers Are Losing $200K Overnight" (Jul 10)</a></li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:8px;">Generated automatically · Saturday, July 11, 2026 · "I live here. I sell here." 🇨🇦</p>
+
+</div>
+
+</body>
+</html>
