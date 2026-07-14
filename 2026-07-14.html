@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, July 14, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, July 14, 2026</div>
+  <div class="canada-day-badge">📊 Real Estate · Economy · Politics</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-14.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">While everyone waits for a rate cut that isn't coming, Canada's bank regulator quietly unlocked $74 billion for the Big Six to lend</div>
+    <p>Everybody's eyes are on the Bank of Canada tomorrow. But the move that actually loosens things up already happened last week — and almost nobody outside the industry noticed. Canada has a second, less famous regulator called <strong>OSFI</strong> (the Office of the Superintendent of Financial Institutions — think of it as the referee that makes sure the big banks don't take crazy risks). One of its main dials is a rainy-day cushion it forces the six biggest banks to hold, called the <strong>Domestic Stability Buffer</strong>. OSFI just <strong>cut that cushion for the first time in three years</strong>, dropping it from 3.5% to 3.0%.</p>
+    <p>In plain English: that one change frees up roughly <strong>$74 billion</strong> of capital the Big Six (RBC, TD, BMO, Scotiabank, CIBC, National Bank) can now put to work instead of sitting on. The regulator is basically telling the banks, <em>"go ahead, take a bit more risk, lend more."</em> That doesn't lower your rate — but it can quietly make banks hungrier for your mortgage: more willing to approve, more willing to compete for your business. It's the opposite signal to the doom you keep hearing.</p>
+    <p><strong>Video-worthy because:</strong> your whole audience is glued to the wrong screen. Tomorrow's rate hold is a non-event; the real easing came through a side door most people have never heard of. Being the guy who explains that in plain language is pure trust-builder content.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Tomorrow (Wed July 15) is a double-header: the Bank of Canada decision AND CREA's new national housing forecast land the same morning. The rate almost certainly holds at 2.25% — so watch the forecast, not the rate. The real loosening already happened: banks just got freed up to lend more.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Tuesday read — one sleep before the big morning. <strong>Wednesday, July 15</strong> stacks two things back to back: the Bank of Canada rate decision + Monetary Policy Report, and CREA's updated national forecast. The fresh news that actually moved this week is the <strong>OSFI capital cut</strong> — a quiet green light for banks to lend more. Rates, bonds and the loonie below are holding at last week's levels.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">decision tomorrow</td>
+            <td><span class="plain-meaning">Held 5 straight meetings. Wed July 15 is the 6th call — widely expected to hold again. This rate sets your variable and prime.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">OSFI stability buffer (banks)</td>
+            <td>3.0%</td>
+            <td>3.5%</td>
+            <td class="tag-down">↓ cut (1st in 3 yrs)</td>
+            <td><span class="plain-meaning">The rainy-day cushion big banks must hold. Cutting it frees ~$74B for the Big Six to lend — banks can now compete harder for your mortgage.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+            <td>~3.1%</td>
+            <td>~3.1%</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">Drives FIXED mortgage rates. Steady. With the economy holding up, not much reason for fixed rates to tumble from here.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr fixed mortgage</td>
+            <td>~4.14%</td>
+            <td>~4.14%</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Sharpest insured deals just above 4%; typical offers 4.3–4.6%. Steady — the data isn't pointing to a big drop.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr variable / prime</td>
+            <td>~3.45% / prime 4.45%</td>
+            <td>same</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Variable still cheaper than fixed. With no cut expected tomorrow, don't count on variable falling further this year.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May — latest)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ on gasoline</td>
+            <td><span class="plain-meaning">Jumped on a gasoline surge (+33%) from the oil spike. But core inflation is back near 2.1%, and oil has since fallen — June CPI lands July 20.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA condo price + sales (TRREB, June)</td>
+            <td>$630,688 avg · sales +14.3% YoY</td>
+            <td>Jun '25</td>
+            <td class="tag-down">↓ price −9.4% YoY</td>
+            <td><span class="plain-meaning">Condos: sharpest sales jump of any type, but the steepest price drop too. Buyers are back — only at prices that work. That gap is your leverage.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">National benchmark price (CREA, May)</td>
+            <td>$667,700 · sales +5.5% MoM</td>
+            <td>−4.1% YoY</td>
+            <td class="tag-flat">new forecast tmrw</td>
+            <td><span class="plain-meaning">First real monthly sales gain of the year. CREA already trimmed its 2026 outlook once — its fresh forecast drops tomorrow with the BoC call.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg asking rent (national, June)</td>
+            <td>~$2,033</td>
+            <td>~$2,125 (yr ago)</td>
+            <td class="tag-down">↓ −4.3% YoY</td>
+            <td><span class="plain-meaning">21st straight month of yearly declines. Toronto avg ~$2,411, also down ~4% YoY. Quiet win for renters and newcomers.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>~0.73 USD</td>
+            <td>~0.73</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">1 CAD ≈ 73 US cents (1 USD ≈ $1.37 CAD). The Canada–U.S. rate gap keeps the loonie soft = pricier US goods, food, travel.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>First-time buyer:</strong> Two signals drop tomorrow morning — a rate that almost certainly won't move, and a CREA forecast that tells you where prices are heading. Watch the forecast. And here's the quiet good news underneath it: with banks freed up to lend more, getting approved may get a little easier, not harder. Your leverage is still on the price side — GTA condos are down about 9% in a year — so negotiate hard.</p>
+    <p><strong>Homeowner / renewing:</strong> If your term is up this year, the "wait and my renewal rate will fall" bet stays weak — the Bank isn't cutting tomorrow. But more bank lending capacity means more competition for your renewal, so shop it hard. Don't sign the first letter your bank mails you; that easy offer is rarely their best rate.</p>
+    <p><strong>Renter:</strong> Asking rents are down about 4.3% from a year ago — 21 months of declines in a row. That's real negotiating power at renewal. Don't just accept the first increase; the market quietly shifted toward you.</p>
+    <p><strong>Newcomer:</strong> A boring government agency you've never heard of (OSFI) just made it a bit easier for banks to say yes to mortgages. Go in with a real pre-approval, compare lenders, and don't drain your savings on a giant down payment just because someone told you to — the math isn't always in your favour.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Checked all 29 YouTube channels via RSS — 24 uploads in the last ~36h, most of them evergreen shorts (Kevin Yu alone dropped a dozen). Below are only the fresh ones worth stealing or studying. Today's threads: <strong>the OSFI bank-lending change</strong> (feeds the big story) and <strong>sellers facing real losses.</strong> TikTok/IG not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · YouTube</div>
+      <div class="creator-platform">"OSFI just freed up more room for Canada's Big Six banks to deploy capital" + "What do Canada's banking changes reveal about the housing market?"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Clean breakdown of the OSFI capital-buffer cut and what it signals for lending and housing — exactly today's big story.<br><strong>Your angle:</strong> This is the intelligence layer for Video 1. Steal the "banks just got freed up to lend" framing and translate it for a newcomer: nobody explains that a regulator you've never heard of can decide whether your mortgage gets approved. Calm explainer, not hype.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Toronto Realty Group (David Fleming) · YouTube</div>
+      <div class="creator-platform">"When To Sell At A Loss: The Biggest Challenge In GTA Real Estate In 2026 | The Last Honest Realtor"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: An honest agent walking through when selling at a loss is actually the smart move in today's GTA.<br><strong>Your angle:</strong> Powers Video 2. Steal the counterintuitive "sometimes a loss is the right call" frame, then flip it to the buyer side — every stressed seller is your negotiating opening. Lead with the human decision, not doom.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"Why Toronto Condo Buyers Are Walking Away" + "Why Vancouver Condo Prices Are Dropping (The 2026 Renewal Shock)"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Buyers backing out of condo deals and eating their deposits; renewal shock hitting owners.<br><strong>Your angle:</strong> Second half of Video 2. Steal the "walking away" hook, then explain in plain language why it happens and how a buyer avoids being that person. Useful payoff, not fear.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">GTA Real Estate with Mike Carpino · YouTube</div>
+      <div class="creator-platform">"3 SHOCKING LOSSES: Homeowners Just Lost MILLIONS"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Three real GTA sales where owners took big losses.<br><strong>Why watch:</strong> Good real-number ammo for Video 2. Borrow one concrete example (kept honest), but reframe from "homeowners lost millions" doom to "here's what a buyer can learn from it."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"Governments to Spend $40 Billion on Canadian Pipeline" + "Data Centres and Pipelines Coming to Canada"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: The Carney pipeline / big-projects spend and what it means for the economy.<br><strong>Why watch:</strong> Background for the economy story — a stronger economy is part of why the Bank isn't cutting. Not a standalone RE video, but useful context to drop into Video 3.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Kevin Yu (Toronto Real Estate) · YouTube</div>
+      <div class="creator-platform">A dozen shorts incl. "Detached Homes: Is the Price Decline BOTTOMING OUT?" + "Toronto West: Buyers Still Have Negotiating Power Here!"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: High-volume run of shorts on buyer leverage and whether detached prices are bottoming.<br><strong>Why watch:</strong> Reinforces the "leverage is still in the price" thread. Good beat study for pace and hooks — borrow the confidence, add your beginner translation.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">A regulator you've never heard of just unlocked $74B for banks to lend — while everyone stares at the wrong screen</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's fresh (this week), it reveals a hidden lever nobody explains to beginners, and it flips the doom narrative into quiet good news. "Wait, that's a thing?" drives comments and saves.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Number shock</strong>
+        <div>On-screen: <em>"$74 billion just got unlocked for banks."</em></div>
+        <div>Spoken: "Canada's bank regulator just quietly freed up seventy-four billion dollars for the big banks to lend out — and almost nobody's talking about what that does to your mortgage."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen: <em>"The rate cut isn't coming. This did instead."</em></div>
+        <div>Spoken: "Everyone's staring at tomorrow's rate decision waiting for a cheaper mortgage. But the real move already happened last week — through a door nobody's watching."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"Nobody explained this to me when I moved here."</em></div>
+        <div>Spoken: "When I moved to Canada, nobody told me a boring government agency you've never heard of can decide whether your mortgage gets approved. This week, it made a big call in your favour."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "Everyone's staring at tomorrow's rate decision waiting for a cheaper mortgage. But the real move already happened last week — through a door nobody's watching."</p>
+        <p><strong>Body:</strong> "Plain version. You know the Bank of Canada sets interest rates. But there's a second referee called OSFI — it makes sure the big banks don't take crazy risks. One of its rules forces the six biggest banks to keep a rainy-day cushion of money on the side, just in case. Last week, OSFI cut that cushion for the first time in three years. That single change freed up about seventy-four billion dollars the banks were sitting on — money they can now actually lend. Basically the regulator told the banks: go ahead, lend more. Here's what it means for you: it doesn't lower your rate, but it can make banks hungrier for your mortgage — more willing to approve you, more willing to compete for your business. So while everyone's glued to tomorrow's rate — which almost certainly won't move — the thing that quietly got easier is getting a yes. If you've been putting off talking to a lender because you assumed it's all doom out there, that assumption is now a little out of date."</p>
+        <p><strong>CTA:</strong> "Want the plain-language version of how banks decide yes or no on a mortgage? Comment BANK and I'll send it over."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">OSFI = the bank referee</span>
+        <span class="onscreen-tag">Rainy-day cushion cut, 1st in 3 yrs</span>
+        <span class="onscreen-tag">~$74B freed to lend</span>
+        <span class="onscreen-tag">Banks hungrier for your mortgage</span>
+        <span class="onscreen-tag">Comment BANK 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Bay Street bank towers Toronto, Big Five bank logos on buildings, vault door opening, stacks of cash / money counting, person signing mortgage papers, banker shaking hands with client, news ticker banking headline</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, low-angle shot of gleaming glass bank towers in a financial district at golden hour, serious documentary tone, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a heavy steel vault door slowly swinging open with soft light spilling out, moody, photoreal, shallow depth of field, sense of release"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">When selling at a loss is the smart move — and why every stressed seller is your opening</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it breaks the sacred rule "never sell at a loss," it's built on real GTA loss stories (Fleming, Property Daily, Carpino), and it flips seller pain into a concrete buyer lesson. Emotional + useful = comments and saves.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Contrarian</strong>
+        <div>On-screen: <em>"Sometimes selling at a loss is the smart move."</em></div>
+        <div>Spoken: "Everyone says never sell your home at a loss. But in this GTA market, holding on can quietly cost you more than selling. Let me explain."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Number shock</strong>
+        <div>On-screen: <em>"Some homeowners just sold for six figures less."</em></div>
+        <div>Spoken: "Some Toronto homeowners just sold for hundreds of thousands less than they paid — and it was still the right call. Here's why, and what it means if you're buying."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"Why are buyers walking away from condos?"</em></div>
+        <div>Spoken: "Why are Toronto condo buyers signing deals and then just walking away, losing their whole deposit? Once you get it, you'll negotiate way smarter."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~55s)</div>
+        <p><strong>Hook:</strong> "Everyone says never sell your home at a loss. But in this GTA market, holding on can quietly cost you more than selling. Let me explain."</p>
+        <p><strong>Body:</strong> "Here's the plain version. Some Toronto owners bought near the peak and today their place is worth less than they paid. Selling means locking in a real loss — that hurts, and instinct says never do it. But here's the honest math nobody likes to say out loud: if you're paying a mortgage, condo fees, and taxes every month on a place that's still slowly sliding, waiting for a rebound that might take years can cost you more than the loss itself. Sometimes cutting it and moving on is the smart move, not the weak one. Now flip it to your side. Every one of those stressed sellers is your opening. It's why some condo buyers are even walking away from deals and eating their deposit — they think they can find a better one. You don't have to gamble like that. You just have to know that in this market, the person on the other side of the table often needs the deal more than you do. That's your leverage. Use it — negotiate on price, on closing date, on what's included."</p>
+        <p><strong>CTA:</strong> "Buying this year and want my simple 'how much can I actually push?' checklist? Comment PUSH and I'll send it."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">"Never sell at a loss" isn't always true</span>
+        <span class="onscreen-tag">Holding can cost more than the loss</span>
+        <span class="onscreen-tag">Stressed seller = your opening</span>
+        <span class="onscreen-tag">Buyers walking away, losing deposits</span>
+        <span class="onscreen-tag">Comment PUSH 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>"for sale" / "sold" sign on Toronto home, condo tower exterior, person looking stressed at bills on a table, keys being handed over, buyer and agent walking through empty condo, price-reduced listing on a phone screen</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a person sitting alone at a kitchen table looking at paperwork with a worried expression, soft window light, quiet emotional tone, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a red 'SOLD' rider clipping onto a real estate sign outside a Toronto townhome on an overcast day, documentary tone, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Two housing signals drop tomorrow morning — and most people will watch the wrong one</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's timely with a hard date (tomorrow), it makes the viewer feel like an insider, and it gives a simple "here's what to watch" payoff. "Save so I remember tomorrow" behaviour.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Question / can't ignore</strong>
+        <div>On-screen: <em>"Two big housing calls drop tomorrow."</em></div>
+        <div>Spoken: "Two things that decide where home prices go both land tomorrow morning, one hour apart — and most people are going to watch the wrong one."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen: <em>"Don't watch the rate tomorrow."</em></div>
+        <div>Spoken: "Everyone's going to be glued to the Bank of Canada tomorrow. But the number that actually tells you where prices are heading comes out the same morning — and it's not the rate."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"Trying to figure out when to buy?"</em></div>
+        <div>Spoken: "If you're new here and trying to time when to buy, tomorrow hands you two free signals in one morning. Here's exactly what to look for."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "Everyone's going to be glued to the Bank of Canada tomorrow. But the number that actually tells you where prices are heading comes out the same morning — and it's not the rate."</p>
+        <p><strong>Body:</strong> "Plain version. Tomorrow, Wednesday, two things drop within an hour of each other. One: the Bank of Canada's rate decision. Almost everyone expects them to hold at 2.25% — the sixth pause in a row — so honestly, the rate itself is a non-event. Two, and this is the one to actually watch: CREA — the national real estate association — releases its updated forecast for where home sales and prices are going this year. They already cut that forecast once. If they cut it again, that tells you the market's still soft and buyers keep the upper hand. If they nudge it up, momentum's building and your window to negotiate hard might be shrinking. So don't just react to the rate headline everyone shares. Read the forecast underneath it — that's the part that changes what a buyer or seller should actually do this month. I'll break down both tomorrow in plain language."</p>
+        <p><strong>CTA:</strong> "Follow so you catch tomorrow's plain-language breakdown the second both numbers land."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Wed July 15: two calls, one morning</span>
+        <span class="onscreen-tag">BoC rate = expected hold (non-event)</span>
+        <span class="onscreen-tag">CREA forecast = the real signal</span>
+        <span class="onscreen-tag">Cut again = buyers keep leverage</span>
+        <span class="onscreen-tag">Follow for tomorrow 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>calendar with July 15 circled, split screen two news headlines, Bank of Canada building, person watching phone news alert, housing price chart on a screen, "for sale" signs on a Toronto street, clock ticking close-up</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a wall calendar with one date circled in red marker, morning light, shallow depth of field, anticipation mood, photoreal"</div>
+        <div>2. "Cinematic vertical 9:16, an upward-trending line chart glowing on a screen reflected in someone's glasses, cool blue tones, thoughtful tone, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.canadianmortgagetrends.com/2026/06/take-risk-osfi-cuts-bank-capital-level-to-boost-lending/">Canadian Mortgage Trends — "Take risk": OSFI cuts the Domestic Stability Buffer to 3.0% (first cut in 3 years), freeing ~$74B in Big Six lending capacity</a></li>
+      <li><a href="https://ca.finance.yahoo.com/news/regulator-cuts-big-banks-capital-135213721.html">Yahoo Finance Canada — Regulator cuts big banks' capital buffer for the first time in three years</a></li>
+      <li><a href="https://www.osfi-bsif.gc.ca/en/news/backgrounder-final-capital-adequacy-requirements-guideline-2026">OSFI — Capital Adequacy Requirements Guideline (2026) backgrounder</a></li>
+      <li><a href="https://www.theglobeandmail.com/business/article-bank-of-canada-preview-july-2026/">The Globe and Mail — BoC expected to hold July 15 as its policy dilemma fades (oil back to US$70s, jobs and GDP firmer)</a></li>
+      <li><a href="https://www.mpamag.com/ca/mortgage-industry/industry-trends/heres-what-to-expect-from-the-bank-of-canada-decision-this-week/582041">Canadian Mortgage Professional — What to expect from the BoC decision this week (6th straight hold; MPR same day)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/">Bank of Canada — June statement: policy rate held at 2.25%</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA — May data: national benchmark $667,700 (−4.1% YoY), sales +5.5% MoM; updated forecast due July 15</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260622/dq260622a-eng.htm">Statistics Canada — CPI May 2026: +3.2% YoY on a 33% gasoline surge; core ~2.1%; June CPI due July 20</a></li>
+      <li><a href="https://idealtorontocondos.com/toronto-condo-market-report-july-2026/">iDEALtoronto / TRREB — GTA condo sales +14.3% YoY, avg $630,688, price −9.4% YoY</a></li>
+      <li><a href="https://rentals.ca/national-rent-report">Rentals.ca — June national asking rent ~$2,033, down 4.3% YoY (21st straight monthly decline); Toronto avg ~$2,411</a></li>
+      <li><a href="https://wowa.ca/mortgage-rates">WOWA — Best 5-yr fixed ~4.14%, best 5-yr variable ~3.45%, prime 4.45%</a></li>
+      <li><a href="https://www.theglobeandmail.com/politics/article-carney-spending-bc-alberta-major-projects-pipeline/">The Globe and Mail — Carney announces ~$150B in western investment incl. a ~$40B West Coast oil pipeline</a></li>
+      <li><a href="https://www.youtube.com/@daniel_foch">Creator Watch — Daniel Foch on the OSFI capital cut and what it reveals about housing (Jul 13–14)</a></li>
+      <li><a href="https://www.youtube.com/@Torontorealtygroup">Creator Watch — David Fleming "When To Sell At A Loss: The Biggest Challenge In GTA Real Estate In 2026" (Jul 14)</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=property+daily+why+toronto+condo+buyers+are+walking+away">Creator Watch — Property Daily "Why Toronto Condo Buyers Are Walking Away" (Jul 13)</a></li>
+      <li><a href="https://www.youtube.com/@steve.saretsky">Creator Watch — Steve Saretsky "Governments to Spend $40 Billion on Canadian Pipeline" (Jul 13)</a></li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:8px;">Generated automatically · Tuesday, July 14, 2026 · "I live here. I sell here." 🇨🇦</p>
+
+</div>
+
+</body>
+</html>
