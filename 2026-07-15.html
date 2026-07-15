@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, July 15, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, July 15, 2026</div>
+  <div class="canada-day-badge">📊 Real Estate · Economy · Politics</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-15.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">Canada's own realtor group just quietly admitted it was wrong: 2026 is now a DOWN year for home sales</div>
+    <p>This is fresh — it dropped a few hours ago. <strong>CREA</strong> (the Canadian Real Estate Association — the national body that all realtors report through) puts out a forecast a few times a year for where home sales and prices are heading. Back in April they were still calling for a small <em>gain</em> in 2026. This morning they flipped it: they now expect <strong>sales to actually fall about 1.4% this year</strong> compared to 2025. That's a real U-turn, not a rounding tweak.</p>
+    <p>On price, they barely moved: the national average is now pegged to rise just <strong>1.1% to about $686,710</strong> for the year — roughly $2,000 lower than what they guessed in spring. In plain English: they're telling you 2026 is a flat, sideways market — not the rebound some headlines keep promising, and not the crash others keep screaming about. Quietly boring, in a way that actually helps a buyer.</p>
+    <p><strong>Video-worthy because:</strong> the group that represents realtors just downgraded its own market — that's the opposite of hype, and it's rare. "Even the realtors' own association says don't expect prices to jump this year" is a trust-building, screenshot-worthy line your audience won't hear from a salesy agent.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Two big things land this morning: CREA already cut its 2026 forecast to a small decline, and at 9:45 a.m. ET the Bank of Canada makes its rate call plus its full economic report. The rate is expected to stay put at 2.25% — so the story is the forecasts underneath, and both are pointing to a flat, buyer-friendly market.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Wednesday — decision morning. <strong>CREA's revised forecast is already out</strong> (a downgrade to a 2026 sales decline). The <strong>Bank of Canada rate call + Monetary Policy Report land at 9:45 a.m. ET</strong>, with Governor Macklem's press conference at 10:45 — a hold is nearly fully priced in, so the report and inflation talk matter more than the number. Rates, bonds and the loonie below are holding at last week's levels.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">decision 9:45am</td>
+            <td><span class="plain-meaning">Held all year. Markets price a hold at ~91–99%. This rate sets your variable and prime — no change expected today, plus a fresh Monetary Policy Report.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CREA 2026 forecast (sales)</td>
+            <td>−1.4% (463,336 sales)</td>
+            <td>+1% (April call)</td>
+            <td class="tag-up">↓ downgraded to a decline</td>
+            <td><span class="plain-meaning">The realtors' own group flipped from a small gain to a small drop — quieter market than they thought in spring. Buyers keep the upper hand.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CREA 2026 forecast (avg price)</td>
+            <td>+1.1% → $686,710</td>
+            <td>~$688,700 (April)</td>
+            <td class="tag-flat">≈ flat, trimmed ~$2k</td>
+            <td><span class="plain-meaning">Basically sideways for the year. Not the rebound, not the crash — a flat market where price isn't running away from you.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">National avg price (June)</td>
+            <td>$696,078</td>
+            <td>+0.5% YoY</td>
+            <td class="tag-flat">≈ flat YoY</td>
+            <td><span class="plain-meaning">Highest monthly average in two years, but barely up on a year ago. The typical-home index (HPI) held flat vs May — the first non-decline since Jan 2025.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">National sales (June)</td>
+            <td>+0.9% YoY / +0.5% MoM</td>
+            <td>Jun '25</td>
+            <td class="tag-down">↑ small uptick</td>
+            <td><span class="plain-meaning">A slight pickup in homes changing hands — enough to notice, not enough to change CREA's cautious call for the full year.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+            <td>~3.13%</td>
+            <td>~3.13%</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">Drives FIXED mortgage rates. Spiked to ~3.18% in early July on the Iran/oil scare, then eased. Steady = no big fixed-rate move right now.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr fixed mortgage</td>
+            <td>~4.1–4.4%</td>
+            <td>~4.14%</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Sharpest insured deals just above 4%; typical offers 4.3–4.6%. Steady — the data isn't pointing to a big drop.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr variable / prime</td>
+            <td>~3.45% / prime 4.45%</td>
+            <td>same</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Variable still cheaper than fixed. With no cut expected today, don't count on variable falling further this year.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May — latest)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ on gasoline</td>
+            <td><span class="plain-meaning">Above the Bank's comfort zone, driven by an oil/gas surge from the Iran war. Core is calmer near 2.1%. Today's MPR will show how the Bank reads it. June CPI lands July 20.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Avg asking rent (national, June)</td>
+            <td>~$2,033</td>
+            <td>~$2,125 (yr ago)</td>
+            <td class="tag-down">↓ −4.3% YoY</td>
+            <td><span class="plain-meaning">21st straight month of yearly declines. Ontario avg ~$2,233 (−5.3%). Quiet, real win for renters and newcomers.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>~0.73 USD</td>
+            <td>~0.73</td>
+            <td class="tag-flat">≈ flat</td>
+            <td><span class="plain-meaning">1 CAD ≈ 73 US cents (1 USD ≈ $1.37 CAD). Soft loonie = pricier US goods, food, travel.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>First-time buyer:</strong> The realtors' own association just told you 2026 is flat — prices barely moving, sales even softening. That's not bad news for you; it's breathing room. Nothing is running away this year, so you have time to get pre-approved, shop lenders, and negotiate hard. The panic-buy pressure is off.</p>
+    <p><strong>Homeowner / renewing:</strong> A flat-price forecast plus a rate that isn't moving today means the "wait for a big rebound" bet and the "wait for a big cut" bet are both weak. If your term is up this year, shop your renewal aggressively — don't just sign the letter your bank mails you.</p>
+    <p><strong>Renter:</strong> Asking rents are down about 4.3% from a year ago — 21 months of declines in a row, and Ontario is down over 5%. That's real negotiating power at renewal. Don't accept the first increase.</p>
+    <p><strong>Newcomer:</strong> Ignore both the crash headlines and the hype. The official national forecast says sideways: roughly flat prices, softer sales, cheaper rent than last year. That's a calm market to plan in — go in with a real pre-approval and take your time.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Checked all 29 YouTube channels via RSS — 21 fresh uploads in ~30h, most of them evergreen shorts (Kevin Yu dropped a run of semi-detached clips). Below are only the ones worth stealing or studying. Today's threads: <strong>the CREA forecast cut</strong>, <strong>"prices are down but read the fine print,"</strong> and <strong>rate-decision-day fear hooks.</strong> TikTok/IG not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi · YouTube</div>
+      <div class="creator-platform">"Toronto Home Prices Are Down 15.9%… Don't Let the Headlines Fool You"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Takes a scary "down 15.9%" headline and unpacks why the real picture for a buyer is more nuanced.<br><strong>Your angle:</strong> This is the backbone of Video 3. Steal the "don't let the headline fool you" frame and pair it with today's CREA flat-price forecast — the scary local number vs the calm national reality. Beginner translation, not doom.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler / Angry Mortgage · YouTube</div>
+      <div class="creator-platform">"The Inflation Warning" (posted 2:32 a.m. — freshest on the list)</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Blunt take on why inflation is the thing to watch, dropped hours before the BoC's report.<br><strong>Your angle:</strong> Intelligence layer for Video 2. Steal the "watch inflation, not the rate" instinct and translate it: today's rate won't move, but the inflation read inside the Bank's report is what actually decides your future mortgage. Calm explainer.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · YouTube</div>
+      <div class="creator-platform">"A Generation Locked Out: Canada's Real Housing Crisis"</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Polished, empathetic look at affordability and why a whole generation feels shut out.<br><strong>Your angle:</strong> Perfect for your newcomer audience. Steal the "locked out" emotion, then flip to the practical: a flat market like today's is exactly when locked-out buyers get a foot in. Hope + a plan, not just the problem.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen / Toronto Property Finders · YouTube</div>
+      <div class="creator-platform">"Toronto First Time Buyers Keep Making This Mistake And It's Costing Them Everything"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: A single first-time-buyer mistake framed as costing people big.<br><strong>Why watch:</strong> Great hook structure for your beginner audience. Borrow the "one mistake" frame for a future first-time-buyer reel — keep it honest and specific, skip the fear.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Alex Applegate · YouTube</div>
+      <div class="creator-platform">"BANK OF CANADA Is About To Destroy Employment!"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: High-heat, doom-styled take on the rate decision and jobs.<br><strong>Why watch:</strong> A study in fear hooks landing on decision day. Don't copy the doom — study the structure, then do the opposite in Video 2: calm the viewer down while everyone else panics.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi + Team Sessa · YouTube</div>
+      <div class="creator-platform">Team Sessa: "Massive Price Shock For Sellers (Toronto Home Prices)"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Seller-loss framing on Toronto prices, echoing this week's "sellers are hurting" thread.<br><strong>Why watch:</strong> Good real-number ammo. If you use it, reframe from seller doom to buyer opportunity — every stressed seller is your negotiating opening.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"Why Ottawa Condo Buyers Are Losing Everything in 2026"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Condo buyers eating deposits / losses, this time Ottawa.<br><strong>Why watch:</strong> Same "walking away" thread as last week. Useful for a future condo-risk explainer — teach how a buyer avoids being that person, not fear.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Even the realtors' own group just downgraded 2026 — here's what that actually means for you</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's fresh (dropped this morning), it's counterintuitive (the realtor body talking DOWN the market), and it hands buyers calm instead of fear. Screenshot-worthy trust content.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Contrarian</strong>
+        <div>On-screen: <em>"Even the realtors say don't expect a jump."</em></div>
+        <div>Spoken: "The group that represents every realtor in Canada just downgraded its own market for 2026. When the salespeople talk the market down, you should probably listen."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Number shock</strong>
+        <div>On-screen: <em>"2026 just flipped from a gain to a drop."</em></div>
+        <div>Spoken: "In spring they said home sales would rise this year. This morning they flipped it — now they expect sales to fall. Here's what changed and what it means for your wallet."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"New here? Ignore the crash headlines."</em></div>
+        <div>Spoken: "If you're new to Canada and terrified by the housing headlines, here's the calm truth the official forecast just gave us this morning — and it's actually good news for you."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "The group that represents every realtor in Canada just downgraded its own market for 2026. When the salespeople talk the market down, you should probably listen."</p>
+        <p><strong>Body:</strong> "Plain version. There's a national body called CREA — think of it as the head office for all realtors in the country. A few times a year they publish a forecast: where are home sales and prices going. Back in April they were still saying 2026 would be a small up year. This morning they changed their mind — they now expect home sales to actually drop about one and a half percent this year. On price, they barely moved the needle: up about one percent nationally, to roughly six-eighty-seven-thousand. So what are they really telling you? Not a crash. Not a boom. A flat, sideways year. And here's why that matters for you: when prices aren't running away, the pressure to panic-buy is off. You get time — time to get pre-approved properly, time to compare lenders, time to negotiate instead of overpaying because you're scared it'll cost more next month. A boring market is a buyer's market. Use the calm."</p>
+        <p><strong>CTA:</strong> "Want my plain-language 'is it a good time for ME to buy' checklist? Comment CALM and I'll send it."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">CREA = head office for realtors</span>
+        <span class="onscreen-tag">April: up year → July: down year</span>
+        <span class="onscreen-tag">Sales forecast now −1.4%</span>
+        <span class="onscreen-tag">Prices ≈ flat (+1.1%)</span>
+        <span class="onscreen-tag">Comment CALM 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Toronto skyline wide shot, "for sale" signs on residential street, person scrolling housing listings on phone, forecast chart trending sideways, hand crossing out a number and writing a lower one, buyer and agent walking a neighbourhood</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a flat horizontal line chart glowing on a screen, neither rising nor falling, calm blue tones, documentary tone, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a calm suburban Canadian street with 'for sale' signs on a quiet summer morning, soft light, steady mood, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Rate decision drops at 9:45 this morning — but watch the report, not the rate</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's timely with a hard time-stamp (this morning), it makes the viewer feel like an insider, and it flips decision-day panic into a simple "here's what to actually watch." Save + follow behaviour.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Contrarian</strong>
+        <div>On-screen: <em>"Don't watch the rate today."</em></div>
+        <div>Spoken: "Everyone's going to stare at the Bank of Canada's rate at 9:45 this morning. But the rate isn't the story — the thing hiding underneath it is what actually decides your next mortgage."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"Why won't they cut your rate?"</em></div>
+        <div>Spoken: "The Bank of Canada meets this morning and almost certainly won't cut. Want to know why they're stuck? One word — and it's the same word Ron Butler warned about at 2 a.m."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Stakes / this costs you</strong>
+        <div>On-screen: <em>"This one number moves your mortgage."</em></div>
+        <div>Spoken: "At 9:45 this morning the Bank of Canada drops a full economic report, and one number inside it — not the rate — is what quietly decides whether your mortgage gets cheaper or not."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "Everyone's going to stare at the Bank of Canada's rate at 9:45 this morning. But the rate isn't the story — the thing hiding underneath it is what actually decides your next mortgage."</p>
+        <p><strong>Body:</strong> "Plain version. The Bank of Canada sets the interest rate that drives variable mortgages and prime. This morning at 9:45 they make their call — and almost everyone expects them to hold it flat at 2.25%, same as all year. So the rate itself? A non-event. Here's the part to actually watch: at the exact same time, they release a big report — it's basically the Bank explaining what it's worried about. And right now the thing they're worried about is inflation — the cost of everyday stuff — which jumped above three percent because oil and gas got expensive after the conflict overseas. If the Bank sounds nervous about inflation spreading, that's your signal that rate cuts stay off the table for a while, so don't bet your budget on a cheaper mortgage this year. If they sound relaxed and call it a temporary gas thing, cuts could come back on the table later. Same morning, two very different futures for your payment. Watch the tone, not just the number."</p>
+        <p><strong>CTA:</strong> "I'll post the plain-language breakdown the second it drops — follow so you catch it."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">9:45am: rate + full report</span>
+        <span class="onscreen-tag">Rate = expected hold (non-event)</span>
+        <span class="onscreen-tag">The word to watch: inflation</span>
+        <span class="onscreen-tag">Nervous tone = no cuts soon</span>
+        <span class="onscreen-tag">Follow for the breakdown 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Bank of Canada building Ottawa, clock showing 9:45, gas station price sign, grocery receipt close-up, news alert on phone screen, person watching TV business news, Governor at a podium / press conference</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a close-up of a clock ticking toward 9:45 with a blurred financial newsroom behind it, tense anticipation, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a glowing gas-station price sign at dawn with numbers subtly rising, moody orange light, documentary tone, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">"Toronto prices are down 15.9%" — the scary headline vs what a buyer actually sees</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it takes a viral fear-number and defuses it with the calm national reality that dropped today. Myth-busting = comments ("wait, so which is it?") and saves.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Number shock</strong>
+        <div>On-screen: <em>"Down 15.9%? Read the fine print."</em></div>
+        <div>Spoken: "You've probably seen the headline — Toronto prices down almost sixteen percent. Scary. But that number and the one the national forecast just gave us this morning tell two very different stories."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — "Nobody's telling you"</strong>
+        <div>On-screen: <em>"The crash headline leaves this out."</em></div>
+        <div>Spoken: "Every crash headline conveniently leaves out one thing — and once you know it, you'll stop panicking and start negotiating."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Personal stakes (his edge)</strong>
+        <div>On-screen: <em>"I bought at the peak. I read these carefully now."</em></div>
+        <div>Spoken: "I bought my condo near the top, so I read every scary price headline carefully now. Here's how to tell a real warning from clickbait — using today's numbers."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~55s)</div>
+        <p><strong>Hook:</strong> "You've probably seen the headline — Toronto prices down almost sixteen percent. Scary. But that number and the one the national forecast just gave us this morning tell two very different stories."</p>
+        <p><strong>Body:</strong> "Here's the plain version. A headline like 'down 15.9%' usually cherry-picks one slice — one property type, one area, or a peak-to-now drop over a couple of years. It's real, but it's narrow, and it's built to make you click. Now here's the wide-angle number that dropped this morning: the national realtor association's own forecast says average prices this year are basically flat — up about one percent — and the typical-home index just stopped falling for the first time since January of last year. Both things are true at once: some pockets are down hard, and the overall market has gone flat and calm. So what do you do with that as a buyer? You don't panic, and you don't freeze. You use it. A flat market plus a hurting seller in a soft pocket is exactly where you negotiate — on price, on closing, on what's included. The headline is designed to scare you out of acting. The real data says you can act, carefully. That's your edge."</p>
+        <p><strong>CTA:</strong> "Send me a listing you're eyeing and I'll tell you honestly if the price makes sense — comment PRICE."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Scary headline = one narrow slice</span>
+        <span class="onscreen-tag">National forecast = ≈ flat (+1%)</span>
+        <span class="onscreen-tag">Typical-home index stopped falling</span>
+        <span class="onscreen-tag">Both can be true at once</span>
+        <span class="onscreen-tag">Comment PRICE 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>scary red news headline zoom, phone showing housing news, split-screen two different numbers, price chart with one segment circled, buyer looking relieved, agent pointing at a listing on a laptop, Toronto condo towers</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a dramatic red news headline on a phone screen slowly being zoomed into then pulled back to reveal calm context, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, split composition of a steep falling line on one side and a flat steady line on the other, cool tones, thoughtful documentary mood, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.globenewswire.com/news-release/2026/07/15/3327509/0/en/crea-revises-resale-housing-market-forecast.html">CREA (via GlobeNewswire) — Revised forecast: 2026 sales 463,336 (−1.4%), avg price +1.1% to $686,710; 2027 sales +3.7% to 480,567, price +1.1% to $694,164</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/07/15/crea-now-expects-home-sales-decline-in-2026-as-it-lowers-forecast-again/">BNN Bloomberg / CTV — CREA now expects a 2026 sales decline; June national avg price $696,078 (+0.5% YoY), HPI flat MoM (first non-decline since Jan 2025), −3.6% YoY, sales +0.9% YoY</a></li>
+      <li><a href="https://www.cbc.ca/news/business/crea-revision-june-2026-9.7269900">CBC News — CREA downgrades housing market forecast again as June home sales edge up</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/interest-rate-announcement-and-monetary-policy-report-july-15-2026/">Bank of Canada — July 15 rate announcement + Monetary Policy Report (9:45 a.m. ET; press conference 10:45 a.m.)</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/2026/07/15/bank-of-canada-to-deliver-5th-interest-rate-decision-of-the-year/">BNN Bloomberg — BoC to deliver its rate decision; hold at 2.25% widely expected, markets price ~1% chance of a change</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/06/fad-press-release-2026-06-10/">Bank of Canada — June statement: policy rate held at 2.25%</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260622/dq260622a-eng.htm">Statistics Canada — CPI May 2026: +3.2% YoY on a gasoline surge; core ~2.1%; June CPI due July 20</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/07/average-asking-rents-fall-over-4-in-june-compared-to-last-year-new-report-says/">Rentals.ca / Urbanation (via CMT) — June national asking rent ~$2,033, −4.3% YoY (21st straight monthly decline); Ontario ~$2,233 (−5.3%)</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — 5-yr GoC bond yield ~3.13% (spiked to ~3.18% early July on oil), 5-yr fixed ~4.1–4.4%, variable ~3.35–3.55%</a></li>
+      <li><a href="https://www.cp24.com/news/canada/2026/07/14/canada-works-carney-on-national-unity-pipelines-at-calgary-stampede/">CP24 — Carney at Calgary Stampede on national unity and the ~$35–44B west-coast pipeline amid Alberta referendum question</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1evQJlTRlGA">Creator Watch — Ilan Portnoi "Toronto Home Prices Are Down 15.9%… Don't Let the Headlines Fool You" (Jul 14)</a></li>
+      <li><a href="https://www.youtube.com/@AngryMortgage">Creator Watch — Ron Butler / Angry Mortgage "The Inflation Warning" (Jul 15)</a></li>
+      <li><a href="https://www.youtube.com/@TomStorey">Creator Watch — Tom Storey "A Generation Locked Out: Canada's Real Housing Crisis" (Jul 14)</a></li>
+      <li><a href="https://www.youtube.com/@TorontoPropertyFinders">Creator Watch — Karl Nielsen "Toronto First Time Buyers Keep Making This Mistake" (Jul 14)</a></li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:8px;">Generated automatically · Wednesday, July 15, 2026 · "I live here. I sell here." 🇨🇦</p>
+
+</div>
+
+</body>
+</html>
