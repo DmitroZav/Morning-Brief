@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Thursday, July 16, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, July 16, 2026</div>
+  <div class="canada-day-badge">📊 Real Estate · Economy · Politics</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-16.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">The Bank of Canada just said the words nobody expected: "the economy is growing again"</div>
+    <p>Yesterday at 9:45 a.m. the <strong>Bank of Canada</strong> (the country's central bank — it sets the interest rate that everything else follows) held its rate at <strong>2.25%</strong> for the sixth time in a row. That part was expected. The surprise was the <em>tone</em>. In his own words, Governor Tiff Macklem said: <strong>"After stalling over the past year, economic growth looks to have resumed in Canada."</strong> The Bank now thinks the economy grew about <strong>2.5% in the spring quarter</strong> — after basically flatlining for a year.</p>
+    <p>Translation for a normal person: the Bank spent the last year sounding worried about a weak, tariff-hit economy. Yesterday it quietly switched from "hang in there" to "we're turning the corner." It still won't cut rates — because inflation popped to 3.2% on gas prices — but it's no longer in fear mode. It expects inflation to drift back to about 2% by early 2027.</p>
+    <p><strong>Video-worthy because:</strong> for months every headline has been recession, tariffs, doom. The central bank just pushed back on all of it in one sentence. "Even the Bank of Canada says we're growing again" is a calm, surprising, screenshot-worthy line — the opposite of the panic your audience keeps scrolling past.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Rates held at 2.25% and won't move again until at least September 2 — so stop waiting for a rate cut to save you. The real story is the mood shift: the Bank went from "weak economy" to "growing again," which means the cheap-money era isn't coming back fast. If your mortgage is up for renewal, plan around today's ~4% reality, not a cut that keeps not arriving.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">The morning after decision day. <strong>The Bank of Canada held at 2.25%</strong> (6th straight hold) and released its full <strong>Monetary Policy Report</strong> — the headline is a more upbeat growth read, not the rate. Bonds barely moved; the loonie stays soft on a widening gap with US yields. Next rate decision: <strong>Sept 2</strong>.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">held (6th time)</td>
+            <td><span class="plain-meaning">Sets your variable rate and prime. Held again yesterday. Next call Sept 2 — the Bank says the current rate is "appropriate," code for no rush to cut.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">BoC growth read (Q2)</td>
+            <td>~2.5% (resumed)</td>
+            <td>~stalled / flat</td>
+            <td class="tag-down">↑ turning corner</td>
+            <td><span class="plain-meaning">After a year of flatlining, the Bank sees growth back. Full-year 2026 still soft at 0.7%, then 1.8% in 2027 &amp; 2028. Recovery, not a boom.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May — latest)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ on gasoline</td>
+            <td><span class="plain-meaning">Above target, driven by gas from the Middle East conflict. Strip out gas and it's 2.2%; core near 2%. Bank sees it easing to ~2% by early 2027. June CPI lands July 20.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+            <td>~3.13%</td>
+            <td>~3.06%</td>
+            <td class="tag-up">↑ +7 bps</td>
+            <td><span class="plain-meaning">Drives FIXED mortgage rates. Ticked up on the week. Canadian yields "little changed" per the Bank, while US yields rose — that gap is pushing the loonie down.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr fixed mortgage</td>
+            <td>~4.1–4.3%</td>
+            <td>~4.14%</td>
+            <td class="tag-up">slight upward pressure</td>
+            <td><span class="plain-meaning">Sharpest insured deals still near 4%; typical offers 4.3–4.7%. With bonds nudging up, don't expect fixed rates to fall from here soon.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr variable / prime</td>
+            <td>~3.45% / prime 4.45%</td>
+            <td>same</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Variable moves with the BoC. No cut yesterday, none priced for the summer — variable isn't getting cheaper this quarter.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Unemployment (June)</td>
+            <td>6.5%</td>
+            <td>6.5%–7% range</td>
+            <td class="tag-flat">soft, steady</td>
+            <td><span class="plain-meaning">Job market still loose (more people looking than jobs). "Slack" like this is what keeps a lid on inflation and gives the Bank room to hold.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CREA 2026 forecast (sales)</td>
+            <td>−1.4% (463,336)</td>
+            <td>+1% (April)</td>
+            <td class="tag-up">↓ downgraded (Jul 15)</td>
+            <td><span class="plain-meaning">Realtors' own group flipped to a small decline. Ontario is now the ONLY province still forecast to see sales rise in 2026.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA prices (Royal LePage, Q2)</td>
+            <td>−4.6% YoY</td>
+            <td>—</td>
+            <td class="tag-down">↓ softer</td>
+            <td><span class="plain-meaning">Greater Toronto aggregate down 4.6% from a year ago; detached and condos both easing. For the first time in 16 years, Toronto condos are more affordable than Montreal vs local income.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>~0.73 USD</td>
+            <td>~0.73</td>
+            <td class="tag-flat">soft</td>
+            <td><span class="plain-meaning">1 CAD ≈ 73 US cents. The Bank flagged the US–Canada yield gap as the reason the loonie is weak — pricier US goods, food and travel.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>Renewing this year:</strong> This is the big one. Many people locked in near 1–2% back in 2020–21 and are now renewing at ~4%. On a $500k mortgage that's roughly $600–$800 more a month. Yesterday's hold plus the Bank's upbeat tone means <em>a rescue cut isn't coming before your renewal</em>. Shop three lenders, ask about extending the amortization to soften the jump, and don't just sign the letter your bank mails you.</p>
+    <p><strong>First-time buyer:</strong> Prices in the GTA are down ~4.6% from a year ago and Toronto condos just became more affordable than Montreal for the first time in 16 years. A calm, slightly-softer market with no imminent rate cut is actually a decent window — you're not competing with a frenzy. Get a real pre-approval and negotiate.</p>
+    <p><strong>Renter:</strong> A steady rate and a slowly recovering economy is boring in the best way — no shock to your costs. Rents have been drifting down year-over-year; use that at renewal instead of accepting the first increase.</p>
+    <p><strong>Newcomer:</strong> Tune out both the doom and the hype. The central bank itself just said growth is resuming and inflation should ease toward 2% by early 2027. That's a stable base to plan on. Don't wait for a magic rate cut — plan around ~4% and buy when your own numbers work.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Checked all 29 YouTube channels via RSS — the decision drove a wave of fresh uploads. Two threads dominate: <strong>the renewal cliff</strong> (1–2% holders resetting to ~4%) and <strong>"are rate cuts over / could hikes come?"</strong> Below are only the ones worth stealing or studying. TikTok/IG not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · YouTube</div>
+      <div class="creator-platform">"Bank of Canada calls out the condo market &amp; holds rates at 2.25%" (posted this morning)</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: The data guy's same-day breakdown of the hold plus the Bank's pointed comments on weak condo/housing activity.<br><strong>Your angle:</strong> Foch is your intelligence layer for Video 1. Steal the "the Bank is watching condos" nugget and translate the hold into plain language: growth's back, but no cut is coming to bail you out. Calm, not doom.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"Many 1% Rate Holders are renewing at 4%..." (posted this morning)</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: The renewal-shock story — people who locked in ultra-low pandemic rates now facing a big monthly jump.<br><strong>Your angle:</strong> This is the entire backbone of Video 2 — the most wallet-relevant story of the day. Steal the number, then do what Saretsky doesn't: give beginners a 3-step "here's how to soften the hit" plan.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Zhen Liang · YouTube</div>
+      <div class="creator-platform">"Bank of Canada Rate Cuts Are OVER. Big Banks Predicting Rate HIKES."</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: High-heat take that cuts are done and hikes could be next.<br><strong>Your angle:</strong> Perfect foil for Video 3. Don't copy the fear — quote it, then defuse it with the Bank's own words: inflation easing to 2% by early 2027, rate "appropriate." Be the calm one while everyone screams "hikes."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mark Mitchell · YouTube</div>
+      <div class="creator-platform">"Bank of Canada Powerless"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Argues the Bank is boxed in — can't cut because of gas-driven inflation, can't hike into a soft economy.<br><strong>Why watch:</strong> Good framing for why the rate is "stuck." Borrow the "boxed in" idea for context in Video 3, minus the fatalism.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa · YouTube</div>
+      <div class="creator-platform">"The Most Difficult Condo Buying Decision (Toronto, Vaughan, Richmond Hill, Mississauga)"</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Weighs the condo buy/wait decision across GTA submarkets.<br><strong>Why watch:</strong> Pairs with the "Toronto condos now cheaper than Montreal" stat. Save for a future condo-affordability reel — teach the decision, don't just describe the fear.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">The Bank of Canada just said "we're growing again" — here's what that means for your money</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's fresh (dropped yesterday), it's counterintuitive (good news after a year of doom headlines), and it hands the viewer calm plus a clear takeaway. High trust, screenshot-worthy.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Contrarian</strong>
+        <div>On-screen: <em>"Everyone says recession. The Bank says growth."</em></div>
+        <div>Spoken: "For a year every headline screamed recession. Yesterday the Bank of Canada quietly said the opposite — the economy is growing again. Here's what that actually means for your wallet."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"So where's my rate cut?"</em></div>
+        <div>Spoken: "The economy's growing again, so where's your rate cut? There isn't one coming — and that's exactly why you need to hear this before your renewal."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen: <em>"New here and scared of the headlines?"</em></div>
+        <div>Spoken: "If you're new to Canada and the housing headlines are freaking you out, the Bank of Canada just gave us the calm version — and it's actually good news for you."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "For a year every headline screamed recession. Yesterday the Bank of Canada quietly said the opposite — the economy is growing again. Here's what that actually means for your wallet."</p>
+        <p><strong>Body:</strong> "Plain version. The Bank of Canada is the country's central bank — it sets the interest rate that drives your mortgage. Yesterday it held that rate at 2.25 percent, same as all year. But the interesting part wasn't the number — it was the mood. The Governor said, and I'm quoting, 'growth looks to have resumed.' They now think the economy grew about two and a half percent in the spring, after basically flatlining for a whole year. So why won't they cut your rate if things are better? Because prices — inflation — jumped to 3.2 percent, mostly from gas after the conflict overseas. They can't cut while that's hot. What this means for you: stop waiting for a rate cut to rescue your budget. It's not coming this summer. The economy's healing slowly, rates are staying put, and if your mortgage is up for renewal, you need to plan around four percent — not a cut that keeps not showing up."</p>
+        <p><strong>CTA:</strong> "Want my plain-language 'what a hold actually means for you' cheat sheet? Comment HOLD and I'll send it."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">BoC held rate at 2.25% (6th time)</span>
+        <span class="onscreen-tag">"Growth looks to have resumed"</span>
+        <span class="onscreen-tag">Q2 growth ~2.5%</span>
+        <span class="onscreen-tag">No cut = plan around 4%</span>
+        <span class="onscreen-tag">Comment HOLD 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Bank of Canada building Ottawa, Governor at a podium / press conference, upward line chart turning green, person reading news on phone with relieved face, Toronto skyline morning, hand signing a mortgage renewal letter</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a line chart that stops falling and begins to climb, glowing green on a dark screen, hopeful calm tone, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, the stone facade of a central bank building at sunrise, Canadian flag softly waving, steady confident mood, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Locked in at 1% in 2021? Your renewal at 4% is the real story nobody's preparing you for</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's the single most wallet-relevant story of the day, it names a specific painful number, and it ends with an actionable plan instead of fear. Save + share behaviour.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Stakes / this costs you</strong>
+        <div>On-screen: <em>"Your 1% mortgage is about to become 4%."</em></div>
+        <div>Spoken: "If you locked in around one percent in 2021, your renewal this year could cost you six to eight hundred dollars more a month. Here's how to soften the hit before it lands."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Number shock</strong>
+        <div>On-screen: <em>"+$700 a month. Same house."</em></div>
+        <div>Spoken: "Same house, same mortgage, seven hundred dollars more a month — just because your rate reset from one percent to four. This is happening to thousands of people right now."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — "Nobody's telling you"</strong>
+        <div>On-screen: <em>"The bank won't warn you about this."</em></div>
+        <div>Spoken: "Your bank will mail you a renewal letter and hope you just sign it. What they won't tell you is the three moves that can shrink your payment jump."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~55s)</div>
+        <p><strong>Hook:</strong> "If you locked in around one percent in 2021, your renewal this year could cost you six to eight hundred dollars more a month. Here's how to soften the hit before it lands."</p>
+        <p><strong>Body:</strong> "Here's the plain version. Back in 2020 and 2021, mortgage rates were the lowest we'd ever seen — some people locked in around one or two percent for five years. Those five years are now up. And today's rate? Around four percent. The Bank of Canada held rates again yesterday and made it clear a cut isn't coming soon, so that reset is real. On a five-hundred-thousand-dollar mortgage, going from two percent to four can add roughly six to eight hundred dollars to your monthly payment. That's a car payment appearing out of nowhere. But you're not powerless. Three moves. One: shop at least three lenders — your current bank is counting on you not to. Two: ask about stretching your amortization, the number of years to pay it off; a longer timeline lowers the monthly payment to cushion the jump. Three: start ninety days before renewal, not the week of — that's when you have leverage. A renewal is a negotiation, not a form you sign."</p>
+        <p><strong>CTA:</strong> "Renewing in the next year? Comment RENEW and I'll send you my renewal-prep checklist."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">2021: locked at ~1–2%</span>
+        <span class="onscreen-tag">2026: reset to ~4%</span>
+        <span class="onscreen-tag">~$600–$800/mo more on $500k</span>
+        <span class="onscreen-tag">Shop 3 lenders + extend amortization</span>
+        <span class="onscreen-tag">Comment RENEW 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>mortgage renewal letter close-up, calculator and bills on a kitchen table, person looking stressed at laptop, bank branch exterior, line chart rising from 1% to 4%, family home exterior, pen hovering over a signature line</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a close-up of a mortgage renewal letter on a kitchen table beside a calculator, warm worried morning light, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a number counter ticking up from 1% to 4% over a blurred suburban house, tense but clean, documentary tone, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">"Rate cuts are over — hikes are coming!" Is the panic real? Here's what the Bank actually said</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it takes a scary claim circulating right now and calmly tests it against the Bank's own words. Myth-busting drives comments ("wait, so which is it?") and saves.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Contrarian</strong>
+        <div>On-screen: <em>"'Rate hikes are coming.' Not so fast."</em></div>
+        <div>Spoken: "You're seeing it everywhere today — rate cuts are over, hikes are next. I read what the Bank of Canada actually said yesterday, and the panic doesn't match the words."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Question that can't be ignored</strong>
+        <div>On-screen: <em>"Cuts done? Hikes next? Which is it?"</em></div>
+        <div>Spoken: "Are rate cuts over, or are hikes coming? Everyone's yelling a different answer. Here's the boring, calm truth straight from yesterday's report."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Personal stakes (his edge)</strong>
+        <div>On-screen: <em>"I bought at the peak. I don't panic-read anymore."</em></div>
+        <div>Spoken: "I bought my condo near the top, so scary rate headlines used to wreck me. Now I read the source. Here's what the Bank really said — versus what the internet is screaming."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "You're seeing it everywhere today — rate cuts are over, hikes are next. I read what the Bank of Canada actually said yesterday, and the panic doesn't match the words."</p>
+        <p><strong>Body:</strong> "Plain version. Some creators are running with 'cuts are done, hikes are coming.' Here's what the Bank actually said. Yes — they held the rate and signalled they're in no hurry to cut, because inflation, the cost of everyday stuff, jumped to 3.2 percent on gas. So the 'cuts are over for now' part? Fair. But hikes? The Bank literally said the current rate is 'appropriate' and that inflation should ease back to around two percent by early 2027. You don't hint at raising rates while calling the current one appropriate and predicting inflation to cool. So the honest read is: not up, not down — flat, probably for a while. What that means for you: don't make a panic decision based on a 'hikes are coming' headline. If variable suits your risk, a hold is fine. If you want certainty, lock a fixed rate — but do it because it fits your life, not because a video scared you."</p>
+        <p><strong>CTA:</strong> "Fixed or variable for where rates actually are? Comment RATE and I'll break down your situation."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">The panic: "hikes are coming"</span>
+        <span class="onscreen-tag">The Bank: rate is "appropriate"</span>
+        <span class="onscreen-tag">Inflation → ~2% by early 2027</span>
+        <span class="onscreen-tag">Real read: flat, not up</span>
+        <span class="onscreen-tag">Comment RATE 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>red panic news headlines on phone, split-screen calm vs chaos, Bank of Canada report on a laptop screen, person reading carefully and nodding, flat steady line chart, gas station price sign, calm hand closing a laptop</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a wall of red alarming news headlines slowly fading to reveal one calm printed report page, cool blue light, thoughtful mood, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a perfectly flat steady horizontal line glowing on a dark screen while chaotic arrows blur around it, calm confident tone, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — Policy rate held at 2.25% (July 15); Q2 growth ~2.5%, "growth looks to have resumed," CPI 3.2% May (2.2% ex-gas), inflation to ~2% by early 2027, next decision Sept 2</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/opening-statement-2026-07-15/">Bank of Canada — Macklem opening statement, MPR press conference (July 15)</a></li>
+      <li><a href="https://www.bankofcanada.ca/publications/mpr/mpr-2026-07-15/">Bank of Canada — Monetary Policy Report, July 2026 (full-year GDP 0.7% in 2026, 1.8% in 2027 &amp; 2028)</a></li>
+      <li><a href="https://www.cbc.ca/news/business/bank-of-canada-interest-july-2026-9.7270689">CBC News — BoC holds key rate at 2.25% as economic growth rebounds</a></li>
+      <li><a href="https://ca.finance.yahoo.com/news/bank-canada-deliver-5th-interest-080004438.html">Yahoo Finance Canada — BoC holds; unemployment 6.5% June; inflation seen ~2.5% H2 2026, 2% early 2027</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — 5-yr GoC bond yield ~3.13% (up ~7 bps to 3.13% from 3.06%); 5-yr fixed ~4.1–4.3% insured under upward pressure</a></li>
+      <li><a href="https://www.crea.ca/housing-market-stats/canadian-housing-market-stats/quarterly-forecasts/">CREA — Downgraded 2026 forecast (Jul 15): sales −1.4% to 463,336, avg price +1.1% to $686,710; Ontario only province forecast to rise in 2026</a></li>
+      <li><a href="https://www.zolo.ca/toronto-real-estate/trends">Zolo / Royal LePage — GTA Q2 aggregate down 4.6% YoY; Toronto condos more affordable than Montreal vs income for first time in 16 years</a></li>
+      <li><a href="https://www.netnewsledger.com/2026/07/16/prime-minister-mark-carney-is-diversifying-canadas-u-s-european-and-asian-ties/">NetNewsLedger — Carney diversifying trade toward Europe/Asia; CUSMA not extended July 1, now subject to annual reviews</a></li>
+      <li><a href="https://www.youtube.com/@daniel_foch">Creator Watch — Daniel Foch "Bank of Canada calls out the condo market &amp; holds rates at 2.25%" (Jul 16)</a></li>
+      <li><a href="https://www.youtube.com/@stevesaretsky">Creator Watch — Steve Saretsky "Many 1% Rate Holders are renewing at 4%..." (Jul 16)</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=zhen+liang+prime+properties+rate+cuts+over">Creator Watch — Zhen Liang "Bank of Canada Rate Cuts Are OVER. Big Banks Predicting Rate HIKES." (Jul 15)</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=mark+mitchell+mortgage+bank+of+canada+powerless">Creator Watch — Mark Mitchell "Bank of Canada Powerless" (Jul 15)</a></li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:8px;">Generated automatically · Thursday, July 16, 2026 · "I live here. I sell here." 🇨🇦</p>
+
+</div>
+
+</body>
+</html>
