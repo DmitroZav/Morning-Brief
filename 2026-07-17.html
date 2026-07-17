@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Friday, July 17, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Friday, July 17, 2026</div>
+  <div class="canada-day-badge">📊 Real Estate · Economy · Politics</div>
+</div>
+
+<div class="container">
+
+  <a class="live-btn" href="https://dmitrozav.github.io/Morning-Brief/2026-07-17.html">🔗 View Live Version</a>
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <div class="badge">☀️ Big Story of the Day</div>
+    <div class="section-title">The war on your news feed is quietly showing up in your mortgage</div>
+    <p>Oil is spiking again. Fresh attacks on ships in the <strong>Strait of Hormuz</strong> — the narrow sea lane that carries about one in five barrels of the world's oil — pushed West Texas crude above <strong>US$79 a barrel this week, up more than 11%</strong>. Here's the chain that reaches your wallet: pricier oil means higher inflation fears, higher inflation fears push up <strong>government bond yields</strong> (the interest the government pays to borrow money), and bond yields are what lenders use to price <strong>fixed mortgage rates</strong>. So the fighting overseas is landing, a few steps later, on the mortgage you're about to renew or take out.</p>
+    <p>The damage is already visible. Since this conflict flared, the best 5-year fixed rates have crept up roughly <strong>0.35 to 0.40 of a percentage point</strong> and now mostly sit above 4%. The Bank of Canada didn't do this — it held its rate two days ago and hasn't moved. This is the oil market doing it, over the Bank's head.</p>
+    <p><strong>Video-worthy because:</strong> everyone's doom-scrolling the war as a foreign-news story. Almost nobody has connected it to their own mortgage payment. "The war you're watching on TV just made your mortgage more expensive — here's how" is a fresh, surprising, deeply personal angle nobody in your feed is running yet.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Fixed mortgage rates are creeping UP right now — and it's oil, not the Bank of Canada, doing it. If you're buying or renewing, the "just wait, rates will fall" plan got riskier this week. A strong fixed offer on the table today may not be there next month.</div>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-title">📊 Market Pulse</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Two days after the Bank of Canada held at 2.25%, the story has moved from the rate to <strong>oil</strong>. A jump in crude on Middle East supply fears is nudging bond yields and fixed mortgage rates upward. On the ground, the GTA is a <strong>two-speed condo market</strong> — resale ticking up, brand-new (pre-construction) condos at a 35-year low. Next inflation reading: <strong>June CPI on July 20</strong>. Next rate decision: <strong>Sept 2</strong>.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Latest</th>
+            <th>Prior</th>
+            <th>Change</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-name">Oil — WTI crude</td>
+            <td>~US$79/bbl</td>
+            <td>~US$71 (last wk)</td>
+            <td class="tag-up">↑ +11% on the week</td>
+            <td><span class="plain-meaning">The driver today. Strait of Hormuz attacks (~20% of world oil passes through it) spiked prices. Higher oil = higher gas = higher inflation fears = upward pressure on fixed mortgage rates.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+            <td>~3.13%</td>
+            <td>~3.06%</td>
+            <td class="tag-up">↑ +7 bps</td>
+            <td><span class="plain-meaning">Drives FIXED mortgage rates. Ended the week up 7 basis points (a basis point is one-hundredth of a percent). The 10-yr eased slightly Thursday, but the trend since the oil flare-up is up.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr fixed mortgage</td>
+            <td>~3.94%–4.4%</td>
+            <td>~4.1% (pre-conflict)</td>
+            <td class="tag-up">↑ +0.35–0.40%</td>
+            <td><span class="plain-meaning">Sharpest insured deal near 3.94%, typical offers 4.1–4.4%. Fixed rates have climbed since the oil shock — the "wait for lower" bet is weaker this month.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Best 5-yr variable / prime</td>
+            <td>~3.45% / prime 4.45%</td>
+            <td>same</td>
+            <td class="tag-flat">flat</td>
+            <td><span class="plain-meaning">Variable moves only when the Bank of Canada moves. No cut on July 15, none priced for summer — so variable is sitting still while fixed drifts up.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">BoC overnight rate</td>
+            <td>2.25%</td>
+            <td>2.25%</td>
+            <td class="tag-flat">held (6th time)</td>
+            <td><span class="plain-meaning">Held July 15. Bank says the current rate is "appropriate" — code for no rush to cut. Next call Sept 2.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Inflation (CPI, May — latest)</td>
+            <td>3.2%</td>
+            <td>2.8% (Apr)</td>
+            <td class="tag-up">↑ on gasoline</td>
+            <td><span class="plain-meaning">Above the Bank's 2% target, mostly gas. A fresh oil spike now risks keeping it hot. June CPI lands July 20 — the number to watch.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA average price + sales (TRREB, June)</td>
+            <td>$1,058,658 · 6,770 sales</td>
+            <td>$1.10M · —</td>
+            <td class="tag-down">↓ −3.9% price / ↑ +9.4% sales YoY</td>
+            <td><span class="plain-meaning">More homes changing hands than a year ago, but at lower prices. ~4.0 months of supply = balanced market, not a frenzy. A calmer window for buyers.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">GTA condo prices (TRREB, June)</td>
+            <td>~$631,000</td>
+            <td>~$697,000 (yr ago)</td>
+            <td class="tag-down">↓ −9.4% YoY</td>
+            <td><span class="plain-meaning">Resale condos are the discount aisle right now — down ~$65k in a year. Condo resale SALES actually jumped 14.3%: buyers are quietly moving on the value.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">New (pre-construction) condo sales</td>
+            <td>35-year low</td>
+            <td>—</td>
+            <td class="tag-down">↓ collapsed</td>
+            <td><span class="plain-meaning">Brand-new condo sales hit a 35-year low: Q1 saw just 246 sold across the GTHA (−52% YoY) and zero new project launches. Builders have frozen — future supply is being cut.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">Housing starts (CMHC, June)</td>
+            <td>238,971 (SAAR)</td>
+            <td>253,083 (May)</td>
+            <td class="tag-down">↓ −6% MoM</td>
+            <td><span class="plain-meaning">Fewer new homes getting started nationally — but Toronto starts rose 25% on multi-unit. Less building today = tighter supply down the road.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CREA 2026 forecast (sales)</td>
+            <td>−1.4% (463,336)</td>
+            <td>+1% (April)</td>
+            <td class="tag-up">↓ downgraded (Jul 15)</td>
+            <td><span class="plain-meaning">Realtors' own group flipped to a small decline for 2026. Ontario is the only province still forecast to see sales rise this year.</span></td>
+          </tr>
+          <tr>
+            <td class="metric-name">CAD / USD</td>
+            <td>~0.73 USD</td>
+            <td>~0.73</td>
+            <td class="tag-flat">soft</td>
+            <td><span class="plain-meaning">1 CAD ≈ 73 US cents. A weak loonie makes US goods, food and travel pricier — a quiet tax on everyday spending.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>Buying or renewing this summer:</strong> This is the one to act on. Fixed rates are drifting up because of oil, not the Bank. If a lender has offered you a fixed rate you can live with, ask how long they'll hold it — many honour a quote for 90–120 days. Locking a hold protects you if the war keeps pushing rates up, and you can usually still take a lower rate if things calm down. Waiting and hoping is the risky move this month.</p>
+    <p><strong>First-time buyer:</strong> GTA condos are the clearest value in the market — resale prices down about 9.4% from a year ago, roughly $65k off a typical condo. And with brand-new condo construction frozen at a 35-year low, the supply coming in future years is shrinking. A soft price today plus a thinner pipeline tomorrow is a real setup to think about — if your own numbers work.</p>
+    <p><strong>Renter:</strong> A frozen construction pipeline is the part that touches you. Fewer new units built now means less rental supply in two or three years, which usually props rents back up over time. Rents have drifted down lately — if you find a place you like at today's softer rent, a longer lease can lock in the discount before supply tightens again.</p>
+    <p><strong>Newcomer:</strong> Tune out the war panic as a real-estate signal, but understand the one real link: it's nudging fixed mortgage rates up, not down. Don't plan your purchase around a rate cut that keeps not arriving. Plan around today's ~4% reality, get a real pre-approval so a lender holds a rate for you, and buy when your numbers work — not when a headline tells you to.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Checked all 29 YouTube channels via RSS — 14 uploads in the window. Most were evergreen tips or already-covered rate-decision reactions. Below are only the ones worth stealing or studying. TikTok/IG not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"Why GTA Condo Sales Just Collapsed to a 35-Year Low" (posted Jul 16)</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: Breaks down the record-low new-condo (pre-construction) sales and what caused the freeze.<br><strong>Your angle:</strong> This is the backbone of Video 2. Steal the "35-year low" shock number, then flip it to opportunity like they don't: resale condos are down ~$65k, so the same freeze that scares investors is quietly handing first-time buyers a discount. Calm + actionable beats doom.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa · YouTube</div>
+      <div class="creator-platform">"Can't Afford To Lose The Buyers (Vaughan, Richmond Hill, Markham Home Prices)" (posted Jul 16)</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <div class="creator-note">Summary: How piling on long conditions in an offer can cost sellers the buyer — plus fresh 905-belt price reads.<br><strong>Your angle:</strong> Great newcomer-education reel. Most immigrants have never heard the word "conditions" in an offer. Steal the point, then teach it plainly: what a condition is, why too many scare buyers off, and how to structure an offer that actually gets accepted.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">That Agent Kelly · YouTube</div>
+      <div class="creator-platform">"Prices Gapped Down Again. Who's Still Buying?" (posted Jul 16)</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: Prices stepping lower again, and a look at who's actually transacting in a soft market.<br><strong>Why watch:</strong> Good "who's buying in a down market" framing that pairs with your condo-value story. Borrow the question format for a future reel — don't just say prices are down, show who's smartly moving.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mark Mitchell (Mortgage Broker) · YouTube</div>
+      <div class="creator-platform">"Canada's Real Estate Mess" (posted Jul 16)</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <div class="creator-note">Summary: A broker's blunt overview of the crossed wires in the market — soft prices, stuck rates, frozen building.<br><strong>Why watch:</strong> Useful context for the "everything feels contradictory" mood. Borrow the framing for Video 3, minus the fatalism — your job is to make the mess make sense for a beginner.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">The war you're watching on the news just made your mortgage more expensive</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fresh (this week's oil spike), surprising (nobody's connected the war to their mortgage), and deeply personal. A clean cause-and-effect explainer that makes the viewer feel smart for understanding it.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Contrarian</strong>
+        <div>On-screen (frame 1): <em>"The Middle East war is in your mortgage."</em></div>
+        <div>Spoken: "You think the war overseas has nothing to do with you? It just quietly made your mortgage more expensive. Let me show you the exact chain."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Question that can't be ignored</strong>
+        <div>On-screen (frame 1): <em>"Why did fixed rates just go UP?"</em></div>
+        <div>Spoken: "The Bank of Canada held rates this week — so why did fixed mortgage rates just go up anyway? The answer is oil, and it affects anyone buying or renewing right now."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Newcomer lens</strong>
+        <div>On-screen (frame 1): <em>"New here? The Bank doesn't set your rate."</em></div>
+        <div>Spoken: "If you're new to Canada, here's something nobody explained to me: the Bank of Canada doesn't set your fixed mortgage rate. Oil markets on the other side of the world help set it. Here's how."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "You think the war overseas has nothing to do with you? It just quietly made your mortgage more expensive. Let me show you the exact chain."</p>
+        <p><strong>Body:</strong> "Plain version, step by step. Fighting near the Strait of Hormuz — a narrow sea lane that carries about one in five barrels of the world's oil — spiked oil prices this week, up more than 11 percent. Pricier oil means pricier gas, and pricier gas means higher inflation — the cost of everyday stuff going up. Now the important link: when inflation fears rise, investors demand more interest to lend the government money. That's called a bond yield. And bond yields are exactly what banks use to set your fixed mortgage rate. So follow the dominoes: war, higher oil, higher inflation fear, higher bond yields, higher fixed rates. Since this flared up, the best fixed rates crept up about a third to nearly half a percent. And notice — the Bank of Canada didn't touch anything. It held rates two days ago. This is the oil market doing it, over the Bank's head. What it means for you: if you're buying or renewing, don't sit around waiting for fixed rates to fall this month. The pressure right now is up."</p>
+        <p><strong>CTA:</strong> "Want the one move that protects you when rates are rising? Comment RATE and I'll send it."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Oil +11% this week</span>
+        <span class="onscreen-tag">Strait of Hormuz = ~20% of world oil</span>
+        <span class="onscreen-tag">Oil → inflation → bond yields → fixed rates</span>
+        <span class="onscreen-tag">Fixed up ~0.4%, BoC didn't move</span>
+        <span class="onscreen-tag">Comment RATE 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>oil tanker at sea, Strait of Hormuz map graphic, gas station price sign changing, rising line chart red, person reading news on phone worried, hand signing mortgage papers, Toronto skyline</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a massive oil tanker moving through a narrow tense sea strait at dusk, dramatic moody lighting, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a chain of falling dominoes made of icons — an oil drop, a gas pump, a percent sign, a small house — cool documentary tone, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Toronto's condo market split in two — and one side is a gift for first-time buyers</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a genuine "wait, both are true?" surprise (new-condo sales at a 35-year low WHILE resale sales jump), a specific discount number, and a clear who-wins takeaway. Save + share for anyone eyeing a condo.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Number shock</strong>
+        <div>On-screen (frame 1): <em>"Toronto condos: down $65k in a year."</em></div>
+        <div>Spoken: "A typical Toronto condo is about sixty-five thousand dollars cheaper than it was a year ago. Before you cheer or panic, you need to hear which half of this market that applies to."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Contrarian</strong>
+        <div>On-screen (frame 1): <em>"New condo sales just hit a 35-year low."</em></div>
+        <div>Spoken: "Brand-new condo sales in Toronto just hit a 35-year low — and that's actually good news if you're trying to buy your first place. Let me explain the split."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — Personal stakes (his edge)</strong>
+        <div>On-screen (frame 1): <em>"I bought a condo at the peak."</em></div>
+        <div>Spoken: "I bought my condo near the top of the market, so I feel this one personally. But if I were buying today, the condo market is split in two — and one side is quietly a gift. Here's which."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~55s)</div>
+        <p><strong>Hook:</strong> "Brand-new condo sales in Toronto just hit a 35-year low — and that's actually good news if you're trying to buy your first place. Let me explain the split."</p>
+        <p><strong>Body:</strong> "There are two condo markets right now, and people keep mixing them up. Market one: brand-new, pre-construction condos — the ones you buy off a floor plan before they're built. Those sales just hit a 35-year low. Earlier this year only 246 sold across the whole region, down more than half from last year, with zero new projects even launching. Builders are frozen. Market two: resale condos — ones that already exist and someone's selling. Those are actually moving — sales up more than 14 percent from last year — because prices dropped about 9 percent, roughly sixty-five thousand dollars off a typical unit. So here's the 'what's in it for you.' If you're a first-time buyer, the resale side is the value aisle right now — softer prices and less competition than the frenzy years. And because builders froze, fewer new condos will exist a few years out, which usually supports prices later. Soft price today, thinner supply tomorrow. That's a setup worth understanding — if your own numbers work."</p>
+        <p><strong>CTA:</strong> "Thinking about a condo? Comment CONDO and I'll send my first-timer condo checklist for Toronto."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Two markets: new vs resale</span>
+        <span class="onscreen-tag">New condo sales = 35-year low</span>
+        <span class="onscreen-tag">Resale condos −9.4% (~$65k off)</span>
+        <span class="onscreen-tag">Resale sales +14.3% YoY</span>
+        <span class="onscreen-tag">Comment CONDO 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>Toronto condo towers skyline, empty pre-construction sales centre, "for sale" condo signs, young couple touring a condo, price tag graphic dropping, construction crane frozen still, keys handed over</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, a split screen — one side a dark empty condo showroom, the other a bright lived-in condo with a young couple, warm hopeful contrast, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, a glass condo tower under a stalled construction crane at golden hour, quiet still mood, photoreal, shallow depth of field"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Fixed or variable right now? The honest answer when oil is pushing rates around</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the single most-asked mortgage question, answered calmly at the exact moment it's confusing (fixed rising, variable stuck). Myth-busting + a clear framework drives comments and saves.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Question that can't be ignored</strong>
+        <div>On-screen (frame 1): <em>"Fixed or variable — right now?"</em></div>
+        <div>Spoken: "Fixed or variable, right now, this week? It's the question I get most — and this week the answer actually shifted. Here's the honest version."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 2 — Stakes / this costs you</strong>
+        <div>On-screen (frame 1): <em>"Pick wrong and it costs you thousands."</em></div>
+        <div>Spoken: "Picking fixed or variable is a five-year decision, and getting it wrong can cost you thousands. With oil pushing rates around this week, here's how to actually choose."</div>
+      </div>
+      <div class="hook-box"><strong>Hook 3 — "Nobody's telling you"</strong>
+        <div>On-screen (frame 1): <em>"Your bank hopes you don't ask this."</em></div>
+        <div>Spoken: "Your bank will happily put you in whatever's easiest for them. The fixed-versus-variable question they hope you don't think too hard about — let's think about it."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (~50s)</div>
+        <p><strong>Hook:</strong> "Fixed or variable, right now, this week? It's the question I get most — and this week the answer actually shifted. Here's the honest version."</p>
+        <p><strong>Body:</strong> "Quick plain-language reminder. A FIXED rate stays the same for your whole term — total predictability. A VARIABLE rate moves up and down with the Bank of Canada. Here's what changed this week. Fixed rates are creeping up, because the oil spike is pushing bond yields up — and fixed rates follow bond yields. Meanwhile variable is sitting still, because the Bank held its rate and isn't expected to cut this summer. So the honest read: fixed is getting a little more expensive right now, variable is flat. This is not me telling you which to pick — it depends on you. Go fixed if you'd lose sleep over your payment changing, or your budget is tight with no room to absorb a jump. Lean variable if you've got some cushion and you believe rates drift down over your term. Whatever you choose, do it because it fits your life — not because a scary headline pushed you. And ask your lender to hold your quoted rate; most will honour it for 90 to 120 days, which buys you time while the war-and-oil noise plays out."</p>
+        <p><strong>CTA:</strong> "Not sure which fits you? Comment FIX and tell me your situation — I'll point you in the right direction."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Fixed = locked; Variable = moves with BoC</span>
+        <span class="onscreen-tag">This week: fixed ↑ (oil), variable flat</span>
+        <span class="onscreen-tag">Tight budget? Lean fixed</span>
+        <span class="onscreen-tag">Ask to hold your rate 90–120 days</span>
+        <span class="onscreen-tag">Comment FIX 👇</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-roll — real footage search terms</div>
+        <div>two-door choice graphic, calm person at kitchen table with laptop, mortgage rate sheet close-up, split-screen steady line vs rising line, bank branch exterior, hand weighing two options, calendar with a hold date circled</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div>1. "Cinematic vertical 9:16, two glowing doors side by side labeled with a lock icon and a wave icon, a calm person deciding between them, thoughtful cool light, photoreal, shallow depth of field"</div>
+        <div>2. "Cinematic vertical 9:16, two line charts on a dark screen — one perfectly flat, one gently rising — clean minimal data-visual style, calm confident tone, photoreal"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.theglobeandmail.com/investing/personal-finance/article-oil-prices-fixed-variable-mortgage-rates/">Globe and Mail — Oil prices soaring, fixed mortgage rates rising; fixed up 0.35–0.40% since the conflict flared, most 5-yr fixed above 4%</a></li>
+      <li><a href="https://finance.yahoo.com/markets/article/bond-yields-jump-as-surging-oil-prices-spark-renewed-inflation-fears-155546872.html">Yahoo Finance — Bond yields jump as surging oil sparks renewed inflation fears; WTI above US$79 (+11% week), Strait of Hormuz attacks</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — 5-yr GoC bond yield ~3.13% (up 7 bps from 3.06%); best high-ratio 5-yr fixed 3.94%, variable 3.45%; prime 4.45%</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — Policy rate held at 2.25% (July 15, 6th hold); CPI 3.2% May; next decision Sept 2</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB Market Watch — June 2026: 6,770 GTA sales (+9.4% YoY), avg price $1,058,658 (−3.9%), condo sales +14.3%, condo avg ~$631k (−9.4%), ~4.0 months supply</a></li>
+      <li><a href="https://www.cp24.com/local/toronto/2026/04/17/toronto-condo-market-hits-35-year-low-as-sales-continue-to-plunge-with-no-new-project-launches/">CP24 / Urbanation — New (pre-construction) condo sales at 35-year low; Q1 just 246 sold GTHA (−52% YoY), no new project launches</a></li>
+      <li><a href="https://www.urbanation.ca/news/351-gta-new-condo-sales-slow-q2">Urbanation — GTA new condo sales slow again in Q2 2026; record standing unsold inventory, recovery "a couple of years" out</a></li>
+      <li><a href="https://www.newswire.ca/news-releases/housing-starts-and-construction-data-for-june-2026-882510300.html">CMHC — June housing starts 238,971 SAAR (−6% MoM); Toronto +25% on multi-unit, Vancouver −35%</a></li>
+      <li><a href="https://www.crea.ca/housing-market-stats/canadian-housing-market-stats/quarterly-forecasts/">CREA — Downgraded 2026 forecast (Jul 15): sales −1.4% to 463,336, avg price +1.1% to $686,710; Ontario only province forecast to rise</a></li>
+      <li><a href="https://thehub.ca/2026/07/01/cusma-renewal-deadline-passed-u-s-tariffs-remain-what-it-means-for-canada-and-its-economy/">The Hub — CUSMA shifts to annual reviews to 2036; US tariffs remain; US–Mexico talks resume week of July 20</a></li>
+      <li><a href="https://www.youtube.com/@propertydaily">Creator Watch — Property Daily "Why GTA Condo Sales Just Collapsed to a 35-Year Low" (Jul 16)</a></li>
+      <li><a href="https://www.youtube.com/@teamsessa">Creator Watch — Team Sessa "Can't Afford To Lose The Buyers (Vaughan, Richmond Hill, Markham)" (Jul 16)</a></li>
+      <li><a href="https://www.youtube.com/@markmitchellmortgage">Creator Watch — Mark Mitchell "Canada's Real Estate Mess" (Jul 16)</a></li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:8px;">Generated automatically · Friday, July 17, 2026 · "I live here. I sell here." 🇨🇦</p>
+
+</div>
+
+</body>
+</html>
