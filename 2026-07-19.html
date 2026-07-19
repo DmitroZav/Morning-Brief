@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Sunday, July 19, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Sunday, July 19, 2026</div>
+  <div class="canada-day-badge">CPI DAY TOMORROW</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada is on fire — 950+ wildfires, 17,000 evacuated in Manitoba</div>
+    <p>More than 950 wildfires are burning across Canada right now, with roughly 241 of them out of control. Ontario alone has close to 190 fires in the north, 81 not under control, and ten communities either evacuated or being evacuated. Manitoba ordered 17,000 people out as a blaze closes in on Flin Flon — the smoke has drifted as far as Illinois.</p>
+    <p>Premier Doug Ford said more than 150 fire crews and over 80 waterbombers and helicopters are on the response.</p>
+    <p><strong>Why it's video-worthy:</strong> This is the one story today that a person who never reads the news still cares about. And there's a real estate hook nobody's making yet — home insurance. Wildfire seasons like this are exactly why insurers have been raising premiums across Canada. That's a bill your viewers pay.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Tomorrow at 8:30 a.m., Statistics Canada drops June inflation — the single number that decides whether fixed mortgage rates keep climbing this fall.</div>
+    <p style="margin-top:10px;">Inflation was 3.2% in May, well above the Bank of Canada's 2% target, and gasoline was the main culprit (+33.2% year over year). If June comes in hot again, bond yields go up, and fixed mortgage rates follow. If it cools, the pressure comes off.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sixth hold in a row (July 15). This is the rate that drives VARIABLE mortgages. Next decision: Sept 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.13%</td><td>3.18% (early July peak)</td><td class="tag-down">eased slightly</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. When it rises, FIXED mortgage rates rise. It hit a 7-week high in early July on Middle East oil fears.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED (high-ratio)</td>
+          <td>3.99%</td><td>Under 4% earlier in spring</td><td class="tag-up">most lenders now above 4%</td>
+          <td class="plain-meaning">3.99% is the best advertised rate as of July 18. What most people actually get is above 4%.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE (high-ratio)</td>
+          <td>3.45%</td><td>3.45%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Cheaper than fixed today — but it moves with the Bank of Canada. Fixed = certainty, variable = a bet.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI)</td>
+          <td>3.2% (May)</td><td>—</td><td class="tag-up">gasoline +33.2% YoY</td>
+          <td class="plain-meaning">Well above the 2% target. June number lands Monday, July 20. This is the day's real event.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA average price (TRREB, June)</td>
+          <td>$1,058,658</td><td>$1,069,000 approx (May)</td><td class="tag-down">−1.0% MoM, −3.9% YoY</td>
+          <td class="plain-meaning">Still cheaper than a year ago. City of Toronto sits at $1,081,375, down 2.4% from May.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA sales (TRREB, June)</td>
+          <td>6,770</td><td>6,585 approx (May)</td><td class="tag-up">+2.8% MoM, +8.4% YoY</td>
+          <td class="plain-meaning">Highest monthly sales in almost two years. Buyers are quietly coming back while prices are soft.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National sales (CREA, June)</td>
+          <td>+0.5% MoM</td><td>+5.5% MoM (May)</td><td class="tag-down">sharp deceleration</td>
+          <td class="plain-meaning">Third straight monthly rise, but the momentum faded hard. Sales are still 12% below the 10-year average.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA 2026 forecast (revised July 15)</td>
+          <td>463,336 sales · avg $686,710</td><td>Prior April forecast</td><td class="tag-down">sales cut to −1.4% vs 2025</td>
+          <td class="plain-meaning">CREA downgraded the year. Ontario is now the ONLY province expected to see sales grow in 2026.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC, June)</td>
+          <td>238,971 (annual rate)</td><td>253,083 (May)</td><td class="tag-down">−6% MoM, −13% YoY actual</td>
+          <td class="plain-meaning">We are building fewer homes, not more. This is the supply problem getting worse in slow motion.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Unemployment rate (June)</td>
+          <td>6.5%</td><td>6.5–7.0% range since late 2024</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Job market is not great, not collapsing. Lenders care about this when they approve you.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">No rate move, no new data release today — it's Sunday. Everything above is the freshest available figure. CAD/USD not checked today.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're buying:</strong> This is a strange, quietly good window in the GTA. Prices are down ~4% from last year, sales are the highest in two years, and the best fixed rate is still under 4%. But that rate is drifting up, not down. If June inflation comes in hot tomorrow, the 3.99% you see today may not be there in three weeks.</p>
+    <p><strong>If you're renting:</strong> Housing starts fell 6% in a month and 13% from last year. Fewer homes started in 2026 means fewer homes finished in 2028 and 2029. Cheering falling prices today is how you get a rent problem later.</p>
+    <p><strong>If you're new to Canada:</strong> Don't read "prices are falling" as "wait forever." The market that's falling is mostly condos and pre-construction. The market you'd actually live in — houses and townhomes in the GTA — is seeing more buyers, not fewer.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS. Only the ones worth stealing from are listed. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen · Toronto Property Finders <span class="creator-platform">· YouTube · Jul 18</span></div>
+      <div class="creator-note">"The New Construction Disaster Hitting Toronto Right Now"</div>
+      <div class="creator-note"><strong>Summary:</strong> Breaks down how badly new-build and pre-construction has broken in Toronto.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> He's talking to investors. You talk to the person who signed a pre-con contract in 2022 and is now getting an appraisal that's $150k short. Same facts, human stakes, immigrant lens — "I bought at the peak, I know this feeling."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky <span class="creator-platform">· YouTube · Jul 18</span></div>
+      <div class="creator-note">"Will the Bank of Canada Raise Rates into Higher Oil Prices?"</div>
+      <div class="creator-note"><strong>Summary:</strong> Connects Middle East oil, inflation and whether the BoC could actually hike.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Perfect timing — CPI lands tomorrow. Take his chain (oil up → gas up → inflation up → bond yields up → your fixed rate up) and explain it in five plain sentences a newcomer can follow. He explains it for finance people. You explain it for the person renewing in October.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Jul 18</span></div>
+      <div class="creator-note">"Why Toronto's Condo Market Collapsed (And Edmonton is Booming)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Contrast format — one Canadian market falling apart, another running hot.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> The two-city contrast is a proven retention format. Yours: "I sell in Toronto and I'll tell you honestly — if you're an investor, this isn't your city right now. If you're a person who wants to live somewhere, it might be the best window in four years."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi <span class="creator-platform">· YouTube · Jul 18</span></div>
+      <div class="creator-note">"Safest neighbourhoods in Mississauga — based on real crime data" (Short)</div>
+      <div class="creator-note"><strong>Summary:</strong> Data-backed neighbourhood ranking in short form.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is the single highest-intent question every newcomer family asks and nobody answers with data. Do the same for Toronto or Etobicoke, and open with "This is the first thing my parents asked me when they landed."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Amrit Walia <span class="creator-platform">· YouTube · Jul 18</span></div>
+      <div class="creator-note">"It's Over: Toronto Condo Prices Keep Dropping in 2026"</div>
+      <div class="creator-note"><strong>Summary:</strong> Doom-framed condo price update.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Study the hook, not the content. "It's Over:" as a two-word opener is doing all the work. Don't copy the doom tone — it's the opposite of your honest-not-hype positioning.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Vancouver Life Real Estate <span class="creator-platform">· YouTube · Jul 18</span></div>
+      <div class="creator-note">"Housing Starts Are Falling, Insolvencies Are Rising, Buyers Are Still Waiting"</div>
+      <div class="creator-note"><strong>Summary:</strong> Three-signal market roundup on the same CMHC data in today's brief.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Confirms the housing-starts story is live across the country today, not just a Toronto thing. The three-signal title structure is worth borrowing for a GTA version.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The number that decides your mortgage drops tomorrow</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: time-bound urgency ("tomorrow 8:30 a.m.") is the strongest retention device in short form, and it gives people a reason to follow for the follow-up.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook Option 1 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"3.2% is why your rate went up."</div>
+        <div><strong>Spoken:</strong> "Inflation is running at 3.2%. Tomorrow at 8:30 in the morning we find out if it got worse — and that one number decides your mortgage."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 2 — Question That Can't Be Ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Why is gas up 33% in one year?"</div>
+        <div><strong>Spoken:</strong> "Gas is up 33% from last year. Sounds like a gas problem. It's actually the reason Canadian mortgage rates just went back over 4%."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 3 — Stakes / This Costs You</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Tomorrow, 8:30 AM. Your rate."</div>
+        <div><strong>Spoken:</strong> "Tomorrow morning one number comes out, and it decides whether you renew at 4% or at 4 and a half. Here's exactly what to look at."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (35–50s)</div>
+        <p><strong>Hook:</strong> "Tomorrow morning one number comes out, and it decides whether you renew at 4% or at 4 and a half."</p>
+        <p><strong>Body:</strong> "It's called CPI — inflation. Last month it was 3.2%. The Bank of Canada wants 2%. So we're too high, and the main reason is gas: up 33% from last year because of the conflict in the Middle East.<br><br>Here's the chain nobody explains. Oil goes up. Inflation goes up. Investors get nervous and demand more interest to lend the government money — that's the bond yield. And fixed mortgage rates are priced straight off that bond yield.<br><br>Right now the best 5-year fixed in Canada is 3.99%. Most people are getting above 4%. If tomorrow's number comes in hot, that 3.99 quietly disappears. If it cools, we get some breathing room.<br><br>The Bank of Canada already held rates at 2.25% last week — sixth hold in a row. They're not saving you. The bond market is the one setting your fixed rate."</p>
+        <p><strong>CTA:</strong> "I'll post the number tomorrow morning the second it drops. Follow so you see it before your lender calls you. And if you're renewing in the next six months, comment RENEW and I'll send you what I'd do."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Inflation = 3.2%</span>
+        <span class="onscreen-tag">Target = 2%</span>
+        <span class="onscreen-tag">Gas +33% YoY</span>
+        <span class="onscreen-tag">Oil ↑ → Bonds ↑ → Your rate ↑</span>
+        <span class="onscreen-tag">Best fixed today: 3.99%</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>gas station price sign Canada · Toronto skyline morning timelapse · person filling car at pump · stock market ticker board close-up · hands signing mortgage documents</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, slow push-in on a Canadian gas station price sign at blue-hour dawn, numbers glowing red, light rain on the pavement, shallow depth of field, moody realistic film grain, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, over-the-shoulder shot of a young couple at a kitchen table looking at a mortgage renewal letter, soft morning window light, warm domestic tones, documentary realism, shallow focus, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Toronto launched zero new condo projects — first time in 30 years</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: "zero" and "first time in 30 years" are the two cleanest shock levers available, and Dmytro's bought-at-the-peak story gives him credibility no other creator on this topic has.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook Option 1 — Nobody's Telling You</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Zero. First time in 30 years."</div>
+        <div><strong>Spoken:</strong> "Toronto launched zero new condo projects last quarter. First time in three decades. Nobody's telling you why that matters to you."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 2 — Personal Stakes</div>
+        <div class="hook-box"><strong>First-frame text</strong>"I bought at the peak. This is worse."</div>
+        <div><strong>Spoken:</strong> "I bought my condo near the top of the market and it hurt. What's happening to pre-construction buyers right now is worse than what happened to me."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Stop calling this a condo crash."</div>
+        <div><strong>Spoken:</strong> "Everyone's screaming condo crash. The real story is 28,000 units closing this year at prices nobody can finance."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–60s)</div>
+        <p><strong>Hook:</strong> "I bought my condo near the top of the market and it hurt. What's happening to pre-construction buyers right now is worse than what happened to me."</p>
+        <p><strong>Body:</strong> "In the first three months of this year, Toronto launched zero new condo projects. Zero. That hasn't happened in at least 30 years. All of 2025 saw 1,599 pre-construction sales — the lowest since 1991.<br><br>Condo prices are down about 25% from the 2022 peak. The average GTA condo is around $605,000.<br><br>Here's the part that actually hurts people. About 28,000 pre-construction units are supposed to close this year. Someone signed for that unit in 2021 or 2022 at a price the bank will not appraise today. So the bank lends less, and the buyer has to find the difference in cash — sometimes six figures — or lose their deposit.<br><br>I know what it feels like to watch your unit go down in value. But I got to keep living in mine. These people are being asked to write a cheque they don't have."</p>
+        <p><strong>CTA:</strong> "If you're closing on a pre-construction unit in the next 12 months, DM me the word APPRAISAL. There are things you can do before closing day, and almost nobody tells you what they are."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">0 new launches in Q1</span>
+        <span class="onscreen-tag">Lowest since 1991</span>
+        <span class="onscreen-tag">Condos −25% from peak</span>
+        <span class="onscreen-tag">28,000 units closing in 2026</span>
+        <span class="onscreen-tag">The bank won't cover the gap</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Toronto condo construction cranes skyline · empty unfinished condo interior · "for sale" sign condo balcony Toronto · pedestrian walking past construction hoarding · aerial drone downtown Toronto condos dusk</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, slow drone rise past a cluster of half-built glass condo towers in Toronto at golden hour, idle construction cranes, empty balconies, hazy summer air, muted realistic colour grade, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a single person standing alone in an empty unfinished concrete condo unit looking out a floor-to-ceiling window at the city, cold overcast light, quiet and still, documentary film look, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">We're building 13% fewer homes — that's your 2029 rent</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: takes a number everyone ignores (housing starts) and converts it into the one thing renters actually fear. Contrarian framing invites comments, which is engagement fuel.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook Option 1 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Falling prices aren't good news."</div>
+        <div><strong>Spoken:</strong> "Prices are down and everyone's celebrating. Meanwhile Canada just started building 6% fewer homes in a single month. That's your rent in 2029."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 2 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"13% fewer homes. In one year."</div>
+        <div><strong>Spoken:</strong> "Canada started 13% fewer homes this June than last June. Let me show you what that actually does to your rent."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 3 — Newcomer Lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"New to Canada? This is the trap."</div>
+        <div><strong>Spoken:</strong> "If you just moved here and you're waiting for prices to crash before you buy — here's the thing nobody explained to me about what happens when Canada stops building."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (35–50s)</div>
+        <p><strong>Hook:</strong> "Prices are down and everyone's celebrating. Meanwhile Canada just started building 6% fewer homes in a single month."</p>
+        <p><strong>Body:</strong> "CMHC — that's the government housing agency — reported June housing starts at an annual pace of about 239,000. Down 6% from May. Down 13% from last June.<br><br>A 'housing start' means a shovel actually went into the ground. And a home started today doesn't exist for two to four years. So June 2026 is really a story about 2029.<br><br>At the same time CREA cut its forecast for the whole year. They now expect 463,000 sales in 2026 — down 1.4% from last year. Ontario is the only province they expect to grow.<br><br>Here's what nobody says out loud. Prices falling and building slowing are the same story: developers stopped because the math stopped working. Fewer units get finished. Then whenever demand comes back, there's nothing to rent and nothing to buy.<br><br>I'm not telling you to panic-buy. I'm telling you that 'wait for the crash' has a hidden cost, and the cost shows up in rent."</p>
+        <p><strong>CTA:</strong> "Do you think prices go up or down by next summer? Tell me in the comments — I read all of them, and I'll do a video on the most common answer."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Starts: 239,000 (−6% MoM)</span>
+        <span class="onscreen-tag">−13% vs last June</span>
+        <span class="onscreen-tag">Built today = ready in 2029</span>
+        <span class="onscreen-tag">CREA cut the 2026 forecast</span>
+        <span class="onscreen-tag">Less building = higher rent later</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>empty construction site idle machinery · residential framing wood house build · "for rent" sign apartment window Toronto · people viewing rental apartment line-up · suburban subdivision under construction aerial</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a still and empty residential construction site at dawn, idle excavator, half-framed wooden houses, no workers, cold blue morning light, subtle mist, realistic documentary grade, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a long queue of young people waiting outside an apartment building for a rental viewing on a grey Toronto street, handheld realism, muted colours, natural overcast light, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-announcement-release-mpr-2026-07-15/">Bank of Canada — rate announcement &amp; Monetary Policy Report, July 15, 2026</a></li>
+      <li><a href="https://www.cbc.ca/news/business/bank-of-canada-interest-july-2026-9.7270689">CBC — Bank of Canada holds key rate at 2.25%</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260622/dq260622a-eng.htm">Statistics Canada — Consumer Price Index, May 2026</a></li>
+      <li><a href="https://www.crea.ca/housing-market-stats/canadian-housing-market-stats/quarterly-forecasts/">CREA — revised resale housing market forecast, July 15, 2026</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/07/16/long-road-ahead-in-canadas-housing-market-recovery-rbc-report/">BNN Bloomberg — "Long road ahead" in Canada's housing recovery (RBC)</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-june-2026">CMHC — housing starts and construction data, June 2026</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/07/03/greater-toronto-home-sales-up-94-in-june-as-board-predicts-price-growth-could-come/">BNN Bloomberg / TRREB — GTA June sales and prices</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed and variable rates (July 18, 2026)</a></li>
+      <li><a href="https://www.rbc.com/en/economics/canadian-analysis/canadian-housing/special-housing-reports/navigating-torontos-frozen-pre-construction-condo-market/">RBC Economics — Toronto's frozen pre-construction condo market</a></li>
+      <li><a href="https://www.cbc.ca/news/business/precon-condo-consequences-9.7103131">CBC — pre-construction condo buyers face steep losses</a></li>
+      <li><a href="https://www.netnewsledger.com/2026/07/18/july-18-2026-ontario-premier-ford-federal-minister-hajdu-provincial-ministers-harris-and-dunlop-update/">NetNewsLedger — Ontario wildfire update, July 18, 2026</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked July 19, 2026</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
