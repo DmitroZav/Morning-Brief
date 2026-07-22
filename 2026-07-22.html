@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, July 22, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, July 22, 2026</div>
+  <div class="canada-day-badge">CMHC OUTLOOK DROPS 10 AM ET</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Inflation just cooled to 2.8% — the fastest slowdown since the Iran ceasefire</div>
+    <p>Statistics Canada reported Monday that consumer prices rose 2.8% in June, down from 3.2% in May. The big driver was gas: still up year over year, but "only" 20.5% versus a punishing 33.2% the month before, after the Middle East ceasefire briefly let fuel flow again. Food inflation eased to 3.5%, and shelter costs slowed to 1.5%.</p>
+    <p>The quieter, bigger news is underneath the headline. The Bank of Canada's two favourite "core" inflation measures — the ones that strip out jumpy stuff like gas — fell to their lowest in more than five years (1.9% and 1.8%). Plain version: the underlying heat in the economy is actually coming out.</p>
+    <p><strong>Why it's video-worthy:</strong> Everyone feels grocery and gas prices — this is a story a person who never reads business news still cares about. And there's a twist nobody's explaining: inflation cooled, but fixed mortgage rates did NOT fall. That gap is your whole video (see The One Thing).</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Inflation dropped to 2.8% — but your fixed mortgage rate didn't move. Here's the disconnect most people get wrong.</div>
+    <p style="margin-top:10px;">People assume "inflation down = my rate goes down." Not this time. Fixed mortgage rates are priced off the 5-year Government of Canada bond yield — the interest the government pays to borrow for 5 years — and that yield is still stuck near 3.1%, held up by global tension and worries about U.S. inflation, not by our own numbers. So even with a great inflation report, the best 5-year fixed is around 3.94% and most lenders are still above 4%. The Bank of Canada controls the overnight rate (variable); the bond market controls your fixed. They don't always move together.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, June)</td>
+          <td>2.8%</td><td>3.2% (May)</td><td class="tag-down">cooled hard</td>
+          <td class="plain-meaning">Released Mon July 20. Back inside a normal range. Core measures hit a 5-year low (1.9% / 1.8%) — the real story.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sixth hold in a row (July 15). Drives VARIABLE mortgages. Markets now price ~0% chance of a September cut — and even some hike odds.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.1%</td><td>~3.0% (June avg)</td><td class="tag-flat">stuck high</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. It drives FIXED mortgage rates. Cooler inflation didn't pull it down — global tension is holding it up.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED (insured)</td>
+          <td>~3.94%</td><td>3.99% (July 18)</td><td class="tag-flat">basically flat</td>
+          <td class="plain-meaning">Best advertised rate. Most people are still quoted above 4%. It didn't fall on the good inflation news.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE (insured)</td>
+          <td>~3.30–3.45%</td><td>3.45%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Cheaper than fixed today, but moves with the Bank of Canada. Fixed = certainty, variable = a bet.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National benchmark price (CREA, June)</td>
+          <td>$665,600</td><td>—</td><td class="tag-down">−3.3% YoY</td>
+          <td class="plain-meaning">Still cheaper than a year ago. National sales rose 0.5% in June — third straight monthly gain, but momentum faded.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National market balance (SNLR)</td>
+          <td>50%</td><td>—</td><td class="tag-flat">balanced</td>
+          <td class="plain-meaning">Sales-to-new-listings at 50% = a balanced market nationally. Neither buyers nor sellers hold all the power right now.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, June)</td>
+          <td>$1,058,658 · 6,770 sales</td><td>~$1,069k · ~6,585 (May)</td><td class="tag-up">sales +8.4% YoY</td>
+          <td class="plain-meaning">Prices soft (−3.9% YoY) but buyers came back — highest monthly GTA sales in nearly two years.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC, June)</td>
+          <td>~239,000 (annual rate)</td><td>253,083 (May)</td><td class="tag-down">−6% MoM, −13% YoY</td>
+          <td class="plain-meaning">We're building fewer homes, not more. The supply problem getting worse in slow motion.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CMHC Mid-Year Outlook</td>
+          <td>Drops today, 10 AM ET</td><td>Feb baseline: 489k sales, avg $698k</td><td class="tag-flat">watch this</td>
+          <td class="plain-meaning">Fresh national + 18-market forecast through 2028. Feb version had Ontario as the ONLY region with price declines in 2026.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">The live event today is CMHC's mid-year outlook at 10 AM ET — numbers above are the freshest available at brief time. CAD/USD not checked today.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're renewing or buying:</strong> Don't wait for the "inflation is down" headline to hand you a cheaper fixed rate — it already came and your rate didn't move. Fixed is tied to the bond market, and the bond market is nervous about the world, not about our grocery bills. If you need certainty, the ~3.94% is real today; if you can stomach risk, variable is cheaper but rides with the Bank of Canada.</p>
+    <p><strong>If you're renting:</strong> Asking rents are actually falling in Toronto, Vancouver, Calgary and Ottawa right now — good news if you're signing a new lease. But housing starts fell again (−13% from last June). Fewer homes started today means fewer finished in 2028–2029, which is when this softer-rent window can slam shut.</p>
+    <p><strong>If you're new to Canada:</strong> Two things landed this week for you — a cooler cost of living, and Ontario quietly rewriting its immigration program (see Content Play). If your plan was to work here and get nominated for permanent residence through OINP, the rules just changed. That affects where you can afford to plant roots.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS. Only the posts worth stealing from or studying are listed. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate <span class="creator-platform">· YouTube · Jul 21</span></div>
+      <div class="creator-note">"The Bank Wants Their Money (Toronto Home Prices)"</div>
+      <div class="creator-note"><strong>Summary:</strong> How lenders and appraisals are squeezing Toronto owners as prices soften.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Perfect pairing with today's rate disconnect. He frames it for the market; you frame it for the person renewing in October who assumed cooler inflation meant a cheaper rate. "The bank doesn't care that inflation dropped — here's who it does listen to."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Kevin Yu · Toronto Real Estate <span class="creator-platform">· YouTube (Shorts) · Jul 21</span></div>
+      <div class="creator-note">"Homeowners Lost $57K Equity!" + "Pre-Con Condo Crisis: Buyers Can't Afford Closings!"</div>
+      <div class="creator-note"><strong>Summary:</strong> A run of short-form on lost equity, the pre-construction closing gap, and "the recovery trap."</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> The "$57K" number shock is a proven hook. Yours has something his doesn't — you actually bought near the peak. "I lost equity too. Here's what I did instead of panicking." Human, honest, not-hype.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">"I'm Canada" <span class="creator-platform">· YouTube · Jul 21</span></div>
+      <div class="creator-note">"OINP reopened: what it means for employers and immigrants"</div>
+      <div class="creator-note"><strong>Summary:</strong> Explainer on Ontario's redesigned nominee program and who it now serves.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your core audience's exact question. He explains the policy; you connect it to real life — "If you moved to Ontario to work and buy a home, this changes your path. Let me explain it the way I wish someone explained it to me." Newcomer lens is your edge here.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Jon Flynn Real Estate Stats <span class="creator-platform">· YouTube · Jul 21</span></div>
+      <div class="creator-note">"This is NOT Normal, Young People Aren't Buying Homes"</div>
+      <div class="creator-note"><strong>Summary:</strong> Data on collapsing first-time buyer participation.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Great data, dry delivery. Study the "This is NOT normal" hook structure. If you make a version, give it the newcomer twist he can't — "My generation was told 'just work hard and buy.' The math broke. Here's the number."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Jul 21</span></div>
+      <div class="creator-note">"Why 100,000 Vancouver Condo Owners Are One Leak Away From Bankruptcy"</div>
+      <div class="creator-note"><strong>Summary:</strong> Special-assessment / aging-building risk framed as a bankruptcy threat.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Study the hook — "one leak away from bankruptcy" is fear done well. Don't copy the doom tone, but the special-assessment risk is real and under-covered in Toronto condos. A calm GTA version ("the condo bill nobody warns first-time buyers about") could land.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage Clips <span class="creator-platform">· YouTube · Jul 22</span></div>
+      <div class="creator-note">"Canada's Resource Boom Is Coming"</div>
+      <div class="creator-note"><strong>Summary:</strong> Contrarian macro take tying commodities to the economy.</div>
+      <span class="verdict verdict-skip">SKIP</span>
+      <div class="creator-note"><strong>Why:</strong> Interesting but too far from your lane and hard to tie to a viewer's wallet in 45 seconds. Park it.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Inflation dropped. Your mortgage rate didn't. Here's why.</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it corrects a belief almost everyone holds ("inflation down = my rate down"), and the surprise gap is a natural retention loop. Timely off Monday's CPI.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook Option 1 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Inflation: 3.2% → 2.8%. Your rate: unchanged."</div>
+        <div><strong>Spoken:</strong> "Inflation just dropped and your fixed mortgage rate didn't move an inch. That's not a mistake — and here's the part nobody explains."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 2 — Question That Can't Be Ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Good news came. Your rate ignored it. Why?"</div>
+        <div><strong>Spoken:</strong> "Best inflation report in over a year on Monday — so why is the best fixed rate still basically 4%? The answer isn't the Bank of Canada."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Stop waiting for inflation to lower your rate."</div>
+        <div><strong>Spoken:</strong> "If you're waiting for cooling inflation to drop your mortgage rate, you already missed it. It cooled. Nothing happened. Let me show you what actually moves your rate."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Inflation just dropped and your fixed mortgage rate didn't move an inch. That's not a mistake — and here's the part nobody explains."</p>
+        <p><strong>Body:</strong> "Monday, Statistics Canada said inflation cooled to 2.8%, down from 3.2%. Even the deep 'core' numbers hit a five-year low. Good news, right? So people expect their mortgage rate to fall.<br><br>It didn't. The best 5-year fixed is still about 3.94% and most people get quoted over 4%.<br><br>Here's why. There are two different rates. The Bank of Canada sets the overnight rate — that's what moves your VARIABLE mortgage. But FIXED rates are priced off something else: the 5-year government bond yield. That's the interest investors demand to lend the government money for five years.<br><br>And that bond yield is stuck near 3.1% — not because of our inflation, but because the world is nervous: oil, conflict, U.S. inflation. Investors want to be paid for that risk.<br><br>So even a perfect Canadian inflation report can't lower your fixed rate on its own, if the global bond market stays tense. The Bank of Canada isn't the one holding your fixed rate up. The bond market is."</p>
+        <p><strong>CTA:</strong> "If you're renewing in the next six months, comment RENEW and I'll send you the two things I'd check before you sign. And follow — I translate this stuff for people who, like me, didn't grow up with it."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Inflation: 2.8% (was 3.2%)</span>
+        <span class="onscreen-tag">Core = 5-year low</span>
+        <span class="onscreen-tag">Best fixed: still ~3.94%</span>
+        <span class="onscreen-tag">Fixed = bond yield, NOT the BoC</span>
+        <span class="onscreen-tag">Bond yield stuck near 3.1%</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>grocery receipt close-up Canada · gas station price sign · stock market bond ticker screen · person reading mortgage letter at table · Toronto skyline morning</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, slow push-in on a long grocery receipt held in one hand under warm kitchen light, prices in soft focus, realistic film grain, muted domestic tones, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, close-up of a glowing financial data screen with bond yield numbers ticking, reflection in a person's glasses, cool blue office light, documentary realism, shallow depth of field, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">This homeowner lost $57,000 — and the bank still wants its money</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a specific dollar figure ($57K) plus a villain (the bank/appraisal) is pure retention fuel, and Dmytro's bought-at-the-peak story gives him trust no other creator on this topic has.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook Option 1 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"This owner lost $57,000. On paper."</div>
+        <div><strong>Spoken:</strong> "This Toronto homeowner lost fifty-seven thousand dollars in equity — and the scary part isn't the loss, it's what the bank does next."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 2 — Personal Stakes (his edge)</div>
+        <div class="hook-box"><strong>First-frame text</strong>"I bought at the peak. I lost equity too."</div>
+        <div><strong>Spoken:</strong> "I bought my condo near the top of the market, so I know exactly what losing equity feels like. But what's happening to pre-construction buyers right now is worse than what happened to me."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 3 — Nobody's Telling You</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Your bank is quietly re-doing the math."</div>
+        <div><strong>Spoken:</strong> "Nobody warns you about this: when prices soften, your bank quietly re-values the home — and if you're closing on a pre-con unit, that math can cost you six figures in cash."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–60s)</div>
+        <p><strong>Hook:</strong> "I bought my condo near the top of the market, so I know exactly what losing equity feels like. But what's happening to pre-construction buyers right now is worse than what happened to me."</p>
+        <p><strong>Body:</strong> "Here's the trap. National prices are down about 3% from a year ago, and Toronto condos are down much more from the 2022 peak. If you already own and live there, a paper loss stings but you keep your home.<br><br>Pre-construction is different. Say you signed for a condo in 2022 at 700,000. It's closing now — but the bank sends an appraiser, and today it's only worth 620,000. The bank lends against 620, not 700. So you have to find the difference — sometimes 60, 80, over 100 thousand dollars — in cash, or you risk losing your deposit.<br><br>That's what 'the bank wants its money' actually means. It's not a headline. It's a real family being asked to write a cheque they didn't plan for.<br><br>I got to keep living in my place while it dipped. These buyers are being asked to close on a number the market already left behind."</p>
+        <p><strong>CTA:</strong> "If you're closing on a pre-construction unit in the next 12 months, DM me the word APPRAISAL. There are moves you can make before closing day, and almost nobody tells you what they are."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">−$57K equity (on paper)</span>
+        <span class="onscreen-tag">Signed 2022 → closing now</span>
+        <span class="onscreen-tag">Bank lends on TODAY's value</span>
+        <span class="onscreen-tag">You cover the gap in cash</span>
+        <span class="onscreen-tag">"The bank wants its money"</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Toronto condo towers skyline dusk · empty unfinished condo interior · "sold" sign condo balcony · person stressed reviewing paperwork · bank branch exterior Canada</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a young couple sitting at a kitchen table looking worried at a bank letter, warm but heavy morning light, documentary realism, shallow focus, muted colours, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, slow drone glide past half-finished glass condo towers in Toronto at golden hour, idle cranes, empty balconies, hazy summer air, realistic colour grade, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Ontario just rewrote its immigration program — if you're new here, read this</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's the single highest-intent topic for the core Ukrainian/newcomer audience, it's fresh (rules changed June 26), and almost no real estate creator connects immigration policy to where you can afford to live.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook Option 1 — Newcomer Lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"New to Ontario? The PR rules just changed."</div>
+        <div><strong>Spoken:</strong> "If you moved to Ontario to work and eventually get permanent residence, I need thirty seconds — because the province just rewrote the whole program."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 2 — Stakes / This Costs You</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Ontario deleted 8 immigration streams."</div>
+        <div><strong>Spoken:</strong> "Ontario just deleted eight of its immigration streams and replaced them with one. If your plan to stay ran through the old system, that plan is gone."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 3 — Question That Can't Be Ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Why did Ontario scrap its nominee program?"</div>
+        <div><strong>Spoken:</strong> "Why would Ontario suddenly scrap the immigration program thousands of newcomers were counting on? And what does it have to do with rent? Let me explain."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "If you moved to Ontario to work and eventually get permanent residence, I need thirty seconds — because the province just rewrote the whole program."</p>
+        <p><strong>Body:</strong> "As of late June, Ontario redesigned its nominee program — that's the provincial path to permanent residence, called OINP. It scrapped the old eight streams and launched one main door: the Ontario Workforce Priority stream, built around having a real job offer in the province.<br><br>During the switch they closed the old expression-of-interest system and pulled applications that hadn't gotten an invite. Reopening lands around July or August with new rules on work experience, language and education.<br><br>Why should a real estate account care? Because immigration is the engine of housing demand. When the path to stay gets narrower, fewer newcomers put down roots — and that quietly cools rent and buying demand in the exact neighbourhoods newcomers fill. It's already showing: asking rents in Toronto are falling right now.<br><br>I'm not an immigration lawyer, and you should double-check your own case. But if you're building a life here, the rules under your feet just moved."</p>
+        <p><strong>CTA:</strong> "Are you on an OINP path right now? Comment your situation — I'll point you to the official page and, where I can, connect you with people who actually know this stuff. Follow for the plain-language version of the news that hits newcomers first."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">OINP redesigned (June 26)</span>
+        <span class="onscreen-tag">8 streams → 1</span>
+        <span class="onscreen-tag">Job offer now central</span>
+        <span class="onscreen-tag">Reopens July/Aug, new rules</span>
+        <span class="onscreen-tag">Fewer newcomers = softer rent</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Canadian permanent residence card · newcomer family arriving airport Toronto · Ontario government building Queen's Park · "for rent" sign apartment window · diverse people walking Toronto street</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a young immigrant family with suitcases standing hopeful outside a Toronto apartment building on a bright summer morning, warm natural light, documentary realism, shallow focus, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, close-up of hands holding a Canadian permanent residence card over a wooden table, soft window light, quiet and hopeful mood, realistic colour grade, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260720/dq260720a-eng.htm">Statistics Canada — Consumer Price Index, June 2026 (released July 20)</a></li>
+      <li><a href="https://economics.td.com/ca-cpi">TD Economics — Canadian CPI, June 2026 commentary</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-announcement-release-mpr-2026-07-15/">Bank of Canada — rate held at 2.25%, July 15, 2026</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed &amp; variable rates (July 2026)</a></li>
+      <li><a href="https://pegasuslending.com/blog/mortgage-rates-canada-this-week-july-20-2026/">Pegasus — Canada mortgage rates this week, July 20, 2026</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA — national home sales &amp; benchmark price, June 2026</a></li>
+      <li><a href="https://www.cbc.ca/news/business/crea-revision-june-2026-9.7269900">CBC — CREA downgrades 2026 forecast as June sales edge up</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/market-reports/housing-market/housing-market-outlook">CMHC — 2026 Housing Market Outlook (mid-year update, July 22)</a></li>
+      <li><a href="https://sg.finance.yahoo.com/news/media-advisory-cmhc-release-mid-183000612.html">Media advisory — CMHC mid-year outlook release, July 22, 10 AM ET</a></li>
+      <li><a href="https://www.fragomen.com/insights/canada-ontario-immigrant-nominee-program-redesign-phase-1-launches-workforce-priority-stream.html">Fragomen — OINP redesign, Workforce Priority stream (Phase 1)</a></li>
+      <li><a href="https://www.ontario.ca/page/2026-ontario-immigrant-nominee-program-updates">Government of Ontario — 2026 OINP updates</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked July 22, 2026</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
