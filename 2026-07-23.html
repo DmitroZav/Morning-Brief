@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Thursday, July 23, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, July 23, 2026</div>
+  <div class="canada-day-badge">CARNEY MEETS PREMIERS ON TARIFFS TODAY</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Trump just threatened 50% tariffs on Canadian goods — and the premiers are meeting Carney about it today</div>
+    <p>On Monday, U.S. President Donald Trump signed orders to slap 50% tariffs — a tariff is a border tax the importer pays — on a long list of Canadian goods, from cement and lumber to honey, liquor, dairy, perfumes, candles and even hockey sticks. They're set to hit August 19. It's payback for provincial bans on U.S. liquor, our protected dairy system, and quotas on some American cars.</p>
+    <p>Prime Minister Mark Carney spoke with Trump on Tuesday and said the two agreed to "intensify" trade talks, but warned "all options are on the table" if the tariffs go through. Today, July 23, Carney sits down in person with all the premiers in Charlottetown, PEI — they want to see Ottawa's actual plan, and they're calling it a "new level of urgency."</p>
+    <p><strong>Why it's video-worthy:</strong> A tariff on cement and lumber sounds like a factory problem, but it lands in a normal person's life — building homes gets more expensive, jobs get shakier, and that flows straight into rates and rent. The trick is connecting "hockey sticks and honey" to your mortgage. That's the whole video.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">CMHC just said Ontario is the only region in Canada where home prices will actually FALL in 2026. If you're buying here, that's leverage.</div>
+    <p style="margin-top:10px;">CMHC — the government's housing agency — dropped its mid-year outlook Wednesday. The headline: weak sales, fewer homes getting built, and prices declining nationally this year before a slow recovery. Their baseline sees the average Canadian home at about $675,200 in 2026, down from $679,543 in 2025. But the part that matters for us: Ontario is singled out as the one region where prices keep dropping. That's not a crash — it's a soft, buyer-friendly market. Which means if you're a first-time buyer or newcomer with a stable job and a pre-approval, you have more room to negotiate right now than you've had in years. Sellers don't hold all the cards.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">CMHC Mid-Year Outlook</td>
+          <td>Avg $675,200 (2026)</td><td>$679,543 (2025)</td><td class="tag-down">prices fall</td>
+          <td class="plain-meaning">Released Wed July 22. Weak sales, fewer starts, prices down in 2026. Ontario flagged as the ONLY region with continued price declines.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sixth hold in a row (July 15). Drives VARIABLE mortgages. Next decision Sept 2. New tariffs could complicate any future cut.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.16%</td><td>3.17% (prior day)</td><td class="tag-flat">basically flat</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. It drives FIXED mortgage rates. A tariff-driven inflation scare could push it up.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED (insured)</td>
+          <td>~3.94–3.99%</td><td>3.99%</td><td class="tag-flat">basically flat</td>
+          <td class="plain-meaning">Best advertised rate. Big banks still quote above 4% (Scotiabank ~4.24%). Certainty vs. variable's cheaper gamble.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, June)</td>
+          <td>2.8%</td><td>3.2% (May)</td><td class="tag-down">cooled</td>
+          <td class="plain-meaning">Released July 20. Core measures hit a 5-year low (1.9% / 1.8%). But tariffs threaten to reheat prices later this year.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, June)</td>
+          <td>$1,058,658 · 6,770 sales</td><td>—</td><td class="tag-up">sales +9.4% YoY</td>
+          <td class="plain-meaning">Prices soft (−3.9% YoY) but buyers came back — sales up 9.4% from last June. TRREB expects some price growth in the second half.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National sales/price (CREA, June)</td>
+          <td>$665,600 · 38,014 sales</td><td>—</td><td class="tag-down">−3.3% YoY price</td>
+          <td class="plain-meaning">Third straight monthly sales gain (+0.5%). CREA cut its 2026 forecast to 463,336 sales — a 1.4% drop from 2025.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">US–Canada tariffs</td>
+          <td>50% threatened</td><td>—</td><td class="tag-up">effective Aug 19</td>
+          <td class="plain-meaning">Cement, lumber, dairy, liquor, honey, hockey sticks + more. Carney–premiers meeting today. Watch for a deal before Aug 19.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Numbers above are the freshest available at brief time. CAD/USD not checked today.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're buying:</strong> CMHC just handed you a talking point. When the government's own agency says Ontario prices are falling in 2026, you can walk into a negotiation and ask for more — a lower price, covered closing costs, a flexible closing date. In a soft market, a serious buyer with financing lined up has real power. Use it.</p>
+    <p><strong>If you're renewing or on the fence about fixed vs. variable:</strong> Watch the tariff story closely. If those 50% tariffs actually land August 19, they can push prices back up — and that inflation scare can drag the bond yield (and your fixed rate) higher, not lower. That's the risk to a "wait and see" plan right now.</p>
+    <p><strong>If you're new to Canada:</strong> A trade war sounds like a headline for CEOs, but it hits newcomers first — the industries that hire recent arrivals (construction, manufacturing, hospitality) are exactly the ones exposed to tariffs. A softer job market plus softer home prices is a mixed bag: harder to earn, easier to buy. Keep your job stable and your options open.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS. Only the posts worth stealing from or studying are listed. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Jul 22</span></div>
+      <div class="creator-note">"Why Toronto Buyers Are Burning $150,000 Condo Deposits"</div>
+      <div class="creator-note"><strong>Summary:</strong> Pre-construction buyers walking away from six-figure deposits rather than close on units now worth far less.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> The "$150,000 deposit, gone" number shock is a proven hook. Yours has trust his doesn't — you bought near the peak. Explain the appraisal-gap trap calmly, human, not doom: "Here's the math nobody showed these buyers before they signed."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate <span class="creator-platform">· YouTube · Jul 22</span></div>
+      <div class="creator-note">"Your Condo Buyer Has Moved On (Toronto, Vaughan, Richmond Hill, Mississauga Condo Prices)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Why turning down an offer in today's GTA condo market can backfire — buyers have options and patience.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Flip it to the buyer's side for your audience. "Sellers keep waiting for the buyer to come back. They moved on. If you're the buyer — this is your leverage." Pairs perfectly with today's CMHC Ontario story.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">GTA Real Estate with Mike Carpino <span class="creator-platform">· YouTube · Jul 22</span></div>
+      <div class="creator-note">"10 Reasons Buyers Are REJECTING Homes"</div>
+      <div class="creator-note"><strong>Summary:</strong> A list of the specific things making buyers walk in a soft market.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Strong list format — easy to adapt into a carousel or a fast-cut reel. Study how he structures the countdown. A newcomer version ("as a buyer, here's what to look for that sellers hope you miss") could land.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen · Toronto Property Finders <span class="creator-platform">· YouTube · Jul 22</span></div>
+      <div class="creator-note">"6 Things Realtors Won't Tell Toronto Homebuyers"</div>
+      <div class="creator-note"><strong>Summary:</strong> Insider "what agents leave out" list aimed at buyers.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> The "nobody's telling you" formula is reliable. Study the framing. Your honest, immigrant-realtor voice is the perfect delivery for a "here's what I'd want to know as a first-time buyer" spin.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mark Mitchell · Mortgage Broker <span class="creator-platform">· YouTube · Jul 22</span></div>
+      <div class="creator-note">"Real Estate's 'Pent-Up Demand'"</div>
+      <div class="creator-note"><strong>Summary:</strong> Questions whether the "buyers are waiting to jump back in" narrative is real.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Good counter-take to pair against TRREB's "second-half growth" optimism. Not a steal on its own, but useful context if you make a "will prices actually rise?" explainer.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Ontario is the ONLY province where home prices are falling — and that's good news if you're buying</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it takes a scary-sounding headline ("prices falling") and flips it into an opportunity, which is a natural retention loop. Timely off Wednesday's CMHC report, and directly useful to a buyer this month.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook Option 1 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Ontario: the ONE province where prices are FALLING."</div>
+        <div><strong>Spoken:</strong> "The government's own housing agency just named Ontario the only region in Canada where home prices are still dropping this year. If you're a buyer, that's not bad news."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Everyone's scared prices are falling. Buyers shouldn't be."</div>
+        <div><strong>Spoken:</strong> "Everybody sees 'Ontario prices falling' and panics. If you're trying to buy, you should be doing the opposite — because falling prices in a soft market is exactly your window."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 3 — Stakes / This Costs You</div>
+        <div class="hook-box"><strong>First-frame text</strong>"This report just gave buyers leverage. Use it."</div>
+        <div><strong>Spoken:</strong> "CMHC just handed every Ontario buyer a bargaining chip and most people won't even notice. Here's how to actually use it before the market turns."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "The government's own housing agency just named Ontario the only region in Canada where home prices are still dropping this year. If you're a buyer, that's not bad news."</p>
+        <p><strong>Body:</strong> "Wednesday, CMHC — that's Canada's official housing agency — put out its mid-year outlook. Nationally, they see the average home around 675,000 this year, down a bit from last year. Prices soft, fewer homes selling, fewer getting built.<br><br>But here's the line that matters for us: Ontario is singled out as the ONE region where prices keep falling in 2026. Not a crash — a slow, buyer-friendly softening.<br><br>What does that actually mean for you? Power. When prices are drifting down and homes sit longer, a serious buyer with a pre-approval can ask for things: a lower price, help with closing costs, a closing date that works for you. Two years ago you'd get laughed out of the room. Right now sellers are listening.<br><br>I bought near the top, so trust me — timing a bottom perfectly is a myth. But buying when you have leverage and a stable job? That's not timing. That's just smart."</p>
+        <p><strong>CTA:</strong> "If you're thinking of buying in Ontario in the next year, comment BUY and I'll send you the three things I'd negotiate first in a soft market. Follow for the plain-language version of the news that hits your wallet."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">CMHC: prices FALL in 2026</span>
+        <span class="onscreen-tag">Ontario = the ONLY region</span>
+        <span class="onscreen-tag">Soft market = buyer leverage</span>
+        <span class="onscreen-tag">Ask for price + closing costs</span>
+        <span class="onscreen-tag">Don't time the bottom</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Toronto suburban homes aerial · "for sale" sign front lawn Ontario · person signing mortgage documents · CMHC report on laptop screen · buyer couple touring empty house</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, slow aerial glide over a quiet Ontario suburban neighbourhood of detached homes at golden hour, several 'for sale' signs on lawns, warm summer light, documentary realism, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a confident young couple shaking hands with an agent in an empty sunlit living room, hopeful mood, shallow depth of field, natural window light, realistic colour grade, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Toronto buyers are walking away from $150,000 deposits — here's the trap</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a specific six-figure number plus a "how could anyone do that?" tension is pure retention fuel, and Dmytro's bought-near-the-peak story gives him credibility other creators covering this can't match.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook Option 1 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"$150,000 deposit. Walked away. On purpose."</div>
+        <div><strong>Spoken:</strong> "Toronto buyers are walking away from a hundred-and-fifty-thousand-dollar deposit on purpose — and once you understand the math, you'll get why."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 2 — Personal Stakes (his edge)</div>
+        <div class="hook-box"><strong>First-frame text</strong>"I bought pre-con near the peak. This scared me."</div>
+        <div><strong>Spoken:</strong> "I bought a condo near the top of the market, so this one hits close to home — buyers are now losing six-figure deposits, and it's a trap almost nobody warns you about."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 3 — Nobody's Telling You</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Your pre-con contract has a hole nobody mentions."</div>
+        <div><strong>Spoken:</strong> "Nobody tells first-time buyers this before they sign a pre-construction condo: there's a gap that can cost you your entire deposit. Let me show you exactly where it hides."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (45–60s)</div>
+        <p><strong>Hook:</strong> "I bought a condo near the top of the market, so this one hits close to home — buyers are now losing six-figure deposits, and it's a trap almost nobody warns you about."</p>
+        <p><strong>Body:</strong> "Here's the setup. Pre-construction means you buy a condo before it's built — you put down a big deposit, sometimes 20%, and you close years later when it's finished.<br><br>Say you signed in 2022 for 800,000 and put down 150,000. It's finishing now. But the bank sends an appraiser, and today that unit is only worth 650,000. The bank lends against 650, not 800. So on closing day you have to cover the gap — often 100,000-plus — in cash you may not have.<br><br>Some buyers do the brutal math and decide walking away from the 150,000 deposit hurts less than finding another 150,000 they don't have. That's how you 'lose' a six-figure deposit on purpose.<br><br>I got to keep living in my place while its value dipped — a paper loss. These buyers are being asked to write a real cheque for a number the market already left behind. That's the difference, and that's the trap."</p>
+        <p><strong>CTA:</strong> "If you're closing on a pre-construction unit in the next year, DM me the word APPRAISAL. There are moves you can make BEFORE closing day, and hardly anyone explains them. Follow so the next one doesn't blindside you."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">$150K deposit at risk</span>
+        <span class="onscreen-tag">Signed 2022 → closing now</span>
+        <span class="onscreen-tag">Bank lends on TODAY's value</span>
+        <span class="onscreen-tag">Cover the gap in cash</span>
+        <span class="onscreen-tag">Walking away can hurt less</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Toronto condo towers skyline dusk · unfinished condo interior with cranes · person stressed reviewing paperwork at table · "sold" sign condo balcony · calculator and mortgage documents close-up</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a young couple at a kitchen table looking worried over a bank letter and a calculator, heavy warm morning light, documentary realism, shallow focus, muted colours, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, slow drone glide past half-finished glass condo towers in Toronto at golden hour, idle cranes, empty balconies, hazy summer air, realistic colour grade, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">What hockey sticks and honey have to do with your mortgage</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it takes the biggest national headline (Trump's 50% tariffs) and answers the question everyone secretly has — "does this actually affect me?" — with a surprising, concrete yes. Fresh off today's Carney–premiers meeting.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook Option 1 — Stakes / This Costs You</div>
+        <div class="hook-box"><strong>First-frame text</strong>"A tariff on cement could raise YOUR mortgage."</div>
+        <div><strong>Spoken:</strong> "A 50% tax on Canadian cement and lumber sounds like someone else's problem. It can land right in your mortgage payment — let me connect the dots."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 2 — Question That Can't Be Ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"What do hockey sticks have to do with your rent?"</div>
+        <div><strong>Spoken:</strong> "Trump just put 50% tariffs on hockey sticks, honey and cement. What could that possibly have to do with your rent? More than you'd think."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook Option 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"'Tariffs don't affect me.' They do. Here's how."</div>
+        <div><strong>Spoken:</strong> "If you think a trade war is just a headline for CEOs, I get it — I used to think that too. But this one reaches your grocery bill, your job, and your rate. Here's the chain."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "A 50% tax on Canadian cement and lumber sounds like someone else's problem. It can land right in your mortgage payment — let me connect the dots."</p>
+        <p><strong>Body:</strong> "Monday, Trump threatened 50% tariffs — that's a border tax — on a pile of Canadian goods: cement, lumber, dairy, liquor, even hockey sticks and honey. They'd hit August 19. Today Carney's meeting the premiers to figure out a plan.<br><br>Here's the chain to your wallet. One: cement and lumber cost more, so building homes costs more — which doesn't help our supply problem. Two: tariffs make a bunch of things pricier, and pricier things means inflation can heat back up. Three: when inflation fears rise, the bond market gets nervous, and the 5-year government bond yield — the thing that sets FIXED mortgage rates — tends to climb. Higher yield, higher fixed rate.<br><br>So a tariff on hockey sticks doesn't touch your life directly. But the inflation scare it can trigger? That's the thing that decides your renewal rate. That's why this 'CEO story' is actually your story."</p>
+        <p><strong>CTA:</strong> "Renewing in the next year and worried about this? Comment RATE and I'll walk you through fixed vs. variable in plain language. Follow — I turn the scary headlines into what they mean for regular people like us."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">50% tariffs, effective Aug 19</span>
+        <span class="onscreen-tag">Cement + lumber = pricier homes</span>
+        <span class="onscreen-tag">Tariffs → inflation risk</span>
+        <span class="onscreen-tag">Inflation fear → bond yield up</span>
+        <span class="onscreen-tag">Bond yield up → fixed rate up</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>US-Canada border crossing trucks · construction site lumber and cement · grocery prices Canada · bond ticker financial screen · Parliament Hill / political press conference</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, transport trucks lined up at a Canada–US border crossing under a grey sky, flags visible, documentary realism, slight motion, muted colour grade, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, close-up of a glowing financial screen with rising bond yield numbers reflected in a person's glasses, cool blue light, shallow depth of field, documentary realism, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/07/22/cmhc-predicts-weak-housing-market-activity-for-rest-of-year-in-updated-forecast/">BNN Bloomberg — CMHC predicts weak housing activity for rest of year (July 22)</a></li>
+      <li><a href="https://www.investmentexecutive.com/news/economy/cmhc-now-sees-home-sales-prices-declining-in-2026-amid-weaker-market-activity/">Investment Executive — CMHC now sees home sales, prices declining in 2026</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/market-reports/housing-market/housing-market-outlook">CMHC — 2026 Housing Market Outlook, mid-year update</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/tariffs/2026/07/23/new-level-of-urgency-premiers-want-to-see-pm-carney-present-plan-to-tackle-trump-tariffs/">BNN Bloomberg — Premiers press Carney for a tariff plan (July 23)</a></li>
+      <li><a href="https://thehill.com/business/5983248-mark-carney-us-canada-trade-negotiations-donald-trump-tariffs/">The Hill — Carney to intensify trade talks after new tariffs</a></li>
+      <li><a href="https://www.nationalobserver.com/2026/07/23/news/carney-premiers-set-meet-amid-new-us-tariff-threats">National Observer — Carney, premiers meet amid new US tariff threats</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-announcement-release-mpr-2026-07-15/">Bank of Canada — rate held at 2.25%, July 15, 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-year bond yield (~3.16%)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed &amp; variable rates (July 2026)</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260720/dq260720a-eng.htm">Statistics Canada — Consumer Price Index, June 2026 (2.8%)</a></li>
+      <li><a href="https://www.zoocasa.com/blog/trreb-june-2026/">Zoocasa — TRREB June 2026: sales up 9.4%, avg price $1,058,658</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/07/03/greater-toronto-home-sales-up-94-in-june-as-board-predicts-price-growth-could-come/">BNN Bloomberg — GTA home sales up 9.4% in June</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked July 23, 2026</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
