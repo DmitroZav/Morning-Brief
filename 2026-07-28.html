@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, July 28, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, July 28, 2026</div>
+  <div class="canada-day-badge">FASTEST-FALLING IN THE G7 · TARIFF CLOCK: 22 DAYS</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada's home prices are now falling faster than any other rich country — but that's not the whole story</div>
+    <p>Fresh data out yesterday (Better Dwelling, using Bank for International Settlements numbers) puts a hard fact on paper: out of the G7 — the seven biggest advanced economies (Canada, US, UK, France, Germany, Italy, Japan) — <strong>Canada's real home prices are dropping the fastest.</strong> They fell 2.1% in the last measured quarter and are down 5.5% from a year ago, while most of the other six were flat or rising. From the 2022 peak, Canada is down about 28% after inflation.</p>
+    <p>Here's the twist that keeps it honest: Canada also <em>rose</em> the most on the way up. From 2010 to the 2022 peak, our real home prices jumped almost 99% — far more than anyone else. So even after this correction, Canada is still the second-most-expensive-versus-history market in the G7. In plain words: the air is coming out of a balloon that was blown up bigger than anyone else's. That's a slow deflation, not a sudden pop.</p>
+    <p><strong>Why it's video-worthy:</strong> the headline "Canada's housing is crashing hardest in the developed world" is scary and shareable — but the honest take ("we also rose the hardest, so this is a bubble letting out air, not the end of the world") is the trust-builder nobody else leads with. Fear gets the click; calm context keeps the follow.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Prices are softening across the board — but the drop is a slow bubble-deflation, not a crash, and it's still handing first-time buyers the most negotiating power in years.</div>
+    <p style="margin-top:10px;">Every signal this week points the same way: Canada's the fastest-faller in the G7, Toronto condos are down ~8% year over year, and new-build single-family prices printed a scary one-month drop (more on that measurement quirk below). But sales have risen three months in a row nationally, the market's technically "balanced," and rate hikes are off the table. So if you're buying your first place, this isn't a moment to panic — it's the softest, most negotiable market you've seen since the bidding-war years. Prices down, choice up, sellers willing to deal.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Canada vs. G7 (real home prices, BIS)</td>
+          <td>−5.5% YoY</td><td>—</td><td class="tag-down">fastest faller in G7</td>
+          <td class="plain-meaning">Down 2.1% last quarter, ~28% off the 2022 peak. But still the 2nd-priciest-vs-history market in the G7 — because we rose the most going up (+99% since 2010).</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg condo price (TRREB, June)</td>
+          <td>~$537,300</td><td>—</td><td class="tag-down">−8.2% YoY</td>
+          <td class="plain-meaning">Condos remain the softest, most buyer-friendly corner of the market. Lots of listings, sellers who need to deal.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA new single-family (Altus/BILD, June)</td>
+          <td>~$1,275,500</td><td>~$1,427,600 (May)</td><td class="tag-down">−10.7% MoM</td>
+          <td class="plain-meaning">Eye-popping one-month drop — but it's a measurement quirk (list-price index, mix shift to smaller homes), not 152K wiped off every house overnight. See idea 3.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg price (CREA, June)</td>
+          <td>$696,078</td><td>~$701,600 (May)</td><td class="tag-down">−0.8% MoM · +0.5% YoY</td>
+          <td class="plain-meaning">Below $700K. Sales rose 0.5% — a third straight monthly gain. Market steady, not falling off a cliff.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sixth hold in a row (July 15). Prime stays 4.45%. Drives VARIABLE mortgages. BoC's "summary of deliberations" (the meeting notes) drops tomorrow, July 29 — worth a look. Next rate decision Sept 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.15–3.20%</td><td>~3.16% (Jul 21)</td><td class="tag-flat">roughly flat</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. It drives FIXED mortgage rates. Sitting still this week.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED (insured)</td>
+          <td>~3.94–4.09%</td><td>~3.94%</td><td class="tag-flat">no real change</td>
+          <td class="plain-meaning">Best advertised rate. Big banks still quote above 4%. Certainty vs. variable's cheaper gamble.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE (insured)</td>
+          <td>~3.30–3.45%</td><td>~3.30–3.45%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Cheaper than fixed today, but moves with the BoC. No cut expected Sept 2, so it likely sits put.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, June)</td>
+          <td>2.8%</td><td>3.2% (May)</td><td class="tag-down">cooled</td>
+          <td class="plain-meaning">Core measures near a 5-year low. But the Aug 19 tariffs threaten to reheat prices later this year.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">US–Canada tariffs</td>
+          <td>10% now · 50% Aug 19</td><td>—</td><td class="tag-up">clock ticking (22 days)</td>
+          <td class="plain-meaning">Trump's new 50% hits ~$20B of goods with NO free-trade exemption. Carney "intensifying" talks but says Canada is ready to retaliate if it lands.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~1.40</td><td>~1.40</td><td class="tag-flat">steady</td>
+          <td class="plain-meaning">Loonie holding. A weaker Canadian dollar makes imported goods pricier for us.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">No new StatCan or CMHC release today; June housing starts (down slightly) and CMHC's summer outlook still stand. Next CPI lands mid-August. Bond/rate numbers are latest available at brief time.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer or newcomer:</strong> "fastest-falling in the G7" sounds terrifying, but read it the other way — prices are coming to you. Condos are down ~8% from last year with tons of choice, and even the scariest new-build numbers point to sellers who'll negotiate. This is the most leverage a first-timer has had in years: you can ask for a lower price, a longer closing, or repairs. Just don't try to time the exact bottom — nobody rings a bell, and a slow deflation can drag on for a long time.</p>
+    <p><strong>If you're a renter:</strong> the same soft condo market is on your side. A glut of unsold and unrented units means landlords are competing on price. If your lease is up, don't auto-renew — shop and negotiate. Rare moment where the tenant holds a card.</p>
+    <p><strong>If you already own — especially if you bought near the peak:</strong> honest talk, seeing "down 28% from the peak" hurts. But two things: it's on paper unless you sell, and the market isn't collapsing — it's slowly letting air out of a historic bubble. If you don't have to sell, you generally don't have to lock in the loss. Renewing a mortgage? Plan around today's ~4% fixed, not a rescue cut that isn't coming before September.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS — ~10 uploads in the last 36h. The feed is again glued to ONE theme: Toronto condos + first-time buyers + how to negotiate in a soft market. Only the posts worth stealing from or studying are listed. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">David Fleming · Toronto Realty Group <span class="creator-platform">· YouTube · Jul 28</span></div>
+      <div class="creator-note">"The Best Advice For Toronto's First-Time Condo Buyers | The Last Honest Realtor"</div>
+      <div class="creator-note"><strong>Summary:</strong> Veteran GTA agent walks first-timers through buying a condo in today's soft market — what to look for, what to avoid.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your exact audience. He's the "honest realtor" for locals; you're the honest realtor <em>for newcomers</em>. Do "first-time condo buyer advice — the newcomer edition": the 3 things I wish someone told me before I bought, in plain language, with your peak-buying scar as proof.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey <span class="creator-platform">· YouTube · Jul 27</span></div>
+      <div class="creator-note">"What Everyone Gets Wrong About Toronto Condos"</div>
+      <div class="creator-note"><strong>Summary:</strong> Myth-busting the "condos are all doomed" panic with data and nuance.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Perfect pairing with today's Big Story. Flip his myth-bust into a beginner explainer: "Condos aren't 'crashing' the way TikTok says — here's what's really happening, and why it's good news if you're buying your first one."</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mike Carpino · GTA Real Estate <span class="creator-platform">· YouTube · Jul 27</span></div>
+      <div class="creator-note">"How To Make A LOWBALL Offer A Seller Will ACCEPT!"</div>
+      <div class="creator-note"><strong>Summary:</strong> Tactical breakdown of how to make an aggressive offer without insulting the seller so it actually gets taken.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is idea 2 below. Newcomers are often scared to "lowball" because it feels rude. Reframe: in a soft market it's normal and smart. Give the exact script + the signs a seller is motivated. High-save content.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Jul 27</span></div>
+      <div class="creator-note">"Why First-Time Buyers Are Completely Abandoning New Condos"</div>
+      <div class="creator-note"><strong>Summary:</strong> Dramatic take on collapsing demand for brand-new/pre-construction condos.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Good supporting clip and hook study for a "resale vs. pre-construction" explainer. Don't copy the doom framing — ground it in why demand fell and what it means for a buyer with options.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · Angry Mortgage Clips <span class="creator-platform">· YouTube · Jul 27</span></div>
+      <div class="creator-note">"The Toronto Condo Horror Show Is NOT Over"</div>
+      <div class="creator-note"><strong>Summary:</strong> Blunt take that condo pain still has room to run — more supply, underwater investors.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Recurring from the weekend, still climbing. Study the "horror show" hook mechanic — then be the calm counterweight, not the echo. His fear is your opportunity framing.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Also posted (SKIP for you)<span class="creator-platform"> · Jul 27–28</span></div>
+      <div class="creator-note">Ilan Portnoi — "Best condo buildings near Square One" (local list); Mark Mitchell — "House Prices Keep Falling Through 2026" (repetitive doom); Parallel Wealth — "15 Tax Strategies for Retirees" (off-niche); Audra Lambert &amp; That Agent Kelly — short realtor-life clips. Nothing to steal here today.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Canada's housing is falling faster than any rich country — panic or opportunity?</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's the freshest, most shareable data of the day (G7 ranking), the headline scares people, and your honest "we rose the most, so this is air leaving a balloon" take is the trust-builder no one else leads with.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Canada's home prices are falling faster than the US, UK, Germany — all of them."</div>
+        <div><strong>Spoken:</strong> "Out of the seven richest countries in the world, Canada's housing is dropping the fastest. Before you panic or celebrate, here's the part the headline leaves out."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Stop calling it a crash."</div>
+        <div><strong>Spoken:</strong> "Everyone's screaming that Canadian real estate is crashing harder than anywhere in the developed world. It's true — and it's also not the disaster it sounds like. Let me show you why."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Newcomer Lens / Personal Stakes</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Scared to buy in Canada right now? Watch this first."</div>
+        <div><strong>Spoken:</strong> "I bought my condo near the peak, so trust me — I feel these headlines. But 'fastest-falling in the world' isn't the reason to run away that you think it is. Here's the honest version."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Out of the seven richest countries in the world, Canada's housing is dropping the fastest. Before you panic or celebrate, here's the part the headline leaves out."</p>
+        <p><strong>Body:</strong> "New data compared the G7 — Canada, the US, UK, Germany, France, Italy, Japan. After inflation, Canadian home prices fell the most: down about 5.5% in a year, and roughly 28% from the 2022 peak. Most of the others were flat or even up.<br><br>Sounds like Canada's the worst place to own a home, right? Here's the catch. We also went UP the most. From 2010 to the peak, our prices nearly doubled — way more than anybody else in that group. So even after this drop, Canada is still the second-most-expensive market versus its own history.<br><br>In plain terms: this isn't a balloon popping. It's a balloon that got blown up bigger than everyone else's slowly letting out air. That matters for you. A slow deflation means you don't have to catch a falling knife — but you also can't wait for a magic bottom. If you're a first-time buyer, prices are quietly coming toward you, and sellers are finally willing to deal. That's the opportunity hiding inside the scary headline."</p>
+        <p><strong>CTA:</strong> "Want me to break down YOUR city's numbers in plain English? Comment your neighbourhood and I'll tell you if it's actually softening. Follow — I live here, I sell here, and I'll always give you the honest version."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Fastest-falling in the G7</span>
+        <span class="onscreen-tag">−5.5% in a year · −28% from peak</span>
+        <span class="onscreen-tag">But we rose ~99% since 2010</span>
+        <span class="onscreen-tag">Balloon deflating, not popping</span>
+        <span class="onscreen-tag">Prices are coming toward you</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Toronto skyline wide aerial · balloon slowly deflating slow motion · world map G7 countries · "sold" and "for sale" signs residential street · person scrolling news on phone worried</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, slow aerial drift over a dense Toronto residential skyline at overcast midday, calm documentary realism, muted colour grade, subtle haze, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a red balloon slowly and gently deflating against a plain soft-grey background, extreme slow motion, minimalist, realistic lighting, shallow depth of field, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">How to make a "lowball" offer a seller actually accepts</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's a save-and-share tactical video, it turns today's soft market into a concrete action, and it hits a real newcomer fear — feeling rude for offering under asking. Two creators touched negotiating this week; nobody framed it for beginners.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Stakes / Number</div>
+        <div class="hook-box"><strong>First-frame text</strong>"The average Toronto condo is down $48,000. You can still ask for more off."</div>
+        <div><strong>Spoken:</strong> "Prices already dropped — and you can still negotiate below asking without insulting anyone. Here's exactly how I'd do it as a first-time buyer."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — "Nobody's Telling You" / Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"A lowball offer isn't rude right now. It's smart."</div>
+        <div><strong>Spoken:</strong> "New to Canada? You were probably taught it's disrespectful to offer under asking. In this market, that belief is costing you money. Let me fix it in 45 seconds."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Question That Can't Be Ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Why are sellers actually taking lowball offers in 2026?"</div>
+        <div><strong>Spoken:</strong> "A year ago a lowball offer got you laughed at. Today sellers are quietly accepting them. Here's why — and how to make yours the one that gets a yes."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Prices already dropped — and you can still negotiate below asking without insulting anyone. Here's exactly how I'd do it as a first-time buyer."</p>
+        <p><strong>Body:</strong> "First, mindset. Where a lot of us come from, offering under the asking price feels rude. In a soft market like right now, it's just normal business — the seller expects it. So drop the guilt.<br><br>Now the how. One: look for a motivated seller. Signs are a listing that's been up 30-plus days, a price that's already been cut once, or an empty unit the owner is paying two mortgages on. Those people want a deal.<br><br>Two: don't just throw a random low number. Come with a reason — 'here are three similar units that sold for less' — so it lands as fair, not insulting.<br><br>Three: give the seller something back that isn't money. A longer closing, a flexible move-out date, a clean offer with no crazy conditions. Sellers say yes to easy.<br><br>That's it. A calm, backed-up, easy-to-accept offer beats a shy full-price one every time in a market that's coming down."</p>
+        <p><strong>CTA:</strong> "Want the exact text I'd send my agent before writing a lowball offer? Comment OFFER and I'll send it. Follow — I live here, I sell here, and I want your first offer to actually work."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Under-asking = normal now</span>
+        <span class="onscreen-tag">Find a motivated seller</span>
+        <span class="onscreen-tag">30+ days listed = leverage</span>
+        <span class="onscreen-tag">Back your number with comps</span>
+        <span class="onscreen-tag">Offer easy terms, not just low price</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>condo "for sale" sign days on market · buyer and agent reviewing offer at laptop · handshake over kitchen counter · empty condo unit staged · person signing offer document close-up</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a young couple and a real estate agent leaning over a laptop at a bright kitchen table reviewing paperwork, natural window light, hopeful candid mood, realistic colour grade, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, close-up of a hand placing a pen down on a signed real estate offer document beside house keys, soft warm light, documentary realism, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">"Toronto houses dropped $152K in a month" — here's the catch nobody's telling you</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the "$152K in 30 days" number is going viral and terrifying people, and being the person who calmly explains why it's mostly a measurement quirk makes you look smarter and more honest than the doom accounts. Pure trust-building.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Toronto houses 'lost' $152,000 in one month. Sort of."</div>
+        <div><strong>Spoken:</strong> "You've probably seen the headline — new Toronto houses dropped over 10% in a single month. That number is real, and it's also kind of a trick. Let me explain."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — "Nobody's Telling You"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"That scary Toronto 'crash' headline? Here's the catch."</div>
+        <div><strong>Spoken:</strong> "Everyone's sharing that new Toronto homes crashed 10% in 30 days. Before you screenshot it to your family group chat — here's what the headline doesn't tell you."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"No, your house didn't just lose $152K overnight."</div>
+        <div><strong>Spoken:</strong> "If you own a Toronto home and that '$152,000 drop' headline gave you a heart attack — breathe. It's not what it looks like, and I'll show you exactly why in 40 seconds."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "You've probably seen the headline — new Toronto houses dropped over 10% in a single month. That number is real, and it's also kind of a trick. Let me explain."</p>
+        <p><strong>Body:</strong> "The stat comes from new-construction data. It says the benchmark new single-family home fell about $152,000 in June — over 10% in one month. Scary, right?<br><br>Here's the catch. This particular index uses the builders' <em>list</em> prices, not what actually sold, and it doesn't adjust for the type of home. Right now builders have paused big detached projects and are selling more smaller, cheaper units. So the 'average' drops — not because your house lost value overnight, but because the MIX of what's for sale changed. Fewer mansions in the pile pulls the average down.<br><br>Prices ARE softening, that's true. But 'the typical Toronto house lost 152 grand in 30 days' is not what happened. When you hear a number that dramatic, always ask one question: is this what sold, or just what's listed? That one question protects you from panic-buying and panic-selling."</p>
+        <p><strong>CTA:</strong> "Save this so the next time a scary housing headline lands in your family chat, you've got the calm answer. Follow for the honest version — I live here, I sell here."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">"−$152K in a month" headline</span>
+        <span class="onscreen-tag">It's a LIST-price index</span>
+        <span class="onscreen-tag">The mix of homes changed</span>
+        <span class="onscreen-tag">Sold ≠ listed</span>
+        <span class="onscreen-tag">Ask: sold or listed?</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>new construction homes Toronto suburb · builder show home interior · scary news headline on phone screen · calculator and house model on desk · line graph dropping animation screen-record</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a row of newly built single-family homes under construction in a Canadian suburb, overcast sky, documentary realism, muted colour grade, slight depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, close-up of a worried person looking at a dramatic red falling line graph on a phone screen in a dim room, screen glow on face, realistic cinematic mood, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://betterdwelling.com/canadian-real-estate-is-the-fastest-falling-in-the-g7-remains-frothy/">Better Dwelling — Canadian real estate is the fastest-falling in the G7 (BIS data, July 27, 2026)</a></li>
+      <li><a href="https://betterdwelling.com/toronto-new-home-prices-crash-more-than-10-over-30-days/">Better Dwelling — Toronto new home prices crash 10%+ over 30 days (Altus/BILD, July 2026)</a></li>
+      <li><a href="https://trreb.ca/market-data/condo-market-report/">TRREB — Toronto condo market report (avg condo ~$537,300, −8.2% YoY, June 2026)</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA — June 2026 national statistics (avg price $696,078, benchmark $665,600 −3.3% YoY)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — policy rate held at 2.25%, July 15, 2026</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/release-the-bank-canadas-summary-deliberations-2026-07-29/">Bank of Canada — summary of deliberations (releasing July 29, 2026)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed &amp; variable rates (July 2026)</a></li>
+      <li><a href="https://ca.investing.com/rates-bonds/canada-5-year-bond-yield">Investing.com — Canada 5-year bond yield (~3.15–3.20%)</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260720/dq260720a-eng.htm">Statistics Canada — Consumer Price Index, June 2026 (2.8%)</a></li>
+      <li><a href="https://www.theglobeandmail.com/politics/article-carney-trump-tariffs-phone-call-trade-talks/">Globe and Mail — Carney &amp; Trump agree to intensify trade talks; new 50% tariffs Aug 19</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-june-2026">CMHC — Housing starts, June 2026 (slipped)</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked July 28, 2026</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
