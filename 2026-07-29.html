@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, July 29, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, July 29, 2026</div>
+  <div class="canada-day-badge">OTTAWA + ALBERTA BUILD HOMES · FIXED RATES CREEPING UP · TARIFF CLOCK: 21 DAYS</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Ottawa and Alberta just teamed up to build homes — a Liberal PM and a Conservative premier on the same stage</div>
+    <p>This morning in Red Deer, Prime Minister Mark Carney stood next to Alberta Premier Danielle Smith — two politicians who agree on almost nothing — to announce a joint plan to speed up homebuilding in the province. That optics alone is a story: a federal Liberal and Alberta's Conservative premier shaking hands on housing.</p>
+    <p>The engine behind it is <strong>Build Canada Homes</strong>, the new federal housing agency Carney set up with about <strong>$13 billion</strong> to fund <strong>factory-built (modular) homes</strong> — houses assembled in a factory and trucked to the lot, like giant LEGO. The pitch: prefab can cut build time by up to 50% and cost by up to 20%. The first wave is 4,000 modular homes on six sites (Edmonton is one), with room to scale toward 45,000. Today's Alberta deal plugs the province into that pipeline.</p>
+    <p><strong>Why it's video-worthy:</strong> "the government is finally building homes" is a feel-good headline everyone wants to believe. Your honest job is the follow-up nobody says out loud — 4,000 to 45,000 homes is a rounding error against a shortage measured in the millions, and modular is promising but won't touch your rent or purchase price this year. Hope plus a reality check is the trust combo.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The government made a big promise to build more homes — but the thing actually moving your money this week is fixed mortgage rates ticking UP, even though the Bank of Canada hasn't touched its rate since spring.</div>
+    <p style="margin-top:10px;">Two speeds today. The slow, headline-grabbing story: Ottawa and Alberta announcing factory-built homes — real, but years away from changing what you pay. The fast, wallet-level story: the 5-year government bond yield has been drifting up, and that quietly pushes FIXED mortgage rates higher. The best 5-year fixed is back around 3.94% and creeping. The Bank of Canada's own meeting notes drop this afternoon (1:30 ET) and should confirm it's parked for now. So if you're shopping for a mortgage, the "wait and it'll get cheaper" bet just got weaker.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sixth hold in a row (July 15). Prime stays 4.45%. Drives VARIABLE mortgages. The Bank's "summary of deliberations" — the notes explaining why they held — publishes today at 1:30 ET. Next rate decision Sept 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.15–3.20%</td><td>~3.10–3.15%</td><td class="tag-up">drifting up</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. It drives FIXED mortgage rates. It dipped to ~3.1% on Middle East talks, then bounced toward 3.2% — enough to nudge fixed rates higher.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED (insured)</td>
+          <td>~3.94%</td><td>~3.89%</td><td class="tag-up">rising</td>
+          <td class="plain-meaning">Best advertised insured rate; big banks quote higher. Creeping up with bond yields — the "wait for cheaper fixed" window is closing. See idea 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE (insured)</td>
+          <td>~3.30–3.45%</td><td>~3.30–3.45%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Cheaper than fixed today, but moves with the BoC. No cut expected Sept 2, so it likely sits put.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, June)</td>
+          <td>2.8%</td><td>3.2% (May)</td><td class="tag-down">cooled</td>
+          <td class="plain-meaning">Core measures near a 5-year low. But the Aug 19 tariffs threaten to reheat prices later this year. Next CPI mid-August.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg condo price (TRREB, June)</td>
+          <td>~$537,300</td><td>—</td><td class="tag-down">−8.2% YoY</td>
+          <td class="plain-meaning">Condos remain the softest, most buyer-friendly corner of the market. Lots of listings, sellers who need to deal.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg price (CREA, June)</td>
+          <td>$696,078</td><td>~$701,600 (May)</td><td class="tag-down">−0.8% MoM · +0.5% YoY</td>
+          <td class="plain-meaning">Below $700K. Sales rose 0.5% — a third straight monthly gain. Steady, not falling off a cliff. Atlantic Canada bucking the trend (PEI +7.5% in a month).</td>
+        </tr>
+        <tr>
+          <td class="metric-name">RBC affordability measure (Q1)</td>
+          <td>53%</td><td>54.4%</td><td class="tag-down">best in 4 years</td>
+          <td class="plain-meaning">Lower = more affordable. Ninth straight quarter of improvement; condos now near pre-pandemic affordability. Real progress — but RBC warns the easy relief may be running out. See idea 3.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing plan (Build Canada Homes)</td>
+          <td>4,000 → 45,000 homes</td><td>—</td><td class="tag-up">announced today</td>
+          <td class="plain-meaning">$13B federal agency for factory-built homes; Alberta joined today. Promising for the future, but tiny vs. the shortage — won't move prices this year.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">US–Canada tariffs</td>
+          <td>10% now · 50% Aug 19</td><td>—</td><td class="tag-up">clock ticking (21 days)</td>
+          <td class="plain-meaning">Trump's 50% hits wine, dairy, cement, furniture and more with no free-trade exemption. Carney "intensifying" talks, says Canada is ready to retaliate if it lands.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~1.40</td><td>~1.40</td><td class="tag-flat">steady</td>
+          <td class="plain-meaning">Loonie holding. A weaker Canadian dollar makes imported goods pricier for us.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Watch the calendar: BoC summary of deliberations lands today (1:30 ET); May GDP — the freshest read on whether Canada is climbing out of its technical recession — drops Friday, July 31. Bond/rate numbers are latest available at brief time.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer or newcomer:</strong> two things pull in opposite directions today. Good news — affordability is the best it's been in four years, and condos are almost back to pre-pandemic reach, so your dollar buys more than it has in a long time. The catch — fixed mortgage rates are creeping up, so the monthly payment side is quietly getting more expensive even as prices soften. Translation: the "wait forever for a lower rate" plan is losing its edge. If the numbers work for you now, they may not get much friendlier.</p>
+    <p><strong>If you're a renter:</strong> don't get too excited about the government's "build more homes" announcement. Factory-built housing is a real idea, but the first few thousand units are years and provinces away from your neighbourhood. Your rent this year depends on today's soft condo market — a glut of unsold, unrented units means landlords are competing. If your lease is up, shop and negotiate instead of auto-renewing.</p>
+    <p><strong>If you already own or you're renewing:</strong> the rate story is the one to watch. Fixed rates ticking up means if you're renewing in the next few months, lock in your rate hold early — most lenders will guarantee a rate for 90–120 days, and that free insurance is worth grabbing while rates drift the wrong way. Don't count on a rescue cut before September; the Bank of Canada is parked.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS — 14 uploads in the last 36h. The feed split today between two themes: the mortgage-rate move and Toronto/GTA affordability pain. Only posts worth stealing from or studying are listed below. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Jon Flynn · Real Estate Stats <span class="creator-platform">· YouTube · Jul 28</span></div>
+      <div class="creator-note">"Canada Stopped Building Houses — The Dream Has Been Stolen"</div>
+      <div class="creator-note"><strong>Summary:</strong> Data-heavy argument that Canada's homebuilding has stalled and affordability is broken.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Perfect counterpoint to today's Big Story. He says "we stopped building." Today Ottawa + Alberta announced a plan to build. Do a calm explainer: "The government just answered this exact complaint — here's the plan, and here's why it won't fix your rent this year." You look balanced; the doom accounts look one-note.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Alex Applegate · Canadian Real Estate &amp; Mortgages <span class="creator-platform">· YouTube · Jul 28</span></div>
+      <div class="creator-note">"Fixed Rates JUMP | Mortgage Rates Canada July Update 2026"</div>
+      <div class="creator-note"><strong>Summary:</strong> Breaks down why fixed mortgage rates moved up this month.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is idea 2 below. Newcomers get confused when the Bank of Canada "does nothing" but their fixed quote still rises. Explain the bond-yield link in one plain-language 45-second reel. High-save "finally someone explained it" content.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi <span class="creator-platform">· YouTube · Jul 28</span></div>
+      <div class="creator-note">"It's Not Just Brampton Anymore... (Mississauga Crisis)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Argues the affordability squeeze has spread from Brampton into Mississauga.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Brampton and Mississauga are newcomer central — your exact audience lives there. Localize it: "If you're a newcomer eyeing Mississauga, here's what actually changed and how to still make it work." Speak directly to the community that trusts you.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">David Fleming · Toronto Realty Group <span class="creator-platform">· YouTube · Jul 28</span></div>
+      <div class="creator-note">"The Best Advice For Toronto's First-Time Condo Buyers | The Last Honest Realtor"</div>
+      <div class="creator-note"><strong>Summary:</strong> Veteran GTA agent's advice for first-time condo buyers (posted long + as a Short).</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Still climbing from yesterday — evergreen for your audience. Don't re-do it this week; you can revisit later with the "newcomer edition" angle if the feed cools down.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch <span class="creator-platform">· YouTube · Jul 29</span></div>
+      <div class="creator-note">"Canada's debt problem climbs to a breaking point... why 'pent-up demand' isn't happening"</div>
+      <div class="creator-note"><strong>Summary:</strong> Contrarian data take — the expected wave of buyers isn't showing up because households are stretched.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Great intelligence layer, but too heavy for a beginner reel as-is. Mine one stat (household debt) for a future "why isn't everyone buying if prices dropped?" explainer.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Also posted (SKIP for you)<span class="creator-platform"> · Jul 28–29</span></div>
+      <div class="creator-note">Kevin Yu — "Toronto Condo Market June 2026: Numbers Nobody Wants to Hear" (solid data, but you covered condos this week); Property Daily — "StatCan Missing the 2026 Mortgage Shock" (doom framing); Team Sessa — "You're Making A Costly Mistake" (seller-focused); Angry Mortgage Clips — office real estate + seniors housing boom (off-niche); Mark Mitchell — "CBC's $150M Windfall" (politics); Audra Lambert &amp; That Agent Kelly — realtor-life shorts. Nothing to steal today.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The government is finally "building homes" — will it actually make them cheaper?</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's today's fresh news, the "Liberal + Conservative on the same stage" hook is unusual and shareable, and your honest "it won't lower your rent this year" take separates you from both the cheerleaders and the doomers.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"The government just promised to build homes. Don't get excited yet."</div>
+        <div><strong>Spoken:</strong> "Ottawa and Alberta just announced a big plan to build more houses. I want it to work — but here's the part they're not putting on the poster."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"4,000 homes. Canada needs millions."</div>
+        <div><strong>Spoken:</strong> "Today's big housing announcement is 4,000 factory-built homes, growing toward 45,000. Sounds huge — until you hear the number we're actually short."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — "Nobody's telling you"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"They're building homes in a factory now. Really."</div>
+        <div><strong>Spoken:</strong> "Canada's new housing plan builds homes in a factory and ships them to the lot like giant LEGO. It's smart — but nobody's telling you when it'll actually reach your city."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Ottawa and Alberta just announced a big plan to build more houses. I want it to work — but here's the part they're not putting on the poster."</p>
+        <p><strong>Body:</strong> "First, what happened. The Prime Minister and Alberta's premier — two people who agree on basically nothing — stood together today to speed up homebuilding. The engine is a new federal agency called Build Canada Homes, with about 13 billion dollars, and its big bet is factory-built homes: houses assembled in a factory and trucked to the lot. That can cut build time by up to half and cost by up to a fifth. Genuinely good idea.<br><br>Now the honest part. The first wave is 4,000 homes, scaling toward 45,000. Canada is short homes in the <em>millions</em>. So this is a real start, but it's a drip, not a flood — and factory-built housing takes years to ramp up. It will not lower your rent or your purchase price this year.<br><br>Why care anyway? Because the direction matters. If Canada actually learns to build faster and cheaper, that's how prices come down for the long run — not from one announcement, but from doing this every year for a decade."</p>
+        <p><strong>CTA:</strong> "Want me to track whether this plan actually delivers — or quietly disappears? Follow and I'll hold it accountable every month. I live here, I sell here, and I'll always give you the honest version."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Ottawa + Alberta team up</span>
+        <span class="onscreen-tag">$13B "Build Canada Homes"</span>
+        <span class="onscreen-tag">Factory-built = up to 50% faster</span>
+        <span class="onscreen-tag">4,000 homes vs. millions short</span>
+        <span class="onscreen-tag">Good start, not a fix (yet)</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>modular home being craned onto foundation · prefab house factory assembly line · politicians handshake press conference · new subdivision construction Canada · aerial suburban housing development</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a large modular house section being lifted by a crane onto a concrete foundation on a bright construction site, documentary realism, clear daylight, muted colour grade, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, inside a modern prefabricated-home factory, wooden wall panels moving along an assembly line, workers in safety vests, clean industrial lighting, realistic, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Your fixed mortgage rate went UP — and the Bank of Canada didn't even move</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it fixes a confusion almost every beginner has (why fixed rates rise when the BoC "does nothing"), it's tied to a real move this week, and it's timeless — you can repost it every time bonds twitch. Pairs with Alex Applegate's post.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Question that can't be ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Why did your fixed rate rise if the Bank of Canada didn't?"</div>
+        <div><strong>Spoken:</strong> "The Bank of Canada hasn't moved since spring — so why did your 5-year fixed quote just go up? Ninety seconds and you'll get it for life."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — "Nobody's telling you"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Your fixed rate isn't set by the Bank of Canada."</div>
+        <div><strong>Spoken:</strong> "Here's what almost nobody explains to newcomers: the Bank of Canada does NOT set your fixed mortgage rate. Something else does — and it just moved."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Stakes / "this costs you"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Waiting for a cheaper fixed rate? It's going the other way."</div>
+        <div><strong>Spoken:</strong> "If your plan was to wait for fixed rates to drop before you buy, I've got bad news — this week they crept UP. Let me show you why, so you stop guessing."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "The Bank of Canada hasn't moved since spring — so why did your 5-year fixed quote just go up? Ninety seconds and you'll get it for life."</p>
+        <p><strong>Body:</strong> "Quick myth-buster. The Bank of Canada's rate controls VARIABLE mortgages — the kind that float. But your FIXED rate follows something totally different: the 5-year government bond yield. That's just the interest the government pays to borrow money for five years.<br><br>Here's the chain. When that bond yield goes up, banks' cost of lending goes up, so fixed mortgage rates go up too. This week the yield drifted from around 3.1% toward 3.2% — small, but enough that the best 5-year fixed nudged back up near 3.94%. The Bank of Canada didn't touch a thing.<br><br>So what do you do with that? One: if you like a fixed rate, ask your lender for a rate hold — they'll lock today's number for 90 to 120 days for free. Two: stop waiting for some magic drop. Fixed rates follow the bond market, and right now that market is drifting up, not down."</p>
+        <p><strong>CTA:</strong> "Comment RATE and I'll send you the one question to ask a lender before you lock. Follow — I live here, I sell here, and I explain this stuff in plain English."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">BoC rate = VARIABLE</span>
+        <span class="onscreen-tag">Bond yield = FIXED</span>
+        <span class="onscreen-tag">Yield 3.1% → 3.2%</span>
+        <span class="onscreen-tag">Best fixed ~3.94% &amp; rising</span>
+        <span class="onscreen-tag">Grab a free rate hold</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>stock ticker bond yield screen · person at laptop comparing mortgage rates · Bank of Canada building exterior · line chart rising animation screen-record · hand signing mortgage documents close-up</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a glowing financial screen showing a rising yellow line chart in a dim modern office, shallow depth of field, realistic screen glow, documentary mood, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, close-up of a young couple at a kitchen table comparing mortgage rate sheets on a laptop, warm natural window light, candid realistic mood, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Canada's housing is the most affordable it's been in 4 years — the honest version</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's a rare good-news housing headline (from RBC, a credible source), it counters the doom feed, and the "but the easy relief is ending" twist keeps you honest and gives urgency without fear-mongering.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number Shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Housing is the most affordable it's been since 2022."</div>
+        <div><strong>Spoken:</strong> "Nobody's saying this out loud, so I will — buying a home in Canada is more affordable right now than it's been in four years. Here's the proof, and the catch."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Stop doom-scrolling. Some of this is good news."</div>
+        <div><strong>Spoken:</strong> "Your feed is all crashes and horror stories. But RBC just said affordability is the best in four years — especially for condos. Let me give you the balanced version."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Newcomer lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"New to Canada and think you missed your shot? Read this."</div>
+        <div><strong>Spoken:</strong> "If you moved here thinking home ownership is impossible now — the numbers just shifted in your favour more than any time since 2022. But there's a window, and it may be closing."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Nobody's saying this out loud, so I will — buying a home in Canada is more affordable right now than it's been in four years. Here's the proof, and the catch."</p>
+        <p><strong>Body:</strong> "RBC — one of the big banks — measures how affordable housing is by how much of a typical income it takes to own the average home. Lower is better. That measure just hit its best level in four years, improving nine quarters in a row. Condos are the star: they're almost back to how affordable they were before the pandemic.<br><br>Why? Prices softened, especially on condos, while incomes kept rising. So your dollar stretches further than it has since 2022.<br><br>Now the honest catch. RBC also warned the easy part of this relief may be running out. Prices aren't falling much more, and mortgage rates probably won't drop much from here — fixed rates are actually creeping up. So this isn't 'wait and it keeps getting better.' It's 'the best window in years is open right now.' If the numbers work for you, this is a real moment. If they don't yet, keep saving — but stop believing the door is closed. It's the most open it's been in a long time."</p>
+        <p><strong>CTA:</strong> "Want me to run the affordability math for your city and income in plain English? Comment your city. Follow — I live here, I sell here, and I'll always show you both sides."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Best affordability since 2022</span>
+        <span class="onscreen-tag">9 quarters improving</span>
+        <span class="onscreen-tag">Condos near pre-pandemic reach</span>
+        <span class="onscreen-tag">But the easy relief is ending</span>
+        <span class="onscreen-tag">The window is open NOW</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>happy couple getting keys to condo · Toronto condo skyline sunset · person counting savings budget notebook · "for sale" sign sunny street · bank affordability chart screen-record</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a young couple smiling as they receive keys in the doorway of a bright new condo, warm natural light, hopeful candid mood, realistic colour grade, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, slow aerial drift over Toronto condo towers at golden hour, calm optimistic tone, warm light, documentary realism, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/07/29/carney-comes-to-alberta-to-join-with-premier-smith-to-announce-homebuilding-plan/">BNN Bloomberg — Carney joins Premier Smith in Red Deer to announce homebuilding plan (July 29, 2026)</a></li>
+      <li><a href="https://www.hilltimes.com/2026/07/29/carney-and-smith-announce-housing-measures-in-alberta/513249/">The Hill Times — Carney and Smith announce housing measures in Alberta (July 29, 2026)</a></li>
+      <li><a href="https://www.cbc.ca/lite/story/1.7632981">CBC — Build Canada Homes: $13B agency, 4,000 modular homes scaling to 45,000 across 6 sites</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/release-the-bank-canadas-summary-deliberations-2026-07-29/">Bank of Canada — Summary of deliberations releasing today, July 29, 2026 (1:30 ET)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — policy rate held at 2.25%, July 15, 2026 (sixth hold)</a></li>
+      <li><a href="https://ca.investing.com/rates-bonds/canada-5-year-bond-yield">Investing.com — Canada 5-year bond yield (~3.1–3.2%, drifting up)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed (~3.94%, rising) &amp; variable rates (July 2026)</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/07/housing-affordability-improves-but-rbc-says-relief-may-be-running-its-course/">Canadian Mortgage Trends — RBC: affordability best in 4 years, but relief may be running its course</a></li>
+      <li><a href="https://betterdwelling.com/canadian-affordability-best-in-4-years-still-at-90s-bubble-levels-rbc/">Better Dwelling — Canadian affordability best in 4 years (RBC, Q1 2026)</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA — June 2026 national statistics (avg price $696,078, sales +0.5% MoM)</a></li>
+      <li><a href="https://trreb.ca/market-data/condo-market-report/">TRREB — Toronto condo market report (avg condo ~$537,300, −8.2% YoY, June 2026)</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260630/dq260630a-eng.htm">Statistics Canada — GDP by industry (April +0.5%); May GDP releases July 31, 2026</a></li>
+      <li><a href="https://www.washingtonpost.com/business/2026/07/23/canada-us-trump-carney-tariffs/">Washington Post — Carney says Canada ready to respond if 50% tariffs take effect Aug 19</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked July 29, 2026</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
