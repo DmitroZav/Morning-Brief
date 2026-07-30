@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Thursday, July 30, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, July 30, 2026</div>
+  <div class="canada-day-badge">BoC SPLIT ON RECOVERY · NEW CONDO SALES +52% · FIXED RATES CREEPING UP · TARIFF CLOCK: 20 DAYS</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">The Bank of Canada published its private meeting notes — and the people who decide your mortgage rate can't agree if the economy is actually recovering</div>
+    <p>Yesterday afternoon (1:30 ET) the Bank of Canada released its "summary of deliberations" — basically the behind-closed-doors notes from the meeting where they held the rate at 2.25% two weeks ago. Normally these are dry. This one wasn't: it shows the governing council is <strong>split</strong>. Some members think Canada is climbing out of its stalled patch; others aren't convinced the recovery is real, and a few are worried that people are starting to expect higher inflation again — which can become a self-fulfilling problem.</p>
+    <p>In plain language: the group in charge of the country's interest rates looked at the same economy and walked out disagreeing about where it's headed. "Inflation expectations" just means what regular people and businesses assume prices will do next — and if everyone braces for higher prices, they tend to actually rise, which makes the Bank reluctant to cut rates.</p>
+    <p><strong>Why it's video-worthy:</strong> the honest headline nobody says is "the experts are guessing too." For anyone waiting for a rate cut to swoop in and rescue their mortgage, this is the reality check: even the Bank of Canada isn't sure a cut is coming. That's a trust-building, calm-the-panic story — and Friday's May GDP number (out July 31) is the next clue that could tip the argument either way.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Toronto's new-condo market just posted its first sales jump in three years (+52%) — but read the fine print: it's a fat tax rebate and big investors doing the buying, not regular first-time buyers coming back.</div>
+    <p style="margin-top:10px;">New condo sales across the Toronto–Hamilton area rose 52% from a year ago in the spring quarter — the first annual gain since 2023. Sounds like the bottom is in. But almost all of that jump came from bulk sales to investment groups snapping up finished, unsold buildings, plus a new HST rebate worth up to $130,000 on new homes under $1 million pulling some buyers off the fence. Sales are still 86% below the normal 10-year pace, and the supply of new projects is "thinning quickly" because builders stopped launching. For you, the takeaway is mixed and useful: prices are soft and there's real money on the table via that rebate — but don't mistake investor activity for a full recovery.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sixth hold in a row (July 15). Prime stays 4.45%. Drives VARIABLE mortgages. Yesterday's deliberations show the council is split on the recovery — a cut before September is far from guaranteed. Next decision Sept 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.20%</td><td>~3.16%</td><td class="tag-up">drifting up</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. It drives FIXED mortgage rates. Back up to ~3.20% (July 29) as Middle East tension keeps oil elevated — enough to nudge fixed rates higher.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED (insured)</td>
+          <td>~3.94–3.99%</td><td>~3.89–3.94%</td><td class="tag-up">rising</td>
+          <td class="plain-meaning">Best advertised insured rate; big banks quote higher. Creeping up with bond yields — the "wait for cheaper fixed" window is closing. See idea 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE (insured)</td>
+          <td>~3.30–3.45%</td><td>~3.30–3.45%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Cheaper than fixed today, but moves with the BoC. With the council divided, no cut is priced in for Sept 2 — it likely sits put.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, May)</td>
+          <td>3.2%</td><td>2.8% (April est.)</td><td class="tag-up">elevated</td>
+          <td class="plain-meaning">Pushed up by gasoline tied to the Middle East. Core (ex-gas) near 2.2%. The Bank expects it to ease toward 2% by early 2027 — if oil cooperates. Next CPI mid-August.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg CONDO price (June)</td>
+          <td>~$631,000</td><td>—</td><td class="tag-down">−9.4% YoY</td>
+          <td class="plain-meaning">Condos remain the softest, most buyer-friendly corner. Lots of listings, sellers who need to deal. Great value for first-timers and downsizers.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTHA new-condo sales (Q2)</td>
+          <td>702 units</td><td>~462 (Q2 '25)</td><td class="tag-up">+52% YoY</td>
+          <td class="plain-meaning">First annual gain since 2023 — but mostly bulk investor buys + the new HST rebate. Still 86% below the 10-yr average. New-project supply "thinning quickly." See The One Thing + idea 3.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg price (CREA, June)</td>
+          <td>$696,078</td><td>~$701,600 (May)</td><td class="tag-down">−0.8% MoM · +0.5% YoY</td>
+          <td class="plain-meaning">Below $700K. Sales +0.5% MoM (third straight monthly gain). Steady, not cratering.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">HST rebate on new homes</td>
+          <td>up to $130,000</td><td>—</td><td class="tag-down">money back</td>
+          <td class="plain-meaning">Expanded rebate on new builds up to $1M got royal assent June 18. Real cash for first-time buyers of new condos. Most newcomers don't know they qualify. See idea 1.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">US–Canada tariffs</td>
+          <td>35% now · 50% Aug 19</td><td>25% earlier</td><td class="tag-up">clock ticking (20 days)</td>
+          <td class="plain-meaning">Non-CUSMA goods jumped to 35% Aug 1; a 50% wave hits Aug 19 on furniture, building materials (lumber, cement), electronics, dairy and more. Carney says "everything's on the table" to respond.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~1.40</td><td>~1.40</td><td class="tag-flat">steady</td>
+          <td class="plain-meaning">Loonie holding. A weaker Canadian dollar makes imported goods pricier for us.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Watch the calendar: May GDP — the freshest read on whether Canada is truly climbing out of its stall — drops tomorrow, Friday July 31. It could settle the argument inside the Bank of Canada. Bond/rate numbers are latest available at brief time.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer or newcomer:</strong> the softest, cheapest part of the market — condos — is also where the government is handing out the most money. New-build condos under $1M can qualify for an HST rebate worth up to $130,000, and condo prices are down more than 9% from a year ago. That's a rare combo: lower price AND a cash rebate. The catch is it only applies to new/pre-construction, and you have to actually claim it — most people I meet don't know it exists. If a new condo fits your plan, this is a real moment. See idea 1.</p>
+    <p><strong>If you're a renter:</strong> the condo glut is still your friend. Thousands of finished, unsold units mean landlords are competing for tenants — so if your lease is up, shop and negotiate instead of auto-renewing. But note the other half of the story: builders have stopped launching new projects, so a few years out there'll be fewer new rentals coming. Today's oversupply is a renter's window that won't stay open forever.</p>
+    <p><strong>If you already own or you're renewing:</strong> stop waiting for the Bank of Canada to rescue you. Its own meeting notes show the council is divided and nervous about inflation — a rate cut before September is not the safe bet people assume. Meanwhile fixed rates are creeping up with bond yields. If you renew in the next few months, grab a rate hold now — most lenders lock today's number free for 90–120 days. That's free insurance while rates drift the wrong way.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS — 16 uploads in the last 36h. The feed clustered around GTA condo pain and the "who's really buying" question. Only posts worth stealing from or studying are listed below. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey <span class="creator-platform">· YouTube · Jul 29</span></div>
+      <div class="creator-note">"I Analyzed 13,318 Toronto Home Sales (The Data Surprised Me)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Polished GTA agent digs through thousands of actual sales to see what the market is really doing.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Steal the FORMAT, not the video. "I read the report on 700 condo sales so you don't have to" — then deliver the one surprising takeaway (it was investors + a tax break, not first-time buyers). The "I did the homework for you" hook builds huge trust with beginners.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen · Toronto Property Finders <span class="creator-platform">· YouTube · Jul 29</span></div>
+      <div class="creator-note">"Properties First Time Buyers Should AVOID In Toronto"</div>
+      <div class="creator-note"><strong>Summary:</strong> Walks through the types of Toronto properties first-timers get burned on.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> First-time buyers ARE your audience. Do the newcomer edition: "3 condos newcomers fall for that quietly cost you later" — high maintenance fees, un-rentable layouts, buildings with special assessments coming. Speak straight to the community that trusts you.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mike Carpino · GTA Real Estate <span class="creator-platform">· YouTube · Jul 29</span></div>
+      <div class="creator-note">"5 GTA Cities Where Home Prices Have Fallen the Most"</div>
+      <div class="creator-note"><strong>Summary:</strong> Ranks the GTA cities with the biggest price drops.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Localize for newcomers — Brampton, Mississauga, Vaughan are where your audience is shopping. "Where your dollar drops the most in the GTA right now" as a fast listicle reel. Pair with the affordability + rebate story so it's opportunity, not doom.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate <span class="creator-platform">· YouTube · Jul 29</span></div>
+      <div class="creator-note">"Terrified Of Overpaying (Toronto, Vaughan, Richmond Hill, Mississauga Condo Prices)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Addresses the #1 fear of buyers right now — buying and watching the price drop.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Nails a real emotion, but you're already covering condos this week. Mine it later for a "how to not overpay in a soft market" checklist reel.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Jul 29</span></div>
+      <div class="creator-note">"Why Toronto Condo Owners Are Quietly Dumping Their Units"</div>
+      <div class="creator-note"><strong>Summary:</strong> Doom-leaning take on investors offloading condos.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Useful as the counter-voice for your idea 3. Don't copy the fear framing — use it to show the balanced picture (yes, some are selling; but sales are also up and there's a tax break pulling buyers in).</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch <span class="creator-platform">· YouTube · Jul 29</span></div>
+      <div class="creator-note">"Canada's debt problem climbs to a breaking point... why 'pent-up demand' isn't happening"</div>
+      <div class="creator-note"><strong>Summary:</strong> Contrarian data take — the expected wave of buyers isn't showing up because households are stretched.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Great intelligence layer, too heavy for a beginner reel as-is. Mine the household-debt stat for a future "why isn't everyone buying if prices dropped?" explainer.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Also posted (SKIP for you)<span class="creator-platform"> · Jul 28–29</span></div>
+      <div class="creator-note">Ilan Portnoi — generic "advice for sellers" Short; Angry Mortgage Clips — "Office Real Estate Is Coming Back" (off-niche, commercial); Mark Mitchell — "CBC's $150M Windfall" (politics); Parallel Wealth — tax-planning; RealEstateTaxTips — power of attorney + passing your home to kids (estate, off-niche today); That Agent Kelly — "Falling Prices Cripple Refinance Options" (worth a peek if you cover refinancing); Audra Lambert — realtor-life shorts; Ken Pozek — Orlando, Florida (not Canada). Nothing to steal today.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The $130,000 rebate on a new condo that most newcomers never claim</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's concrete money (six figures), it's a genuine lifehack most people don't know, it speaks directly to newcomers, and it's tied to fresh news (the rebate helped drive this quarter's condo-sales jump). Save-and-share gold.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Newcomer lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"There's a $130,000 rebate most newcomers miss."</div>
+        <div><strong>Spoken:</strong> "If you're buying a brand-new condo in Ontario, the government will hand you back up to $130,000 — and almost nobody I meet knows they qualify."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"The government owes you $130,000. Really."</div>
+        <div><strong>Spoken:</strong> "Buy a new build under a million dollars and there's a tax rebate worth up to $130,000 waiting for you. Here's how it actually works — in plain English."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Nobody's telling you</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Your builder won't remind you about this."</div>
+        <div><strong>Spoken:</strong> "Nobody at the sales centre is going to volunteer this, so I will — there's a new HST rebate that can save you six figures on a new condo."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "If you're buying a brand-new condo in Ontario, the government will hand you back up to $130,000 — and almost nobody I meet knows they qualify."</p>
+        <p><strong>Body:</strong> "Here's the deal. When you buy a NEW home — pre-construction or newly built, not a resale — you pay HST on it, the sales tax. The government now gives a big chunk of that back as a rebate, up to $130,000 on new homes worth up to a million dollars. That change became law in June, and it's a real reason new-condo sales just jumped this spring.<br><br>Two things to know. One: it's for NEW builds only. A resale condo doesn't count. Two: you have to actually apply — it's not automatic, and a busy sales rep isn't going to chase you for it. Get it in writing who's filing it, you or the builder.<br><br>Why this matters for you: condo prices are already down about 9% from last year. Add a rebate worth up to six figures on top, and the math on a new condo looks better than it has in years — especially if you're a first-time buyer or new to Canada and thought ownership was out of reach."</p>
+        <p><strong>CTA:</strong> "Comment REBATE and I'll send you the plain-English checklist of who qualifies and how to claim it. Follow — I live here, I sell here, and I explain this stuff so you don't leave money on the table."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Up to $130,000 back</span>
+        <span class="onscreen-tag">NEW builds only</span>
+        <span class="onscreen-tag">Homes up to $1M</span>
+        <span class="onscreen-tag">You must APPLY</span>
+        <span class="onscreen-tag">Condo prices −9% too</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>new condo presentation centre model suite · person signing purchase agreement close-up · Toronto condo tower construction crane · calculator and dollar bills on table · handing over house keys new condo</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a young couple touring a bright modern condo model suite with a sales agent gesturing at a floor plan, warm natural light, candid documentary realism, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, close-up of hands using a calculator next to stacks of Canadian dollar bills and a condo brochure on a wooden table, soft window light, realistic, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">The Bank of Canada just told on itself — stop waiting for a rate cut</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's yesterday's fresh news (the deliberations), it kills a comforting myth ("a cut is coming soon"), and it gives a clear action. Contrarian + timely + wallet-level.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Stop waiting for a cheaper mortgage."</div>
+        <div><strong>Spoken:</strong> "The Bank of Canada just released its private meeting notes, and they quietly killed the 'wait for a rate cut' plan a lot of you are counting on."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Question that can't be ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Why can't the Bank of Canada agree?"</div>
+        <div><strong>Spoken:</strong> "The people who decide whether your mortgage gets cheaper just admitted they're split — some think the economy's recovering, some are scared inflation's coming back. Here's what that means for you."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Stakes / "this costs you"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"This is why your rate isn't dropping."</div>
+        <div><strong>Spoken:</strong> "If you're renting or renewing and waiting for rates to fall before you act, the Bank of Canada's own notes just told you not to hold your breath."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "The Bank of Canada just released its private meeting notes, and they quietly killed the 'wait for a rate cut' plan a lot of you are counting on."</p>
+        <p><strong>Body:</strong> "Quick background. A few weeks ago the Bank of Canada held its interest rate — the sixth time in a row. Yesterday they published the notes from that meeting. Normally boring. This time they showed the decision-makers are actually divided. Some think Canada's economy is recovering. Others aren't sure, and a few are worried people are starting to expect higher prices again — which can make inflation stick around.<br><br>Why care? Because when the Bank is nervous about inflation, it does NOT cut rates. So the popular plan — 'I'll just wait for rates to drop and then buy or renew' — is a weak bet right now. On top of that, FIXED mortgage rates are actually creeping UP, because they follow government bond yields, not the Bank's rate.<br><br>So here's what I'd do. If you're renewing soon, ask your lender for a rate hold — they'll lock today's rate free for 90 to 120 days. If you're buying, run the numbers on today's rate, not a fantasy future one. Plan around what's real."</p>
+        <p><strong>CTA:</strong> "Want the one question to ask your lender before you lock? Comment RATE. Follow — I live here, I sell here, and I keep this stuff honest and simple."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">BoC council is SPLIT</span>
+        <span class="onscreen-tag">Worried about inflation</span>
+        <span class="onscreen-tag">Cut = not guaranteed</span>
+        <span class="onscreen-tag">Fixed rates creeping UP</span>
+        <span class="onscreen-tag">Grab a free rate hold</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Bank of Canada building exterior Ottawa · news anchor interest rate headline screen-record · person worried looking at bills at kitchen table · stock ticker bond yield rising · hand signing mortgage documents close-up</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, the stone facade of a central bank building with a fluttering Canadian flag, overcast serious mood, documentary realism, muted colour grade, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a person at a kitchen table frowning at a laptop and a stack of mortgage papers, soft morning light, candid realistic mood, shallow depth of field, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Toronto condo sales jumped 52% — is the crash over? The honest version</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's fresh data, the "is the bottom in?" question is exactly what buyers are asking, and your honest "it's mostly investors + a tax break, not regular buyers" read separates you from both hype and doom. Pairs with Tom Storey / Property Daily.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Toronto condo sales just jumped 52%."</div>
+        <div><strong>Spoken:</strong> "New condo sales in Toronto just jumped 52% — the first increase in three years. So is the crash over? Not so fast."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"The condo 'recovery' isn't what it looks like."</div>
+        <div><strong>Spoken:</strong> "Everyone's celebrating that condo sales are up again. I read the actual report — and most of that jump isn't regular buyers like you."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Nobody's telling you</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Who's really buying these condos? Not you."</div>
+        <div><strong>Spoken:</strong> "Condo sales are up 52% and the headlines scream 'recovery' — but nobody's telling you WHO actually bought them. It changes how you should make an offer."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "New condo sales in Toronto just jumped 52% — the first increase in three years. So is the crash over? Not so fast."</p>
+        <p><strong>Body:</strong> "Here's what the report actually says. Yes, new-condo sales rose 52% from last year. But dig in: most of that came from big investment groups buying whole blocks of finished, unsold units at a discount — not first-time buyers coming back. The rest came from that new HST rebate pulling a few people off the fence. And sales are STILL about 86% below the normal pace of the last decade.<br><br>So what does it mean for you? Two honest things. First, don't panic-buy because 'the market's back' — it's not, not really. There's still a mountain of unsold condos, which keeps prices soft and gives YOU room to negotiate. Second, the smart money is buying at these prices — that tells you value is here, even if the recovery isn't. If you're a real buyer with a plan, a soft market full of motivated sellers is a gift, not a warning."</p>
+        <p><strong>CTA:</strong> "Want me to break down whether a specific building is a deal or a trap? Comment your neighbourhood. Follow — I live here, I sell here, and I'll always give you the version behind the headline."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Sales +52% YoY</span>
+        <span class="onscreen-tag">Mostly bulk investors</span>
+        <span class="onscreen-tag">Still 86% below normal</span>
+        <span class="onscreen-tag">Prices still soft</span>
+        <span class="onscreen-tag">Negotiating power = yours</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Toronto condo skyline aerial · empty unsold condo units interior · investor handshake business deal · "for sale" condo signs row · person scrolling real estate listings phone</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, slow aerial drift over a dense cluster of Toronto condo towers at blue hour, some windows dark and empty, calm analytical mood, realistic, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, two people in business attire shaking hands inside an empty modern condo with boxes, cool light through floor-to-ceiling windows, documentary realism, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/07/publication-summary-of-deliberations-july-29-2026/">Bank of Canada — Summary of deliberations, published July 29, 2026 (council split on recovery; inflation-expectation concerns)</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-07-29/some-bank-of-canada-officials-worried-about-growth-inflation-expectations">Bloomberg — BoC officials split on recovery prospects, inflation expectations (July 29, 2026)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — policy rate held at 2.25%, July 15, 2026 (sixth hold)</a></li>
+      <li><a href="https://www.urbanation.ca/news/gtha-new-condo-sales-increase-over-50-q2">Urbanation — GTHA new condo sales +52% in Q2-2026 (first gain since 2023; bulk investor buys + HST rebate; 86% below 10-yr avg)</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/07/20/new-condo-sales-in-the-gtha-rose-last-quarter-and-supply-now-thinning-quickly-amid-slowdown-in-construction-report/">BNN Bloomberg — New GTHA condo sales rose, supply "thinning quickly"</a></li>
+      <li><a href="https://ca.finance.yahoo.com/news/condos-drive-torontos-first-sales-200953334.html">Yahoo Finance Canada — New condos drive Toronto's first sales increase in nearly three years</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-year bond yield rose to 3.20% (July 29, 2026)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed (~3.94–3.99%, rising) &amp; variable rates (July 2026)</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA — June 2026 national statistics (avg price $696,078, sales +0.5% MoM)</a></li>
+      <li><a href="https://www.reminetwork.com/articles/condo-sales-gtha/">REMI Network — GTHA new condo sales up 52% in Q2 (HST rebate detail: up to $130,000 on homes up to $1M, royal assent June 18, 2026)</a></li>
+      <li><a href="https://www.mpamag.com/ca/mortgage-industry/market-updates/gtha-new-condo-sales-climb-but-supply-threat-looms/582969">Canadian Mortgage Professional — GTHA new condo sales climb, supply threat looms</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260731/dq260731a-eng.htm">Statistics Canada — May GDP by industry releases Friday, July 31, 2026</a></li>
+      <li><a href="https://finance.yahoo.com/economy/policy/articles/mark-carney-warns-canada-full-220013422.html">Yahoo Finance — Carney warns Canada has "full range" of responses if 50% tariffs take effect Aug 19</a></li>
+      <li><a href="https://www.blakes.com/insights/us-canada-tariffs-timeline-of-key-dates-and-documents/">Blakes — US–Canada tariffs timeline (35% on non-CUSMA goods Aug 1; 50% wave Aug 19)</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked July 30, 2026</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
