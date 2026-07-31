@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Friday, July 31, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Friday, July 31, 2026</div>
+  <div class="canada-day-badge">Q2 GDP REBOUNDS ~2.5% · 35% TARIFFS HIT AUG 1 · NEW-HOME PRICES WORST MONTH ON RECORD · CONDOS −9.4%</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada just climbed out of recession — and tomorrow a 35% tariff wall lands on our exports</div>
+    <p>Two big things collided this morning. First, Statistics Canada released the May GDP numbers plus an early "flash" read on the spring quarter. GDP — gross domestic product, basically the total value of everything the country produces — grew a tiny 0.1% in May, slower than April's 0.5%, but the early tracking for the full April–June quarter is a solid ~2.5% growth (annualized). That matters because Canada had just gone through two straight quarters of shrinking (a "technical recession"). So on paper, we're out.</p>
+    <p>Second, the timing couldn't be worse. Starting tomorrow, August 1, the US raises its tariff — a tax on imported goods — on Canadian products that don't qualify under the CUSMA trade deal from 25% to <strong>35%</strong>. Energy and potash stay at a lower 10%, and CUSMA-compliant goods are still exempt. A second wave of 50% tariffs on furniture, cement, lumber, dairy and more is set for August 19. Prime Minister Carney called it a direct violation of the trade agreement.</p>
+    <p><strong>Why it's video-worthy:</strong> "We left the recession for exactly one day" is a hook that writes itself. The honest, calm-the-panic version — we're growing again, but a trade fight starting tomorrow could tax the very building materials that make homes cheaper — is exactly the plain-language, wallet-first story your audience isn't getting anywhere else.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The economy is technically growing again (~2.5% in Q2) — but tomorrow's 35% tariffs threaten the recovery, and if building materials get taxed, the cost of new homes goes the wrong way.</div>
+    <p style="margin-top:10px;">Here's the chain in plain English. Growth is back, which normally eases pressure and could eventually help rates settle. But a big chunk of the new 50% tariff wave (Aug 19) hits construction materials — lumber, cement, furniture. When it costs more to build, builders either raise prices or stop building. Canada's housing starts already fell 6% in June and are down 13% from a year ago. Fewer new homes plus pricier materials is the opposite of what a country with an affordability crisis needs. For you: don't read "we're out of recession" as "all clear" — the next month is where it actually gets decided.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">May GDP (monthly)</td>
+          <td>+0.1%</td><td>+0.5% (April)</td><td class="tag-flat">slowing, still positive</td>
+          <td class="plain-meaning">The economy grew, just barely. But the early Q2 estimate (~2.5% annualized) says Canada bounced back after two shrinking quarters. Translation: technically out of recession — for now.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sixth hold in a row (July 15). Prime stays 4.45%. Drives VARIABLE mortgages. A growing economy gives the Bank less reason to cut. Next decision Sept 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.20%</td><td>~3.16%</td><td class="tag-up">drifting up</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. It drives FIXED mortgage rates. Holding near 3.20% — a firmer economy keeps it from falling.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED (insured)</td>
+          <td>~3.94–3.99%</td><td>~3.94–3.99%</td><td class="tag-flat">holding</td>
+          <td class="plain-meaning">Best advertised insured rate; big banks quote higher. Not falling — the "wait for cheaper fixed" bet keeps getting weaker. See idea 1.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE (insured)</td>
+          <td>~3.30–3.45%</td><td>~3.30–3.45%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Cheaper than fixed today, but moves with the BoC. With growth back, a near-term cut looks less likely — it likely sits put.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, May)</td>
+          <td>3.2%</td><td>2.8% (April est.)</td><td class="tag-up">elevated</td>
+          <td class="plain-meaning">Still above the Bank's 2% target. New tariffs could push some prices higher, which is exactly what keeps the Bank cautious. Next CPI mid-August.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg CONDO price (June)</td>
+          <td>~$631,000</td><td>—</td><td class="tag-down">−9.4% YoY</td>
+          <td class="plain-meaning">Condos remain the softest, most buyer-friendly corner. Lots of listings, motivated sellers. Real value for first-timers and downsizers.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">New-home prices (GTA, latest month)</td>
+          <td>worst month on record</td><td>—</td><td class="tag-down">record drop</td>
+          <td class="plain-meaning">Brand-new (pre-construction/new build) home prices just posted their weakest month ever recorded. Painful for sellers/investors; an opening for real buyers. See idea 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg price (CREA, June)</td>
+          <td>$696,078</td><td>~$701,600 (May)</td><td class="tag-down">−0.8% MoM · +0.5% YoY</td>
+          <td class="plain-meaning">Below $700K. Sales grinding higher for a third straight month. Steady, not cratering.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC, June)</td>
+          <td>238,971</td><td>253,083 (May)</td><td class="tag-down">−6% MoM · −13% YoY</td>
+          <td class="plain-meaning">"Starts" = new homes builders began. Down again. Fewer homes being built now means tighter supply later — and tariffs on materials could make it worse.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Nova Scotia typical home (June)</td>
+          <td>$463,430</td><td>~$440,000 (May)</td><td class="tag-up">+5.2% MoM</td>
+          <td class="plain-meaning">The "downturn" isn't everywhere. East Coast prices jumped near a record even as demand cooled — a reminder Canada is many markets, not one.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">US–Canada tariffs</td>
+          <td>35% Aug 1 · 50% Aug 19</td><td>25% earlier</td><td class="tag-up">clock ticking (Aug 1)</td>
+          <td class="plain-meaning">Non-CUSMA goods jump to 35% tomorrow; energy/potash stay at 10%; a 50% wave hits furniture, lumber, cement, dairy Aug 19. Carney: a "direct violation" of CUSMA.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~1.40</td><td>~1.40</td><td class="tag-flat">steady</td>
+          <td class="plain-meaning">Loonie holding. A weaker Canadian dollar makes imported goods pricier for us — worth watching as the trade fight heats up.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Today's headliners: May GDP + Q2 flash (StatCan, this morning) and the 35% tariff taking effect tomorrow, Aug 1. Bond/rate figures are latest available at brief time. Next big date: BoC rate decision Sept 2; next CPI mid-August.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer or newcomer:</strong> the softest parts of the market — condos (−9.4% from last year) and brand-new homes (worst month on record) — are where you have the most power right now. Motivated sellers, room to negotiate, and on new builds a possible HST rebate worth up to $130,000 on homes under $1M. The risk on the horizon: if tariffs push up the cost of building materials, new-build prices could firm back up later this year. Today's soft new-home market may be a window, not a permanent state. See idea 2.</p>
+    <p><strong>If you're a renter:</strong> the "we're out of recession" headline doesn't change your rent tomorrow, but it does lower the odds of a quick rate cut — so don't count on falling rates to suddenly make buying cheap. Meanwhile the condo glut still works in your favour: landlords are competing for tenants. If your lease is up, shop and negotiate rather than auto-renew.</p>
+    <p><strong>If you already own or you're renewing:</strong> a growing economy plus sticky 3.2% inflation plus new tariffs that could nudge prices up = the Bank of Canada has fewer reasons to cut and one more reason to wait. Fixed rates aren't falling. If you renew in the next few months, ask your lender for a rate hold now — most lock today's number free for 90–120 days. Free insurance while the picture stays cloudy. See idea 3.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS — 16 uploads in the last 36h. The feed clustered around new-home price pain, affordability, and BC pre-sale losses. Only posts worth stealing from or studying are listed below. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi <span class="creator-platform">· YouTube · Jul 30</span></div>
+      <div class="creator-note">"Toronto New Home Prices Just Had The Worst Month On Record"</div>
+      <div class="creator-note"><strong>Summary:</strong> Breaks down the record-weak month for brand-new home prices in the GTA.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 2. Steal the news peg, flip the framing: he leads with doom, you lead with opportunity + the newcomer rebate. "Worst month for new-home prices = your best shot to buy one" — same fact, your optimistic, wallet-first lens.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Zhen Liang · Prime Properties TO <span class="creator-platform">· YouTube · Jul 30</span></div>
+      <div class="creator-note">"Canadian Home Prices Are Back to 2016. Your Income IS NOT 😥"</div>
+      <div class="creator-note"><strong>Summary:</strong> Prices in parts of Canada have fallen to 2016 levels, but wages haven't kept up — affordability is still broken.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Steal the hook structure ("prices back to 2016, your paycheque isn't") — it's a perfect relatable-pain opener. Rebuild it in your voice with the honest twist: a cheaper sticker doesn't help if the mortgage math doesn't work. This is idea 3.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Kevin Yu · Toronto Real Estate <span class="creator-platform">· YouTube · Jul 31</span></div>
+      <div class="creator-note">"Toronto Semi to Detached Breakdown: The Numbers Will Shock You"</div>
+      <div class="creator-note"><strong>Summary:</strong> Compares what your money actually buys — semi vs. detached — with real numbers.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Good "what does your budget really get you" format to mine later for a newcomer explainer ("$700K in the GTA: condo, semi, or detached?"). Not today's news peg, so park it.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch <span class="creator-platform">· YouTube · Jul 30</span></div>
+      <div class="creator-note">"Canada's unemployment rate could be wrong, CIBC report says (why it matters for house prices)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Argues the official jobless number may understate weakness — and that shapes rate cuts and home prices.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Strong intelligence layer, too wonky for a beginner reel as-is. Mine the "the data might be lying to you" idea for a future trust-building explainer.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Jul 30</span></div>
+      <div class="creator-note">"Why Vancouver Pre-Sale Buyers Are Losing $100,000 Before They Even Move In"</div>
+      <div class="creator-note"><strong>Summary:</strong> Doom-leaning look at pre-construction buyers underwater on completion.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Useful counter-voice for your new-build story (idea 2). Don't copy the fear framing — use it to show the balanced picture: pre-construction has real risk, but a rebate + soft resale market changes the math for careful buyers.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate <span class="creator-platform">· YouTube · Jul 30</span></div>
+      <div class="creator-note">"You're Going To Be Disappointed (Vaughan, Richmond Hill, Markham Home Prices)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Manages expectations on 905-belt home prices.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Same 905 markets your audience shops. Mine later for a "what your dollar buys in Vaughan vs. Markham right now" localized reel.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Also posted (SKIP for you)<span class="creator-platform"> · Jul 30–31</span></div>
+      <div class="creator-note">Toronto Realty Group / David Fleming — "Welcome To King West" neighbourhood tour (nice, but no news peg); Angry Mortgage Clips — "Losing to a LOGO" (branding rant, off-topic); Alex Applegate — "$1.5M Losses: Toronto's Luxury Real Estate Collapse" (luxury, off your core audience); Audra Lambert — Tuscan home remodel (interior design); Parallel Wealth — TFSA retiree strategy (personal finance, off-niche); That Agent Kelly — Fraser Valley / Cloverdale (BC local); Ilan Portnoi — Newmarket family neighbourhoods (evergreen, not news); Ken Pozek — Orlando, Florida (not Canada). Nothing to steal today.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Canada left the recession — for exactly one day</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's today's biggest news, the "one day" framing is a scroll-stopper, and it ties a scary word (recession) to a real-tomorrow event (tariffs) with a clear wallet takeaway. Timely + contrarian + shareable.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock / Stakes</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Canada left the recession. For one day."</div>
+        <div><strong>Spoken:</strong> "Canada's economy just clawed its way out of recession — and tomorrow morning a 35% tariff wall could knock it right back."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Good news you'll feel for 24 hours."</div>
+        <div><strong>Spoken:</strong> "The economy grew again and the headlines are cheering — but the timing is brutal. Here's what tomorrow's tariffs actually do to your cost of living."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Question that can't be ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"We just exited a recession. Why is nobody happy?"</div>
+        <div><strong>Spoken:</strong> "Canada was technically in a recession. Today's numbers say we're out. So why is nobody celebrating? Because of what lands tomorrow."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Canada's economy just clawed its way out of recession — and tomorrow morning a 35% tariff wall could knock it right back."</p>
+        <p><strong>Body:</strong> "Quick plain-English version. A recession is just when the economy shrinks two quarters in a row. Canada did exactly that over the winter. This morning the fresh numbers came out and the spring quarter grew about 2.5% — so on paper, we're out.<br><br>Here's the catch. Starting tomorrow, August 1st, the US raises its tax on a lot of Canadian goods from 25% to 35%. And on August 19th a second wave — 50% — hits things like furniture, lumber and cement. Why should you care? Because lumber and cement build homes. When it costs more to build, builders either charge more or stop building. We're already building fewer homes this year, not more.<br><br>So don't read 'out of recession' as 'all clear.' Growth is back, but the next few weeks decide whether it sticks — and whether the stuff you buy, and the homes we build, get more expensive."</p>
+        <p><strong>CTA:</strong> "Want me to keep translating this economy stuff into plain English every morning? Follow — I live here, I sell here, and I'll always tell you what it means for your wallet."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Recession = 2 shrinking quarters</span>
+        <span class="onscreen-tag">Q2 grew ~2.5%</span>
+        <span class="onscreen-tag">35% tariffs Aug 1</span>
+        <span class="onscreen-tag">50% wave Aug 19</span>
+        <span class="onscreen-tag">Lumber + cement = homes</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Canada US border crossing trucks · shipping containers port cargo · lumber yard stacked wood · GDP news headline screen-record · construction site framing house Canada</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a long line of transport trucks waiting at a Canada–US border crossing under grey sky, national flags visible, documentary realism, muted colour grade, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, slow push-in on stacks of fresh lumber and bags of cement in a Canadian building-supply yard, early morning light, realistic, shallow depth of field, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">New-home prices just had their worst month ever — that's your window</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fresh news peg (steal from Ilan Portnoi), flips doom into opportunity, and stacks a six-figure rebate most newcomers don't know about. Save-and-share gold for first-time buyers.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Worst month ever = your best shot."</div>
+        <div><strong>Spoken:</strong> "New home prices in Toronto just had their worst month on record. If you're trying to buy, that's not bad news — that's your window."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"New-home prices: worst month on record."</div>
+        <div><strong>Spoken:</strong> "Brand-new home prices just posted the biggest monthly drop ever recorded in the GTA. Here's who loses — and who quietly wins."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Newcomer lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"New to Canada? Read this before you buy."</div>
+        <div><strong>Spoken:</strong> "New-home prices are falling harder than they ever have — and there's a rebate worth up to $130,000 that almost no newcomer I meet knows exists."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "New home prices in Toronto just had their worst month on record. If you're trying to buy, that's not bad news — that's your window."</p>
+        <p><strong>Body:</strong> "Let me explain who this helps. 'New home' means a brand-new build or pre-construction — not a resale. Prices there just dropped more in one month than they ever have on record. For sellers and investors, that hurts. For a real buyer with a plan, it means motivated builders and room to negotiate that didn't exist a year ago.<br><br>Now stack this on top. On a new build under a million dollars, there's an HST rebate — money back on the sales tax — worth up to $130,000. It became law this summer. Two rules: it's new builds only, and you have to actually apply — it's not automatic, and a busy sales rep won't chase you for it.<br><br>One honest caution: don't buy pre-construction blind. In some cities, buyers who signed years ago are closing underwater. So negotiate hard, check the builder, and run the real numbers. But a record-soft market plus a six-figure rebate? That combo doesn't show up often."</p>
+        <p><strong>CTA:</strong> "Comment REBATE and I'll send you the plain-English checklist of who qualifies. Follow — I live here, I sell here, and I don't want you leaving money on the table."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">New builds only</span>
+        <span class="onscreen-tag">Worst month on record</span>
+        <span class="onscreen-tag">Up to $130,000 back</span>
+        <span class="onscreen-tag">You must APPLY</span>
+        <span class="onscreen-tag">Negotiate — don't buy blind</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>new condo presentation centre model suite · pre-construction sign Toronto site · person signing purchase agreement close-up · calculator dollar bills on table · handing over new condo keys</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a young newcomer couple touring a bright modern condo model suite while an agent points at a floor plan, warm natural light, candid documentary realism, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, close-up of hands using a calculator beside stacks of Canadian dollar bills and a new-condo brochure on a wooden table, soft window light, realistic, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Home prices are back to 2016 — your paycheque isn't</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: borrowed hook from Zhen Liang, hits the #1 pain point (affordability), and your honest "cheaper sticker ≠ affordable" twist stops both the hype and the doom. Highly relatable = high engagement.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Home prices: back to 2016."</div>
+        <div><strong>Spoken:</strong> "Home prices in parts of Canada just fell back to 2016 levels. Sounds great — except your paycheque is still paying 2026 prices for everything else."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Stakes / "this costs you"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Cheaper homes you still can't afford."</div>
+        <div><strong>Spoken:</strong> "Prices dropped to where they were nine years ago, and buying still feels impossible. Let me show you the one number that actually decides it."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Falling prices won't save you. This will."</div>
+        <div><strong>Spoken:</strong> "Everyone's celebrating that prices are back to 2016. But a cheaper sticker doesn't help if the mortgage math doesn't work. Here's what actually moves the needle."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Home prices in parts of Canada just fell back to 2016 levels. Sounds great — except your paycheque is still paying 2026 prices for everything else."</p>
+        <p><strong>Body:</strong> "Here's the trap nobody explains. Yes, the sticker price on some homes has slipped back years. But affordability isn't just the price — it's the price plus the interest rate plus your income. In 2016 a 5-year mortgage was around 2.5%. Today it's near 4%. So even at a 2016 price, your monthly payment can be higher than it was back then, because borrowing costs more.<br><br>And your income? Rent, groceries, everything else went up — but most paycheques didn't keep pace. So the gap between what a home costs to carry and what you actually earn is the real problem, not the sticker.<br><br>What this means for you: don't wait for prices alone to 'save' you. The three levers that actually change your buying power are your rate, your down payment, and your income. Focus there. A softer market helps — but only if the monthly math works. Run your real payment before you fall in love with a listing."</p>
+        <p><strong>CTA:</strong> "Want the simple 3-number check I use before I tell a client they can afford a place? Comment MATH. Follow — I live here, I sell here, and I'll always give you the honest version."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Prices: back to 2016</span>
+        <span class="onscreen-tag">2016 rate ~2.5% → now ~4%</span>
+        <span class="onscreen-tag">Income didn't keep up</span>
+        <span class="onscreen-tag">Payment &gt; price</span>
+        <span class="onscreen-tag">Rate · down payment · income</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>person looking at pay stub kitchen table · grocery receipt close-up rising prices · Toronto neighbourhood homes for sale signs · calculator mortgage payment phone · young couple stressed budgeting laptop</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a person at a kitchen table comparing a pay stub and a stack of bills with a worried expression, soft morning light, candid realistic mood, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a quiet residential street of Canadian houses with several 'for sale' signs, overcast light, calm documentary realism, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bnnbloomberg.ca/business/economics/2026/07/31/statistics-canada-to-report-may-gdp-and-early-look-at-q2-economic-results/">BNN Bloomberg — StatCan reports May GDP (+0.1%) and Q2 flash estimate (~2.5% annualized), July 31, 2026</a></li>
+      <li><a href="https://www.theglobeandmail.com/business/economy/article-statistics-canada-may-2026-gdp-economic-growth/">The Globe and Mail — StatCan to report May GDP and second-quarter flash estimate</a></li>
+      <li><a href="https://continuumeconomics.com/a/94d86a51/preview-due-july-31-canada-may-gdp-heading-for-a-healthy-q2">Continuum Economics — Canada May GDP preview, Q2 tracking ~2.5%</a></li>
+      <li><a href="https://www.ghy.com/trade-compliance/us-to-impose-35%25-tariff-on-canada-aug-1-trump-warns-of-retaliatory-escalation/">GHY International — US to impose 35% tariff on Canada Aug 1 (energy/potash 10%, CUSMA exempt, 40% transshipment)</a></li>
+      <li><a href="https://www.wiley.law/alert-President-Trump-Imposes-New-50-Tariffs-on-Certain-Canadian-Imports">Wiley — New 50% tariffs on certain Canadian imports (furniture, lumber, cement, dairy), Aug 19</a></li>
+      <li><a href="https://thehill.com/policy/international/5979864-mark-carney-donald-trump-tariffs-canadian-wildfires/">The Hill — Carney calls latest tariffs a "direct violation" of CUSMA</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/07/16/cmhc-reports-annual-rate-of-housing-starts-in-june-down-6-from-may/">BNN Bloomberg — CMHC: June housing starts 238,971, down 6% from May, −13% YoY</a></li>
+      <li><a href="https://torontolife.com/real-estate/home-sales-condos-trred-june-2026/">Toronto Life — GTA sales up, condo prices down 9.4% to ~$631K (June 2026 TRREB)</a></li>
+      <li><a href="https://betterdwelling.com/nova-scotia-home-prices-make-near-record-jump-despite-falling-demand/">Better Dwelling — Nova Scotia typical home +5.2% to $463,430 in June despite falling demand (July 30, 2026)</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-year bond yield ~3.20% (late July 2026)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed (~3.94–3.99%) &amp; variable (~3.30–3.45%), July 2026</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA — June 2026 national statistics (avg price $696,078)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — policy rate held at 2.25%, July 15, 2026 (sixth hold); next decision Sept 2</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked July 31, 2026 (16 uploads in last 36h)</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
