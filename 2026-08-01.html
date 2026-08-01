@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Saturday, August 1, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Saturday, August 1, 2026</div>
+  <div class="canada-day-badge">35% TARIFFS NOW LIVE · FIXED RATES BACK ABOVE 4% · BOND YIELD 3.26% · 905 POWER-OF-SALE SPIKE</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">The 35% tariff wall is no longer a warning — it's live as of this morning</div>
+    <p>Yesterday it was "starting tomorrow." Today it's real. As of August 1, the US officially raised its tariff — a tax on imported goods — on Canadian products that don't qualify under the CUSMA trade deal from 25% to <strong>35%</strong>. Trump signed the order Thursday, ahead of the deadline. Energy and potash stay at a lower 10%, and CUSMA-compliant goods are still exempt.</p>
+    <p>Prime Minister Mark Carney says he's "disappointed" but struck a deliberately calm tone: even with this hike, Canada still faces <strong>among the lowest average tariff rates</strong> of any US trading partner, precisely because most of our trade moves under CUSMA. His bigger worry is the sector-specific tariffs already hitting lumber, steel, aluminum and autos — and a second wave of 50% tariffs on furniture, cement, lumber and dairy set for August 19.</p>
+    <p><strong>Why it's video-worthy:</strong> the news cycle is screaming "35% TARIFF." Your job is the honest, calm-the-panic version: yes it's real, no it's not the apocalypse, and here's the one part that actually touches your rent and your future home — the building materials. That measured, wallet-first take is exactly what your audience isn't getting from the fear headlines.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The tariffs are live and fixed mortgage rates just climbed back above 4% — the "wait for cheaper borrowing" bet keeps getting weaker, not stronger.</div>
+    <p style="margin-top:10px;">Two things moved together. The bond market (where the government borrows money) got jittery — the 5-year Government of Canada bond yield ticked up to about 3.26%. That yield is what drives FIXED mortgage rates, so the best insured 5-year fixed just crossed back over 4% (4.04%), and most lenders' fixed rates are now above 4 again. Meanwhile a growing economy (Q2 tracked ~2.5%) plus sticky inflation plus fresh tariffs give the Bank of Canada fewer reasons to cut. For you: if you've been waiting on the sidelines betting rates will tumble, that bet is aging badly. Don't plan your purchase around a rate cut that keeps not showing up.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">US–Canada tariffs</td>
+          <td>35% LIVE (Aug 1)</td><td>25%</td><td class="tag-up">now in effect</td>
+          <td class="plain-meaning">Non-CUSMA goods jumped to 35% today; energy/potash stay 10%; CUSMA goods exempt. A 50% wave on furniture, lumber, cement, dairy lands Aug 19. Carney: "disappointed," but Canada still among lowest-tariffed US partners.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.26%</td><td>~3.20%</td><td class="tag-up">climbing</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. It drives FIXED mortgage rates. Nudged up as markets weigh tariffs and sticky inflation — which pushes fixed rates up too.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED (insured)</td>
+          <td>~4.04%</td><td>~3.94–3.99%</td><td class="tag-up">back above 4%</td>
+          <td class="plain-meaning">Best advertised insured rate just crossed back over 4%; most lenders' fixed rates are above 4 again. Big banks quote higher (Scotia ~4.24%). The "wait for cheaper fixed" bet keeps losing. See idea 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE (insured)</td>
+          <td>~3.40%</td><td>~3.30–3.45%</td><td class="tag-flat">roughly flat</td>
+          <td class="plain-meaning">Still cheaper than fixed today, but moves with the BoC. With growth back and a near-term cut less likely, it's sitting put.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sixth hold in a row (July 15). Prime stays 4.45%. Drives VARIABLE mortgages. Next decision Sept 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Q2 GDP (flash estimate)</td>
+          <td>~2.5% annualized</td><td>2 shrinking quarters</td><td class="tag-down">rebound</td>
+          <td class="plain-meaning">Early tracking says the spring quarter grew ~2.5% after two shrinking quarters. Translation: technically out of recession — for now. A firmer economy means less pressure to cut rates.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, May)</td>
+          <td>3.2%</td><td>2.8% (April est.)</td><td class="tag-up">elevated</td>
+          <td class="plain-meaning">Still above the Bank's 2% target. New tariffs could push some prices higher — exactly what keeps the Bank cautious. Next CPI mid-August.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, June)</td>
+          <td>$1,058,658 · 6,770 sales</td><td>—</td><td class="tag-down">−3.9% YoY price · +9.4% YoY sales</td>
+          <td class="plain-meaning">More people are buying (sales up), but average prices are still below last year. Buyers have choice and negotiating room. July report due ~Aug 5.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg CONDO price (June)</td>
+          <td>~$631,000</td><td>—</td><td class="tag-down">−9.4% YoY</td>
+          <td class="plain-meaning">Condos remain the softest, most buyer-friendly corner. Lots of listings, motivated sellers. Real value for first-timers and downsizers.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg price (CREA, June)</td>
+          <td>$696,078</td><td>~$701,600 (May)</td><td class="tag-down">−0.8% MoM · +0.5% YoY</td>
+          <td class="plain-meaning">Below $700K. Sales grinding higher for a third straight month. Steady, not cratering — but very uneven by region.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC, June)</td>
+          <td>238,971</td><td>253,083 (May)</td><td class="tag-down">−6% MoM · −13% YoY</td>
+          <td class="plain-meaning">"Starts" = new homes builders began. Down again. Fewer homes now means tighter supply later — and tariffs on materials could make building even pricier.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~1.40</td><td>~1.40</td><td class="tag-flat">steady</td>
+          <td class="plain-meaning">Loonie holding. A weaker Canadian dollar makes imported goods pricier for us — worth watching as the trade fight heats up.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Today's headliners: the 35% tariff taking effect (Aug 1) and fixed mortgage rates crossing back above 4% as bond yields firm. Home-price figures are the latest official releases (TRREB/CREA June; July TRREB report expected ~Aug 5). Next big dates: BoC rate decision Sept 2; next CPI mid-August.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer or newcomer:</strong> stop waiting for a rate cut to rescue you. Fixed rates just went the wrong way (back above 4%), and the Bank of Canada has fewer reasons to cut with the economy growing again. The leverage you actually have right now is on price and choice — condos are down 9.4% from last year, GTA average prices are still below last year, and sellers are negotiating. Buy on the math that exists today, not the rate you're hoping for.</p>
+    <p><strong>If you're a renter:</strong> the tariff headline doesn't change your rent this month, but the chain matters. If the Aug 19 wave taxes lumber and cement, building gets more expensive, fewer homes get built, and tighter supply eventually pushes rents up. Meanwhile the condo glut still works in your favour today — landlords are competing for tenants. If your lease is up, shop and negotiate rather than auto-renew.</p>
+    <p><strong>If you already own or you're renewing:</strong> fixed rates ticking back above 4% is a nudge to act. If you renew in the next few months, ask your lender for a rate hold now — most lock today's number free for 90–120 days. It's free insurance against the next uptick. And if you're stretched, know the vocabulary in idea 3: "power of sale" is rising in the 905, and the earlier you talk to your lender, the more options you keep. See idea 2 and idea 3.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS — ~13 uploads in the last 36h. The feed clustered around power-of-sale / foreclosures, the bond market and rates, and condo caution. Only posts worth stealing from or studying are listed below. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate <span class="creator-platform">· YouTube · Jul 31</span></div>
+      <div class="creator-note">"The Long Road To Power Of Sale (Brampton, Mississauga, Ajax, Whitby, Pickering Home Prices)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Walks through rising power-of-sale (lender-forced) listings across the 905 belt and what it's doing to prices.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 3. Steal the news peg, flip the framing. He leads with distress; you lead with "here's what this scary word actually means for a buyer, and how to use it without being predatory." Beginner + newcomer definition of "power of sale," honest opportunity + caution.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Jul 31</span></div>
+      <div class="creator-note">"Why Bill C-4 Has Nothing to Do With Toronto's Foreclosure Spike"</div>
+      <div class="creator-note"><strong>Summary:</strong> Argues the foreclosure/power-of-sale spike is being blamed on the wrong thing (a federal bill) — the real driver is renewals at higher rates.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> Perfect supporting fact for idea 3. Steal the myth-buster structure: "everyone's blaming X, the real reason is Y (renewals at 4%+)." Ties the foreclosure spike straight back to today's rate story — one clean thread across your brief.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky <span class="creator-platform">· YouTube · Jul 31</span></div>
+      <div class="creator-note">"Will the Bond Market Force Central Banks to Raise Rates? | The Loonie Hour Ep. 253"</div>
+      <div class="creator-note"><strong>Summary:</strong> Discusses whether nervous bond markets could push rates up rather than down.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> The intelligence layer behind idea 2. Don't repeat his macro depth — translate one idea: "the bond market, not the Bank of Canada, is quietly setting your fixed rate — and it just voted up." Makes today's rate move make sense to a beginner.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen · Toronto Property Finders <span class="creator-platform">· YouTube · Jul 31</span></div>
+      <div class="creator-note">"I'd NEVER Buy a Toronto Condo Over This"</div>
+      <div class="creator-note"><strong>Summary:</strong> One dealbreaker he says should stop you from buying a specific Toronto condo.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Good "red flags before you buy a condo" checklist to mine for a future first-timer explainer, especially with condos so soft right now. Not today's news peg — park it.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Amrit Walia <span class="creator-platform">· YouTube · Jul 31</span></div>
+      <div class="creator-note">"5 MOST Underrated Toronto Neighbourhoods for First-Time Buyers (2026)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Lists overlooked GTA pockets where first-timers still get value.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Exactly your audience. Mine later for a localized "where $700K still buys something in the GTA" reel with your newcomer lens. Evergreen, not news — save it.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Also posted (SKIP for you)<span class="creator-platform"> · Jul 31</span></div>
+      <div class="creator-note">Kevin Yu — "Semi to Detached Breakdown" (already flagged, evergreen); Angry Mortgage Clips — "Losing to a LOGO?" (branding rant, off-topic) + a dated daily short; GTA Real Estate w/ Mike Carpino — "Cheapest Condos in Mississauga" (overlaps Karl's condo take); RealEstateTaxTips — "Architect Explains the Next Opportunity" (too wonky for a beginner reel); Steve Saretsky shorts — "NYC following Canada," "80% bonds" (macro asides, no clean wallet peg). Nothing else to steal today.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The 35% tariff is real now — here's the only part that touches your rent</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's today's biggest headline, everyone's anxious, and the calm "don't panic, here's the one thing that matters to YOU" take is a pattern-breaker against the fear feed. Timely + reassuring + shareable.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock / Stakes</div>
+        <div class="hook-box"><strong>First-frame text</strong>"The 35% tariff is real as of today."</div>
+        <div><strong>Spoken:</strong> "The 35% tariff everyone warned about? It's not a warning anymore — it's live as of this morning. But before you panic, here's the only part that actually reaches your wallet."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Don't panic about the 35% tariff."</div>
+        <div><strong>Spoken:</strong> "The headlines say 35% tariff and it sounds like the sky is falling. It's not — and I'll show you why in 40 seconds, plus the one piece you should actually watch."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Question that can't be ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Tariffs went up today. Will your rent?"</div>
+        <div><strong>Spoken:</strong> "The US just taxed a bunch of Canadian goods at 35%. So does that hit your rent, your groceries, your future home? Short answer: some of it, and here's which part."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "The 35% tariff everyone warned about? It's not a warning anymore — it's live as of this morning. But before you panic, here's the only part that actually reaches your wallet."</p>
+        <p><strong>Body:</strong> "Quick plain version. A tariff is a tax on goods crossing the border. Today the US raised it from 25% to 35% on Canadian products that don't fall under our free-trade deal, CUSMA. Here's the part the scary headlines skip: most of our trade DOES fall under CUSMA, so it's exempt. Even our Prime Minister said it plainly — Canada still has among the lowest tariff rates of any US trading partner.<br><br>So what should you actually watch? August 19th. That's when a second wave — 50% — is set to hit things like lumber, cement and furniture. Why care? Lumber and cement build homes. If building costs jump, builders charge more or build less. We're already building fewer homes this year, not more.<br><br>Bottom line: today's number sounds huge, but the piece that touches your rent and your future home is the building-materials wave coming August 19th. Watch that date, not the panic."</p>
+        <p><strong>CTA:</strong> "Want me to translate this economy stuff into plain English every morning, minus the fear? Follow — I live here, I sell here, and I'll always tell you what it actually means for your wallet."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Tariff = tax at the border</span>
+        <span class="onscreen-tag">35% live Aug 1</span>
+        <span class="onscreen-tag">Most trade = CUSMA = exempt</span>
+        <span class="onscreen-tag">Watch Aug 19: 50% wave</span>
+        <span class="onscreen-tag">Lumber + cement = homes</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Canada US border crossing trucks · shipping containers port cargo · lumber yard stacked wood · tariff news headline screen-record · construction site framing house Canada</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a long line of transport trucks waiting at a Canada–US border crossing under grey sky, national flags visible, documentary realism, muted colour grade, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, slow push-in on stacks of fresh lumber and bags of cement in a Canadian building-supply yard, early morning light, realistic, shallow depth of field, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Fixed rates just crossed back over 4% — the waiting game is losing</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fresh, concrete, and it kills a comforting myth ("just wait, rates will drop"). Steal Steve Saretsky's bond-market angle and translate it. Save-and-share for anyone buying or renewing.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Stakes / "this costs you"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Fixed rates just went back over 4%."</div>
+        <div><strong>Spoken:</strong> "If you've been waiting for mortgage rates to drop before you buy — bad news. Fixed rates just crossed back over 4%, and the thing that pushed them up isn't the Bank of Canada."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Still waiting for cheaper rates? Stop."</div>
+        <div><strong>Spoken:</strong> "Everyone's telling you to wait for rates to fall before buying. That bet is quietly getting worse every week — and today's numbers prove it."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — "Nobody's telling you"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"The Bank of Canada isn't setting your fixed rate."</div>
+        <div><strong>Spoken:</strong> "Most people think the Bank of Canada controls your mortgage rate. For a FIXED rate, they don't — the bond market does, and it just voted your rate up."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "If you've been waiting for mortgage rates to drop before you buy — bad news. Fixed rates just crossed back over 4%, and the thing that pushed them up isn't the Bank of Canada."</p>
+        <p><strong>Body:</strong> "Here's the part nobody explains. There are two kinds of rates. A VARIABLE rate follows the Bank of Canada. A FIXED rate — the one most first-time buyers pick — follows the bond market. A bond is just the government borrowing money; the interest it pays is the '5-year yield.' When that yield rises, fixed mortgage rates rise with it.<br><br>This week the yield ticked up to about 3.26%, and the best 5-year fixed jumped back over 4%. Why? Markets are nervous about tariffs and inflation, and a growing economy means the Bank has less reason to cut. So the 'just wait, rates will fall' plan keeps aging badly.<br><br>What to do with this: don't build your purchase around a rate cut that keeps not coming. If you're renewing soon, ask for a rate hold — most lenders lock today's number free for 90 to 120 days. And run your real payment at 4%, not at the rate you wish existed."</p>
+        <p><strong>CTA:</strong> "Want the simple 3-number check I run before I tell a client they can afford a place? Comment MATH. Follow — I live here, I sell here, and I'll give you the honest version, not the hopeful one."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Variable = follows BoC</span>
+        <span class="onscreen-tag">Fixed = follows bonds</span>
+        <span class="onscreen-tag">5-yr yield ~3.26%</span>
+        <span class="onscreen-tag">Best fixed back over 4%</span>
+        <span class="onscreen-tag">Ask for a rate hold</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>stock market bond ticker screen · mortgage rate sign bank window · person signing mortgage documents · calculator monthly payment phone · Toronto homes for sale sign street</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, close-up of a glowing financial screen showing rising yield lines and numbers reflected on a person's face, low light, documentary realism, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a young couple at a bank desk reviewing mortgage paperwork with an advisor, warm interior light, candid realistic mood, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">"Power of sale" is rising in the 905 — the word every buyer should learn</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals two creators' news peg (Team Sessa + Property Daily), teaches a scary-sounding term simply, and ties the foreclosure spike straight back to today's rate story. Educational + newsy + trust-building.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock / insider</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Power-of-sale listings are climbing in the 905."</div>
+        <div><strong>Spoken:</strong> "There's a phrase quietly showing up on more and more listings around Toronto — 'power of sale' — and if you're buying or you own a home, you need to know what it means."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Newcomer lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"New to Canada? Learn this word: power of sale."</div>
+        <div><strong>Spoken:</strong> "When I moved here, nobody explained 'power of sale' to me. Now it's popping up all over the 905 — so let me save you the confusion in 40 seconds."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"A foreclosure spike isn't automatically your bargain."</div>
+        <div><strong>Spoken:</strong> "Everyone's calling the rise in forced home sales a buyer's jackpot. Sometimes it is — but here's the honest catch nobody mentions before you get excited."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "There's a phrase quietly showing up on more and more listings around Toronto — 'power of sale' — and if you're buying or you own a home, you need to know what it means."</p>
+        <p><strong>Body:</strong> "Plain version. 'Power of sale' is when an owner can't keep up with the mortgage, so the lender steps in and sells the home to get its money back. It's Ontario's version of a foreclosure, and it's rising across the 905 — Brampton, Mississauga, Ajax, Whitby, Pickering.<br><br>Why now? It's not some new law. The real reason is renewals. People who locked in cheap rates a few years ago are renewing at 4-plus percent, and for some the new payment just doesn't work. That's the same rate story from earlier — it shows up here as real families under pressure.<br><br>If you're BUYING: yes, these can sell below market, but the bank sells 'as is,' there's often no warranty, and you can get into bidding wars anyway. Bring an agent and a home inspection, don't just chase the discount. If you OWN and you're stretched: the worst move is silence. Call your lender early — the sooner you talk, the more options you keep. I live here, I sell here, and I'd rather you never get to this list."</p>
+        <p><strong>CTA:</strong> "Comment POWER and I'll send you the plain-English rundown of how power-of-sale buying actually works — the good and the traps. Follow for tomorrow's brief."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Power of sale = lender sells your home</span>
+        <span class="onscreen-tag">Rising across the 905</span>
+        <span class="onscreen-tag">Real cause: renewals at 4%+</span>
+        <span class="onscreen-tag">Sold "as is" — inspect it</span>
+        <span class="onscreen-tag">Stretched? Call your lender early</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>for sale sign suburban Ontario home · empty house interior echo · person worried opening mail bills · handshake real estate agent buyer · Brampton Mississauga street homes aerial</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a 'for sale' sign on the lawn of a quiet suburban Ontario house at dusk, empty windows, calm melancholic documentary realism, muted colour grade, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, close-up of a person at a kitchen table opening a stack of bills with a concerned expression, soft window light, candid realistic mood, shallow depth of field, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://globalnews.ca/news/11314724/mark-carney-donald-trump-tariff-response/">Global News — Carney "disappointed" by 35% tariff; says Canada still among lowest-tariffed US partners (Aug 1, 2026)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/2025%E2%80%932026_United_States_trade_war_with_Canada_and_Mexico">Wikipedia — 2025–2026 US–Canada trade war (35% non-CUSMA tariff effective Aug 1; energy/potash 10%)</a></li>
+      <li><a href="https://www.wiley.law/alert-President-Trump-Imposes-New-50-Tariffs-on-Certain-Canadian-Imports">Wiley — New 50% tariffs on certain Canadian imports (furniture, lumber, cement, dairy), Aug 19</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-year bond yield rose to 3.26% on July 31, 2026</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — lowest insured 5-yr fixed now ~4.04%; most fixed rates back above 4%; Scotia ~4.24% (Aug 2026)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — lowest insured 5-yr variable ~3.40% (Aug 2026)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — policy rate held at 2.25%, July 15, 2026 (sixth hold); next decision Sept 2</a></li>
+      <li><a href="https://www.zoocasa.com/blog/trreb-june-2026/">Zoocasa — TRREB June 2026: 6,770 sales (+9.4% YoY), avg price $1,058,658 (−3.9% YoY)</a></li>
+      <li><a href="https://torontolife.com/real-estate/home-sales-condos-trred-june-2026/">Toronto Life — GTA condo prices down 9.4% to ~$631K (June 2026 TRREB)</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA — June 2026 national statistics (avg price $696,078, −0.8% MoM)</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/07/16/cmhc-reports-annual-rate-of-housing-starts-in-june-down-6-from-may/">BNN Bloomberg — CMHC: June housing starts 238,971, down 6% from May, −13% YoY</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/economics/2026/07/31/statistics-canada-to-report-may-gdp-and-early-look-at-q2-economic-results/">BNN Bloomberg — May GDP (+0.1%) and Q2 flash estimate (~2.5% annualized), July 31, 2026</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked Aug 1, 2026 (~13 uploads in last 36h). Steals: Team Sessa "Long Road to Power of Sale," Property Daily "Toronto's Foreclosure Spike," Steve Saretsky "Loonie Hour Ep. 253."</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
