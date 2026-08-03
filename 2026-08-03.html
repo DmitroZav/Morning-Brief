@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Monday, August 3, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, August 3, 2026</div>
+  <div class="canada-day-badge">CIVIC HOLIDAY — MARKETS CLOSED · 50% TARIFF WAVE IN 16 DAYS · FIXED ~3.94% vs VARIABLE ~3.50% · BOND YIELD 3.26%</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">The 50% tariff clock is now under three weeks — and the talks just got serious</div>
+    <p>It's a quiet long weekend here (today is the Civic Holiday, so Canadian markets and banks are closed), but the calendar is loud. On <strong>August 19 — 16 days from today</strong> — a second, bigger wave of US tariffs is set to hit: <strong>50%</strong> on roughly <strong>$20 billion</strong> of Canadian goods. A tariff is just a tax on things crossing the border, and this batch lands on lumber, plywood, cement, furniture, clothing, appliances and more. Unlike the first round, this one is written to apply <em>even to goods that normally qualify under our free-trade deal (CUSMA)</em>, and it has no end date built in.</p>
+    <p>The one piece of good news: Prime Minister Mark Carney and President Trump have agreed to <strong>speed up trade talks</strong>, giving negotiators a roughly 30-day window to land some kind of deal before the deadline bites. Energy, potash, steel, aluminum, autos and critical minerals are carved out of this particular wave, so Canada's biggest exports are shielded. Meanwhile the retaliation is still on the shelf: most provinces (all but Alberta and Saskatchewan) are still keeping American beer, wine and spirits off their liquor shelves.</p>
+    <p><strong>Why it's video-worthy:</strong> everyone else is doing "35% tariff panic" content that's already a week stale. You get to be the guy with the calendar: here's the ONE date that matters (Aug 19), here's the ONE thing on the list that touches your future home (lumber and cement), and here's the deal that could still cancel the whole thing. Calm, specific, useful — that's the post people send to their family.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Fixed at ~3.94% or variable at ~3.50%? A giant wave of mortgage renewals is landing this year, and this is the one choice that decides your payment for the next 5 years.</div>
+    <p style="margin-top:10px;">Here's the plain version. A "renewal" is when your mortgage term ends and you sign a new rate — hundreds of thousands of Canadians are hitting that moment this year after locking in during the cheap-money era. Right now the two doors are close together: the best 5-year <strong>fixed</strong> is around 3.94% (locked, never moves) and a 5-year <strong>variable</strong> is around 3.50% (cheaper today, but it moves with the Bank of Canada). The Bank has been parked at 2.25% since October and isn't rushing to cut, while fixed rates are being nudged up by the bond market. So the "obvious" cheaper option isn't obvious at all — and picking on autopilot, or just re-signing whatever your bank emails you, is how people quietly overpay by thousands. This is today's clearest wallet decision, and it's idea 1 below.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Next US tariff wave</td>
+          <td>50% on Aug 19</td><td>35% live (Aug 1)</td><td class="tag-up">16 days out</td>
+          <td class="plain-meaning">A 50% tax on ~$20B of goods (lumber, cement, furniture, clothing, appliances) is scheduled for Aug 19 and applies even to CUSMA goods. Energy, potash, steel, aluminum, autos, critical minerals are exempt. Talks to speed up before then.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Held again July 15; unchanged since October 2025. Prime stays 4.45%. This drives VARIABLE mortgages. Next decision Sept 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.26% (Jul 31)</td><td>~3.19%</td><td class="tag-up">+0.07</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. It drives FIXED mortgage rates. Nudged higher on sticky inflation and firmer growth — so fixed rates stay sticky too.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED</td>
+          <td>~3.94% (up to 4.6% at big banks)</td><td>~3.94%</td><td class="tag-flat">holding near 4%</td>
+          <td class="plain-meaning">Locked for 5 years, never changes. The cheap insured deals sit near 3.94%; big-bank posted rates run higher. See idea 1.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE</td>
+          <td>~3.50% (insured ~3.25%)</td><td>~3.50%</td><td class="tag-flat">roughly flat</td>
+          <td class="plain-meaning">Cheaper than fixed today, but moves with the Bank of Canada. With growth back and cuts on pause, it's sitting still. The renewal coin-flip. See idea 1.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, latest)</td>
+          <td>~3.2%</td><td>~2.8%</td><td class="tag-up">elevated</td>
+          <td class="plain-meaning">Still above the Bank's 2% target. New tariffs could push some prices higher — exactly what keeps the Bank cautious about cutting. Next CPI mid-August.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Q2 GDP (flash)</td>
+          <td>~2.5% annualized</td><td>2 shrinking quarters</td><td class="tag-down">rebound</td>
+          <td class="plain-meaning">Early tracking says spring grew ~2.5% after two down quarters — technically out of recession. A firmer economy means less pressure to cut rates.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, June)</td>
+          <td>$1,058,658 · 6,770 sales</td><td>—</td><td class="tag-down">−3.9% YoY price · +8.4% YoY sales</td>
+          <td class="plain-meaning">Highest monthly sales in almost two years, but prices still below last year. Benchmark home $940,800. Buyers have choice and room to negotiate. July report due ~Aug 6.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Toronto condos</td>
+          <td>Thousands sitting empty</td><td>—</td><td class="tag-down">glut</td>
+          <td class="plain-meaning">Finished condos are piling up unsold and unrented; one creator counts 5,001 luxury units empty. Condo prices are falling faster than houses. Big-time buyer/renter leverage right now. See idea 2.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC, condos)</td>
+          <td>Lowest since 1996</td><td>—</td><td class="tag-down">building stalls</td>
+          <td class="plain-meaning">"Starts" = new homes builders begin. Condo starts just hit a ~30-year low. Fewer builds now means tighter supply and firmer prices in a couple of years — the flip side of today's glut.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg price (CREA, June)</td>
+          <td>$696,078</td><td>~$701,600 (May)</td><td class="tag-down">−0.8% MoM</td>
+          <td class="plain-meaning">Below $700K. Steady, not cratering — but very uneven: Toronto/Vancouver soft, Montreal and Quebec City rising.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~1.40</td><td>~1.40</td><td class="tag-flat">steady</td>
+          <td class="plain-meaning">Loonie holding around 1.40. A weaker dollar makes imported goods pricier for us — worth watching as the trade fight heats up.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Note: today (Aug 3) is the Civic Holiday — the TSX, Montreal Exchange and the FX desk are closed, so rate/yield figures are Friday's (Jul 31) closing levels, not a fresh move. Home-price figures are the latest official releases (TRREB/CREA June); the July TRREB report is expected ~Aug 6. Next big dates: 50% tariff wave Aug 19; BoC rate decision Sept 2; next CPI mid-August.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're renewing a mortgage this year:</strong> this is your month to pay attention. Fixed (~3.94%) and variable (~3.50%) are unusually close, and the Bank of Canada is not going to ride in with a quick rescue cut — the economy is growing again. Don't just re-sign the renewal letter your bank sends; that's rarely their best rate. Shop it, or have a broker shop it, and decide fixed-vs-variable on your own nerves and math, not on hope.</p>
+    <p><strong>If you're a first-time buyer or newcomer:</strong> the condo market is the softest, most buyer-friendly corner in years. Thousands of finished units are sitting empty, prices are still below 2024, and sellers are competing for you. Your leverage today is on price and choice — negotiate hard, ask for incentives, take your time. Just remember the flip side: condo building has stalled to a 30-year low, so this window of oversupply won't stay open forever.</p>
+    <p><strong>If you're a renter:</strong> the empty-condo glut is quietly on your side — landlords are competing for tenants and rents have cooled. If your lease is up, shop and negotiate instead of auto-renewing. Longer term, watch Aug 19: if tariffs tax lumber and cement, building gets pricier, fewer homes get built, and tighter supply eventually nudges rents back up.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS. 14 uploads in the last 24h (all Aug 2), clustered on the condo glut, mortgage-renewal math, and money lifehacks. Only posts worth stealing from or studying are listed below. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">CondoWong <span class="creator-platform">· YouTube · Aug 2</span></div>
+      <div class="creator-note">"DON'T Sign Your Mortgage Renewal Until You See This (3.94% Fixed vs 3.50% Variable)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Walks through the fixed-vs-variable decision at today's exact rates for people renewing now.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 1 and today's One Thing. Steal the head-to-head premise but out-simplify him: one clean rule for how a total beginner should actually decide (can you sleep if your payment jumps?). Add the "don't just re-sign the bank's letter" warning — that's the newcomer trap.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Aug 2</span></div>
+      <div class="creator-note">"Why 5,001 Luxury Condos Are Sitting Empty in Toronto"</div>
+      <div class="creator-note"><strong>Summary:</strong> Puts a hard number on the Toronto condo glut — thousands of finished luxury units with no buyer or tenant.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 2. He reports the number; you turn it into buyer leverage: "here's exactly how to use a glut to get thousands off." Beginner + newcomer lens — most people don't know an empty building is a negotiating tool.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Alex Applegate <span class="creator-platform">· YouTube · Aug 2</span></div>
+      <div class="creator-note">"What Happens If You Switch Your Mortgage to Accelerated Bi-Weekly Payments?"</div>
+      <div class="creator-note"><strong>Summary:</strong> Explains how a small change in payment schedule quietly shaves years and thousands of interest off a mortgage.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 3 — a pure, save-worthy lifehack. Strip the jargon, show the one setting to change and the years/dollars saved. Perfect "save and send to your partner" reel.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage Clips <span class="creator-platform">· YouTube · Aug 2</span></div>
+      <div class="creator-note">"There's No Saving These Toronto Condos"</div>
+      <div class="creator-note"><strong>Summary:</strong> Blunt take that a chunk of Toronto's condo stock is stuck — underwater investors, no rescue coming.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Great supporting fuel for idea 2, and a hook study in bluntness. Bank it as the "cautionary" half of a buyer-leverage piece — don't overpay for a unit in a distressed building.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Oleg Galyuk <span class="creator-platform">· YouTube · Aug 2</span></div>
+      <div class="creator-note">"Canada Is Creating a Generation of Renters"</div>
+      <div class="creator-note"><strong>Summary:</strong> Argues affordability has pushed a whole cohort into long-term renting instead of owning.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Emotional, national, shareable — but a downer if not flipped. Save it for a hopeful counter-piece: "renting isn't failing — here's how to make the glut work for you while you wait." Matches your build-trust goal.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Kevin Yu <span class="creator-platform">· YouTube · Aug 2</span></div>
+      <div class="creator-note">"You Won't Believe What's Happening in Toronto Real Estate | Freehold Market Update July 2026"</div>
+      <div class="creator-note"><strong>Summary:</strong> Monthly update on GTA freehold (houses, not condos) sales and prices.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Good raw data to cross-check against the July TRREB report landing ~Aug 6. Not a standalone reel, but useful ammo for a "houses vs condos are two different markets right now" piece.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Also posted (SKIP for you)<span class="creator-platform"> · Aug 2</span></div>
+      <div class="creator-note">Team Sessa — "Are Buyer Incentives Inflating Home Prices?" (industry Q&A, no clean wallet peg); Ilan Portnoi — semi-detached showcase (listing); Karl Nielsen — "Never Ignore These Smells When Buying" (evergreen tip, bank for later); I'm Canada — "How 2027 Will Restart Immigration" (speculative, needs verifying before you touch it); Ken Pozek — Disney-area homes (US market); Steve Saretsky — "Developers Are Trying to Save Themselves" + "Wars Create Large Opportunities" (macro/investing musings); That Agent Kelly — Fraser Valley demand (Vancouver-specific). Nothing else to steal today.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Fixed or variable? Don't sign your renewal until you watch this</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals CondoWong's fresh peg, hits the huge renewal wave head-on, kills the "just re-sign the bank's letter" habit, and gives one clean rule a beginner can act on. Save-and-send to a partner.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — "Nobody's telling you" / Stakes</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Don't sign that renewal letter."</div>
+        <div><strong>Spoken:</strong> "If your bank just emailed you a mortgage renewal, do NOT sign it yet. That number is almost never their best — and this year, picking wrong costs you thousands."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"3.94% fixed or 3.50% variable?"</div>
+        <div><strong>Spoken:</strong> "Fixed at three-ninety-four, or variable at three-fifty? They look almost the same — but one of these could quietly cost you way more. Here's how to actually choose."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"The cheaper rate is the trap."</div>
+        <div><strong>Spoken:</strong> "Everyone renewing right now grabs the lower variable rate because it looks cheaper. That's exactly the mistake — let me show you the one question that decides it instead."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "If your bank just emailed you a mortgage renewal, do NOT sign it yet. That number is almost never their best — and this year, picking wrong costs you thousands."</p>
+        <p><strong>Body:</strong> "Quick plain version. A renewal is when your mortgage term ends and you sign a new rate. A record number of Canadians are hitting that moment this year. Right now you've got two doors. Fixed, around 3.94% — it's locked, it never moves for 5 years, you always know your payment. Variable, around 3.50% — cheaper today, but it follows the Bank of Canada, so it can go up or down.<br><br>Here's the honest part: the Bank has been parked at 2.25% since October and isn't rushing to cut, and fixed rates are being held up by the bond market. So variable being cheaper today does NOT mean it stays cheaper.<br><br>So how do you choose? One question: if your payment jumped 200 dollars next month, would you lose sleep? If yes — take the fixed. Certainty is worth that 0.4%. If you've got room in your budget and steady nerves, variable can win. And whatever you pick, don't just re-sign the bank's letter — call a broker or ask for their real rate. That five-minute ask is the highest-paid five minutes of your year."</p>
+        <p><strong>CTA:</strong> "Renewing in the next 6 months? Comment RENEW and I'll send you the 3 questions to ask your bank before you sign. Follow — I live here, I sell here, and I'll give you the honest version."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Renewal = new rate, new 5 years</span>
+        <span class="onscreen-tag">Fixed 3.94% = locked</span>
+        <span class="onscreen-tag">Variable 3.50% = moves with BoC</span>
+        <span class="onscreen-tag">Would +$200 hurt? → go fixed</span>
+        <span class="onscreen-tag">Never just re-sign the letter</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>mortgage renewal letter envelope · person reviewing bank statement laptop · calculator monthly budget kitchen table · interest rate sign bank window · couple worried finances paperwork</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, close-up of hands opening a bank letter at a kitchen table, morning light through a window, a coffee cup nearby, candid realistic mood, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a split-screen feel of two doors labelled in soft focus, a person hesitating between them, warm documentary lighting, muted colour grade, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">5,000 empty condos in Toronto — how to turn a glut into thousands off your price</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals Property Daily's hard number, turns a scary headline into buyer power, and teaches a concrete negotiating move most beginners don't know they have. Hope + how-to = shares.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"5,000 Toronto condos. Sitting empty."</div>
+        <div><strong>Spoken:</strong> "There are thousands of finished condos sitting empty in Toronto right now. That sounds like bad news — but if you're trying to buy, it might be the best news you'll hear all year."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"An empty building is your superpower."</div>
+        <div><strong>Spoken:</strong> "Everyone sees empty condos and panics. Buyers who know what they're doing see leverage. Here's how to use a half-empty building to knock thousands off the price."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Newcomer lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"New here? Nobody told you this trick."</div>
+        <div><strong>Spoken:</strong> "When I moved to Canada, nobody told me that an empty building is a negotiating tool. Toronto has thousands of empty condos right now — let me show you how to actually use that."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "There are thousands of finished condos sitting empty in Toronto right now. That sounds like bad news — but if you're trying to buy, it might be the best news you'll hear all year."</p>
+        <p><strong>Body:</strong> "Here's what's going on. A wave of condos got built for investors who planned to flip or rent them. Now prices are soft, rents have cooled, and a lot of those units are just sitting there — finished, empty, costing the owner money every single month.<br><br>That's your leverage. When a seller is bleeding fees on an empty unit, they don't want top dollar — they want OUT. So three moves. One: ask your agent how many units in that building are unsold or listed. A lot of empties means a lot of pressure. Two: look at how long it's been sitting — 60, 90 days tells you they're motivated. Three: don't just offer low, offer clean — flexible closing, fewer conditions. A tired seller takes less money for an easier deal.<br><br>One honest warning: some buildings are soft for a reason — high fees, investor-heavy, problems. Cheap isn't always good. Bring a realtor who'll tell you which empties are opportunities and which are traps."</p>
+        <p><strong>CTA:</strong> "Comment GLUT and I'll send you the questions to ask about any condo building before you offer. Follow for tomorrow's brief — I live here, I sell here."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Thousands of empty condos</span>
+        <span class="onscreen-tag">Empty unit = seller bleeding fees</span>
+        <span class="onscreen-tag">Ask: how many units unsold?</span>
+        <span class="onscreen-tag">Offer clean, not just low</span>
+        <span class="onscreen-tag">Cheap ≠ always good</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Toronto condo skyline night lights off · empty modern condo interior unfurnished · for sale sign condo lobby · construction crane downtown Toronto · person touring empty apartment</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a Toronto condo tower at dusk with many dark, unlit windows and a few lit ones, moody blue hour, documentary realism, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, an empty modern condo unit with bare floors and floor-to-ceiling windows overlooking the city, soft daylight, quiet still mood, shallow depth of field, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">The free payment switch that pays off your mortgage years early</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals Alex Applegate's lifehack, costs the viewer nothing, and delivers a "wait, that's it?" payoff. Pure save-and-share fuel that builds trust without selling anything.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock / Stakes</div>
+        <div class="hook-box"><strong>First-frame text</strong>"This free switch = years off your mortgage."</div>
+        <div><strong>Spoken:</strong> "There's one free setting on your mortgage that can cut years off it and save you tens of thousands. Your bank won't remind you — so I will."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — "Nobody's telling you"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Your bank hopes you never change this."</div>
+        <div><strong>Spoken:</strong> "There's a payment option that costs you nothing and saves you a fortune in interest — which is exactly why nobody at the bank brings it up. Takes two minutes to switch."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Question that can't be ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Monthly or bi-weekly? It's not the same."</div>
+        <div><strong>Spoken:</strong> "Paying your mortgage monthly versus accelerated bi-weekly sounds identical — but one of them quietly makes you pay an extra month a year. Here's the trick."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (35–50s)</div>
+        <p><strong>Hook:</strong> "There's one free setting on your mortgage that can cut years off it and save you tens of thousands. Your bank won't remind you — so I will."</p>
+        <p><strong>Body:</strong> "It's called accelerated bi-weekly payments. Sounds fancy — it's simple. Most people pay their mortgage once a month, 12 payments a year. Switch to accelerated bi-weekly and you pay half your monthly amount every two weeks instead. Because a year has 52 weeks, that's 26 half-payments — which equals 13 full monthly payments, not 12. You sneak in one extra payment a year without really feeling it.<br><br>That one extra payment goes straight at the balance you owe. On a typical Toronto-size mortgage, that can shave three to four years off your amortization and save you tens of thousands in interest over the life of the loan.<br><br>The best part: it's free. No fee, no penalty, no refinancing. You just call your lender or change it in your online banking. The only thing to check — make sure it says 'accelerated' bi-weekly, not just 'bi-weekly.' The plain bi-weekly one doesn't give you the extra payment. That one word is the whole trick."</p>
+        <p><strong>CTA:</strong> "Save this so you actually do it, and send it to whoever pays the mortgage in your house. Follow for one honest money tip a day — I live here, I sell here."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Accelerated bi-weekly = 1 extra payment/yr</span>
+        <span class="onscreen-tag">26 half-payments = 13 months</span>
+        <span class="onscreen-tag">Shaves 3–4 years off</span>
+        <span class="onscreen-tag">100% free to switch</span>
+        <span class="onscreen-tag">Must say "accelerated"</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>online banking app phone screen · calendar two week markings · calculator interest savings · person paying bills laptop coffee · house keys on table sunlight</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, close-up of a phone showing a clean banking app with a payment schedule, hands holding it over a wooden desk, warm soft light, realistic, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a wall calendar with two-week intervals circled in red pen, cozy home office, natural window light, documentary realism, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://mcmillan.ca/insights/publications/us-announces-50-tariffs-on-canadian-goods-are-your-exports-affected/">McMillan LLP — US 50% tariffs on ~$20B of Canadian goods (lumber, cement, furniture, clothing, appliances), effective Aug 19, apply even to CUSMA goods</a></li>
+      <li><a href="https://www.tariffstool.com/guides/canada-tariff-50-percent-section-338-august-2026">Tariffs Tool — Canada 50% Section 338 duty explained (Aug 19, 2026); exemptions for energy, potash, steel, aluminum, autos, critical minerals</a></li>
+      <li><a href="https://fortune.com/2026/07/22/carney-trump-tariffs-canadian-canada-goods-negotiations/">Fortune — Carney and Trump agree to speed up trade negotiations, ~30-day window ahead of the Aug 19 deadline</a></li>
+      <li><a href="https://www.aljazeera.com/economy/2026/7/21/carney-says-he-and-trump-have-agreed-to-intensify-trade-negotiations">Al Jazeera — Carney says he and Trump agreed to "intensify" trade talks; provincial US-alcohol bans continue</a></li>
+      <li><a href="https://www.rbcroyalbank.com/en-ca/my-money-matters/money-academy/economics-101/understanding-interest-rates/bank-of-canada-interest-rate-announcement/">RBC — Bank of Canada held policy rate at 2.25% (July 15, 2026); next decision Sept 2</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-year bond yield 3.26% (Jul 31, 2026), +0.07</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — Aug 2026 best 5-yr fixed insured ~3.94%, 5-yr variable insured ~3.25%; fixed could reach 4.5–4.9% by year-end</a></li>
+      <li><a href="https://www.globenewswire.com/news-release/2026/07/03/3321730/0/en/Market-Gains-Traction-with-Strong-Home-Sales-in-June-and-First-Half-of-the-Year.html">TRREB via GlobeNewswire — June 2026: 6,770 sales (+8.4% YoY), avg price $1,058,658 (−3.9% YoY), benchmark $940,800</a></li>
+      <li><a href="https://www.mpamag.com/ca/mortgage-industry/market-updates/slow-start-to-2026-hides-canadas-sharpest-housing-market-split-in-years/565954">Canadian Mortgage Professional — sharpest market split in years; condos falling faster than houses, Toronto/Vancouver soft</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/observer/2026/summer-update-2026-housing-market-outlook">CMHC — Summer 2026 outlook: condo starts lowest since 1996; condo prices projected −2.5% by Q4</a></li>
+      <li><a href="https://www.newsfilecorp.com/release/306088/">TMX Group — TSX, TSX Venture, Alpha and Montreal Exchange closed Monday Aug 3, 2026 for the Civic Holiday (FX desk also closed)</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked Aug 3, 2026 (14 uploads in last 24h, all Aug 2). Steals: CondoWong "3.94% Fixed vs 3.50% Variable renewal," Property Daily "5,001 Luxury Condos Sitting Empty," Alex Applegate "Accelerated Bi-Weekly Payments."</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
