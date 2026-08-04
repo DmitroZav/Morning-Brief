@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, August 4, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, August 4, 2026</div>
+  <div class="canada-day-badge">MARKETS REOPEN AFTER LONG WEEKEND · 50% TARIFF WAVE IN 15 DAYS · FIXED ~3.94% vs VARIABLE ~3.50% · BOND YIELD 3.26% · CAD 1.40</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">15 days to the 50% tariff wall — and now the auto industry is in the crossfire</div>
+    <p>Markets reopened this morning after the long weekend, and the clock didn't stop over the holiday. In <strong>15 days — August 19</strong> — a second, bigger wave of US tariffs is scheduled to hit: <strong>50%</strong> on a list of Canadian goods. A tariff is just a tax on things crossing the border, paid by the importer and almost always passed on to the shopper. Desjardins, one of Canada's big financial groups, now pegs the goods caught in this fight at about <strong>$28 billion a year — roughly 5% of everything we sell to the US</strong>. The list hits lumber, cement, furniture, clothing, appliances, wine and dairy.</p>
+    <p>The fresh worry today is jobs. One of the most-watched mortgage voices in the country warned this morning that "Canada could lose its entire auto industry" — because on top of the Aug 19 list, our carmakers are already carrying separate US tariffs, and every round of this fight chips at the factories that employ tens of thousands of people in Ontario. The one steadying note: Prime Minister Mark Carney and President Trump have agreed to <strong>intensify talks</strong> in the run-up to the deadline, and Carney is openly hinting the whole Aug 19 threat may be a negotiating deadline rather than a certainty — "normally there's a deadline, normally there's an outsized tariff attached to it."</p>
+    <p><strong>Why it's video-worthy:</strong> everyone else is still doing generic "tariff panic." You get to be the calm one with the calendar: here's the ONE date (Aug 19), here's the ONE item on the list that touches your future home (lumber and cement), and here's why the auto-jobs angle matters even if you never buy a car. Specific, honest, useful — the post people send to their family group chat.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Toronto condo prices just slid about $60,000 — and it's not mainly interest rates. It's oversupply, and it's handing buyers the most leverage they've had in years.</div>
+    <p style="margin-top:10px;">Here's the plain version. For a couple of years builders threw up small, investor-style condos — tiny units meant to be flipped or rented, not lived in. Now those investors have pulled back, finished units are sitting empty, and prices are giving way. A typical Toronto condo is down roughly $60,000, and the reason is simple supply and demand: too many units, not enough buyers. Interest rates are part of it, but the bigger driver is the glut itself. For anyone trying to buy their first place, that's not scary news — it's the door opening. Sellers who are bleeding fees on an empty unit want out, and that's where your negotiating power lives. This is idea 1 below.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Next US tariff wave</td>
+          <td>50% on Aug 19</td><td>35% live (Aug 1)</td><td class="tag-up">15 days out</td>
+          <td class="plain-meaning">A 50% tax on ~$28B/yr of goods (lumber, cement, furniture, clothing, appliances, wine, dairy) is scheduled for Aug 19. Energy, potash, fish and critical minerals are carved out. Carney–Trump talks intensifying before then.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Held again July 15; unchanged since October 2025. Prime stays 4.45%. This drives VARIABLE mortgages. Next decision Sept 2 — markets price mostly a hold (small ~14% odds of a hike).</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.26% (Jul 31)</td><td>~3.19%</td><td class="tag-up">+0.07</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years. It drives FIXED mortgage rates. Sticky inflation and firmer growth keep it up — so fixed rates stay sticky too. First fresh close since the holiday lands today.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED</td>
+          <td>~3.94%</td><td>~3.94%</td><td class="tag-flat">holding near 4%</td>
+          <td class="plain-meaning">Locked for 5 years, never changes. Cheap insured deals sit near 3.94%; big-bank posted rates run higher. Forecasts see it drifting to ~3.84% by end of September. See idea 3.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE</td>
+          <td>~3.50% (insured ~3.25%)</td><td>~3.50%</td><td class="tag-flat">roughly flat</td>
+          <td class="plain-meaning">Cheaper than fixed today, but moves with the Bank of Canada. With cuts on pause, it's sitting still.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, latest)</td>
+          <td>~3.2%</td><td>~2.8%</td><td class="tag-up">elevated</td>
+          <td class="plain-meaning">Still above the Bank's 2% target. New tariffs could push some prices higher — exactly what keeps the Bank cautious about cutting. Next CPI mid-August.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Toronto condo prices</td>
+          <td>≈ −$60,000</td><td>—</td><td class="tag-down">oversupply drop</td>
+          <td class="plain-meaning">A typical Toronto condo is down roughly $60K, driven mostly by a glut of small investor units — not just rates. Big buyer/renter leverage right now. See idea 1.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, June)</td>
+          <td>$1,058,658 · 6,770 sales</td><td>—</td><td class="tag-down">−3.9% YoY price · +9.4% YoY sales</td>
+          <td class="plain-meaning">Strong sales, prices still below last year. Benchmark home $940,800. Buyers have choice and room to negotiate. July TRREB report due ~Aug 6.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National forecast (CREA / CMHC)</td>
+          <td>Cut again</td><td>—</td><td class="tag-down">downgraded</td>
+          <td class="plain-meaning">Both cut 2026 forecasts a second time. CMHC now sees ~457,200 sales (−2.8%) and avg resale ~$675,200 (−0.6%); CREA sees sales −1.4%. Recovery is slow, not booming.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC, condos)</td>
+          <td>Condo starts −11%</td><td>—</td><td class="tag-down">building stalls</td>
+          <td class="plain-meaning">"Starts" = new homes builders begin. Condo starts have fallen sharply as tiny investor units stop penciling out. Fewer builds now means tighter supply in a couple of years — the flip side of today's glut.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~1.4056 (Aug 4)</td><td>~1.40</td><td class="tag-flat">steady</td>
+          <td class="plain-meaning">Loonie holding near 1.40. A weaker dollar makes imported goods pricier for us — worth watching as the trade fight heats up.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">TSX</td>
+          <td>~35,226 (Jul 31)</td><td>~35,500</td><td class="tag-down">−0.8%</td>
+          <td class="plain-meaning">Main Canadian stock index. Dipped Friday on weaker mining/gold names; reopens today after the Civic Holiday. Not a mortgage driver, but a read on nerves.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Note: bond yield, TSX and prior FX are Friday's (Jul 31) closes — markets were shut Monday (Aug 3) for the Civic Holiday and reopen today. Home-price figures are the latest official releases (TRREB/CREA June); the July TRREB report is expected ~Aug 6. Next big dates: 50% tariff wave Aug 19; next CPI mid-August; BoC rate decision Sept 2.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer or newcomer:</strong> the condo market is the softest, most buyer-friendly corner in years. A typical unit is down about $60,000, thousands sit empty, and sellers are competing for you. Your leverage today is on price and choice — negotiate hard, ask for incentives, take your time. Just know the flip side: condo building has stalled (starts down ~11%), so this window of oversupply won't stay open forever.</p>
+    <p><strong>If you're a renter:</strong> the empty-condo glut is quietly on your side — landlords are competing for tenants and rents have cooled. If your lease is up, shop and negotiate instead of auto-renewing. Longer term, watch Aug 19: if tariffs tax lumber and cement, building gets pricier, fewer homes get built, and tighter supply eventually nudges rents back up.</p>
+    <p><strong>If you earn a paycheque in Ontario:</strong> the tariff fight isn't just abstract politics. The auto sector employs tens of thousands here, and the Aug 19 wave plus the separate car tariffs put real jobs on the line. A weaker jobs market cools home demand — good if you're bargain-hunting, painful if it's your industry. Watch the deadline and watch the talks.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS. 8 uploads in the last ~30h (Aug 3–4), clustered on the condo price drop, the tariff/auto-jobs story, and a first-time-buyer demographic angle. Only posts worth stealing from or studying are listed below. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Aug 3</span></div>
+      <div class="creator-note">"Why Toronto Condos Dropped $60K (It's Not Just Interest Rates)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Puts a hard number on the condo slide and argues oversupply — not rates — is the real driver.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 1 and today's One Thing. He reports the drop; you flip it into buyer power — "here's exactly how to use a $60K drop to get thousands off." Beginner + newcomer lens: most people don't know a falling market is a negotiating tool.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage Clips <span class="creator-platform">· YouTube · Aug 4</span></div>
+      <div class="creator-note">"Canada Could Lose Its Entire Auto Industry"</div>
+      <div class="creator-note"><strong>Summary:</strong> Blunt warning that stacked US tariffs are squeezing Canadian carmakers and the jobs behind them.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 2. Ron does the alarm; you do the translation — why a car-factory story matters to someone who'll never buy a new car (jobs → demand → home prices), anchored on the Aug 19 date. Calm-explainer energy.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">GTA Real Estate with Mike Carpino <span class="creator-platform">· YouTube · Aug 3</span></div>
+      <div class="creator-note">"The SILENT Crisis — Ontario Home Buyers Are GETTING TOO OLD!"</div>
+      <div class="creator-note"><strong>Summary:</strong> Flags that the typical first-time buyer keeps getting older as affordability pushes ownership further out of reach.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 3 — emotional, national, deeply relatable to newcomers. Flip the doom into a plan: why waiting quietly costs you, and the honest first move to break the cycle. Matches your build-trust goal.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey <span class="creator-platform">· YouTube · Aug 3</span></div>
+      <div class="creator-note">"This Isn't Going to End Well"</div>
+      <div class="creator-note"><strong>Summary:</strong> Ominous market-outlook piece on where GTA prices and inventory are heading.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Strong hook study in curiosity-through-dread. Not a standalone steal, but good supporting fuel for the condo-glut piece — bank the "here's the risk" half so idea 1 stays honest, not hype.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Also posted (SKIP for you)<span class="creator-platform"> · Aug 3–4</span></div>
+      <div class="creator-note">Angry Mortgage Clips — "Real Estate Is Down In Australia" (short, offshore, no local wallet peg); Audra Lambert — renovation tip short (US-style, evergreen); Parallel Wealth — "RRSP Meltdown Strategy" (retirement finance, not RE); RealEstateTaxTips — portfolio-tax short (investor niche, bank for later). Nothing else to steal today.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">Toronto condos dropped $60K — how to turn a falling market into money in your pocket</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals Property Daily's fresh number, flips a scary headline into buyer power, and teaches a concrete move most beginners don't know they have. Hope + how-to = shares.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Toronto condos: −$60,000."</div>
+        <div><strong>Spoken:</strong> "Toronto condo prices just dropped about sixty grand — and it's not because of interest rates. If you're trying to buy, this is the opening you've been waiting for."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"A falling market is your friend."</div>
+        <div><strong>Spoken:</strong> "Everyone's scared of condo prices dropping. If you're a buyer, that fear is exactly what puts thousands back in your pocket. Let me show you how."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Newcomer lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"New here? This $60K drop is for you."</div>
+        <div><strong>Spoken:</strong> "When I moved to Canada I thought falling prices were bad news. For a first-time buyer they're the opposite — here's how to actually use this $60,000 drop."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Toronto condo prices just dropped about sixty grand — and it's not because of interest rates. If you're trying to buy, this is the opening you've been waiting for."</p>
+        <p><strong>Body:</strong> "Here's what's really going on. For a couple of years builders cranked out small, investor-style condos — tiny units meant to be flipped or rented, not lived in. Now those investors backed off, a lot of those units are finished and sitting empty, and prices are giving way. That's supply and demand: too many condos, not enough buyers.<br><br>And an empty unit is costing its owner money every single month in fees and mortgage. That's your leverage. So three moves. One: ask your agent how many units in that building are unsold or for sale — a lot of empties means a lot of pressure. Two: check how long it's been listed — 60, 90 days tells you the seller is motivated. Three: don't just offer low, offer clean — flexible closing, fewer conditions. A tired seller takes less money for an easier deal.<br><br>One honest warning: some buildings are cheap for a reason — sky-high fees, all investors, real problems. Cheap isn't always good. Bring someone who'll tell you which drops are opportunities and which are traps."</p>
+        <p><strong>CTA:</strong> "Comment CONDO and I'll send you the questions to ask about any building before you offer. Follow for tomorrow's brief — I live here, I sell here."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Condos down ~$60K</span>
+        <span class="onscreen-tag">It's oversupply, not just rates</span>
+        <span class="onscreen-tag">Empty unit = seller bleeding fees</span>
+        <span class="onscreen-tag">Offer clean, not just low</span>
+        <span class="onscreen-tag">Cheap ≠ always good</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Toronto condo skyline dusk lights off · empty modern condo interior unfurnished · for sale sign condo lobby · person touring empty apartment · price tag down arrow graphic</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a Toronto condo tower at dusk with many dark unlit windows and a few lit ones, moody blue hour, documentary realism, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, an empty modern condo unit with bare floors and floor-to-ceiling windows overlooking the city, soft daylight, quiet still mood, shallow depth of field, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">The August 19 date nobody explained — what a 50% tariff actually does to your wallet</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals Angry Mortgage's auto-jobs alarm, but out-calms it with one date and one plain translation. Timely, national, and it makes the abstract personal — the classic "send to family" post.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Question that can't be ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"One date decides your grocery bill."</div>
+        <div><strong>Spoken:</strong> "There's one date coming — August 19th — that could quietly make everything from furniture to your future home more expensive. Here's what it actually means for you."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Stakes / "this costs you"</div>
+        <div class="hook-box"><strong>First-frame text</strong>"50% tax lands in 15 days."</div>
+        <div><strong>Spoken:</strong> "In 15 days a 50% tax hits about $28 billion of stuff we buy — and it touches lumber and cement, the exact things that build homes. Let me translate what that does to your money."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Ignore the panic. Watch this date."</div>
+        <div><strong>Spoken:</strong> "Everyone's panicking about tariffs on the wrong stuff. There's really one date that matters — August 19 — and one thing on the list that touches your home. Here it is."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "There's one date coming — August 19th — that could quietly make everything from furniture to your future home more expensive. Here's what it actually means for you."</p>
+        <p><strong>Body:</strong> "Quick plain version. A tariff is a tax on things crossing the border. The importer pays it, then passes it to you at the till. On August 19, the US is set to slap 50% on a big list of Canadian goods — and yes, some of it bounces back on us in the fight. We're talking furniture, appliances, clothing, wine, and the two that matter most for housing: lumber and cement.<br><br>Here's the chain. Tariffs make building materials pricier. Pricier materials mean it costs more to build a home. Fewer homes get built, and the ones that do cost more. On top of that, our auto factories are already carrying separate tariffs — and those are real Ontario jobs. When jobs wobble, home demand cools too.<br><br>So what do you do? Nothing dramatic. If you were planning a big furniture or appliance buy, doing it before the 19th might save you. And keep an eye on the talks — Carney and Trump are negotiating right up to the deadline, and this whole thing could still get pulled back. I'll keep you posted."</p>
+        <p><strong>CTA:</strong> "Want the plain-English version of every tariff update that actually hits your wallet? Follow — I live here, I sell here, and I'll skip the panic."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Aug 19 = 50% tariff wave</span>
+        <span class="onscreen-tag">Tariff = tax you pay at the till</span>
+        <span class="onscreen-tag">Lumber + cement = pricier homes</span>
+        <span class="onscreen-tag">Auto jobs on the line</span>
+        <span class="onscreen-tag">Talks could still pull it back</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>US–Canada border crossing trucks · lumber yard stacked wood · cement mixer construction site · car assembly line Ontario factory · calendar August 19 circled red</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, transport trucks lined up at a Canada–US border crossing at golden hour, flags visible, documentary realism, slight haze, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a stack of fresh lumber and bags of cement on a quiet construction site, early morning light, shallow depth of field, muted realistic grade, 4K"</div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">First-time buyers keep getting older — the real reason, and how to break the cycle</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals Mike Carpino's demographic angle, hits newcomers right in the chest, and flips doom into a plan. Emotional + honest + a clear first step = comments and shares.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock / stakes</div>
+        <div class="hook-box"><strong>First-frame text</strong>"First-time buyers keep getting older."</div>
+        <div><strong>Spoken:</strong> "The typical first-time buyer in Ontario keeps getting older every year — and that quiet trend says something scary about whether your generation ever owns a home. Here's the real reason."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Personal stakes (his edge)</div>
+        <div class="hook-box"><strong>First-frame text</strong>"I almost waited too long."</div>
+        <div><strong>Spoken:</strong> "I almost waited years longer than I should have to buy — the way a lot of newcomers do. There's a reason buyers keep getting older, and it's not just money. Let me explain."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Waiting isn't the safe choice."</div>
+        <div><strong>Spoken:</strong> "Everyone tells you to wait until you're 'ready' to buy. But buyers keep getting older and older, and waiting quietly costs you more than jumping in. Here's how to break the cycle."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "The typical first-time buyer in Ontario keeps getting older every year — and that quiet trend says something scary about whether your generation ever owns a home. Here's the real reason."</p>
+        <p><strong>Body:</strong> "It's not that people got lazy. Prices climbed faster than paycheques, down payments got huge, and rents ate the savings people needed to buy. So the age of the first buyer keeps creeping up — mid-thirties and rising. As a newcomer, I felt this personally: you land here, you rent, you tell yourself 'next year,' and next year the goalposts moved again.<br><br>Here's the honest part. Waiting isn't free. Every year you rent, you're paying off someone else's mortgage instead of your own. And right now the market is actually softer — condos down about $60,000, sellers negotiating, rates holding steady. That's a friendlier window than the panic-buying years.<br><br>So the first move isn't 'buy something today.' It's get your real number. Sit down with a broker — most cost you nothing — and find out what you could actually afford and what programs exist for first-time buyers and newcomers. You can't make a plan around a number you've never seen. That one meeting is how the cycle breaks."</p>
+        <p><strong>CTA:</strong> "Comment READY and I'll send you the first-time-buyer checklist I wish I'd had when I landed. Follow — I live here, I sell here, and I'll give you the honest version."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">First-buyer age keeps rising</span>
+        <span class="onscreen-tag">Rent pays someone else's mortgage</span>
+        <span class="onscreen-tag">Market's softer right now</span>
+        <span class="onscreen-tag">Step 1: get your real number</span>
+        <span class="onscreen-tag">A broker meeting is usually free</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>young couple looking at house window · person counting savings kitchen table · Toronto rental apartment moving boxes · handshake broker meeting office · keys handed over new home</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a young couple standing outside a modest Toronto house looking up at it hopefully, soft evening light, candid documentary mood, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, hands counting savings and a calculator on a kitchen table with a coffee cup, warm morning light through a window, realistic, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://finance.yahoo.com/economy/policy/articles/mark-carney-warns-canada-full-220013422.html">Yahoo Finance / Bloomberg — Carney warns of a "full range" of responses if 50% tariffs take effect Aug 19; Desjardins pegs affected exports at ~C$28B / $19.8B (~5% of shipments to the US)</a></li>
+      <li><a href="https://www.cbc.ca/news/politics/trump-tariff-threat-premiers-carney-meeting-9.7279671">CBC — Carney says retaliation is being considered if no deal by the deadline; talks to intensify; deadline may be part of US negotiating strategy</a></li>
+      <li><a href="https://www.forbes.com/sites/siladityaray/2026/07/21/carney-says-canada-is-open-to-talks-after-trump-imposes-new-50-tariffs/">Forbes — 50% tariffs cover goods including wine, dairy, cement, furniture; Carney says the tariffs violate CUSMA but Canada is ready to engage</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — selected bond yields; 5-yr GoC yield 3.26% (Jul 31, 2026)</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — Aug 2026 best 5-yr fixed insured ~3.94%; 5-yr variable ~3.50%; fixed forecast drifting to ~3.84% by end-Sept; BoC expected to hold 2.25% (next decisions Sept 2, Oct 29, Dec 10)</a></li>
+      <li><a href="https://www.globenewswire.com/news-release/2026/07/03/3321730/0/en/Market-Gains-Traction-with-Strong-Home-Sales-in-June-and-First-Half-of-the-Year.html">TRREB via GlobeNewswire — June 2026: 6,770 sales (+9.4% YoY), avg price $1,058,658 (−3.9% YoY), benchmark $940,800; July report due ~Aug 6</a></li>
+      <li><a href="https://www.cbc.ca/news/business/crea-revision-june-2026-9.7269900">CBC — CREA downgrades 2026 forecast again (sales ~−1.4%); CMHC now sees ~457,200 sales (−2.8%) and avg resale ~$675,200 (−0.6%)</a></li>
+      <li><a href="https://betterdwelling.com/bank-of-canada-warns-theres-a-big-glut-of-tiny-condos-slashes-forecast/">Better Dwelling — Bank of Canada flags a glut of small investor condos; presales collapsed and condo starts fell ~11%</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — USD/CAD 1.4056 (Aug 4, 2026); TSX ~35,226 (Jul 31)</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked Aug 4, 2026 (8 uploads in last ~30h). Steals: Property Daily "Why Toronto Condos Dropped $60K," Angry Mortgage Clips "Canada Could Lose Its Entire Auto Industry," GTA Real Estate w/ Mike Carpino "Ontario Home Buyers Are Getting Too Old." Watch: Tom Storey "This Isn't Going to End Well."</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
