@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, August 5, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, August 5, 2026</div>
+  <div class="canada-day-badge">RENEWAL WAVE: HALF PAY THE SAME OR LESS · 50% TARIFF WALL IN 14 DAYS · FIXED ~3.94% vs VARIABLE ~3.50% · BOND YIELD ~3.18% · CAD 1.40</div>
+</div>
+
+<div class="container">
+
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">The 2026 mortgage renewal wave finally arrives — and it's not the disaster everyone promised</div>
+    <p>For two years the headlines screamed about a "renewal cliff": hundreds of thousands of Canadians who locked in rock-bottom rates in 2020–21 having to renew at scary new rates. Well, it's here — 2026 is one of the biggest renewal years ever — and the reality is calmer than the fear. A <strong>renewal</strong> is simply the day your mortgage term ends and you re-sign at today's rate. The good news landing this week: roughly <strong>half of everyone renewing in 2026 will see their payment stay flat or actually drop</strong>, and in Toronto the average monthly payment on a benchmark home is projected to <strong>fall for the first time since 2020</strong>. Rates today (~3.94% fixed) are simply not that far above the 2021 deals for a lot of people.</p>
+    <p>But there's an honest catch, and it's the part the cheerful headlines skip. The Bank of Canada's own Financial Stability Report flags that about <strong>9% of Toronto-area borrowers wouldn't be able to refinance</strong> their mortgage at renewal — their income no longer stretches to today's rules. And fresh data this morning shows <strong>bank mortgage delinquencies (people falling behind on payments) still creeping up</strong>. So it's a split screen: most people are fine or better off, a small but real group is squeezed hard.</p>
+    <p><strong>Why it's video-worthy:</strong> everyone else did the "cliff panic" a year ago. You get to be the one who says the honest, nuanced version in plain words: "here's how to tell in 30 seconds whether your renewal helps you or hurts you." Useful, calm, and it's the exact question millions are quietly stressing about right now.</p>
+  </div>
+
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">For the first time since 2020, the typical Toronto mortgage payment is set to fall at renewal — but a rising slice of owners still can't requalify. Know which side you're on before your term ends.</div>
+    <p style="margin-top:10px;">Plain version: if your mortgage renews this year, don't assume the worst. Half of Canadians renewing in 2026 pay the same or less, and Toronto payments are actually easing. The danger isn't the rate — it's getting caught flat-footed. Shop your renewal early, get a broker to run your real number, and if you're in the squeezed 9% who can't requalify, you want to know months ahead, not weeks. This is idea 1 below.</p>
+  </div>
+
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">2026 renewal wave</td>
+          <td>~50% flat or cheaper</td><td>—</td><td class="tag-down">softer than feared</td>
+          <td class="plain-meaning">About half of everyone renewing in 2026 pays the same or less; Toronto's average benchmark payment is projected to fall for the first time since 2020. The "renewal cliff" is real but far milder than the 2024 headlines warned.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Refinance risk (BoC FSR)</td>
+          <td>~9% of GTA borrowers</td><td>—</td><td class="tag-up">can't requalify</td>
+          <td class="plain-meaning">The Bank of Canada estimates ~9% of Toronto-area borrowers couldn't refinance at renewal under today's rules. Small but real — the group that needs a plan early.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Mortgage delinquencies</td>
+          <td>Rising</td><td>—</td><td class="tag-up">still climbing</td>
+          <td class="plain-meaning">"Delinquency" = falling behind on payments. Bank-reported mortgage arrears keep creeping up as older cheap terms expire. Off historic lows, but the trend line points the wrong way.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Held again July 15; unchanged since October 2025. Prime stays 4.45%. This drives VARIABLE mortgages. Next decision Sept 2 — markets mostly price a hold.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.18% (Aug 4)</td><td>3.26% (Jul 31)</td><td class="tag-down">−0.08</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years — it drives FIXED mortgage rates. It eased this week (the 10-yr slipped to 3.57% on Aug 4), which takes a little pressure off fixed rates. Small move, watch the trend.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr FIXED</td>
+          <td>~3.94%</td><td>~3.94%</td><td class="tag-flat">holding near 4%</td>
+          <td class="plain-meaning">Locked for 5 years, never changes. Cheap insured deals sit near 3.94%; big-bank posted rates run higher. This is the number most renewers are landing on. See idea 1.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr VARIABLE</td>
+          <td>~3.50% (insured ~3.25%)</td><td>~3.50%</td><td class="tag-flat">roughly flat</td>
+          <td class="plain-meaning">Cheaper than fixed today, but moves with the Bank of Canada. With cuts on pause, it's sitting still.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, latest)</td>
+          <td>~2.8%</td><td>~1.9%</td><td class="tag-up">elevated</td>
+          <td class="plain-meaning">Above the Bank's 2% target, lifted by higher energy prices. That's what keeps the Bank cautious about cutting — and keeps fixed rates sticky. Next CPI mid-August.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, June)</td>
+          <td>$1,058,658 · 6,770 sales</td><td>—</td><td class="tag-down">−3.9% YoY price · +8.4% YoY sales</td>
+          <td class="plain-meaning">Strong sales, prices still below last year. Benchmark home $940,800. Buyers have choice and room to negotiate. July TRREB report expected ~Aug 6 (tomorrow).</td>
+        </tr>
+        <tr>
+          <td class="metric-name">National price (CREA, June)</td>
+          <td>$665,600</td><td>~$667,500</td><td class="tag-down">−0.3% m/m · −3.6% YoY</td>
+          <td class="plain-meaning">Typical Canadian home slipped again in June. Real (inflation-adjusted) prices are down ~28% from the 2022 peak — the sharpest correction in the G7.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">Next US tariff wave</td>
+          <td>50% on Aug 19</td><td>35% live (Aug 1)</td><td class="tag-up">14 days out</td>
+          <td class="plain-meaning">A 50% tax on ~$28B/yr of goods (lumber, cement, furniture, clothing, appliances, wine, dairy) is scheduled for Aug 19. Carney–Trump talks intensifying; deadline may be a negotiating tactic.</td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~1.40</td><td>~1.40</td><td class="tag-flat">steady</td>
+          <td class="plain-meaning">Loonie holding near 1.40. A weaker dollar makes imported goods pricier for us — worth watching as the trade fight heats up.</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Note: bond yield reflects Aug 4 close (5-yr eased alongside the 10-yr's slip to 3.57%). Home-price figures are the latest official releases (TRREB/CREA June); the July TRREB report is expected ~Aug 6. Next big dates: July TRREB data ~Aug 6; 50% tariff wave Aug 19; next CPI mid-August; BoC rate decision Sept 2.</p>
+  </div>
+
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If your mortgage renews this year:</strong> breathe. There's a good chance your payment stays flat or drops — Toronto payments are easing for the first time since 2020. But don't coast: start shopping your renewal 4–6 months early, get a broker to run your actual number, and don't just auto-sign the bank's first offer. If money's tight, find out now whether you can requalify, because the squeezed ~9% who can't need runway to make a plan.</p>
+    <p><strong>If you're a first-time buyer or newcomer:</strong> the market is still soft and prices are below last year, so affordability is quietly the best it's been in a few years. Rates aren't falling fast, but they're not spiking either. This is a "get your real number and shop calmly" window, not a "panic-buy or panic-wait" one.</p>
+    <p><strong>If you're a renter:</strong> the same soft market that has some owners stuck is handing you leverage. Empty condos mean landlords are competing for tenants and rents have cooled. If your lease is up, shop and negotiate instead of auto-renewing — most tenants don't realize the power shifted their way (see idea 3).</p>
+  </div>
+
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS. 11 uploads in the last ~30h (Aug 4–5), clustered on mortgage delinquencies/renewals, condo owners stuck with lost value, and the renter-vs-landlord power balance. Only posts worth stealing from or studying are listed below. Instagram and TikTok not reliably checkable today.</p>
+
+    <div class="creator-item">
+      <div class="creator-name">Jon Flynn Real Estate Stats <span class="creator-platform">· YouTube · Aug 4</span></div>
+      <div class="creator-note">"Canadian Bank Sales &amp; Mortgage Delinquencies Keep Rising!"</div>
+      <div class="creator-note"><strong>Summary:</strong> Data-driven look at bank-held mortgage arrears and forced sales ticking up as cheap terms expire.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 1 and today's big story. He shows the scary chart; you flip it into calm, useful advice — "half of renewals are fine, here's how to tell if you're in the squeezed group and what to do about it." Beginner + newcomer lens: most people don't even know what "delinquency" or "requalify" means.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi <span class="creator-platform">· YouTube · Aug 4</span></div>
+      <div class="creator-note">"What should you do if your condo has lost value, but you need more space?"</div>
+      <div class="creator-note"><strong>Summary:</strong> Tackles the very real GTA trap — owners who bought a condo, watched it drop, and now have a growing family and no room.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 2. He frames the problem; you deliver the counterintuitive math — in a down market the house you want dropped more than your condo did, so moving up can actually cost less. Practical, hopeful, very GTA.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage Clips <span class="creator-platform">· YouTube · Aug 5</span></div>
+      <div class="creator-note">"Landlords Control Your Life"</div>
+      <div class="creator-note"><strong>Summary:</strong> Provocative take on how much power landlords hold over renters' money and choices.</div>
+      <span class="verdict verdict-steal">STEAL</span>
+      <div class="creator-note"><strong>Your angle:</strong> This is your idea 3 — but you flip it. Right now, with empty condos and cooling rents, the power quietly shifted to tenants. Turn his doom-hook into a "here's how to actually use your leverage" empowerment piece. Great for the build-trust goal.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate <span class="creator-platform">· YouTube · Aug 4</span></div>
+      <div class="creator-note">"You Can't Afford To Move (Toronto Home Prices)"</div>
+      <div class="creator-note"><strong>Summary:</strong> Argues many GTA owners are effectively frozen in place — priced out of moving up even though they own.</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Strong supporting fuel for idea 2. Bank the "why people feel stuck" framing, then out-do it with the honest math on how a down market can un-stick a move-up buyer.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky <span class="creator-platform">· YouTube · Aug 4</span></div>
+      <div class="creator-note">"Factors that may push rates higher"</div>
+      <div class="creator-note"><strong>Summary:</strong> Short explainer on what could push fixed mortgage rates back up (bond yields, inflation, deficits).</div>
+      <span class="verdict verdict-watch">WATCH</span>
+      <div class="creator-note"><strong>Why:</strong> Keeps idea 1 honest. Use one line from this — "rates could still drift up" — so your renewal video isn't blindly rosy. Balance builds trust.</div>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Also posted (SKIP for you)<span class="creator-platform"> · Aug 4–5</span></div>
+      <div class="creator-note">Property Daily — "Why 5,800 Brand-New Vancouver Condos Are Sitting Empty" (Vancouver, not GTA — but good condo-glut fuel to bank); Alex Applegate — "Homes Practically Worthless in Oakville" (fear-bait, thin); Ilan Portnoi — "MASSIVE LOSSES in Brampton/Toronto/Mississauga" (loss-porn, skip the doom angle); Karl Nielsen — "Smartest Way to Buy and Sell in Toronto" (evergreen); Audra Lambert — renovation short (US-style); That Agent Kelly — Fraser Valley sales (BC). Nothing else to steal today.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">The 2026 renewal wave: will your mortgage payment go UP or DOWN?</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals Jon Flynn's scary delinquency data but flips it into calm, personal guidance on a question millions are quietly stressing about. Reassurance + a clear self-check = saves and shares.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Half of 2026 renewals get CHEAPER."</div>
+        <div><strong>Spoken:</strong> "Half the people renewing their mortgage this year are about to pay the same or less — not more. But there's a catch, and you need to know which side you're on."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Question that can't be ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Up or down? Your renewal decides."</div>
+        <div><strong>Spoken:</strong> "If your mortgage renews this year, one question matters: does your payment go up or down? For the first time since 2020, a lot of Torontonians are getting good news. Here's how to tell in 30 seconds."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"The 'renewal cliff' was oversold."</div>
+        <div><strong>Spoken:</strong> "Everyone scared you about the 2026 renewal cliff. Turns out for half of Canadians it barely bites — but for a small group it's brutal. Let me show you where you land."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Half the people renewing their mortgage this year are about to pay the same or less — not more. But there's a catch, and you need to know which side you're on."</p>
+        <p><strong>Body:</strong> "Quick reminder — a renewal is just the day your mortgage term ends and you re-sign at today's rate. For two years the news screamed about a 'renewal cliff,' this giant wave of people forced into scary payments. It's here in 2026, and the reality is way calmer. Rates today sit around 3.94% fixed — not that far above a lot of the 2021 deals. So about half of everyone renewing pays the same or less, and in Toronto the typical payment is actually set to drop for the first time since 2020.<br><br>Now the honest part. The Bank of Canada says roughly 9% of Toronto owners can't requalify at renewal — their income doesn't stretch to today's rules. And people falling behind on payments is slowly rising. So it's a split screen: most people are fine, a small group is squeezed hard. The move is the same either way — shop your renewal four to six months early, and get a broker to run your real number. Don't just sign the bank's first letter. If you're in the tight group, you want to know now, not the week it's due."</p>
+        <p><strong>CTA:</strong> "Comment RENEW and I'll send you the exact questions to ask before you re-sign. Follow for tomorrow's brief — I live here, I sell here."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Renewal = re-sign at today's rate</span>
+        <span class="onscreen-tag">~Half pay same or less</span>
+        <span class="onscreen-tag">Toronto payments dropping</span>
+        <span class="onscreen-tag">~9% can't requalify</span>
+        <span class="onscreen-tag">Shop 4–6 months early</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>mortgage renewal letter close up · person at kitchen table with bills calculator · Toronto house sold sign · bank branch exterior · line graph interest rates rising falling</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, close-up of a person's hands opening an official mortgage renewal letter at a kitchen table, morning light, worried then relieved expression, documentary realism, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a calculator, coffee cup and household bills on a wooden table with a laptop showing a line chart, warm daylight through a window, realistic, 4K"</div>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Your condo lost value but you've outgrown it — how to actually move up without losing your shirt</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: steals Ilan Portnoi's "stuck condo owner" pain and delivers the counterintuitive math most people miss. Hits a huge, emotional GTA segment (young families in condos) with hope + a plan.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Personal / newcomer lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Your condo's down. You've outgrown it."</div>
+        <div><strong>Spoken:</strong> "Your condo lost value and now you need more space — welcome to the trap thousands of GTA owners are stuck in. Here's how you actually move up without eating the loss."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"A lower condo price can HELP you move up."</div>
+        <div><strong>Spoken:</strong> "Everyone thinks a condo that dropped in value traps you. If you're moving up to a house right now, that drop can actually work in your favour. Here's the math nobody explains."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Sell low, buy even lower."</div>
+        <div><strong>Spoken:</strong> "Yes, your condo is worth less. But the house you actually want dropped more. In a down market, moving up is cheaper than you think — let me show you."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Your condo lost value and now you need more space — welcome to the trap thousands of GTA owners are stuck in. Here's how you actually move up without eating the loss."</p>
+        <p><strong>Body:</strong> "Here's the feeling: you bought a condo, prices dropped, and now there's a kid coming and no room. Selling feels like admitting a loss, so people freeze. I get it — I bought near the peak too.<br><br>But look at the actual math. Say your condo is down 8%. The detached house you want? In a lot of the GTA it's down more, and the gap between a condo and a house — the amount you actually have to come up with — shrinks in a down market. You're not selling low and buying high. You're selling a little low and buying a lot lower. The 'loss' on your condo is often smaller than the discount you're getting on the upgrade.<br><br>Two honest checks. One: run both numbers on the same day — what your condo really sells for and what the house really costs — not last year's dream prices. Two: talk to a broker about porting your mortgage or your renewal timing so you don't get burned on the financing. Being 'stuck' is often just a math problem nobody sat down and did."</p>
+        <p><strong>CTA:</strong> "Comment MOVE and I'll walk you through the condo-to-house math for your situation. Follow — I live here, I sell here, and I'll give you the honest numbers."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Condo down? You're not stuck</span>
+        <span class="onscreen-tag">The house dropped more</span>
+        <span class="onscreen-tag">The gap shrinks in a down market</span>
+        <span class="onscreen-tag">Run both numbers same day</span>
+        <span class="onscreen-tag">Ask about porting your mortgage</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>small condo with baby crib tight space · young family packing moving boxes · detached Toronto house for sale · couple looking at house exterior hopeful · two price tags comparison graphic</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a cramped modern condo with a crib squeezed next to a sofa, young parent looking around thoughtfully, soft natural light, documentary realism, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a young couple standing on the sidewalk looking up at a modest detached Toronto house with a for-sale sign, warm late-afternoon light, hopeful mood, realistic, 4K"</div>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Renters: landlords don't control your life right now — you have more power than you think</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: flips Angry Mortgage's "landlords control your life" doom-hook into renter empowerment. Big, engaged, underserved audience (newcomers rent first) + an actionable move = comments and shares.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Contrarian (flip)</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Landlords don't control you right now."</div>
+        <div><strong>Spoken:</strong> "A lot of renters feel like landlords run their life. Right now in Toronto, the power quietly flipped to you — and most tenants have no idea."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Empty condos = your leverage."</div>
+        <div><strong>Spoken:</strong> "Thousands of Toronto condos are sitting empty and landlords are competing for tenants. If your lease is up, you're holding cards you didn't know you had."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Newcomer lens</div>
+        <div class="hook-box"><strong>First-frame text</strong>"New here? Don't just auto-renew."</div>
+        <div><strong>Spoken:</strong> "When I landed in Canada I signed whatever the landlord put in front of me. Big mistake. Right now the rental market is soft — here's how to use that before you renew."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "A lot of renters feel like landlords run their life. Right now in Toronto, the power quietly flipped to you — and most tenants have no idea."</p>
+        <p><strong>Body:</strong> "Here's what changed. All those investor condos that got built? A lot are finished and sitting empty, and an empty unit costs the owner money every month. So landlords are competing for tenants, and rents have cooled off. That's leverage — you just have to use it.<br><br>Three moves. One: if your lease is up, don't auto-renew. Shop three or four comparable units first so you actually know the going rate. Two: use them. Message your landlord that similar units are renting for less and ask to hold your rent flat or knock it down — a landlord facing an empty month often says yes. Three: negotiate the extras — a parking spot, a locker, a month of flexibility. When I moved here I signed the first thing offered and overpaid for a year. Don't be me.<br><br>One honest note: this power isn't forever. Condo building has slowed, so today's soft rental market will tighten again. Use the window while it's open."</p>
+        <p><strong>CTA:</strong> "Comment RENT and I'll send you the message to send your landlord before you renew. Follow — I live here, I sell here, and I've been the newcomer who overpaid."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">The power flipped to renters</span>
+        <span class="onscreen-tag">Empty condos = leverage</span>
+        <span class="onscreen-tag">Don't auto-renew</span>
+        <span class="onscreen-tag">Ask to hold or drop your rent</span>
+        <span class="onscreen-tag">The window won't stay open</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>for rent sign condo building Toronto · person scrolling rental listings phone · empty furnished condo interior · tenant signing lease document · downtown Toronto apartment towers evening</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — Higgsfield AI prompts (9:16, paste-ready)</div>
+        <div><em>Prompt A:</em> "Cinematic vertical 9:16, a 'For Rent' sign outside a modern glass condo tower in Toronto with several dark empty windows, blue-hour lighting, documentary realism, shallow depth of field, 4K"</div>
+        <div style="margin-top:6px;"><em>Prompt B:</em> "Cinematic vertical 9:16, a young person sitting on a couch scrolling rental listings on a phone in a bright empty apartment, soft daylight, candid mood, realistic, 4K"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <ul class="sources-list">
+      <li><a href="https://www.ratehub.ca/blog/renewing-your-mortgage-in-2026-heres-what-to-expect/">Ratehub — Renewing your mortgage in 2026: roughly half of renewers will see payments flat or lower; Toronto's average benchmark payment projected to fall for the first time since 2020</a></li>
+      <li><a href="https://remaxpluscity.com/toronto-home-buying.html/2026-mortgage-renewal-cliff-a-guide-for-toronto-homeowners-9073173">RE/MAX Plus City — 2026 mortgage renewal cliff guide; Bank of Canada Financial Stability Report notes ~9% of Toronto-area borrowers could not refinance at renewal</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — Aug 2026 best 5-yr fixed insured ~3.94%; 5-yr variable ~3.50%; BoC expected to hold 2.25% (next decision Sept 2)</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — selected bond yields; 5-yr GoC yield eased this week (10-yr slipped to 3.57% on Aug 4)</a></li>
+      <li><a href="https://tradingeconomics.com/canada/government-bond-yield">Trading Economics — Canada 10-yr government bond yield eased to 3.57% on Aug 4, 2026 (−0.09)</a></li>
+      <li><a href="https://www.globenewswire.com/news-release/2026/07/03/3321730/0/en/market-gains-traction-with-strong-home-sales-in-june-and-first-half-of-the-year.html">TRREB via GlobeNewswire — June 2026: 6,770 sales (+8.4% YoY), avg price $1,058,658 (−3.9% YoY), benchmark $940,800; July report due ~Aug 6</a></li>
+      <li><a href="https://betterdwelling.com/canadas-real-estate-industry-is-slashing-sales-price-forecasts-again/">Better Dwelling — CREA/CMHC 2026 forecasts cut again; national typical home $665,600 in June (−0.3% m/m, −3.6% YoY); real prices down ~28% from 2022 peak, sharpest in the G7</a></li>
+      <li><a href="https://www.cbc.ca/news/politics/trump-tariff-threat-premiers-carney-meeting-9.7279671">CBC — 50% tariff wave scheduled Aug 19 on ~$28B/yr of goods; Carney–Trump talks intensifying; deadline may be a negotiating tactic</a></li>
+      <li>Creator Watch: YouTube RSS feeds for 29 watchlist channels, checked Aug 5, 2026 (11 uploads in last ~30h). Steals: Jon Flynn "Bank Sales &amp; Mortgage Delinquencies Keep Rising," Ilan Portnoi "Condo lost value but need more space," Angry Mortgage Clips "Landlords Control Your Life." Watch: Team Sessa "You Can't Afford To Move," Steve Saretsky "Factors that may push rates higher."</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
