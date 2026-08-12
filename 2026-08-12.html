@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, August 12, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E; --dark: #1a1a2e; --card: #ffffff; --bg: #f4f6fb;
+      --accent: #2563eb; --accent-light: #eff6ff; --muted: #6b7280;
+      --border: #e5e7eb; --green: #16a34a; --orange: #d97706; --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
+    .header { background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%); color: white; padding: 28px 24px 24px; text-align: center; }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; font-size: 0.75rem; font-weight: 700; padding: 4px 14px; margin-top: 10px; letter-spacing: 0.05em; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card { background: var(--card); border-radius: 14px; padding: 20px 20px 18px; margin-bottom: 16px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .section-title { font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story { background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%); border: 1.5px solid #fbbf24; }
+    .big-story .badge { display: inline-block; background: #d97706; color: white; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; margin-bottom: 10px; }
+    .one-thing { background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%); border: 1.5px solid #93c5fd; }
+    .one-thing .big-text { font-size: 1.05rem; font-weight: 700; color: var(--accent); line-height: 1.4; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th { background: var(--bg); padding: 9px 10px; text-align: left; font-weight: 700; font-size: 0.75rem; color: var(--muted); border-bottom: 2px solid var(--border); text-transform: uppercase; letter-spacing: 0.04em; }
+    td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.4; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters { background: #f0fdf4; border: 1.5px solid #86efac; }
+    .creator-item { border-bottom: 1px solid var(--border); padding: 12px 0; }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card { border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; background: #fafafa; }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .idea-num { background: var(--red); color: white; font-weight: 800; font-size: 0.75rem; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag { background: var(--accent); color: white; font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-top: 10px; font-size: 0.84rem; }
+    .script-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .hook-box { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 8px 0; font-size: 0.84rem; }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag { background: var(--tag-bg); border: 1px solid #fcd34d; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 600; color: #92400e; }
+    .broll-block { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-top: 8px; font-size: 0.82rem; }
+    .broll-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    @media (max-width: 480px) { .header h1 { font-size: 1.25rem; } .container { padding: 14px 10px 40px; } .card { padding: 16px 14px; } }
+  </style>
+</head>
+<body>
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, August 12, 2026</div>
+  <div class="canada-day-badge">RENTERS' MARKET — TORONTO LANDLORDS DANGLING 2 MONTHS FREE RENT + GIFT CARDS · EFFECTIVE RENTS −3.8% YoY · VACANCY 5.4% (HIGHEST SINCE 2021) · VARIABLE NOW CHEAPER THAN FIXED (~3.40% vs ~3.94%) · BoC 2.25% · BOND ~3.18% · FORCED SALES SURGING · 50% TARIFF WALL AUG 19 (7 DAYS)</div>
+</div>
+<div class="container">
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Toronto landlords are now the ones competing — two months free rent, gift cards, free parking, just to fill units.</div>
+    <p>For years the renter had zero leverage: line up, bid over asking, take it or leave it. That has flipped. Toronto-area landlords are openly advertising perks to lure tenants — <strong>two months of free rent, free parking, and gift cards for groceries or transit</strong> — because too many units are sitting empty (<a href="https://www.cbc.ca/news/canada/toronto/toronto-landlords-vying-tenants-rent-free-months-gift-cards-1.7547859">CBC News</a>). Roughly <strong>two-thirds of newer rental buildings are offering an incentive right now, and the most common one is two months free</strong> (<a href="https://storeys.com/cmhc-mid-year-rental-market/">Storeys / CMHC mid-year update</a>).</p>
+    <p>The reason: a record wave of new purpose-built rentals opened at the same time immigration slowed, so there are more empty apartments than people to fill them. The vacancy rate in newer GTA-Hamilton buildings hit <strong>5.4% — the highest since the early-pandemic ghost-town days of 2021</strong> (<a href="https://storeys.com/cmhc-mid-year-rental-market/">Storeys / CMHC</a>). Asking rents are down: an average one-bedroom is around <strong>$2,313, down 4.4% in a year</strong>, and once you count the free months, effective rents in the City of Toronto have dropped about <strong>3.8%</strong> (<a href="https://www.cbc.ca/news/canada/toronto/toronto-landlords-vying-tenants-rent-free-months-gift-cards-1.7547859">CBC News</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this is the single most useful thing you can tell a newcomer this month — the exact people who felt powerless in the rental market last year can now negotiate. It's positive, it's specific, and no one in the "buy a house" lane is talking to renters like this.</p>
+  </div>
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The rental power has flipped to tenants: Toronto landlords are offering two months free rent, gift cards and free parking to fill a record number of empty units — the best position renters and newcomers have had in half a decade.</div>
+    <p style="margin-top:10px;">Plain version: if your lease is up or you're new to the city, you can now negotiate — ask for a free month, ask for parking thrown in, and don't take the first number. Sources: <a href="https://www.cbc.ca/news/canada/toronto/toronto-landlords-vying-tenants-rent-free-months-gift-cards-1.7547859">CBC News</a>; <a href="https://storeys.com/cmhc-mid-year-rental-market/">Storeys — CMHC mid-year rental update</a>. That's idea 1 below.</p>
+  </div>
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the renters'-market story wins on all three tests — it hits the wallet directly, it changes what a renter should do <em>this week</em>, and it speaks to the exact newcomer audience nobody else serves with real tactics (idea 1). Idea 2 is a genuinely new mortgage development: for the first time in about three years, variable rates are now cheaper than fixed — a real fork-in-the-road decision for anyone getting a mortgage. Idea 3 steals the strongest creator cluster of the last 24h — Daniel Foch's "forced sales up 1,100%," Ilan Portnoi's $450K Yorkville loss, Jon Flynn's "huge losses" — but flips it from doom-scroll into a calm "a scary headline is not your discount" explainer.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the past week led on the rate-hike forecast (Aug 11), the renewal/refinance trap (Aug 10), the tariff wall (Aug 8) and the jobs shock (Aug 7). Today flips the lens entirely to <em>renters</em>, with concrete negotiation tactics. Idea 2 (variable finally cheaper than fixed) is a brand-new mortgage angle, and idea 3 (forced sales / luxury losses) is a fresh creator-driven story, not a repeat of the Aug 11 delinquency piece.</p>
+  </div>
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap"><table>
+      <tr><th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th></tr>
+      <tr><td class="metric-name">Rental incentives 🔥</td><td>~2/3 of new buildings offering perks; 2 months free most common</td><td>Landlord's market a year ago</td><td class="tag-down">power flipped to tenants</td><td class="plain-meaning">TODAY'S BIG STORY. Landlords compete with free months, gift cards, free parking. Best renter leverage in ~5 years. <a href="https://www.cbc.ca/news/canada/toronto/toronto-landlords-vying-tenants-rent-free-months-gift-cards-1.7547859">CBC</a> · <a href="https://storeys.com/cmhc-mid-year-rental-market/">Storeys/CMHC</a></td></tr>
+      <tr><td class="metric-name">Toronto avg 1-bed rent 🔥</td><td>~$2,313</td><td>~$2,420 a year ago</td><td class="tag-down">−4.4% YoY</td><td class="plain-meaning">Asking rents falling; 2-beds (~$3,017) down 8.3%. After free months, effective rents off ~3.8%. <a href="https://www.cbc.ca/news/canada/toronto/toronto-landlords-vying-tenants-rent-free-months-gift-cards-1.7547859">CBC</a></td></tr>
+      <tr><td class="metric-name">GTA rental vacancy 🔥</td><td>5.4%</td><td>3.6% a year ago</td><td class="tag-up">highest since 2021</td><td class="plain-meaning">More empty apartments = more choice and bargaining power. <a href="https://storeys.com/cmhc-mid-year-rental-market/">Storeys/CMHC</a></td></tr>
+      <tr><td class="metric-name">Best 5-yr VARIABLE 🔥</td><td>~3.40%</td><td>above fixed for ~3 yrs</td><td class="tag-down">now cheaper than fixed</td><td class="plain-meaning">IDEA 2. First time in ~3 years variable undercuts the best fixed rate. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td></tr>
+      <tr><td class="metric-name">Best 5-yr FIXED</td><td>~3.94–4.04%</td><td>~4.04%</td><td class="tag-flat">holding near 4%</td><td class="plain-meaning">Locked for 5 years. Still the "safe" pick, no longer cheapest on day one. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td></tr>
+      <tr><td class="metric-name">BoC overnight rate</td><td>2.25%</td><td>2.25%</td><td class="tag-flat">no change</td><td class="plain-meaning">Drives variable mortgages and prime (4.45%). Held 6th straight time; next decision September. <a href="https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/">Bank of Canada</a></td></tr>
+      <tr><td class="metric-name">5-yr Gov't of Canada bond yield</td><td>~3.18%</td><td>~3.03% a month ago</td><td class="tag-up">firm</td><td class="plain-meaning">Drives FIXED mortgage rates. Still firm, so fixed rates aren't dropping. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td></tr>
+      <tr><td class="metric-name">Inflation (CPI, June)</td><td>2.8%</td><td>3.2% (May)</td><td class="tag-down">cooled, still sticky</td><td class="plain-meaning">Off May's 2-yr high, but core near 3% keeps the Bank cautious. Next CPI mid-August. <a href="https://tradingeconomics.com/canada/inflation-cpi">Trading Economics</a></td></tr>
+      <tr><td class="metric-name">GTA sales + price (TRREB, July)</td><td>5,995 sales · avg $1,003,956</td><td>June: avg $1,058,928</td><td class="tag-down">−0.9% sales · −4.5% price YoY</td><td class="plain-meaning">Released Aug 6. New listings −17.8% YoY; prices soft but near $1M. Tightening toward balance. <a href="https://trreb.ca/market-data/">TRREB</a></td></tr>
+      <tr><td class="metric-name">US tariff wall on Canada</td><td>50% on Aug 19</td><td>35% baseline live</td><td class="tag-up">7 days out</td><td class="plain-meaning">50% tax on ~$20B of Canadian goods looms. As of Aug 11 no deal — Carney says "we'll see." <a href="https://globalnews.ca/news/12011582/canada-deal-us-tariffs-well-see-carney/">Global News</a></td></tr>
+    </table></div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Next big dates: <strong>CPI mid-August</strong>; CMHC July housing starts Aug 18; CREA July national data ~mid-August; <strong>50% tariff wave Aug 19</strong>; next Bank of Canada rate decision in September.</p>
+  </div>
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you rent or you just arrived:</strong> the ground shifted in your favour. Landlords are the ones competing now — two-thirds of newer buildings are dangling incentives and the most common offer is two months free (<a href="https://storeys.com/cmhc-mid-year-rental-market/">Storeys/CMHC</a>). You can ask for things: a free month, free parking, a lower renewal instead of an increase. A year ago that was unthinkable. Use it (idea 1).</p>
+    <p><strong>If you're about to get a mortgage:</strong> the fork in the road just moved. For the first time in about three years, the best variable rate (~3.40%) is cheaper than the best fixed (~3.94%) (<a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a>). Variable saves you money today but rides with the Bank of Canada, so it can climb; fixed costs a little more but locks your payment. Get pre-approved so the choice is real numbers (idea 2).</p>
+    <p><strong>If you keep seeing "crash" and "$450K loss" headlines:</strong> take a breath. Some investors and pre-construction buyers are selling at real losses, and forced sales are climbing (<a href="https://www.youtube.com/watch?v=t9a6RJ6332s">Daniel Foch</a>). But a scary headline about someone else's loss is not the same as a discount in your pocket — the average GTA home is still just over $1M (<a href="https://trreb.ca/market-data/">TRREB</a>). Learn what's driving those losses so you spot a genuine deal instead of catching a falling knife (idea 3).</p>
+  </div>
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">29 YouTube channels checked via RSS. ~12 uploads in the last ~36h (Aug 10–11), heavily clustered on losses, forced sales and condos. Instagram and TikTok not reliably checkable today.</p>
+    <div class="creator-item"><div class="creator-name">Daniel Foch <span class="creator-platform">· YouTube · Aug 11</span></div><div class="creator-note">"The Toronto Forced Sales up 1,100%: What You Need to Know (Record Foreclosures)" (<a href="https://www.youtube.com/watch?v=t9a6RJ6332s">watch</a>)</div><div class="creator-note"><strong>Summary:</strong> Data-driven breakdown of the rise in power-of-sale and forced-sale listings across the GTA.</div><span class="verdict verdict-steal">STEAL</span><div class="creator-note"><strong>Your angle:</strong> Anchors idea 3. Take his hard number, then translate for a beginner: what a "forced sale" is, why it's rising, and why it isn't automatically your bargain.</div></div>
+    <div class="creator-item"><div class="creator-name">Ilan Portnoi <span class="creator-platform">· YouTube · Aug 11</span></div><div class="creator-note">"This Luxury Yorkville Condo Just Sold at a $450,000 Loss!!!" (<a href="https://www.youtube.com/watch?v=g_je-Q3BRJs">watch</a>)</div><div class="creator-note"><strong>Summary:</strong> Case study of a high-end downtown condo that resold hundreds of thousands below purchase price.</div><span class="verdict verdict-steal">STEAL</span><div class="creator-note"><strong>Your angle:</strong> Concrete example for idea 3. Use the $450K loss as the hook, then explain who eats a loss like that and why it doesn't mean the average buyer gets a deal.</div></div>
+    <div class="creator-item"><div class="creator-name">Jon Flynn — Real Estate Stats <span class="creator-platform">· YouTube · Aug 11</span></div><div class="creator-note">"These Real Estate Losses Are HUGE!!!" (<a href="https://www.youtube.com/watch?v=ISQTSI1yLTg">watch</a>)</div><div class="creator-note"><strong>Summary:</strong> Stats-heavy look at how many recent sales closed below what the seller paid.</div><span class="verdict verdict-watch">WATCH</span><div class="creator-note"><strong>Why:</strong> Supporting data for idea 3's "losses are real but selective" point.</div></div>
+    <div class="creator-item"><div class="creator-name">Property Daily <span class="creator-platform">· YouTube · Aug 11</span></div><div class="creator-note">"Why Toronto's Condo Crash Hit Harder Than Vancouver's" (<a href="https://www.youtube.com/watch?v=hBq0jP8_gDg">watch</a>)</div><div class="creator-note"><strong>Summary:</strong> Compares the Toronto vs. Vancouver condo downturns.</div><span class="verdict verdict-watch">WATCH</span><div class="creator-note"><strong>Why:</strong> Context for idea 3, but you covered condo-deals Aug 11 — don't rebuild.</div></div>
+    <div class="creator-item"><div class="creator-name">Team Sessa Real Estate <span class="creator-platform">· YouTube · Aug 11</span></div><div class="creator-note">"Massive Risk Buying This House (Toronto Home Prices)" (<a href="https://www.youtube.com/watch?v=5IzRY4agmcU">watch</a>)</div><div class="creator-note"><strong>Summary:</strong> Walkthrough of the risk in overpaying in a softening market.</div><span class="verdict verdict-watch">WATCH</span><div class="creator-note"><strong>Why:</strong> Good "don't catch a falling knife" energy for idea 3. Hook study only.</div></div>
+    <div class="creator-item"><div class="creator-name">Also posted (SKIP for you)<span class="creator-platform"> · Aug 11</span></div><div class="creator-note">Toronto Realty Group — "Do School Rankings Really Affect Home Prices?" (evergreen); Kevin Yu — "Top 9 Budget-Friendly Home Upgrades" (seller-prep); Nawar Naji — "Toronto Homes For Sale Just Crashed 18%" (covered Aug 6 & 10); Angry Mortgage clips (macro rants). Nothing else worth stealing.</div></div>
+  </div>
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+    <div class="idea-card">
+      <div class="idea-header"><div class="idea-num">1</div><div class="idea-title">Toronto landlords are begging for tenants — here's how to get a free month (and more)</div><span class="format-tag">Reel</span></div>
+      <div class="idea-why">Why it'll perform: positive, specific, aimed at your newcomer core. Renters feel powerless — this hands them the power and a script.</div>
+      <div class="script-block"><div class="script-label">Hook 1 — Number shock</div><div class="hook-box"><strong>First-frame text</strong>"Toronto landlords are begging for tenants."</div><div><strong>Spoken:</strong> "Two-thirds of new Toronto rental buildings are giving away free rent right now. Two months free, gift cards, free parking. If you're renting, this is the first time in years the power is yours."</div></div>
+      <div class="script-block"><div class="script-label">Hook 2 — Newcomer lens</div><div class="hook-box"><strong>First-frame text</strong>"New to Canada? Don't sign that lease yet."</div><div><strong>Spoken:</strong> "When I moved here, I took the first apartment I could get and paid full price. Don't do that today. Landlords are competing for you now — let me show you exactly what to ask for."</div></div>
+      <div class="script-block"><div class="script-label">Hook 3 — Stakes</div><div class="hook-box"><strong>First-frame text</strong>"Paying full rent? You're leaving money on the table."</div><div><strong>Spoken:</strong> "If you just signed a lease at full asking price in Toronto, you might have overpaid by a month or two of rent. Here's what landlords are quietly offering — and how to ask for it."</div></div>
+      <div class="script-block"><div class="script-label">Full Script (40–55s)</div><p><strong>Hook:</strong> "Toronto landlords are begging for tenants right now — and if you're renting, that's the best news you'll hear all month."</p><p><strong>Body:</strong> "A record number of new rental buildings opened at the same time immigration slowed down, so there are more empty apartments than people to fill them. The vacancy rate in newer buildings just hit 5.4% — the highest since 2021. When apartments sit empty, landlords panic and compete for you. Right now about two-thirds of newer buildings offer some perk, most commonly two full months of free rent — some throw in free parking, gift cards, even internet. Asking rents are actually down; a one-bedroom is off about 4% from last year. So: One, never take the first number — ask 'What incentives are you offering?' Two, if you're renewing, don't just accept an increase; point to the empty units and ask to hold or lower your rent. Three, get the free month written into the lease, not promised out loud. You have leverage for the first time in years. Use it."</p><p><strong>CTA:</strong> "Renting in the GTA? Comment RENT and I'll send you the exact three lines I'd use to negotiate. Follow for the honest version — I live here, I sell here."</p></div>
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags"><span class="onscreen-tag">2 months FREE rent</span><span class="onscreen-tag">Vacancy 5.4% (highest since 2021)</span><span class="onscreen-tag">Rents down ~4%</span><span class="onscreen-tag">Never take the first number</span><span class="onscreen-tag">Get it in the lease</span></div>
+      <div class="broll-block"><div class="broll-label">B-Roll — real footage search terms</div><div>Toronto condo apartment tower exterior · "for lease" sign on a balcony · empty modern apartment interior · person signing a lease document · handshake apartment tour</div></div>
+      <div class="broll-block"><div class="broll-label">Source(s)</div><div><a href="https://www.cbc.ca/news/canada/toronto/toronto-landlords-vying-tenants-rent-free-months-gift-cards-1.7547859">CBC News — Toronto landlords vying for tenants with rent-free months, gift cards</a> · <a href="https://storeys.com/cmhc-mid-year-rental-market/">Storeys — CMHC mid-year rental market update</a></div></div>
+    </div>
+    <div class="idea-card">
+      <div class="idea-header"><div class="idea-num">2</div><div class="idea-title">Variable is cheaper than fixed for the first time in 3 years — which do you pick?</div><span class="format-tag">Reel</span></div>
+      <div class="idea-why">Why it'll perform: a real, fresh decision moment for anyone buying or renewing. "Fixed vs. variable" always over-performs; "first time in 3 years" is a clean hook.</div>
+      <div class="script-block"><div class="script-label">Hook 1 — Number shock</div><div class="hook-box"><strong>First-frame text</strong>"Variable is now cheaper than fixed."</div><div><strong>Spoken:</strong> "For the first time in about three years, the cheapest variable mortgage rate just dropped below the cheapest fixed. If you're buying or renewing, this changes your math."</div></div>
+      <div class="script-block"><div class="script-label">Hook 2 — Question</div><div class="hook-box"><strong>First-frame text</strong>"Fixed or variable in 2026?"</div><div><strong>Spoken:</strong> "Everyone's asking me: fixed or variable right now? Something just changed that flips the usual answer. Here's how I'd actually decide."</div></div>
+      <div class="script-block"><div class="script-label">Hook 3 — Personal stakes</div><div class="hook-box"><strong>First-frame text</strong>"I picked fixed. Here's what I'd check now."</div><div><strong>Spoken:</strong> "When I got my mortgage, fixed was the obvious pick. This month it's not so obvious anymore — variable is actually cheaper. Let me walk you through the trade-off before you sign."</div></div>
+      <div class="script-block"><div class="script-label">Full Script (40–55s)</div><p><strong>Hook:</strong> "For the first time in about three years, the cheapest variable mortgage is now cheaper than the cheapest fixed. If you're buying or renewing, here's how to decide."</p><p><strong>Body:</strong> "A fixed rate is locked — your payment never changes for the whole term. Best 5-year fixed today is around 3.9%. A variable rate moves up and down with the Bank of Canada — and right now the best variable is around 3.4%, so it's cheaper to start. For three years fixed was the cheaper, safer pick; now it's a real choice. Variable saves you money today, but if the Bank of Canada raises rates — and a couple of banks think it might — your payment goes up. Fixed costs a little more each month but it's a locked, sleep-at-night number. How do I decide? One question: could you handle your payment going up by a few hundred dollars without panicking? If yes, variable's lower rate can pay off. If a jump would wreck your budget, pay the small premium for fixed and stop watching the news. And whatever you pick — get pre-approved first, so you're comparing your real rate, not a billboard rate."</p><p><strong>CTA:</strong> "Fixed or variable — what are you leaning toward? Tell me below and I'll tell you what I'd do. Follow for mortgage stuff explained like you're my friend, not a banker. I live here, I sell here."</p></div>
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags"><span class="onscreen-tag">Variable ~3.40% vs Fixed ~3.94%</span><span class="onscreen-tag">First time in 3 years</span><span class="onscreen-tag">Fixed = locked payment</span><span class="onscreen-tag">Variable = moves with BoC</span><span class="onscreen-tag">Can you handle a jump?</span></div>
+      <div class="broll-block"><div class="broll-label">B-Roll — real footage search terms</div><div>person comparing rates on a laptop · mortgage documents on a desk · Bank of Canada building Ottawa · calculator and pen close-up · couple talking with a mortgage advisor</div></div>
+      <div class="broll-block"><div class="broll-label">Source(s)</div><div><a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub — best mortgage rates (variable ~3.40% below best fixed ~3.94%)</a> · <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed</a> · <a href="https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/">Bank of Canada — key rate 2.25%, prime 4.45%</a></div></div>
+    </div>
+    <div class="idea-card">
+      <div class="idea-header"><div class="idea-num">3</div><div class="idea-title">A Yorkville condo just sold at a $450K loss — but that's not your discount</div><span class="format-tag">Reel</span></div>
+      <div class="idea-why">Why it'll perform: rides the day's biggest creator cluster (forced sales, luxury losses) but adds the honest twist nobody else gives — a headline loss isn't a deal for the average buyer.</div>
+      <div class="script-block"><div class="script-label">Hook 1 — Number shock</div><div class="hook-box"><strong>First-frame text</strong>"A Yorkville condo sold at a $450,000 loss."</div><div><strong>Spoken:</strong> "A luxury Toronto condo just resold for $450,000 less than the owner paid. And forced sales across the city are up over a thousand percent. Before you get excited — this is not your discount. Let me explain."</div></div>
+      <div class="script-block"><div class="script-label">Hook 2 — "Nobody's telling you"</div><div class="hook-box"><strong>First-frame text</strong>"'Crash' headlines are lying to you."</div><div><strong>Spoken:</strong> "Every video this week is screaming huge losses and forced sales. It's true — but nobody's telling you who's actually losing money, and why it doesn't mean the average home got cheaper."</div></div>
+      <div class="script-block"><div class="script-label">Hook 3 — Contrarian</div><div class="hook-box"><strong>First-frame text</strong>"Someone's $450K loss ≠ your bargain."</div><div><strong>Spoken:</strong> "Yes, some people are selling at massive losses in Toronto right now. No, that doesn't mean you're about to score a deal. Here's the difference between a real bargain and a falling knife."</div></div>
+      <div class="script-block"><div class="script-label">Full Script (40–55s)</div><p><strong>Hook:</strong> "A luxury Toronto condo just sold for $450,000 less than the owner paid, and forced sales across the city are surging. Before you get excited — this is not automatically your discount."</p><p><strong>Body:</strong> "The real part: some sellers are taking big losses, and 'forced sales' — where a lender makes someone sell because they can't pay — are climbing fast. Most of those losses hit one group: investors and pre-construction buyers who bought at the very top, planned to flip, and got caught when prices and rents fell. That's a story about them, not the whole market. Because the average GTA home is still just over one million dollars — it hasn't crashed for everyday buyers. So how do you tell a real deal from a trap? Three checks. One: why is it selling? A genuine forced sale can be a real bargain — a scared investor guessing at a low price is not. Two: compare it to what similar units actually sold for in the last 60 days, not to the peak. Three: run the full cost — fees, taxes, your real mortgage payment — before you fall in love with the discount. A loss on someone's spreadsheet only becomes your bargain if the numbers still work for you."</p><p><strong>CTA:</strong> "Want me to react to a listing you think is a 'deal'? Drop it in the comments. Follow for the honest version — no hype, no fear. I live here, I sell here."</p></div>
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags"><span class="onscreen-tag">$450K loss (Yorkville)</span><span class="onscreen-tag">Forced sales surging</span><span class="onscreen-tag">Avg home still ~$1M</span><span class="onscreen-tag">Who's losing? Investors + pre-con</span><span class="onscreen-tag">Compare to last 60 days, not the peak</span></div>
+      <div class="broll-block"><div class="broll-label">B-Roll — real footage search terms</div><div>Yorkville / downtown Toronto luxury condo exterior · "sold" real estate sign · red downward arrow graphic · person reading bad news on phone · empty staged condo living room</div></div>
+      <div class="broll-block"><div class="broll-label">Source(s)</div><div><a href="https://www.youtube.com/watch?v=t9a6RJ6332s">Daniel Foch — "Toronto Forced Sales up 1,100%: Record Foreclosures"</a> · <a href="https://www.youtube.com/watch?v=g_je-Q3BRJs">Ilan Portnoi — "$450,000 Loss"</a> · <a href="https://www.youtube.com/watch?v=ISQTSI1yLTg">Jon Flynn — "Losses Are HUGE"</a> · <a href="https://trreb.ca/market-data/">TRREB — GTA avg ~$1,003,956 (July 2026)</a></div></div>
+    </div>
+  </div>
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cbc.ca/news/canada/toronto/toronto-landlords-vying-tenants-rent-free-months-gift-cards-1.7547859">CBC News — Toronto landlords vying for tenants with rent-free months, gift cards</a></li>
+      <li><a href="https://storeys.com/cmhc-mid-year-rental-market/">Storeys — 6 key takeaways from CMHC's 2026 mid-year rental market update</a></li>
+      <li><a href="https://globalnews.ca/news/12011582/canada-deal-us-tariffs-well-see-carney/">Global News — Will Canada get a deal with the US before new tariffs? "We'll see," says Carney</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub — best mortgage rates (variable ~3.40% now below best fixed ~3.94%)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed rates (~3.94–4.04%)</a></li>
+      <li><a href="https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/">Bank of Canada — key interest rate 2.25%; prime 4.45%</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-yr bond yield ~3.18%</a></li>
+      <li><a href="https://tradingeconomics.com/canada/inflation-cpi">Trading Economics — Canada CPI 2.8% (June)</a></li>
+      <li><a href="https://trreb.ca/market-data/">TRREB — GTA July 2026: 5,995 sales, avg $1,003,956 (−4.5% YoY), new listings −17.8% YoY</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=t9a6RJ6332s">Daniel Foch — "The Toronto Forced Sales up 1,100%: Record Foreclosures"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=g_je-Q3BRJs">Ilan Portnoi — "Luxury Yorkville Condo Just Sold at a $450,000 Loss"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=ISQTSI1yLTg">Jon Flynn — "These Real Estate Losses Are HUGE"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=hBq0jP8_gDg">Property Daily — "Why Toronto's Condo Crash Hit Harder Than Vancouver's"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=5IzRY4agmcU">Team Sessa — "Massive Risk Buying This House (Toronto Home Prices)"</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
