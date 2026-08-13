@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Thursday, August 13, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, August 13, 2026</div>
+  <div class="canada-day-badge">TARIFF CRUNCH WEEK — 6 DAYS TO THE 50% U.S. TARIFF WALL (AUG 19) · LeBLANC–GREER MET 3× IN 3 WEEKS, STILL NO DEAL · MORTGAGE ARREARS HIT DECADE HIGH (14,061 · +27% YoY) · BoC 2.25% · PRIME 4.45% · BOND ~3.18% · BEST 5-YR FIXED ~4.09% · CPI (JULY) DROPS MONDAY AUG 17</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">It's crunch week: 6 days until a 50% U.S. tariff wall hits Canada — and there's still no deal.</div>
+    <p>This is the single biggest thing hanging over the Canadian economy right now, and the clock is loud. Washington has threatened a <strong>50% tariff — a 50% tax at the U.S. border — on roughly $20 billion of Canadian goods</strong> (think autos, dairy, aluminum, lumber, alcohol) starting <strong>August 19</strong>, and it would hit even goods that were supposed to be protected under the CUSMA trade deal (<a href="https://www.bnnbloomberg.ca/tariffs/2026/08/05/carney-says-tone-with-us-already-quite-firm-as-trade-talks-continue/">BNN Bloomberg</a>). Canada's trade minister Dominic LeBlanc met his U.S. counterpart in Washington on Tuesday — the <strong>third meeting in three weeks</strong> — and talks are now happening daily right up to the deadline (<a href="https://kfgo.com/2026/08/13/u-s-canada-trade-talks-intensify-ahead-of-tariff-deadline/">KFGO / Reuters</a>).</p>
+    <p>As of this morning the two sides have swapped written positions but <strong>have not reached an agreement</strong>. Canadian negotiators have privately warned the Americans that if the 50% tariff actually lands, it could <strong>halt the trade talks entirely</strong> and force Prime Minister Carney into retaliation (<a href="https://www.theglobeandmail.com/politics/article-ottawa-mounts-full-court-press-for-us-trade-deal-ahead-of-tariff/">Globe and Mail</a>). So it's genuinely deal-or-no-deal, and we find out within a week.</p>
+    <p><strong>Why it's video-worthy:</strong> most people think "tariffs" is boring political news that doesn't touch them. It absolutely does — it moves prices, jobs, and how nervous buyers feel about signing for a house. Explaining the countdown in plain language, with real "what's in it for you" stakes, is exactly the lane no realtor is filling. That's idea 1.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The number of Canadians 90+ days behind on their mortgage just hit the highest level in over a decade — about 14,061 households, more than double the 2022 low — and it's climbing at a pace usually only seen in a recession.</div>
+    <p style="margin-top:10px;">Plain version: more people are falling behind on payments as ultra-cheap pandemic mortgages renew at ~4%. It's still a small share of all mortgages (0.29%), so it's not a crash — but the trend is real, and if your renewal is coming, now is the time to make a plan, not panic. Sources: <a href="https://betterdwelling.com/canadian-mortgage-arrears-hit-recession-levels-reality-is-likely-worse/">Better Dwelling — arrears hit recession levels</a>; <a href="https://www.mpamag.com/ca/mortgage-industry/market-updates/canadas-mortgage-arrears-near-a-decade-high/584774">Canadian Mortgage Professional</a>. That's idea 2 below.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the tariff deadline is both the freshest hard news (negotiators met Tuesday, daily talks, 6 days to go) and the biggest story by far — it clears the big-story test and drives everything downstream, so it leads as idea 1. Idea 2 is a brand-new national data point — mortgage arrears at a decade high via the Canadian Bankers Association — a direct wallet-and-decision story for anyone renewing. Idea 3 is the engagement play: RBC says affordability is the best in 4 years <em>and</em> still as brutal as the 1990s bubble — a "wait, both?" hook that pulls comments. This set is entirely news-driven (creator feeds couldn't be verified today, see Creator Watch), so it easily clears the "not all creator-derived" rule.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the tariff wall last led on Aug 8, but that was about the tariffs <em>landing</em>; today's angle is the down-to-the-wire negotiation week and what a deal (or no deal) does to you — a different story. The RE lead is the <em>national</em> arrears record (CBA data, decade high), not the Ontario/Brampton delinquency piece from Aug 11. And idea 3 (the affordability paradox) is a brand-new angle that hasn't run this week — no repeat of the renters' market (Aug 12), rate-hike forecast (Aug 11) or renewal trap (Aug 10).</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">US tariff wall on Canada 🔥</td>
+          <td>50% on Aug 19</td><td>35% baseline live</td><td class="tag-up">6 days out · no deal yet</td>
+          <td class="plain-meaning">TODAY'S BIG STORY. A 50% tax on ~$20B of Canadian goods (autos, dairy, alcohol) looms; even CUSMA-compliant goods hit. 3rd Canada–US meeting in 3 weeks, daily talks. <a href="https://kfgo.com/2026/08/13/u-s-canada-trade-talks-intensify-ahead-of-tariff-deadline/">KFGO/Reuters</a> · <a href="https://www.theglobeandmail.com/politics/article-ottawa-mounts-full-court-press-for-us-trade-deal-ahead-of-tariff/">Globe</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Mortgage arrears (90+ days) 🔥</td>
+          <td>14,061 · rate 0.29% (May)</td><td>0.14% low in 2022</td><td class="tag-up">decade high · +27% YoY</td>
+          <td class="plain-meaning">IDEA 2. Most people behind on a mortgage in over a decade; count up 27% in a year (a recession-level pace). Still a small share overall — real trend, not a crash. <a href="https://betterdwelling.com/canadian-mortgage-arrears-hit-recession-levels-reality-is-likely-worse/">Better Dwelling</a> · <a href="https://www.mpamag.com/ca/mortgage-industry/market-updates/canadas-mortgage-arrears-near-a-decade-high/584774">CMP</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change (6th hold)</td>
+          <td class="plain-meaning">The Bank's main dial; drives variable mortgages and prime (4.45%). Held July 15 for the 6th straight time; next decision in September. <a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.18%</td><td>~3.03% a month ago</td><td class="tag-up">firm</td>
+          <td class="plain-meaning">The interest the government pays to borrow for 5 years — it drives FIXED mortgage rates. Still firm, so fixed rates aren't dropping. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>~4.09%</td><td>~4.04%</td><td class="tag-flat">holding near 4%</td>
+          <td class="plain-meaning">Locked for 5 years, payment never changes. The "wait for cheaper fixed rates" bet keeps not paying off while the bond yield stays firm. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate (variable/HELOC)</td>
+          <td>4.45%</td><td>4.45%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">The rate variable mortgages and lines of credit move off. Flat because the Bank of Canada is on hold. <a href="https://www.ratehub.ca/mortgages/bank-of-canada-target-overnight-rate">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, June)</td>
+          <td>~1.9%</td><td>~1.7% (May)</td><td class="tag-up">next read Aug 17</td>
+          <td class="plain-meaning">The rising cost of everyday stuff. June released July 20; the July number lands <strong>Monday Aug 17</strong> and helps decide the next rate move. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260720/dq260720a-eng.htm">StatCan (June CPI)</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA sales + price (TRREB, July)</td>
+          <td>5,995 sales · avg $1,003,956</td><td>June: avg $1,058,928</td><td class="tag-down">−4.5% price YoY</td>
+          <td class="plain-meaning">Released Aug 6. New listings −17.8% YoY as sellers pull supply; prices soft but still near $1M. Lowest price in 5+ years. <a href="https://trreb.ca/market-data/">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">National price (CREA, June)</td>
+          <td>benchmark $665,600</td><td>—</td><td class="tag-down">−3.3% YoY</td>
+          <td class="plain-meaning">The typical Canadian home. CREA downgraded its 2026 sales/price forecast again — recovery hopes fading. <a href="https://www.crea.ca/housing-market-stats/canadian-housing-market-stats/">CREA</a></td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Note: arrears figures are the Canadian Bankers Association May read via Better Dwelling / Canadian Mortgage Professional; mortgage rates are early-August lender snapshots (Ratehub); bond yield is the most recent verifiable read (~Aug 5). TRREB July released Aug 6; CREA June is the latest national data. Next big dates: <strong>StatCan July CPI — Monday Aug 17</strong>; CMHC July housing starts ~Aug 18; <strong>50% tariff wave Aug 19</strong>; next Bank of Canada rate decision in September.</p>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a buyer or seller waiting for the market to "settle":</strong> the tariff deadline is the fog. A 50% tariff wall could slow the economy, threaten jobs, and make buyers freeze — or a last-minute deal could lift the cloud fast. Nobody signs a mortgage feeling brave when the headlines are about a trade war. Watch Aug 19: it's the closest thing to a real market signal you'll get this month (<a href="https://kfgo.com/2026/08/13/u-s-canada-trade-talks-intensify-ahead-of-tariff-deadline/">KFGO/Reuters</a>). That's idea 1.</p>
+    <p><strong>If your mortgage renews soon:</strong> the arrears record is a nudge, not a scare. More people are falling behind because pandemic mortgages at ~1.5% are renewing at ~4%, and the count is rising fast (<a href="https://betterdwelling.com/canadian-mortgage-arrears-hit-recession-levels-reality-is-likely-worse/">Better Dwelling</a>). The move isn't to panic — it's to run your renewal numbers 4–6 months early, shop lenders, and know your options before the letter arrives. That's idea 2.</p>
+    <p><strong>If you're wondering "is it finally time to buy":</strong> here's the honest paradox. RBC says affordability just improved to the best level in about 4 years — but it's <em>still</em> as stretched as the early-1990s bubble (<a href="https://betterdwelling.com/canadian-housing-affordability-improves-still-near-90s-peak-rbc/">Better Dwelling / RBC</a>). Translation: things got a little less impossible, not actually easy. Don't let "best in 4 years" trick you into overstretching — run your real budget. That's idea 3.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-label">👀 Creator Watch (last 24h)</div>
+    <p style="font-size:0.83rem;color:var(--muted);">Honest note: the YouTube RSS check runs through the Chrome browser tool, and Chrome was unresponsive this morning (repeated timeouts), so the ~29-channel feed sweep could not run. As a fallback I checked the main creators (Daniel Foch, Tom Storey, Ron Butler / Angry Mortgage) via web search, and nothing time-stamped inside the last 24h came back that's verifiably new and worth stealing. Rather than guess or fabricate a post, Creator Watch is empty today. All three video ideas below are built straight from the day's real news — which is exactly what the "at least one from the news" rule wants. Creator sweep resumes tomorrow when the browser tool is back.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-label">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">1</div>
+        <div class="idea-title">6 days to a 50% tariff wall — what it actually does to your rent, job & mortgage</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's the biggest news of the week, there's a built-in countdown (urgency), and almost no realtor translates "tariffs" into normal-person stakes. Timely + explainer + fear-to-clarity = strong reach and saves.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock / countdown</div>
+        <div class="hook-box"><strong>First-frame text</strong>"6 days until this hits your wallet."</div>
+        <div><strong>Spoken:</strong> "In 6 days the U.S. could put a 50% tax on $20 billion of Canadian goods, and there's still no deal. Here's what it actually means for your rent, your job, and your mortgage."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Question that can't be ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Why is Canada in emergency trade talks?"</div>
+        <div><strong>Spoken:</strong> "Canada's negotiators just met the U.S. three times in three weeks, and the clock runs out August 19. Why should a renter or a first-time buyer care? Because this is what actually moves the housing market."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Contrarian / stakes</div>
+        <div class="hook-box"><strong>First-frame text</strong>"This isn't politics. It's your grocery bill."</div>
+        <div><strong>Spoken:</strong> "Everyone's calling this a political fight and scrolling past. Don't. This is the single biggest thing hanging over Canadian jobs and housing right now — and we find out in less than a week."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "In 6 days the U.S. could hit Canada with a 50% tariff wall — and there's still no deal. Here's what that actually means for you, in plain English."</p>
+        <p><strong>Body:</strong> "First, what a tariff even is: it's a tax the U.S. charges when Canadian goods cross the border. Washington is threatening 50% on about $20 billion of our stuff — cars, dairy, aluminum, alcohol — starting August 19. The scary part: it would hit even the goods that were supposed to be protected by our trade deal. Canada's trade minister has flown to Washington three times in three weeks, they're talking every day, and as of this morning there's no agreement. So why does a renter or a buyer care? Three ways. One, prices: tariffs make a lot of things cost more, which keeps inflation sticky and keeps the Bank of Canada from cutting rates. Two, jobs: the industries getting hit employ a lot of people, and job fear freezes the housing market faster than anything. Three, confidence: nobody feels brave signing a mortgage when the news is a trade war. Here's the honest part — I don't know if there'll be a deal. But August 19 is the closest thing to a real market signal we'll get this month, so watch it. If a deal lands, confidence comes back quickly. If it doesn't, expect buyers to sit on their hands a little longer."</p>
+        <p><strong>CTA:</strong> "Want the plain-English update the day this lands? Follow — I'll break down exactly what it means for the GTA. Comment TARIFF if you want me to go deeper. I live here, I sell here."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">50% tariff · Aug 19</span>
+        <span class="onscreen-tag">~$20B of Canadian goods</span>
+        <span class="onscreen-tag">3 meetings in 3 weeks · no deal</span>
+        <span class="onscreen-tag">Tariffs = sticky inflation = no rate cut</span>
+        <span class="onscreen-tag">Job fear freezes housing</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Canada US border crossing trucks · shipping containers port · auto assembly line factory · Parliament Hill Ottawa · person worried looking at phone news</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Screen-record ideas</div>
+        <div>a countdown "6 DAYS" graphic to Aug 19 · Globe/Reuters "trade talks intensify" headline · a "50% on $20B" number card · a simple 3-icon "prices / jobs / confidence" flow</div>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://kfgo.com/2026/08/13/u-s-canada-trade-talks-intensify-ahead-of-tariff-deadline/">KFGO / Reuters — U.S.–Canada trade talks intensify ahead of tariff deadline</a> · <a href="https://www.theglobeandmail.com/politics/article-ottawa-mounts-full-court-press-for-us-trade-deal-ahead-of-tariff/">Globe and Mail — Ottawa mounts full-court press ahead of Aug. 19 tariff</a> · <a href="https://www.bnnbloomberg.ca/tariffs/2026/08/05/carney-says-tone-with-us-already-quite-firm-as-trade-talks-continue/">BNN Bloomberg — Carney on trade talks / 50% tariff threat</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">2</div>
+        <div class="idea-title">Mortgage arrears just hit a decade high — the calm plan if your renewal is coming</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a scary number as the hook, then relief and a clear plan — that arc gets saves and shares. Speaks straight to the renewal wave everyone's nervous about, without doom-scrolling.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"14,000 Canadians just fell behind."</div>
+        <div><strong>Spoken:</strong> "The number of people 90 days behind on their mortgage just hit the highest level in over a decade — it's doubled since 2022. If your renewal is coming, here's the calm plan."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Contrarian / calm</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Don't panic about the 'arrears crisis.'"</div>
+        <div><strong>Spoken:</strong> "Headlines say mortgage arrears are at recession levels. That's true. But if you're worried about your own renewal, panicking is the worst thing you can do. Here's what actually protects you."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Personal stakes (his edge)</div>
+        <div class="hook-box"><strong>First-frame text</strong>"I bought at the peak. I get the fear."</div>
+        <div><strong>Spoken:</strong> "I know what a scary mortgage payment feels like — I bought my condo near the top. Arrears just hit a decade high, so let me show you the early moves that keep you out of that number."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "The number of Canadians three months behind on their mortgage just hit the highest level in over a decade — and it's climbing fast. Before you panic, here's the plan."</p>
+        <p><strong>Body:</strong> "The facts first: about 14,000 bank mortgages are now 90-plus days past due — that's more than double the low back in 2022, and the count jumped 27% in just one year, a pace we usually only see in a recession. Why? A lot of people locked in ultra-cheap pandemic mortgages around 1.5%, and they're now renewing at about 4%. That's a real jump in the monthly payment. Now the calm part — this is still a tiny slice of all mortgages, about 0.29%. So it's a warning light, not a crash. If your renewal is in the next year or two, here's what I'd actually do. One: don't wait for the renewal letter — start 4 to 6 months early. Two: shop. Your bank's first offer is almost never their best; a broker can check the whole market. Three: run the new payment now, on paper, so there are zero surprises — and if it's tight, ask about extending your amortization to soften the hit. The people who get hurt are usually the ones who did nothing until the last minute. Don't be that person. A plan beats fear every time."</p>
+        <p><strong>CTA:</strong> "Renewing in the next 2 years? Comment RENEW and I'll send you the exact checklist I'd run. Follow for mortgage stuff explained like a friend, not a bank. I live here, I sell here."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">14,061 · 90+ days behind</span>
+        <span class="onscreen-tag">Doubled since 2022</span>
+        <span class="onscreen-tag">1.5% ➜ ~4% at renewal</span>
+        <span class="onscreen-tag">Still just 0.29% — warning, not crash</span>
+        <span class="onscreen-tag">Start 4–6 months early</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>person opening mail at kitchen table · calculator and bills close-up · Toronto house sold sign · worried couple looking at laptop · mortgage broker meeting handshake</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Screen-record ideas</div>
+        <div>Better Dwelling "arrears hit recession levels" headline · a "0.14% ➜ 0.29%" arrow graphic · a "1.5% ➜ 4%" payment jump card · a 3-step renewal checklist sticker</div>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://betterdwelling.com/canadian-mortgage-arrears-hit-recession-levels-reality-is-likely-worse/">Better Dwelling — Canadian Mortgage Arrears Hit Recession Levels, Reality Is Likely Worse</a> · <a href="https://www.mpamag.com/ca/mortgage-industry/market-updates/canadas-mortgage-arrears-near-a-decade-high/584774">Canadian Mortgage Professional — Canada's mortgage arrears near a decade high</a> · <a href="https://www.cmhc-schl.gc.ca/observer/2026/mortgage-renewal-wave-strains-some-regions-borrowers">CMHC — Mortgage renewal wave strains some borrowers</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <div class="idea-num">3</div>
+        <div class="idea-title">Buying a home is the "most affordable in 4 years" — and still as brutal as the 90s bubble</div>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a paradox hook ("best in 4 years AND still terrible?") stops the scroll and pulls comments from both hopeful buyers and skeptics. Pure explainer, easy to save, sparks debate.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook 1 — Contrarian</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Buying just got 'easier.' It's still brutal."</div>
+        <div><strong>Spoken:</strong> "Owning a home in Canada is the most affordable it's been in 4 years. Sounds like great news — except it's still as unaffordable as the 1990s bubble. Both are true. Let me explain."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 2 — Question that can't be ignored</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Is 2026 finally the year to buy?"</div>
+        <div><strong>Spoken:</strong> "Everyone's asking if this is the year to buy. The data just gave a surprising answer — affordability is the best in 4 years, but there's a catch nobody's putting in the headline."</div>
+      </div>
+      <div class="script-block">
+        <div class="script-label">Hook 3 — Number shock</div>
+        <div class="hook-box"><strong>First-frame text</strong>"Best in 4 years. Still 90s-bubble bad."</div>
+        <div><strong>Spoken:</strong> "Two facts that sound impossible together: buying a home is easier than it's been since 2022, and it's still as stretched as the worst housing bubble in modern history. Here's how both are real."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Full Script (40–55s)</div>
+        <p><strong>Hook:</strong> "Owning a home in Canada is the most affordable it's been in 4 years — and still as brutal as the 1990s bubble. Both are true, and here's what it means for you."</p>
+        <p><strong>Body:</strong> "RBC tracks how much of a typical family's income it takes to carry a home — mortgage, taxes, everything. That measure just improved to the best level since 2022. Why? Prices softened a bit and rates stopped climbing, so the squeeze eased slightly. Here's the catch: even after that improvement, it's still about as stretched as it was during the early-'90s bubble — one of the worst points in modern history. So 'better' does not mean 'easy.' It means slightly-less-impossible. What do you do with that? Don't let a headline like 'most affordable in 4 years' talk you into overstretching. Two things: one, get pre-approved so you're working with your real budget, not a hopeful one. Two, buy for a payment you can carry even if life gets more expensive — not for the absolute maximum a bank will approve. The market getting a little friendlier is real. Overpaying because 'it's the best in 4 years' is how people get stuck. Slightly less impossible is still a reason to be careful, not reckless."</p>
+        <p><strong>CTA:</strong> "Are you waiting to buy, or done waiting? Tell me below — I read every comment. Follow for the honest version, no hype, no fear. I live here, I sell here."</p>
+      </div>
+
+      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Most affordable in 4 years</span>
+        <span class="onscreen-tag">Still = 1990s bubble</span>
+        <span class="onscreen-tag">"Better" ≠ "easy"</span>
+        <span class="onscreen-tag">Get pre-approved first</span>
+        <span class="onscreen-tag">Buy for a payment you can carry</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll — real footage search terms</div>
+        <div>Toronto neighbourhood houses aerial · young couple house hunting · for sale sign front lawn · person budgeting with calculator · keys handed over at a door</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Screen-record ideas</div>
+        <div>Better Dwelling / RBC affordability headline · a "best since 2022" vs "still = 1990s" split card · an income-to-carry-a-home bar chart · a "slightly less impossible" text sticker</div>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://betterdwelling.com/canadian-housing-affordability-improves-still-near-90s-peak-rbc/">Better Dwelling — Canadian Housing Affordability Improves, Still Near 90s Peak: RBC</a> · <a href="https://www.rbc.com/en/economics/canadian-analysis/canadian-housing/">RBC Economics — Canadian housing affordability</a> · <a href="https://trreb.ca/market-data/">TRREB — GTA avg still ~$1,003,956 (July 2026)</a></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://kfgo.com/2026/08/13/u-s-canada-trade-talks-intensify-ahead-of-tariff-deadline/">KFGO / Reuters — U.S.–Canada trade talks intensify ahead of Aug 19 tariff deadline</a></li>
+      <li><a href="https://www.theglobeandmail.com/politics/article-ottawa-mounts-full-court-press-for-us-trade-deal-ahead-of-tariff/">Globe and Mail — Ottawa mounts full-court press for US trade deal ahead of tariff</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/tariffs/2026/08/05/carney-says-tone-with-us-already-quite-firm-as-trade-talks-continue/">BNN Bloomberg — Carney says tone with U.S. already "quite firm" as trade talks continue</a></li>
+      <li><a href="https://betterdwelling.com/canadian-mortgage-arrears-hit-recession-levels-reality-is-likely-worse/">Better Dwelling — Canadian Mortgage Arrears Hit Recession Levels, Reality Is Likely Worse</a></li>
+      <li><a href="https://www.mpamag.com/ca/mortgage-industry/market-updates/canadas-mortgage-arrears-near-a-decade-high/584774">Canadian Mortgage Professional — Canada's mortgage arrears near a decade high</a></li>
+      <li><a href="https://betterdwelling.com/canadian-housing-affordability-improves-still-near-90s-peak-rbc/">Better Dwelling — Canadian Housing Affordability Improves, Still Near 90s Peak: RBC</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — held overnight rate at 2.25% (July 15, 2026)</a></li>
+      <li><a href="https://www.ratehub.ca/mortgages/bank-of-canada-target-overnight-rate">Ratehub — overnight rate 2.25%, prime 4.45%</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-year fixed rates (~4.09%)</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-yr bond yield ~3.18%</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260720/dq260720a-eng.htm">Statistics Canada — Consumer Price Index, June 2026 (July CPI due Aug 17)</a></li>
+      <li><a href="https://trreb.ca/market-data/">TRREB — GTA July 2026: 5,995 sales, avg $1,003,956 (−4.5% YoY), new listings −17.8% YoY</a></li>
+      <li><a href="https://www.crea.ca/housing-market-stats/canadian-housing-market-stats/">CREA — National benchmark ~$665,600 (June, −3.3% YoY); 2026 forecast downgraded</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/observer/2026/mortgage-renewal-wave-strains-some-regions-borrowers">CMHC — Mortgage renewal wave strains some regions and borrowers</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li>No verified creator posts today — Chrome/YouTube-RSS sweep was down (browser tool unresponsive) and a web-search fallback returned nothing time-stamped inside the last 24h worth stealing. Not fabricated; sweep resumes tomorrow.</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
