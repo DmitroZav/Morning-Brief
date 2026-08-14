@@ -5,284 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🇨🇦 Morning Brief — Friday, August 14, 2026</title>
   <style>
-    :root {
-      --red: #D52B1E; --dark: #1a1a2e; --card: #ffffff; --bg: #f4f6fb;
-      --accent: #2563eb; --accent-light: #eff6ff; --muted: #6b7280;
-      --border: #e5e7eb; --green: #16a34a; --orange: #d97706; --tag-bg: #fef3c7;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
-    .header { background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%); color: white; padding: 28px 24px 24px; text-align: center; }
-    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
-    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
-    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
-    .header .canada-day-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; font-size: 0.75rem; font-weight: 700; padding: 4px 14px; margin-top: 10px; letter-spacing: 0.05em; }
-    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
-    .card { background: var(--card); border-radius: 14px; padding: 20px 20px 18px; margin-bottom: 16px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-    .section-title { font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-    p { margin-bottom: 10px; font-size: 0.95rem; }
-    p:last-child { margin-bottom: 0; }
-    a { color: var(--accent); }
-    .big-story { background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%); border: 1.5px solid #fbbf24; }
-    .big-story .badge { display: inline-block; background: #d97706; color: white; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; margin-bottom: 10px; }
-    .one-thing { background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%); border: 1.5px solid #93c5fd; }
-    .one-thing .big-text { font-size: 1.05rem; font-weight: 700; color: var(--accent); line-height: 1.4; }
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
-    th { background: var(--bg); padding: 9px 10px; text-align: left; font-weight: 700; font-size: 0.75rem; color: var(--muted); border-bottom: 2px solid var(--border); text-transform: uppercase; letter-spacing: 0.04em; }
-    td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.4; }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: #f9fafb; }
-    .tag-up { color: var(--red); font-weight: 700; }
-    .tag-down { color: var(--green); font-weight: 700; }
-    .tag-flat { color: var(--muted); }
-    .metric-name { font-weight: 600; }
-    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
-    .why-matters { background: #f0fdf4; border: 1.5px solid #86efac; }
-    .creator-item { border-bottom: 1px solid var(--border); padding: 12px 0; }
-    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .creator-name { font-weight: 700; font-size: 0.9rem; }
-    .creator-platform { color: var(--muted); font-size: 0.8rem; }
-    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
-    .verdict-watch { background: #fef9c3; color: #a16207; }
-    .verdict-steal { background: #dcfce7; color: #15803d; }
-    .creator-note { font-size: 0.83rem; color: var(--muted); }
-    .creator-note a { color: var(--accent); }
-    .idea-card { border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; background: #fafafa; }
-    .idea-card:last-child { margin-bottom: 0; }
-    .idea-header { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
-    .idea-num { background: var(--red); color: white; font-weight: 800; font-size: 0.75rem; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
-    .format-tag { background: var(--accent); color: white; font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.04em; }
-    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
-    .script-block { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-top: 10px; font-size: 0.84rem; }
-    .script-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .hook-box { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 8px 0; font-size: 0.84rem; }
-    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
-    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
-    .onscreen-tag { background: var(--tag-bg); border: 1px solid #fcd34d; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 600; color: #92400e; }
-    .broll-block { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-top: 8px; font-size: 0.82rem; }
-    .broll-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
-    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
-    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
-    .sources-list { list-style: none; padding: 0; }
-    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
-    .sources-list li:last-child { border-bottom: none; }
-    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    @media (max-width: 480px) { .header h1 { font-size: 1.25rem; } .container { padding: 14px 10px 40px; } .card { padding: 16px 14px; } }
-  </style>
-</head>
-<body>
-<div class="header">
-  <span class="flag">🇨🇦</span>
-  <h1>Morning Brief</h1>
-  <div class="date">Friday, August 14, 2026</div>
-  <div class="canada-day-badge">ONTARIO HST REBATE SPLITS THE MARKET — NEW DETACHED SALES DOUBLE (+130%), CONDOS STILL DEAD · "POWER DESERTS" BLOCK 1.5M HOMES ($120B GRID GAP) · 5 DAYS TO THE 50% U.S. TARIFF WALL (AUG 19) · BoC 2.25% · PRIME 4.45% · BOND ~3.2% · BEST 5-YR FIXED ~4.04% · CPI (JULY) MON AUG 17</div>
-</div>
-<div class="container">
-  <div class="card big-story">
-    <span class="badge">☀️ Big Story of the Day</span>
-    <div class="section-title">A $130,000 tax break just split the housing market in two — new detached homes are flying, condos are frozen.</div>
-    <p>Ontario axed the full 13% HST — the sales tax — on eligible new homes on April 1, and the first full quarter of numbers is in. New-home sales across the province <strong>jumped 130%</strong> in Q2, to 8,410 units from 3,645 a year earlier. But it's really two markets: new <strong>single-family (detached) sales more than doubled</strong>, 2,582 to 7,215, while new <strong>condo sales barely moved</strong> — up just 12% to 1,195, still <strong>88% below their 10-year average</strong> (<a href="https://www.theglobeandmail.com/business/article-hst-rebate-propels-single-family-home-sales-ontario-not-condos/">Globe and Mail</a>; <a href="https://thehub.ca/2026/08/12/ontario-new-home-sales-jump-130-percent-after-enhanced-hst-rebate-but-condo-market-still-lags/">The Hub</a>).</p>
-    <p>The rebate knocks up to <strong>$130,000 off a new home priced up to $1.5 million</strong>, and runs until March 31, 2027 (<a href="https://www.ctvnews.ca/toronto/article/hst-rebate-continues-to-boost-sales-of-new-single-family-homes-in-ontario-report/">CTV News</a>). Real money — but clearly moving detached buyers, not condo buyers, because condo prices, fees and investor math still don't work.</p>
-    <p><strong>Why it's video-worthy:</strong> "the government will hand you up to $130k" is a scroll-stopper, and almost nobody has explained who qualifies or why condos got left behind. That's idea 1.</p>
-  </div>
-  <div class="card one-thing">
-    <div class="section-label">🎯 The One Thing</div>
-    <div class="big-text">Ontario's HST rebate is a real up-to-$130k discount on a new build up to $1.5M — but only on new construction (mostly detached). Resale homes and most condos get nothing.</div>
-    <p style="margin-top:10px;">Plain version: buying a brand-new detached, semi or town from a builder could save you tens of thousands. Buying resale or a condo? It doesn't apply — so "HST rebate" doesn't mean every home got cheaper. Sources: <a href="https://www.theglobeandmail.com/business/article-hst-rebate-propels-single-family-home-sales-ontario-not-condos/">Globe</a>; <a href="https://trreb.ca/wp-content/files/homeownership/2026-HST-New-Home-Buyer-Rebate.pdf">TRREB HST rebate PDF</a>.</p>
-  </div>
-  <div class="card">
-    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
-    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the HST split is the freshest housing data (Q2 report this week) and the strongest wallet story — a concrete up-to-$130k number that changes what a new-build buyer does now (idea 1). Idea 2 (Ontario's "power deserts") is a brand-new structural story explaining WHY homes stay scarce even in a soft market. Idea 3 is the creator steal: Ilan Portnoi's "10 Reasons Buyers Are Rejecting Homes." Two news-driven, one creator — clears the "not all creator" rule, and the biggest national story (tariff clock) is acknowledged without a repeat video.</p>
-    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the last four days led on the tariff wall (Aug 8/13), mortgage arrears (Aug 13), renters' market (Aug 12) and a rate-hike forecast (Aug 11). Today's lead is a different lane — a tax-policy story splitting new detached vs. condo demand — not run this week. The tariff stays in Market Pulse (now 5 days out) but we deliberately did NOT build a fourth tariff video.</p>
-  </div>
-  <div class="card">
-    <div class="section-label">📊 Market Pulse</div>
-    <div class="table-wrap"><table>
-      <tr><th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th></tr>
-      <tr><td class="metric-name">Ontario new-home sales (Q2) 🔥</td><td>8,410 (+130% YoY)</td><td>3,645 a year ago</td><td class="tag-up">detached ×2 · condos flat</td><td class="plain-meaning">TODAY'S BIG STORY. HST rebate lit up new detached sales (2,582➜7,215) but barely touched condos (1,063➜1,195, still 88% below normal). <a href="https://www.theglobeandmail.com/business/article-hst-rebate-propels-single-family-home-sales-ontario-not-condos/">Globe</a> · <a href="https://thehub.ca/2026/08/12/ontario-new-home-sales-jump-130-percent-after-enhanced-hst-rebate-but-condo-market-still-lags/">The Hub</a></td></tr>
-      <tr><td class="metric-name">Ontario power grid gap 🔥</td><td>up to $120B needed</td><td>1.5M homes pledged</td><td class="tag-up">"power deserts" spreading</td><td class="plain-meaning">IDEA 2. Parts of the GTA (Pickering, Ajax, Whitby) can't connect big new housing because local grids are maxed out. A hidden brake on supply. <a href="https://www.theglobeandmail.com/business/article-ontario-cant-build-homes-without-rebuilding-power-grid/">Globe</a></td></tr>
-      <tr><td class="metric-name">US tariff wall on Canada</td><td>50% on Aug 19</td><td>still no deal</td><td class="tag-up">5 days out</td><td class="plain-meaning">Still the biggest national story: a 50% tax on ~$20B of Canadian goods looms Aug 19; talks daily. <a href="https://www.cbc.ca/news/politics/us-canada-tariff-negotiations-august-deadline-9.7297274">CBC</a> · <a href="https://www.ttnews.com/articles/carney-canada-tariff-deadline">TT News/AP</a></td></tr>
-      <tr><td class="metric-name">BoC overnight rate</td><td>2.25%</td><td>2.25%</td><td class="tag-flat">no change (6th hold)</td><td class="plain-meaning">The Bank's main dial; drives variable/prime (4.45%). Held July 15 for the 6th time; next decision September. <a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada</a></td></tr>
-      <tr><td class="metric-name">5-yr Gov't of Canada bond yield</td><td>~3.2%</td><td>~3.0% a month ago</td><td class="tag-up">firm on oil/Mideast</td><td class="plain-meaning">The interest the government pays to borrow for 5 years — drives FIXED mortgage rates. Still firm, so fixed isn't dropping. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td></tr>
-      <tr><td class="metric-name">Best 5-yr fixed mortgage</td><td>~4.04%</td><td>~4.09%</td><td class="tag-flat">holding near 4%</td><td class="plain-meaning">Locked 5 years, payment never changes. Stuck near 4% while the bond yield stays firm. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td></tr>
-      <tr><td class="metric-name">Best 5-yr variable mortgage</td><td>~3.35%</td><td>~3.35%</td><td class="tag-flat">no change</td><td class="plain-meaning">Moves with prime (4.45%). Cheaper than fixed today, but can rise if the Bank hikes. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td></tr>
-      <tr><td class="metric-name">Inflation (CPI, June)</td><td>2.8% (core ~1.9%)</td><td>3.2% (May)</td><td class="tag-down">next read Mon Aug 17</td><td class="plain-meaning">Cost of everyday stuff, cooling. June released July 20; July lands Monday Aug 17. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260720/dq260720a-eng.htm">StatCan</a></td></tr>
-      <tr><td class="metric-name">GTA sales + price (TRREB, July)</td><td>avg $1,003,956</td><td>June: $1,058,928</td><td class="tag-down">−4.5% price YoY</td><td class="plain-meaning">Released Aug 6. New listings −17.8% YoY; prices soft but still near $1M, lowest in 5+ years. <a href="https://trreb.ca/market-data/">TRREB</a></td></tr>
-      <tr><td class="metric-name">National price (CREA, June)</td><td>benchmark $665,600</td><td>—</td><td class="tag-down">−3.3% YoY</td><td class="plain-meaning">The typical Canadian home. Sales rose a 3rd straight month (+0.5% m/m), prices still down YoY. <a href="https://www.crea.ca/housing-market-stats/canadian-housing-market-stats/">CREA</a></td></tr>
-    </table></div>
-    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Note: Ontario Q2 new-home figures via Globe/The Hub (BILD/Altus); rates are mid-August Ratehub snapshots; bond yield most recent verifiable (~3.2%). Next dates: <strong>StatCan July CPI Mon Aug 17</strong>; CMHC July starts ~Aug 18; <strong>50% tariff wave Aug 19</strong>; next BoC decision September.</p>
-  </div>
-  <div class="card why-matters">
-    <div class="section-label">🧠 Why It Matters (To You)</div>
-    <p><strong>First-time buyer eyeing a new build:</strong> the HST rebate is big — up to $130k off a new home up to $1.5M — but only on new construction, which is why new detached sales doubled. Resale and most condos don't qualify. Know your bucket before assuming a discount (<a href="https://www.theglobeandmail.com/business/article-hst-rebate-propels-single-family-home-sales-ontario-not-condos/">Globe</a>). Idea 1.</p>
-    <p><strong>Why homes stay expensive in a "soft" market:</strong> Ontario promised 1.5M homes, but parts of the GTA — Pickering, Ajax, Whitby — literally can't plug new developments into the power grid, and fixing it could cost up to $120B nobody wants to pay for. Tight supply keeps prices up (<a href="https://www.theglobeandmail.com/business/article-ontario-cant-build-homes-without-rebuilding-power-grid/">Globe</a>). Idea 2.</p>
-    <p><strong>Buyer worried about overpaying:</strong> in a buyer's market you have more power than you think. A GTA agent just listed 10 reasons buyers are walking away — bad layouts, deferred repairs, overpricing. You're allowed to say no. Idea 3.</p>
-  </div>
-  <div class="card">
-    <div class="section-label">👀 Creator Watch (last 24h)</div>
-    <p style="font-size:0.83rem;color:var(--muted);">YouTube RSS sweep is back. Checked all ~29 watchlist channels; surfacing only posts worth stealing or watching from the last 24h.</p>
-    <div class="creator-item"><div class="creator-name">Ilan Portnoi · YouTube</div><div class="creator-platform">"10 Reasons Buyers Are REJECTING Homes" · Aug 13 · <a href="https://www.youtube.com/watch?v=3cCh_GuH4WU">watch</a></div><span class="verdict verdict-steal">STEAL</span><p class="creator-note">Listicle of why buyers walk away from GTA homes. Your angle: rebuild as a newcomer buyer-leverage video — "10 reasons it's OK to say no." Idea 3.</p></div>
-    <div class="creator-item"><div class="creator-name">Angry Mortgage (Ron Butler) · YouTube</div><div class="creator-platform">"THEY'RE GIVING UP" · Aug 14 · <a href="https://www.youtube.com/watch?v=2MVPvFNf4UQ">watch</a></div><span class="verdict verdict-watch">WATCH</span><p class="creator-note">Blunt take on sellers/investors capitulating. Great hook study. We led on seller capitulation recently, so WATCH today.</p></div>
-    <div class="creator-item"><div class="creator-name">Team Sessa · YouTube</div><div class="creator-platform">"This Is A Very Expensive Mistake (Vaughan, Richmond Hill, Markham)" · Aug 13 · <a href="https://www.youtube.com/watch?v=esUVkGILA00">watch</a></div><span class="verdict verdict-watch">WATCH</span><p class="creator-note">905-suburb pricing pitfalls. Bank it for a York Region pricing video.</p></div>
-    <div class="creator-item"><div class="creator-name">Steve Saretsky · YouTube</div><div class="creator-platform">"Canada's Rental Market Down 45%" · Aug 13 · <a href="https://www.youtube.com/watch?v=KRwBFPkN3Aw">watch</a></div><span class="verdict verdict-watch">WATCH</span><p class="creator-note">National rental softness. Covered renters Aug 12, so WATCH.</p></div>
-    <div class="creator-item"><div class="creator-name">Toronto Realty Group · YouTube</div><div class="creator-platform">"Leslieville: First-Time Buyer Paradise" · Aug 13 · <a href="https://www.youtube.com/watch?v=Tz0e6iL989E">watch</a></div><span class="verdict verdict-watch">WATCH</span><p class="creator-note">Neighbourhood guide for first-time buyers. Steal later for a newcomer "best first neighbourhoods" series.</p></div>
-  </div>
-  <div class="card">
-    <div class="section-label">🎬 Content Play</div>
-    <div class="idea-card">
-      <div class="idea-header"><div class="idea-num">1</div><div class="idea-title">The government will hand you up to $130,000 — but only on one kind of home</div><span class="format-tag">Reel</span></div>
-      <div class="idea-why">Why it'll perform: a giant free-money number plus a twist (condos get nothing). Specific, actionable, most people don't know the rules.</div>
-      <div class="script-block"><div class="script-label">Hook 1 — Number shock</div><div class="hook-box"><strong>First-frame text</strong>"Ontario will pay you $130,000?"</div><div><strong>Spoken:</strong> "Ontario is knocking up to $130,000 off a new home right now — and new detached sales just doubled. But there's a catch that leaves most buyers out."</div></div>
-      <div class="script-block"><div class="script-label">Hook 2 — Nobody's telling you</div><div class="hook-box"><strong>First-frame text</strong>"Nobody explained this $130k rebate."</div><div><strong>Spoken:</strong> "There's a tax break in Ontario worth up to $130,000 on a new home, and nobody's explaining who qualifies. When I moved here I'd have killed to know this."</div></div>
-      <div class="script-block"><div class="script-label">Hook 3 — Contrarian</div><div class="hook-box"><strong>First-frame text</strong>"This rebate is NOT for condos."</div><div><strong>Spoken:</strong> "Everyone's excited about Ontario's new-home HST rebate — but if you're buying a condo or resale, you probably get zero. Here's who it's actually helping."</div></div>
-      <div class="script-block"><div class="script-label">Full Script (40–55s)</div><p><strong>Hook:</strong> "Ontario will knock up to $130,000 off a new home right now — and it just made new detached sales double. But there's a catch."</p><p><strong>Body:</strong> "On April 1, Ontario removed the full 13% HST on eligible new homes up to $1.5 million — up to $130,000 back. And it works: new-home sales jumped 130% in one quarter. But here's the split — new detached, semis and towns more than doubled, while new condos barely moved, up 12%, still 88% below normal. Why? The rebate is only on brand-new construction from a builder, and it's mostly detached buyers pulling the trigger. Buying resale, or a condo where fees and prices don't add up? This does nothing for you. So check the bucket. New build up to $1.5M? Save tens of thousands. Resale or condo? Different game. It runs until end of March 2027."</p><p><strong>CTA:</strong> "Want me to check if a specific home qualifies? Comment REBATE. Follow for the newcomer version of Canadian real estate. I live here, I sell here."</p></div>
-      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
-      <div class="onscreen-tags"><span class="onscreen-tag">Up to $130k off · new homes</span><span class="onscreen-tag">New detached +130%</span><span class="onscreen-tag">Condos +12%, still 88% below normal</span><span class="onscreen-tag">New build only</span><span class="onscreen-tag">Ends March 31, 2027</span></div>
-      <div class="broll-block"><div class="broll-label">B-Roll — real footage search terms</div><div>new subdivision under construction Ontario · builder sales centre model home · detached house sold sign · Toronto condo towers skyline · signing paperwork close-up</div></div>
-      <div class="broll-block"><div class="broll-label">Source(s)</div><div><a href="https://www.theglobeandmail.com/business/article-hst-rebate-propels-single-family-home-sales-ontario-not-condos/">Globe — HST rebate propels single-family sales, not condos</a> · <a href="https://thehub.ca/2026/08/12/ontario-new-home-sales-jump-130-percent-after-enhanced-hst-rebate-but-condo-market-still-lags/">The Hub</a> · <a href="https://www.ctvnews.ca/toronto/article/hst-rebate-continues-to-boost-sales-of-new-single-family-homes-in-ontario-report/">CTV News</a></div></div>
-    </div>
-    <div class="idea-card">
-      <div class="idea-header"><div class="idea-num">2</div><div class="idea-title">The hidden reason Ontario can't build homes: it's run out of electricity</div><span class="format-tag">Reel</span></div>
-      <div class="idea-why">Why it'll perform: a surprising "wait, WHAT?" reason tied to the question everyone asks — why won't homes get cheaper?</div>
-      <div class="script-block"><div class="script-label">Hook 1 — Number shock / question</div><div class="hook-box"><strong>First-frame text</strong>"Ontario ran out of power for homes."</div><div><strong>Spoken:</strong> "Ontario promised 1.5 million homes — but parts of the GTA literally can't plug them into the power grid. Fixing it? Up to $120 billion."</div></div>
-      <div class="script-block"><div class="script-label">Hook 2 — Nobody's telling you</div><div class="hook-box"><strong>First-frame text</strong>"Why homes aren't getting cheaper."</div><div><strong>Spoken:</strong> "Everyone blames rates and greedy sellers for prices. Here's a reason nobody's talking about: whole parts of the GTA can't get enough electricity to build."</div></div>
-      <div class="script-block"><div class="script-label">Hook 3 — Contrarian</div><div class="hook-box"><strong>First-frame text</strong>"Build more homes? We can't power them."</div><div><strong>Spoken:</strong> "'Just build more homes' sounds simple. In Pickering, Ajax and Whitby, the grid's so maxed out that big developments can't get connected."</div></div>
-      <div class="script-block"><div class="script-label">Full Script (40–55s)</div><p><strong>Hook:</strong> "Ontario promised 1.5 million homes — but it's quietly running out of the one thing they all need: electricity."</p><p><strong>Body:</strong> "We keep hearing 'just build more and prices come down.' There's a wall nobody talks about — the power grid. Across chunks of the GTA the wires and substations are maxed out. In parts of Pickering, Ajax and Whitby, three-quarters of one utility's substations can't hook up a big new development. Builders wait in line for power that isn't there. Fixing the grid could cost up to $120 billion, and developers, utilities and cities are fighting over who pays. Why care? Fewer homes get built, and tight supply keeps prices and rents stubborn even when the market feels soft. The boring supply stuff — land, approvals, now electricity — is a huge part of why this city never gets cheaper."</p><p><strong>CTA:</strong> "Did you know the grid was part of the problem? Comment POWER. Follow — I explain the stuff behind the headlines. I live here, I sell here."</p></div>
-      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
-      <div class="onscreen-tags"><span class="onscreen-tag">1.5M homes pledged</span><span class="onscreen-tag">"Power deserts": Pickering/Ajax/Whitby</span><span class="onscreen-tag">¾ of substations maxed out</span><span class="onscreen-tag">Grid fix: up to $120B</span><span class="onscreen-tag">Tight supply = sticky prices</span></div>
-      <div class="broll-block"><div class="broll-label">B-Roll — real footage search terms</div><div>electricity substation power lines · hydro transmission towers Ontario · housing construction cranes GTA · suburban development aerial · electrician on grid panel</div></div>
-      <div class="broll-block"><div class="broll-label">Source(s)</div><div><a href="https://www.theglobeandmail.com/business/article-ontario-cant-build-homes-without-rebuilding-power-grid/">Globe — electricity gap threatening Ontario's housing goals</a> · <a href="https://www.theglobeandmail.com/business/article-power-crisis-short-circuits-ontarios-housing-goals-the-home-of-the/">Globe — power deserts weekly wrap</a></div></div>
-    </div>
-    <div class="idea-card">
-      <div class="idea-header"><div class="idea-num">3</div><div class="idea-title">10 reasons it's OK to walk away from a home (buyer's-market leverage)</div><span class="format-tag">Reel</span></div>
-      <div class="idea-why">Why it'll perform: a listicle promise plus permission to say no. Stolen from Ilan Portnoi's format, rebuilt for newcomers who feel pressured.</div>
-      <div class="script-block"><div class="script-label">Hook 1 — Contrarian / permission</div><div class="hook-box"><strong>First-frame text</strong>"You're allowed to say no."</div><div><strong>Spoken:</strong> "In a buyer's market you have way more power than you think. Here are the red flags that make it totally OK to walk away — even after you fell in love."</div></div>
-      <div class="script-block"><div class="script-label">Hook 2 — Number / listicle</div><div class="hook-box"><strong>First-frame text</strong>"10 reasons buyers are saying no."</div><div><strong>Spoken:</strong> "Buyers across Toronto are rejecting homes for very specific reasons. Here are 10 — so you can spot the deal-breakers before you sign."</div></div>
-      <div class="script-block"><div class="script-label">Hook 3 — Newcomer lens</div><div class="hook-box"><strong>First-frame text</strong>"New here? Don't feel pressured to buy."</div><div><strong>Spoken:</strong> "When you're new to Canada it's easy to feel you must grab the first home you can afford. You don't. Here are 10 reasons to walk — it's a buyer's market."</div></div>
-      <div class="script-block"><div class="script-label">Full Script (40–55s)</div><p><strong>Hook:</strong> "It's a buyer's market — which means you're allowed to say no. Here are the red flags that make it totally OK to walk away."</p><p><strong>Body:</strong> "Sellers need buyers more than buyers need any one house, so use that. One: price stuck in 2022. Two: a bad layout you can't fix. Three: deferred maintenance — old roof, furnace, windows — your bill day one. Four: backs onto a highway or rail line. Five: signs of water in the basement. Six: sky-high condo fees or a coming special assessment. Seven: a bad reno hiding problems. Eight: no parking where you need it. Nine: it's sat for weeks and the seller won't budge — leverage is yours. Ten: it doesn't fit your five-year life and you're stretching. Falling in love is fine, but you're allowed to walk. There's another one coming, and the seller knows it."</p><p><strong>CTA:</strong> "Save this for your next showing. Which red flag would make you walk? Tell me below. Follow for honest buyer tips, newcomer to newcomer. I live here, I sell here."</p></div>
-      <div class="broll-label" style="margin-top:12px;">On-Screen Text Cues</div>
-      <div class="onscreen-tags"><span class="onscreen-tag">It's a buyer's market</span><span class="onscreen-tag">Overpriced = walk</span><span class="onscreen-tag">Bad layout you can't fix</span><span class="onscreen-tag">Water in the basement</span><span class="onscreen-tag">You're allowed to say no</span></div>
-      <div class="broll-block"><div class="broll-label">B-Roll — real footage search terms</div><div>couple touring empty house · home inspector checking basement · for sale sign sitting on lawn · water stain on ceiling close-up · person walking away from front door</div></div>
-      <div class="broll-block"><div class="broll-label">Source(s)</div><div><a href="https://www.youtube.com/watch?v=3cCh_GuH4WU">Ilan Portnoi — "10 Reasons Buyers Are REJECTING Homes" (Aug 13) — format/angle stolen</a> · <a href="https://trreb.ca/market-data/">TRREB — GTA buyer's-market context</a></div></div>
-    </div>
-  </div>
-  <div class="card sources-card">
-    <div class="section-label">📌 Sources</div>
-    <div class="src-group">News</div>
-    <ul class="sources-list">
-      <li><a href="https://www.theglobeandmail.com/business/article-hst-rebate-propels-single-family-home-sales-ontario-not-condos/">Globe — HST rebate propels single-family home sales in Ontario, but not condos</a></li>
-      <li><a href="https://thehub.ca/2026/08/12/ontario-new-home-sales-jump-130-percent-after-enhanced-hst-rebate-but-condo-market-still-lags/">The Hub — Ontario new-home sales jump 130% after enhanced HST rebate</a></li>
-      <li><a href="https://www.ctvnews.ca/toronto/article/hst-rebate-continues-to-boost-sales-of-new-single-family-homes-in-ontario-report/">CTV News — HST rebate boosts new single-family home sales</a></li>
-      <li><a href="https://www.theglobeandmail.com/business/article-ontario-cant-build-homes-without-rebuilding-power-grid/">Globe — electricity gap threatening Ontario's housing goals</a></li>
-      <li><a href="https://www.theglobeandmail.com/business/article-power-crisis-short-circuits-ontarios-housing-goals-the-home-of-the/">Globe — power deserts, RE news week of Aug 14</a></li>
-      <li><a href="https://www.cbc.ca/news/politics/us-canada-tariff-negotiations-august-deadline-9.7297274">CBC — U.S. tariff threat looms (Aug 19 deadline)</a></li>
-      <li><a href="https://www.ttnews.com/articles/carney-canada-tariff-deadline">TT News/AP — Carney walks tightrope ahead of Aug 19 tariff deadline</a></li>
-    </ul>
-    <div class="src-group">Data</div>
-    <ul class="sources-list">
-      <li><a href="https://trreb.ca/wp-content/files/homeownership/2026-HST-New-Home-Buyer-Rebate.pdf">TRREB — 2026 HST New Home Buyer Rebate (PDF)</a></li>
-      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — held at 2.25% (July 15, 2026)</a></li>
-      <li><a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub — best 5-yr fixed ~4.04%, variable ~3.35%, prime 4.45%</a></li>
-      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-yr bond yield ~3.2%</a></li>
-      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260720/dq260720a-eng.htm">StatCan — CPI June 2026 (2.8%; July due Aug 17)</a></li>
-      <li><a href="https://trreb.ca/market-data/">TRREB — GTA July 2026: avg $1,003,956 (−4.5% YoY)</a></li>
-      <li><a href="https://www.crea.ca/housing-market-stats/canadian-housing-market-stats/">CREA — National benchmark ~$665,600 (June, −3.3% YoY)</a></li>
-    </ul>
-    <div class="src-group">Creators</div>
-    <ul class="sources-list">
-      <li><a href="https://www.youtube.com/watch?v=3cCh_GuH4WU">Ilan Portnoi — "10 Reasons Buyers Are REJECTING Homes" (Aug 13) — STEAL, idea 3</a></li>
-      <li><a href="https://www.youtube.com/watch?v=2MVPvFNf4UQ">Angry Mortgage / Ron Butler — "THEY'RE GIVING UP" (Aug 14) — WATCH</a></li>
-      <li><a href="https://www.youtube.com/watch?v=esUVkGILA00">Team Sessa — "Very Expensive Mistake (Vaughan/Richmond Hill/Markham)" (Aug 13) — WATCH</a></li>
-      <li><a href="https://www.youtube.com/watch?v=KRwBFPkN3Aw">Steve Saretsky — "Canada's Rental Market Down 45%" (Aug 13) — WATCH</a></li>
-      <li><a href="https://www.youtube.com/watch?v=Tz0e6iL989E">Toronto Realty Group — "Leslieville: First-Time Buyer Paradise" (Aug 13) — WATCH</a></li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>TEST_MARKER_123<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Morning Brief 2026-08-14 placeholder</title>
-</head>
-<body><p>placeholder</p></body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🇨🇦 Morning Brief — Friday, August 14, 2026</title>
-  <style>
-    :root {
-      --red: #D52B1E; --dark: #1a1a2e; --card: #ffffff; --bg: #f4f6fb;
-      --accent: #2563eb; --accent-light: #eff6ff; --muted: #6b7280;
-      --border: #e5e7eb; --green: #16a34a; --orange: #d97706; --tag-bg: #fef3c7;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
-    .header { background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%); color: white; padding: 28px 24px 24px; text-align: center; }
-    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
-    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
-    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
-    .header .canada-day-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; font-size: 0.75rem; font-weight: 700; padding: 4px 14px; margin-top: 10px; letter-spacing: 0.05em; }
-    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
-    .card { background: var(--card); border-radius: 14px; padding: 20px 20px 18px; margin-bottom: 16px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-    .section-title { font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-    p { margin-bottom: 10px; font-size: 0.95rem; }
-    p:last-child { margin-bottom: 0; }
-    a { color: var(--accent); }
-    .big-story { background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%); border: 1.5px solid #fbbf24; }
-    .big-story .badge { display: inline-block; background: #d97706; color: white; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; margin-bottom: 10px; }
-    .one-thing { background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%); border: 1.5px solid #93c5fd; }
-    .one-thing .big-text { font-size: 1.05rem; font-weight: 700; color: var(--accent); line-height: 1.4; }
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
-    th { background: var(--bg); padding: 9px 10px; text-align: left; font-weight: 700; font-size: 0.75rem; color: var(--muted); border-bottom: 2px solid var(--border); text-transform: uppercase; letter-spacing: 0.04em; }
-    td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.4; }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: #f9fafb; }
-    .tag-up { color: var(--red); font-weight: 700; }
-    .tag-down { color: var(--green); font-weight: 700; }
-    .tag-flat { color: var(--muted); }
-    .metric-name { font-weight: 600; }
-    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
-    .why-matters { background: #f0fdf4; border: 1.5px solid #86efac; }
-    .creator-item { border-bottom: 1px solid var(--border); padding: 12px 0; }
-    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .creator-name { font-weight: 700; font-size: 0.9rem; }
-    .creator-platform { color: var(--muted); font-size: 0.8rem; }
-    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
-    .verdict-watch { background: #fef9c3; color: #a16207; }
-    .verdict-steal { background: #dcfce7; color: #15803d; }
-    .creator-note { font-size: 0.83rem; color: var(--muted); }
-    .creator-note a { color: var(--accent); }
-    .idea-card { border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; background: #fafafa; }
-    .idea-card:last-child { margin-bottom: 0; }
-    .idea-header { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
-    .idea-num { background: var(--red); color: white; font-weight: 800; font-size: 0.75rem; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
-    .format-tag { background: var(--accent); color: white; font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.04em; }
-    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
-    .script-block { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-top: 10px; font-size: 0.84rem; }
-    .script-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .hook-box { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 8px 0; font-size: 0.84rem; }
-    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
-    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
-    .onscreen-tag { background: var(--tag-bg); border: 1px solid #fcd34d; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 600; color: #92400e; }
-    .broll-block { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-top: 8px; font-size: 0.82rem; }
-    .broll-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
-    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
-    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
-    .sources-list { list-style: none; padding: 0; }
-    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
-    .sources-list li:last-child { border-bottom: none; }
-    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    @media (max-width: 480px) { .header h1 { font-size: 1.25rem; } .container { padding: 14px 10px 40px; } .card { padding: 16px 14px; } }
+    :root { --red:#D52B1E; --dark:#1a1a2e; --card:#fff; --bg:#f4f6fb; --accent:#2563eb; --accent-light:#eff6ff; --muted:#6b7280; --border:#e5e7eb; --green:#16a34a; --orange:#d97706; --tag-bg:#fef3c7; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--dark); line-height:1.6; }
+    .header { background:linear-gradient(135deg,var(--red) 0%,#b71c1c 100%); color:#fff; padding:28px 24px 24px; text-align:center; }
+    .header .flag { font-size:2rem; display:block; margin-bottom:6px; }
+    .header h1 { font-size:1.5rem; font-weight:800; letter-spacing:-0.5px; }
+    .header .date { font-size:0.875rem; opacity:0.85; margin-top:4px; }
+    .header .canada-day-badge { display:inline-block; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); border-radius:20px; font-size:0.75rem; font-weight:700; padding:4px 14px; margin-top:10px; letter-spacing:0.05em; }
+    .container { max-width:720px; margin:0 auto; padding:20px 16px 48px; }
+    .card { background:var(--card); border-radius:14px; padding:20px 20px 18px; margin-bottom:16px; border:1px solid var(--border); box-shadow:0 1px 4px rgba(0,0,0,0.05); }
+    .section-label { font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .section-title { font-size:1.15rem; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    p { margin-bottom:10px; font-size:0.95rem; }
+    p:last-child { margin-bottom:0; }
+    a { color:var(--accent); }
+    .big-story { background:linear-gradient(135deg,#fff7ed 0%,#fef3c7 100%); border:1.5px solid #fbbf24; }
+    .big-story .badge { display:inline-block; background:#d97706; color:#fff; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; padding:3px 10px; border-radius:20px; text-transform:uppercase; margin-bottom:10px; }
+    .one-thing { background:linear-gradient(135deg,var(--accent-light) 0%,#dbeafe 100%); border:1.5px solid #93c5fd; }
+    .one-thing .big-text { font-size:1.05rem; font-weight:700; color:var(--accent); line-height:1.4; }
+    .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    table { width:100%; border-collapse:collapse; font-size:0.83rem; }
+    th { background:var(--bg); padding:9px 10px; text-align:left; font-weight:700; font-size:0.75rem; color:var(--muted); border-bottom:2px solid var(--border); text-transform:uppercase; letter-spacing:0.04em; }
+    td { padding:10px 10px; border-bottom:1px solid var(--border); vertical-align:top; line-height:1.4; }
+    tr:last-child td { border-bottom:none; }
+    tr:hover td { background:#f9fafb; }
+    .tag-up { color:var(--red); font-weight:700; }
+    .tag-down { color:var(--green); font-weight:700; }
+    .tag-flat { color:var(--muted); }
+    .metric-name { font-weight:600; }
+    .plain-meaning { color:var(--muted); font-size:0.8rem; }
+    .why-matters { background:#f0fdf4; border:1.5px solid #86efac; }
+    .creator-item { border-bottom:1px solid var(--border); padding:12px 0; }
+    .creator-item:last-child { border-bottom:none; padding-bottom:0; }
+    .creator-name { font-weight:700; font-size:0.9rem; }
+    .creator-platform { color:var(--muted); font-size:0.8rem; }
+    .verdict { display:inline-block; font-size:0.72rem; font-weight:700; padding:2px 8px; border-radius:10px; margin:4px 0; }
+    .verdict-watch { background:#fef9c3; color:#a16207; }
+    .verdict-steal { background:#dcfce7; color:#15803d; }
+    .creator-note { font-size:0.83rem; color:var(--muted); }
+    .creator-note a { color:var(--accent); }
+    .idea-card { border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:14px; background:#fafafa; }
+    .idea-card:last-child { margin-bottom:0; }
+    .idea-header { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:10px; }
+    .idea-num { background:var(--red); color:#fff; font-weight:800; font-size:0.75rem; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .idea-title { font-weight:700; font-size:0.95rem; flex:1; }
+    .format-tag { background:var(--accent); color:#fff; font-size:0.68rem; font-weight:700; padding:2px 8px; border-radius:10px; text-transform:uppercase; letter-spacing:0.04em; }
+    .idea-why { font-size:0.8rem; color:var(--muted); margin-bottom:12px; font-style:italic; }
+    .script-block { background:#fff; border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-top:10px; font-size:0.84rem; }
+    .script-label { font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+    .hook-box { background:var(--accent-light); border-left:3px solid var(--accent); padding:8px 12px; border-radius:0 6px 6px 0; margin:8px 0; font-size:0.84rem; }
+    .hook-box strong { display:block; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:2px; }
+    .onscreen-tags { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+    .onscreen-tag { background:var(--tag-bg); border:1px solid #fcd34d; font-size:0.75rem; padding:3px 10px; border-radius:20px; font-weight:600; color:#92400e; }
+    .broll-block { background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:10px 12px; margin-top:8px; font-size:0.82rem; }
+    .broll-label { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px; }
+    .sources-card { background:#f8fafc; border:1px solid var(--border); }
+    .sources-card a { color:var(--accent); font-size:0.82rem; word-break:break-all; }
+    .sources-list { list-style:none; padding:0; }
+    .sources-list li { padding:4px 0; border-bottom:1px solid var(--border); font-size:0.82rem; }
+    .sources-list li:last-child { border-bottom:none; }
+    .src-group { font-weight:800; color:var(--dark); margin:10px 0 2px; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em; }
+    @media (max-width:480px) { .header h1 { font-size:1.25rem; } .container { padding:14px 10px 40px; } .card { padding:16px 14px; } }
   </style>
 </head>
 <body>
