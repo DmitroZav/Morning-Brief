@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Sunday, August 30, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Sunday, August 30, 2026</div>
+  <div class="canada-day-badge">MORTGAGE ARREARS "IMPROVE" — BUT BANK LOANS HIT 6-YR LOW · FIRST-TIME BUYERS NOW NEED TO OUT-EARN 70-80% OF CANADIANS · BoC HOLDS 2.25% (NEXT SEP 2) · BOND ~3.24% · BEST 5-YR FIXED ~4.02% · CAD ~$0.719</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Teachers and parents rallied across Ontario Saturday — and the contract that decides if school starts on time expires Monday.</div>
+    <p>Thousands of teachers, education workers and parents held rallies in dozens of Ontario municipalities on Saturday, protesting how the province is funding schools — cut librarian and vice-principal positions, reduced special-education support — right as the collective agreements covering Ontario's education unions are set to expire this Monday, August 31, just before students go back to school. The province's side: Education Minister Paul Calandra's office points to $30.6 billion in "core education funding" this year and says it remains "committed to a negotiated settlement." The unions' side: organizers say classrooms don't have the staff or supplies they need, and one Toronto MPP warned stalled talks could lead to strike action right as the school year starts. Neither side has confirmed a deal (<a href="https://www.cbc.ca/news/canada/toronto/teachers-parents-rally-education-ontario-9.7325593">CBC News, Aug 29</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> even if you don't follow Ontario politics, "will school start on time this week" is a question every parent — especially a newcomer family still deciding which city or school board to settle near — actually needs answered. Held as context today rather than a full video so the real estate lineup below stays focused, but worth a follow-up the moment Monday's deadline resolves one way or the other.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Mortgage arrears "improved" for the first time in over a year — but it was 40 mortgages, and banks are quietly holding the fewest mortgages in almost 6 years.</div>
+    <p style="margin-top:10px;">Every month, Canada's biggest banks report how many mortgages are "in arrears" — meaning 90+ days behind on payments — through the <a href="https://www.cba.ca/mortgages-in-arrears">Canadian Bankers Association</a>. In June, that rate ticked down for the first time since March 2025, from 0.285% to 0.284%. Sounds like good news. Except the entire "improvement" was just 40 fewer mortgages in arrears — 14,021 instead of 14,061 — out of nearly 5 million mortgages on the books. That's a rounding blip, not a recovery: arrears are still up 25% year-over-year (<a href="https://betterdwelling.com/canadian-bank-mortgages-near-6-year-low-as-arrears-barely-budge/">Better Dwelling, Aug 27</a>). The part that didn't make headlines: the total number of mortgages Canadian banks hold fell for the ninth month in a row, to its lowest level since October 2020 — almost 6 years. Banks may not be fixing shaky mortgages so much as declining to renew them, pushing those borrowers toward pricier "B lenders" instead. If you've got a renewal coming up in the next year or two, that's the number that should actually get your attention — not the misleading "improvement" headline.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> it was a quiet weekend for new rate/bond/data prints — the Bank of Canada doesn't meet again until Sep 2, and there's no new TRREB, CREA, CMHC or CPI release since last week. So today's two strongest ideas come from data nobody's built a video around yet: a misleading "arrears improved" headline (Idea 1) and a StatCan first-time-buyer income study (Idea 2), both published this week and still sitting unused. Idea 3 is the one creator post from the last 36 hours that actually passed the decision test — Ilan Portnoi's GTA buyer-beware angle — rounding out a mixed news + creator lineup.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> Aug 28 led with Q2 GDP; today drops GDP, tariffs and bond-yield-level stories entirely for a second straight day — none of the three ideas below touch rates, tariffs or the bond yield directly. The bank-mortgage-exodus and first-time-buyer-income-gap angles are both brand-new lanes never covered in this brief before. The Big Story (Ontario education funding protests) is also a first — no prior brief has touched provincial education policy.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Bank mortgages outstanding 🆕</td>
+          <td>4.92 million (June)</td><td>4.93 million (May)</td><td class="tag-down">lowest in ~6 years</td>
+          <td class="plain-meaning">TODAY'S ONE THING. 9th straight monthly drop — fewer people qualifying to stay with a bank at renewal. <a href="https://www.cba.ca/mortgages-in-arrears">CBA / Better Dwelling</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Mortgage arrears rate 🆕</td>
+          <td>0.284% (June)</td><td>0.285% (May)</td><td class="tag-flat">"improved" by 40 mortgages</td>
+          <td class="plain-meaning">Still +25% YoY. First tick down in 15 months, but it's a rounding blip. <a href="https://www.cba.ca/mortgages-in-arrears">CBA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change (next Sep 2)</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Sixth straight hold. <a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada, Jul 15</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.24% (Aug 25)</td><td>~3.36% high (Aug 21)</td><td class="tag-down">no new print since Fri</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. Eased off the tariff-driven high, holding steady. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>~4.02% (uninsured) / ~4.09% (insured)</td><td>same</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Best nationally advertised rate. <a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.35–3.45%</td><td>same since Oct 2025</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Variable still cheaper than fixed. <a href="https://wowa.ca/banks/prime-rates-canada">WOWA — Canada prime rate</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI) — July</td>
+          <td>3.0% headline / ~2.0% core</td><td>2.8% (June)</td><td class="tag-flat">no new print (next mid-Sept)</td>
+          <td class="plain-meaning">Unchanged since last release. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260817/dq260817a-eng.htm">StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, July)</td>
+          <td>$1,003,956 avg (−4.5% YoY), 5,995 sales</td><td>same, no new report</td><td class="tag-flat">next report ~Sep 4</td>
+          <td class="plain-meaning">New listings −17.8% YoY — market quietly tightening. <a href="https://trreb.ca/market-data/market-watch/">TRREB Market Watch</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA national (July)</td>
+          <td>Sales +0.5% MoM (4th straight gain)</td><td>listings −1.6% MoM</td><td class="tag-flat">no new data this week</td>
+          <td class="plain-meaning">2026 forecast cut to 463,336 sales, down from earlier estimates. <a href="https://stats.crea.ca/en-ca/">CREA Stats</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CMHC housing starts (July)</td>
+          <td>229,074 units SAAR</td><td>240,773 (June)</td><td class="tag-down">−5% MoM</td>
+          <td class="plain-meaning">Actual urban starts −19% YoY. Fewer new homes = upward pressure on rents long-term. <a href="https://www.canadianmortgagetrends.com/2026/08/cmhc-reports-annual-pace-of-housing-starts-slowed-in-july/">CMHC data, via CMT</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~$0.719 (≈1.39/USD)</td><td>~$0.725 (Aug 21 high)</td><td class="tag-down">weakened slightly</td>
+          <td class="plain-meaning">Steady, no major move this weekend. <a href="https://tradingeconomics.com/canada/currency">Trading Economics</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>Anyone renewing or refinancing a mortgage in the next year or two:</strong> don't read the "arrears improved" headline as relief. Banks holding fewer mortgages overall is a bigger warning sign — it can mean lenders are getting pickier about who they renew, not that borrowers are suddenly in better shape.</p>
+    <p><strong>First-time buyer or newcomer building your finances from zero:</strong> new StatCan data proves the math genuinely got harder, not just in Toronto or Vancouver — even in provinces marketed as "affordable" like Nova Scotia, first-time buyers now earn over a quarter more than the typical household. That's useful, not discouraging: it tells you the real income target instead of leaving you guessing.</p>
+    <p><strong>Parents choosing where to settle in the GTA:</strong> Monday's contract deadline for Ontario's teachers is worth watching before you lock in a neighbourhood — a strike right at back-to-school would affect real families this week, regardless of your politics.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch <span style="font-size:0.8rem;font-weight:500;color:var(--muted);">(last 24–36h)</span></div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi <span class="creator-platform">· YouTube</span></div>
+      <div>"These Toronto Homes Will Be Worth LESS In 5 Years" (<a href="https://www.youtube.com/watch?v=V1wIKbNtpn8">watch</a>, Aug 29)</div>
+      <p class="creator-note">Summary: Buyer-beware breakdown of the types of Toronto homes he expects to lose value over the next five years.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair his warning with your own peak-buyer story — walk through the concrete red flags (oversupplied pre-construction buildings, homes backing onto approved high-density development, deferred repairs priced in as if they don't exist) so newcomers know exactly what questions to ask before they offer.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky <span class="creator-platform">· YouTube</span></div>
+      <div>"BC Government Will Freeze Rent Increases for 2027" (<a href="https://www.youtube.com/watch?v=z4txmUm_Uck">watch</a>, Aug 29)</div>
+      <p class="creator-note">Summary: Covers B.C.'s 2027 maximum rent increase, capped at 2.2% — actually a cap tied to inflation (7th straight year), not a true freeze, and announced Aug 27, not brand new.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Not built into a video today — it's B.C.-specific and two days old by the time this posted, not a fit for a GTA-focused wallet story. Worth a look only if Ontario announces its own 2027 rent guideline.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">CondoWong (Dan) <span class="creator-platform">· YouTube</span></div>
+      <div>"Should I Sell My Rental Property? Smart Investors Know When to Quit" (<a href="https://www.youtube.com/watch?v=lP6ElVkUVws">watch</a>, Aug 30)</div>
+      <p class="creator-note">Summary: A 5-question decision framework for landlords deciding whether to hold or sell an underperforming rental.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid future format for a landlord/investor-focused day — held back today so the lineup stays first-time-buyer and renter focused.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube</span></div>
+      <div>"The Great Condo Crash of 2026 (And What Everyone is Buying Instead)" (<a href="https://www.youtube.com/watch?v=vGyJVP9GlMg">watch</a>, Aug 30)</div>
+      <p class="creator-note">Summary: Argues investor money is rotating out of crashing condo pre-construction and into raw land and cottage-country lots.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Interesting rotation angle, but the "condo crash" framing has been covered repeatedly this month — worth revisiting only with the land-buying angle isolated, not the condo half.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Mortgage arrears just "improved" for the first time in over a year. That's not the good news it sounds like.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: contrarian myth-busting on a headline number, direct decision-relevance for anyone renewing, and it's data nobody's built a video around yet.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Contrarian</strong><span class="hook-num">1.</span> On-screen: "Mortgage arrears just improved. Don't relax." / Spoken: "The headline says mortgage arrears just improved for the first time in over a year. I'm going to tell you why that's not actually good news."</div>
+        <div class="hook-box"><strong>Variant 2 · Number shock</strong><span class="hook-num">2.</span> On-screen: "It took exactly 40 mortgages." / Spoken: "Canada's banks are calling this an improvement. It's 40 mortgages. Out of almost five million."</div>
+        <div class="hook-box"><strong>Variant 3 · Nobody's telling you</strong><span class="hook-num">3.</span> On-screen: "Your bank might not want you anymore." / Spoken: "If you're renewing your mortgage in the next year or two, this number should worry you a lot more than the good headline does."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–50s)</div>
+        <p><strong>Hook:</strong> "The headline says mortgage arrears just improved for the first time in over a year. I'm going to tell you why that's not actually good news."</p>
+        <p><strong>Body:</strong> "Arrears means a mortgage payment that's 90 days or more overdue. Canada's big banks report this every month, and in June, the arrears rate ticked down for the first time since March last year — from 0.285% to 0.284%. Sounds like relief. Except that entire 'improvement' was 40 fewer mortgages in arrears — out of 4.92 million. That's a rounding error, not a recovery, and arrears are still up 25% from last year. Here's what actually matters and didn't make the headlines: the total number of mortgages Canadian banks are holding dropped for the ninth month straight, to the lowest level in almost six years. That can mean banks are getting pickier — declining to renew shakier borrowers and pushing them toward more expensive 'B lenders' instead of fixing anything. If you've got a renewal coming up, this is exactly the kind of thing that can blindside you."</p>
+        <p><strong>CTA:</strong> "Comment 'RENEW' and I'll send you my renewal prep checklist so your bank can't push you anywhere you don't want to go. Follow — I read the numbers your bank hopes you don't."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">Arrears: 0.285% → 0.284%</span>
+          <span class="onscreen-tag">That's 40 mortgages. Out of 4.92M.</span>
+          <span class="onscreen-tag">Bank mortgages: lowest in 6 yrs</span>
+          <span class="onscreen-tag">Renewing soon? Read this twice.</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>Toronto bank branch exterior · person reviewing mortgage papers at kitchen table · calculator and bills close-up · debit card tap at terminal · house keys handoff</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://betterdwelling.com/canadian-bank-mortgages-near-6-year-low-as-arrears-barely-budge/">Better Dwelling — "Canadian Bank Mortgages Near 6-Year Low As Arrears Barely Budge" (Aug 27)</a> · <a href="https://www.cba.ca/mortgages-in-arrears">Canadian Bankers Association — Mortgages in Arrears data</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">StatCan just proved it: first-time buyers now need to out-earn 70-80% of Canadians just for a starter home.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: validates exactly what the newcomer/beginner audience already feels, with a concrete number instead of vague "it's expensive" framing — strong save/share potential.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Number shock</strong><span class="hook-num">1.</span> On-screen: "First-time buyers earn 36% more than you." / Spoken: "Statistics Canada just measured how much more money you need to make than your neighbours to buy your first home. The number is worse than you think."</div>
+        <div class="hook-box"><strong>Variant 2 · Newcomer lens</strong><span class="hook-num">2.</span> On-screen: "Nobody told me this before I started saving." / Spoken: "I thought a decent income was enough to buy my first place here. New government data says that's not true anymore — anywhere in Canada."</div>
+        <div class="hook-box"><strong>Variant 3 · Contrarian</strong><span class="hook-num">3.</span> On-screen: "It's not you. The math actually changed." / Spoken: "If you feel like you're falling behind trying to buy a starter home, new data says you're right — and here's the exact number that proves it."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–55s)</div>
+        <p><strong>Hook:</strong> "Statistics Canada just measured how much more money you need to make than your neighbours to buy your first home. The number is worse than you think."</p>
+        <p><strong>Body:</strong> "StatCan's Canadian Housing Statistics Program looked at what first-time buyers actually earn compared to everyone else, across B.C., Nova Scotia, New Brunswick and Manitoba. In B.C., first-time buyers had a median income of $145,000 — 36% above the typical household. Even in Nova Scotia, a province people call 'affordable,' first-time buyers earned 27% more than the median. And that gap is getting worse fast: in B.C., first-time buyer incomes grew almost 49% faster than everyone else's over just two years. So even a genuinely good, middle-class income increasingly isn't enough to buy a starter home — in provinces that aren't supposed to be expensive, not just Toronto and Vancouver. If you're building your finances from scratch as a newcomer, this isn't a reason to give up. It's a reason to know your real target instead of guessing."</p>
+        <p><strong>CTA:</strong> "Comment 'INCOME' and I'll send you the real income benchmarks by province, not the guesswork version. Follow — I break down the numbers nobody explains to newcomers."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">First-time buyers: +36% income (B.C.)</span>
+          <span class="onscreen-tag">Nova Scotia: +27% above median</span>
+          <span class="onscreen-tag">Gap growing 2x faster than wages</span>
+          <span class="onscreen-tag">Know your real number</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>young couple reviewing finances on laptop · "sold" sign on starter home · calculator with small house model · newcomer family walking a residential street · bank statement close-up (blurred)</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://betterdwelling.com/canadas-real-estate-bubble-first-time-buyers-need-to-be-among-top-earners/">Better Dwelling — "Canada's Real Estate Bubble: First-Time Buyers Need To Be Among Top Earners" (Aug 26)</a> · <a href="https://www.statcan.gc.ca/o1/en/app/6833-canadian-housing-statistics-program">Statistics Canada — Canadian Housing Statistics Program</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Not every Toronto home is a good bet right now. Here's how to spot the ones that'll be worth less in 5 years.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: buyer-education creator angle (steal), pairs perfectly with Dmytro's own "I bought at the peak" credibility, strong save-for-later potential for anyone about to make an offer.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Stakes</strong><span class="hook-num">1.</span> On-screen: "This home will be worth less in 5 years." / Spoken: "Not every home in Toronto is a good investment right now. Here are the ones I'd tell you to walk away from."</div>
+        <div class="hook-box"><strong>Variant 2 · Nobody's telling you</strong><span class="hook-num">2.</span> On-screen: "Your agent won't warn you about this." / Spoken: "Some of the homes selling in Toronto right now will be worth less in five years — and almost nobody is warning buyers about it."</div>
+        <div class="hook-box"><strong>Variant 3 · Personal stakes</strong><span class="hook-num">3.</span> On-screen: "I bought at the peak. Here's what I missed." / Spoken: "I bought near the top of the market. Here's the exact type of home I'd tell you to never buy in this one."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–50s)</div>
+        <p><strong>Hook:</strong> "Not every home in Toronto is a good investment right now. Here are the ones I'd tell you to walk away from."</p>
+        <p><strong>Body:</strong> "I bought my own place near the peak, so I say this as someone who's lived it, not lectured it. Three red flags I watch for with clients: pre-construction condos in buildings with dozens of unsold units sitting empty — oversupply drags resale value down for years, not months. Homes backing onto land already approved for a high-rise or major development — the privacy and view you're paying for today won't exist in five years. And detached homes needing serious deferred work — roof, wiring, foundation — priced as if none of that repair bill exists. None of these are bad houses. They're bad math if nobody points it out before you offer."</p>
+        <p><strong>CTA:</strong> "Comment 'CHECKLIST' and I'll send you the exact questions I ask before I let a client offer on any home. Follow — I'm not here to sell you a dream, I'm here to tell you the truth."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">Not every home is a good bet</span>
+          <span class="onscreen-tag">Oversupplied buildings = value risk</span>
+          <span class="onscreen-tag">Ask: what's approved next door?</span>
+          <span class="onscreen-tag">$80k+ deferred repairs = bad math</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>pre-construction condo sales sign · empty balconies on new condo tower · construction crane against skyline · home inspector checking basement · "for sale" sign outside detached house</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://www.youtube.com/watch?v=V1wIKbNtpn8">Ilan Portnoi — "These Toronto Homes Will Be Worth LESS In 5 Years" (steal basis — watch full video for his exact list before filming)</a></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cbc.ca/news/canada/toronto/teachers-parents-rally-education-ontario-9.7325593">CBC News — "Teachers, parents, supporters rally across Ontario against province's education policy" (Aug 29)</a></li>
+      <li><a href="https://betterdwelling.com/canadian-bank-mortgages-near-6-year-low-as-arrears-barely-budge/">Better Dwelling — "Canadian Bank Mortgages Near 6-Year Low As Arrears Barely Budge" (Aug 27)</a></li>
+      <li><a href="https://betterdwelling.com/canadas-real-estate-bubble-first-time-buyers-need-to-be-among-top-earners/">Better Dwelling — "Canada's Real Estate Bubble: First-Time Buyers Need To Be Among Top Earners" (Aug 26)</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cba.ca/mortgages-in-arrears">Canadian Bankers Association — Mortgages in Arrears</a></li>
+      <li><a href="https://www.statcan.gc.ca/o1/en/app/6833-canadian-housing-statistics-program">Statistics Canada — Canadian Housing Statistics Program</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — Rate hold announcement, Jul 15</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-yr bond yield</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — CAD/USD</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — Mortgage rates forecast Canada</a></li>
+      <li><a href="https://wowa.ca/banks/prime-rates-canada">WOWA — Canada prime rate history</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260817/dq260817a-eng.htm">Statistics Canada — CPI, July 2026</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — Market Watch (July report)</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA Stats — National sales/price data</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/08/cmhc-reports-annual-pace-of-housing-starts-slowed-in-july/">Canadian Mortgage Trends — CMHC starts, July 2026</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=V1wIKbNtpn8">Ilan Portnoi — "These Toronto Homes Will Be Worth LESS In 5 Years"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=z4txmUm_Uck">Steve Saretsky — "BC Government Will Freeze Rent Increases for 2027"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lP6ElVkUVws">CondoWong — "Should I Sell My Rental Property? Smart Investors Know When to Quit"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=vGyJVP9GlMg">Property Daily — "The Great Condo Crash of 2026 (And What Everyone is Buying Instead)"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
