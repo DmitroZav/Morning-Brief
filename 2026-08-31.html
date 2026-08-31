@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Monday, August 31, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, August 31, 2026</div>
+  <div class="canada-day-badge">QUEBEC COULD VOTE SEPARATIST OCT 5 · BoC HOLDS WED (35/35 ECONOMISTS AGREE) · FIXED RATES UP 10-20bps ON GLOBAL BOND SELLOFF · BOND ~3.36% (12-MO HIGH) · CAD ~$0.719</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Quebec could elect a separatist government on October 5 — the polls are the closest they've been in years.</div>
+    <p>Quebec's provincial election campaign is now in its second week, with voting day set for <a href="https://www.electionsquebec.qc.ca/en/pressreleases/2026-provincial-election-polling-day-is-october-5/">October 5, 2026</a> (Élections Québec). The separatist Parti Québécois is leading or tied atop most polls — one recent survey has them at 28-31%, a few points ahead of the Quebec Liberal Party, with the governing CAQ trailing in third after voter anger over the cost of living (<a href="https://www.usnews.com/news/world/articles/2026-08-27/quebec-to-hold-oct-5-election-separatists-favored-to-win">U.S. News, Aug 27</a>). On day four of the campaign Sunday, party leaders focused on affordability — Québec solidaire proposed a rental registry and a crackdown on renovictions, the Conservatives pitched tax cuts, and the PQ doubled down on tightening immigration and extending French-language rules (Bill 101) to CEGEPs and to children of temporary immigrants (<a href="https://www.cbc.ca/news/canada/montreal/day-4-quebec-election-campaign-9.7325954">CBC News, Aug 30</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this is the kind of story that reaches people who don't follow housing or finance news at all — "a Canadian province might vote to leave the country" is a headline that travels. For a newcomer audience especially, it's a chance to talk honestly about what political and economic uncertainty actually does (and doesn't) do to your plans, without the fear-mongering.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Every single economist surveyed says the Bank of Canada holds rates Wednesday — and your fixed mortgage rate is still going up anyway.</div>
+    <p style="margin-top:10px;">The Bank of Canada makes its next rate announcement this Wednesday, September 2. A Reuters poll of all 35 economists surveyed — a rare unanimous result — expects the overnight rate to stay at 2.25%, with no change expected for at least another year, through Q3 2027 (<a href="https://www.investing.com/news/economy-news/bank-of-canada-to-hold-rates-for-another-year-wait-for-more-stability-on-trade-reuters-poll-4881082">Reuters via Investing.com, Aug 28</a>). Normally that would be the whole story — a hold means nothing changes. Except fixed mortgage rates are rising anyway, because they don't follow the Bank of Canada's overnight rate; they follow the 5-year Government of Canada bond yield, which is being pushed toward a 12-month high (~3.36%) by a global bond selloff tied to surging U.S. government debt (which just passed US$40 trillion) and Middle East tensions. Lenders have raised fixed rates 10 to 15 basis points in the last two weeks, some by as much as 20 (<a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">Canadian Mortgage Trends, Aug 21, still moving as of a fresh Aug 31 mortgage-broker update</a>). Two completely different mechanisms, moving in opposite directions on the same week — that's the part almost nobody explains clearly.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the Quebec election is the single biggest Canadian story running right now — nothing a creator posted this week comes close to "a province might vote to separate" for sheer size — so it leads even though it isn't a housing story. The BoC/bond-yield item earns its spot because Wednesday's decision is genuinely imminent (2 days out) and this week's trigger — a $40-trillion US debt milestone and a rare 35/35 unanimous hold forecast — is new information, not a repeat of an old headline. Idea 3 is creator-driven: Amrit Walia's condo research from the last 24 hours passed the buyer-decision test cleanly.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> this brief has flagged the "bond yield / fixed rates creeping up" storyline as overused before (it led repeatedly in early August). Today's version is deliberately framed around the disconnect — a unanimous BoC hold that doesn't actually freeze your rate — rather than a repeat "rates are rising, wait or lock in" angle. The Quebec election, bank-mortgage-book data (Aug 30's lead), Q2 GDP (Aug 28), and the tariff list (Aug 24-27) have never overlapped in the same week before — today drops tariffs and GDP entirely for the first time since Aug 24.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate 🆕</td>
+          <td>2.25% (decides Wed Sep 2)</td><td>2.25% (Jul 15)</td><td class="tag-flat">hold expected, 35/35 economists</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.investing.com/news/economy-news/bank-of-canada-to-hold-rates-for-another-year-wait-for-more-stability-on-trade-reuters-poll-4881082">Reuters poll</a> / <a href="https://www.bankofcanada.ca/press/upcoming-events/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield 🆕</td>
+          <td>~3.36% (near 12-mo high)</td><td>~3.24% (Aug 25)</td><td class="tag-up">rising again</td>
+          <td class="plain-meaning">TODAY'S ONE THING. Drives FIXED mortgage rates, not the BoC. Global bond selloff, US debt &gt;$40T. <a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">Canadian Mortgage Trends</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage 🆕</td>
+          <td>~4.15–4.19%+ (some lenders +20bps)</td><td>~4.02% (Aug 25)</td><td class="tag-up">up 10–20bps in 2 weeks</td>
+          <td class="plain-meaning">Broker Ron Butler: "if you see a rate below 4.19%, take it." <a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">CMT</a> / <a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.35–3.45%</td><td>same since Oct 2025</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Variable is holding steady while fixed climbs — the gap between them is widening again. <a href="https://wowa.ca/banks/prime-rates-canada">WOWA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI) — July</td>
+          <td>3.0% headline / ~2.0% core</td><td>2.8% (June)</td><td class="tag-flat">no new print (next mid-Sept)</td>
+          <td class="plain-meaning">Unchanged since last release. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260817/dq260817a-eng.htm">StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, July)</td>
+          <td>$1,003,956 avg (−4.5% YoY), 5,995 sales</td><td>same, no new report</td><td class="tag-flat">next report ~Sep 4</td>
+          <td class="plain-meaning">New listings −17.8% YoY — market quietly tightening. <a href="https://trreb.ca/market-data/market-watch/">TRREB Market Watch</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA national (July)</td>
+          <td>Sales +0.5% MoM (4th straight gain)</td><td>listings −1.6% MoM</td><td class="tag-flat">no new data (next Sep 15)</td>
+          <td class="plain-meaning">2026 forecast: 463,336 sales nationally, average price ~$686,710 (+1.1%). <a href="https://stats.crea.ca/en-ca/">CREA Stats</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CMHC housing starts (July)</td>
+          <td>229,074 units SAAR</td><td>240,773 (June)</td><td class="tag-down">−5% MoM</td>
+          <td class="plain-meaning">Actual urban starts −19% YoY. Fewer new homes = upward pressure on rents long-term. <a href="https://www.canadianmortgagetrends.com/2026/08/cmhc-reports-annual-pace-of-housing-starts-slowed-in-july/">CMHC data, via CMT</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~$0.718–0.719</td><td>~$0.719 (Aug 25)</td><td class="tag-flat">roughly flat</td>
+          <td class="plain-meaning">No major move despite the global bond turmoil. <a href="https://tradingeconomics.com/canada/currency">Trading Economics</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>Anyone shopping for a mortgage right now:</strong> don't wait for Wednesday expecting relief — the Bank of Canada holding steady doesn't freeze your fixed rate, because fixed rates already moved before the meeting even happened. If a lender offers you anything under 4.19% on a 5-year fixed today, brokers are calling that a good number, not one to negotiate down further.</p>
+    <p><strong>Variable-rate holders and anyone renewing soon:</strong> variable rates haven't moved and aren't expected to for at least a year given the unanimous hold forecast — the gap between fixed and variable is widening again, which changes the fixed-vs-variable math compared to a month ago.</p>
+    <p><strong>Newcomers and anyone watching the news out of Quebec:</strong> a genuinely close separatist-leaning election is unsettling to hear about, especially if you chose Canada for its stability. It's worth understanding calmly rather than reacting to headlines — Quebec has voted on this question twice before (1980, 1995) and stayed in Canada both times; a provincial election isn't a referendum, even with the PQ favoured to win seats.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch <span style="font-size:0.8rem;font-weight:500;color:var(--muted);">(last 24–36h)</span></div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mark Mitchell <span class="creator-platform">· YouTube (Mortgage Broker, London ON)</span></div>
+      <div>"Rates Rise on Debt Turmoil" (<a href="https://www.youtube.com/watch?v=Wi5sQtj1HZ4">watch</a>, Aug 31)</div>
+      <p class="creator-note">Summary: Explains why Canadian fixed rates jumped again today, tying it to U.S. bond market turmoil rather than anything the Bank of Canada has done.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: this is the exact real-time trigger behind today's One Thing — pair his rate-move explanation with the "unanimous BoC hold" consensus so viewers understand two separate mechanisms moving in opposite directions the same week.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Amrit Walia <span class="creator-platform">· YouTube</span></div>
+      <div>"I Went Through 200 Toronto 2-Bed Condos — Here's What I Found" (<a href="https://www.youtube.com/watch?v=ODTfppk8cjs">watch</a>, Aug 30)</div>
+      <p class="creator-note">Summary: A data-driven walkthrough of 200 GTA two-bedroom condo listings, comparing what buyers actually get for their money.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: reconstruct as your own buyer-education checklist — the specific line items you personally check before letting a client offer (price per square foot, maintenance fee trend, days on market, unsold-unit count in the building) — beginner-friendly, not just "look how much data I have."</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">CondoWong (Dan) <span class="creator-platform">· YouTube</span></div>
+      <div>"Should I Sell My Rental Property? Smart Investors Know When to Quit" (<a href="https://www.youtube.com/watch?v=lP6ElVkUVws">watch</a>, Aug 30)</div>
+      <p class="creator-note">Summary: A 5-question framework for landlords deciding whether to hold or sell an underperforming rental after three years of price declines.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid future format for a landlord/investor-focused day — held back today so the lineup stays first-time-buyer and newcomer focused.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Oleg Galyuk <span class="creator-platform">· YouTube (Vancouver)</span></div>
+      <div>"Vancouver Presale Buyers SUE &amp; WIN! Allowed To ESCAPE Their Brentwood Condos" (<a href="https://www.youtube.com/watch?v=3qS7tz74MQs">watch</a>, Aug 30)</div>
+      <p class="creator-note">Summary: Presale buyers at a troubled Burnaby condo project won a court ruling letting them walk away from over $30M in presale contracts.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Vancouver-specific today, but the underlying "know your presale contract rights" angle travels nationally — worth adapting once a comparable GTA case surfaces.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Every economist agrees the Bank of Canada holds Wednesday. Your mortgage rate went up anyway.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: decision-relevant right before Wednesday's meeting, a rare unanimous-consensus stat as the hook, and it clears up a genuine point of confusion (BoC rate vs. bond yield) that most people never get explained simply.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Contrarian</strong><span class="hook-num">1.</span> On-screen: "BoC holds. Your rate still rose." / Spoken: "Every single economist in Canada agrees the Bank of Canada holds rates Wednesday. Your mortgage rate went up anyway."</div>
+        <div class="hook-box"><strong>Variant 2 · Number shock</strong><span class="hook-num">2.</span> On-screen: "35 out of 35 economists agree." / Spoken: "35 out of 35 economists surveyed by Reuters all say the same thing about Wednesday. That's not the number that should worry you though."</div>
+        <div class="hook-box"><strong>Variant 3 · Nobody's telling you</strong><span class="hook-num">3.</span> On-screen: "Your bank didn't wait for Wednesday." / Spoken: "The Bank of Canada hasn't even met yet, and fixed mortgage rates already went up. Here's the part nobody's explaining."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–55s)</div>
+        <p><strong>Hook:</strong> "Every single economist in Canada agrees the Bank of Canada holds rates Wednesday. Your mortgage rate went up anyway."</p>
+        <p><strong>Body:</strong> "Reuters just polled 35 economists about Wednesday's Bank of Canada decision. All 35 said the same thing: hold at 2.25%, no change for at least another year. That's a rare unanimous call. Normally a hold means nothing changes for you. Except fixed mortgage rates already went up 10 to 15 basis points in the last two weeks — some lenders by 20 — and the Bank of Canada had nothing to do with it. Fixed rates follow the government bond market, not the Bank's overnight rate. Right now that bond market is getting hit by a global selloff: U.S. government debt just passed 40 trillion dollars, and investors are nervous about it everywhere, not just in Canada. So two different things are true at the same time this week: the policy rate that sets your variable mortgage is frozen for over a year, while the bond yield that sets your fixed mortgage keeps climbing. If you don't know which one your mortgage actually follows, you can't plan around either of them."</p>
+        <p><strong>CTA:</strong> "Comment 'FIXED' and I'll send you the plain-language breakdown of which number actually moves your payment. Follow — I translate this stuff so you don't have to guess."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">35/35 economists: BoC holds Wed</span>
+          <span class="onscreen-tag">Fixed rates: +10-20bps in 2 weeks</span>
+          <span class="onscreen-tag">US debt: just passed $40 trillion</span>
+          <span class="onscreen-tag">BoC rate ≠ your fixed rate</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>Bank of Canada building Ottawa exterior · stock ticker board close-up · person signing mortgage documents · calculator and mortgage statement · Canadian and US flags side by side</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://www.investing.com/news/economy-news/bank-of-canada-to-hold-rates-for-another-year-wait-for-more-stability-on-trade-reuters-poll-4881082">Reuters via Investing.com — "Bank of Canada to hold rates for another year" (Aug 28)</a> · <a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">Canadian Mortgage Trends — "Global bond selloff pushes Canadian fixed mortgage rates higher"</a> · <a href="https://www.youtube.com/watch?v=Wi5sQtj1HZ4">Mark Mitchell — "Rates Rise on Debt Turmoil" (Aug 31)</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Quebec could vote for a separatist government on October 5. Here's what that actually means for the rest of us.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the single biggest Canadian story of the week, genuinely new territory for this account, and a natural fit for Dmytro's own "I chose stability here" immigrant framing.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Newcomer lens</strong><span class="hook-num">1.</span> On-screen: "I left instability once already." / Spoken: "I left one country because things weren't stable. Now one Canadian province might vote to leave the whole country. Let's talk about what that actually means."</div>
+        <div class="hook-box"><strong>Variant 2 · Question that can't be ignored</strong><span class="hook-num">2.</span> On-screen: "One date could change everything." / Spoken: "Mark October 5th. That's the day Quebec could elect a government whose entire platform is separating from Canada."</div>
+        <div class="hook-box"><strong>Variant 3 · Contrarian / reassurance</strong><span class="hook-num">3.</span> On-screen: "Don't panic. Do understand this." / Spoken: "Every so often someone tells Canadians to panic about Quebec separation. This time the polls are genuinely close — here's what that means for your money, not just the politics."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 40–60s)</div>
+        <p><strong>Hook:</strong> "I left one country because things weren't stable. Now one Canadian province might vote to leave the whole country. Let's talk about what that actually means."</p>
+        <p><strong>Body:</strong> "Quebec votes on October 5th, and right now the separatist Parti Québécois is leading or tied in almost every poll — ahead of the governing party for the first time in years. Their platform includes tightening immigration and expanding French-language rules. I'm not here to tell you how to feel about Quebec politics. I'm here to tell you what actually happens next if they win: a provincial election win is not a referendum. Quebec voted on independence twice before, in 1980 and 1995, and stayed in Canada both times — a new government would need to hold a separate vote on sovereignty itself, which takes time and isn't guaranteed to happen or pass. What you should actually watch for as a homeowner, renter, or newcomer: how the Canadian dollar and bond markets react in the days after October 5, since uncertainty is what actually moves markets short-term, not the politics themselves. Stay informed, don't panic-sell or panic-buy anything based on a single election result."</p>
+        <p><strong>CTA:</strong> "Comment 'QUEBEC' if you want me to keep tracking this one for you leading up to October 5th. Follow — I explain the big Canada stories in plain English, not political spin."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">Quebec votes: October 5, 2026</span>
+          <span class="onscreen-tag">PQ leads polls for first time in years</span>
+          <span class="onscreen-tag">Election win ≠ referendum</span>
+          <span class="onscreen-tag">1980 & 1995: stayed in Canada both times</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>Quebec National Assembly building exterior · Canadian flag waving · Montreal city skyline · election campaign rally crowd (stock) · newspaper headlines close-up</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://www.electionsquebec.qc.ca/en/pressreleases/2026-provincial-election-polling-day-is-october-5/">Élections Québec — polling day is October 5</a> · <a href="https://www.usnews.com/news/world/articles/2026-08-27/quebec-to-hold-oct-5-election-separatists-favored-to-win">U.S. News — "Quebec to Hold Oct 5 Election, Separatists Favored to Win" (Aug 27)</a> · <a href="https://www.cbc.ca/news/canada/montreal/day-4-quebec-election-campaign-9.7325954">CBC News — Day 4 of the Quebec election campaign (Aug 30)</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">I checked 200 GTA condos this week so you don't have to. Here's what actually separates a good deal from a trap.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: creator-driven research angle (steal) turned into an actionable checklist — high save-and-share potential for anyone actively condo shopping right now.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Stakes / number shock</strong><span class="hook-num">1.</span> On-screen: "I checked 200 condos this week." / Spoken: "I went through 200 Toronto condo listings this week so you don't have to. Here's what actually separates a good deal from a trap."</div>
+        <div class="hook-box"><strong>Variant 2 · Nobody's telling you</strong><span class="hook-num">2.</span> On-screen: "Your agent skips this step." / Spoken: "Most buyers never do this before making an offer — and it's the easiest way to avoid overpaying right now."</div>
+        <div class="hook-box"><strong>Variant 3 · Newcomer lens</strong><span class="hook-num">3.</span> On-screen: "Nobody explained condo math to me." / Spoken: "When I moved here, nobody explained how to actually compare condos. Here's the checklist I wish I had."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–50s)</div>
+        <p><strong>Hook:</strong> "I went through 200 Toronto condo listings this week so you don't have to. Here's what actually separates a good deal from a trap."</p>
+        <p><strong>Body:</strong> "Everyone compares condos by price and bedroom count. That's not enough right now. Four things I actually check with clients: price per square foot against similar units in the same building, not just the neighbourhood — buildings vary a lot. Maintenance fee trend over the last three years, not just today's number — a fee that's climbed fast usually means deferred repairs are coming. Days on market — anything sitting past 60-90 days in this buyer's market is a sign to ask why, not assume it's a deal. And how many units are still unsold in that same building, especially in newer towers — a building with dozens of empty unsold units drags down resale value for everyone who already bought in. None of this takes long to check. It just takes knowing to check it before you fall in love with a listing photo."</p>
+        <p><strong>CTA:</strong> "Comment 'CONDO' and I'll send you the 4-point checklist so you can run it yourself before your next showing. Follow — I do the homework so you don't buy blind."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">Check: $/sqft vs same building</span>
+          <span class="onscreen-tag">Check: maintenance fee trend, 3 yrs</span>
+          <span class="onscreen-tag">Check: days on market</span>
+          <span class="onscreen-tag">Check: unsold units in building</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>condo tower exterior daytime · realtor showing condo unit to buyers · laptop spreadsheet with listings · "for sale" sign on condo building · buyer walking through empty condo unit</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://www.youtube.com/watch?v=ODTfppk8cjs">Amrit Walia — "I Went Through 200 Toronto 2-Bed Condos — Here's What I Found" (steal basis, Aug 30)</a></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cbc.ca/news/canada/montreal/day-4-quebec-election-campaign-9.7325954">CBC News — "As party leaders tackle affordability on day 4 of Quebec election campaign" (Aug 30)</a></li>
+      <li><a href="https://www.usnews.com/news/world/articles/2026-08-27/quebec-to-hold-oct-5-election-separatists-favored-to-win">U.S. News — "Quebec to Hold Oct 5 Election, Separatists Favored to Win" (Aug 27)</a></li>
+      <li><a href="https://www.investing.com/news/economy-news/bank-of-canada-to-hold-rates-for-another-year-wait-for-more-stability-on-trade-reuters-poll-4881082">Reuters via Investing.com — "Bank of Canada to hold rates for another year, wait for more stability on trade" (Aug 28)</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">Canadian Mortgage Trends — "Global bond selloff pushes Canadian fixed mortgage rates higher" (Aug 21, ongoing)</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.electionsquebec.qc.ca/en/pressreleases/2026-provincial-election-polling-day-is-october-5/">Élections Québec — 2026 provincial election polling day announcement</a></li>
+      <li><a href="https://www.bankofcanada.ca/press/upcoming-events/">Bank of Canada — Upcoming events (Sep 2 rate announcement)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — Rate hold announcement, Jul 15</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-yr bond yield</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — CAD/USD</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — Mortgage rates forecast Canada</a></li>
+      <li><a href="https://wowa.ca/banks/prime-rates-canada">WOWA — Canada prime rate history</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260817/dq260817a-eng.htm">Statistics Canada — CPI, July 2026</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — Market Watch (July report)</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA Stats — National sales/price data</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/08/cmhc-reports-annual-pace-of-housing-starts-slowed-in-july/">Canadian Mortgage Trends — CMHC starts, July 2026</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=Wi5sQtj1HZ4">Mark Mitchell — "Rates Rise on Debt Turmoil" (Aug 31)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=ODTfppk8cjs">Amrit Walia — "I Went Through 200 Toronto 2-Bed Condos — Here's What I Found" (Aug 30)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lP6ElVkUVws">CondoWong — "Should I Sell My Rental Property? Smart Investors Know When to Quit" (Aug 30)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=3qS7tz74MQs">Oleg Galyuk — "Vancouver Presale Buyers SUE & WIN!" (Aug 30)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
