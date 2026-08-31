@@ -2,5 +2,4 @@
 
 Daily morning briefs, hosted with GitHub Pages.
 
-Latest: [2026-08-28](https://dmitrozav.github.io/Morning-Brief/2026-08-28.html)
-
+Latest: [2026-08-31](https://dmitrozav.github.io/Morning-Brief/2026-08-31.html)
