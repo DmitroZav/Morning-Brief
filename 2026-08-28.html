@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Friday, August 28, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Friday, August 28, 2026</div>
+  <div class="canada-day-badge">Q2 GDP +3.3% (FASTEST IN 3+ YRS), Q1 RECESSION SCARE OFFICIALLY OVER · BUT JULY ALREADY FLAT AT 0.0% · BoC HOLDS 2.25% (NEXT SEP 2) · BOND YIELD ~3.30% · BEST 5-YR FIXED ~4.02% · CAD ~$0.725</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada's economy just grew at its fastest pace in three years — and the recession scare from May is officially cancelled.</div>
+    <p>Statistics Canada released its second-quarter GDP numbers this morning. GDP (gross domestic product) is just the total value of everything Canada produces and sells — when it's rising, more money is moving through the economy and more jobs are being created; when it shrinks for two quarters in a row, that's technically a recession. The economy grew at an annualized 3.3% in Q2 (April–June), the fastest pace in more than three years, driven by a rebound in auto exports and the first rise in business investment in over a year. Just as important: StatCan also revised its first-quarter number. Back in May, it reported the economy had shrunk slightly, which sparked real recession talk. That number has now been revised UP to a small gain — so there was no contraction at all (<a href="https://www.ckom.com/2026/08/28/economy-grew-3-3-annualized-in-q2-as-q1-figures-revised-higher-statcan/">The Canadian Press, via CKOM, Aug 28</a>; <a href="https://www.bnnbloomberg.ca/business/economics/2026/08/28/statcan-set-to-report-q2-gdp-results-after-surprise-q1-contraction/">BNN Bloomberg</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this is completely fresh economic data, released today, that flips a fear the whole country has been sitting with since May — and it directly changes the "is a rate cut coming" conversation. That's Idea 1.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Buried in the same report: growth already stalled to 0.0% in July — so the "best quarter in 3 years" might already be behind us.</div>
+    <p style="margin-top:10px;">StatCan's preliminary estimate for July — the first month of Q3 — shows growth flat at 0.0%, after June came in at +0.3% (<a href="https://investinglive.com/news/canada-gdp-q2-annualized-3-3-vs-3-4-estimate/">investingLive, Aug 28 data release</a>). That's the real number to watch: it's the first month fully inside the window where the new 50% US tariffs (live since Aug 22) start showing up in the data. Meanwhile, the Bank of Canada's next rate decision is Wednesday, September 2 (<a href="https://www.bankofcanada.ca/2025/08/bank-canada-publishes-2026-schedule-policy-interest-rate-announcements-other-major-publications/">Bank of Canada, 2026 schedule</a>) — a strong Q2 print gives the Bank zero reason to cut, so if you've been waiting on rates to drop because "the economy's struggling," that story just got weaker again. But don't get comfortable either: a flat July means that could flip fast.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> Idea 1 is the single biggest fresh data point of the day — a national GDP release nobody's covered yet, with a direct line to mortgage rates and jobs, so it beat every creator post in the candidate pool. Idea 2 and Idea 3 are both watchlist posts from the last 24 hours that passed the wallet/decision test independently: Karl Nielsen's population-outflow number is a brand-new data lane (never touched migration in this brief before), and Zhen Liang's below-asking stat gives buyers a concrete, actionable number for negotiating this month.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> The tariff/trade-war story has led or featured in the brief on Aug 8, 13, 14, 15, 16, 17, 19, 24, 25, 26 and 27 — eleven of the last twelve briefs. Today it's sitting out entirely as a lead (it's mentioned once, in passing, as context for why July growth may already be stalling). The GDP/recession-scare-over angle has never been covered. Population outflow and below-asking sale prices are both first-time topics for this brief — neither overlaps with the rental-market or condo-price stories run earlier this month.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Q2 GDP (annualized) 🔥</td>
+          <td>+3.3%</td><td>Q1 revised to +0.3%</td><td class="tag-up">fastest pace in 3+ years</td>
+          <td class="plain-meaning">TODAY'S BIG STORY (IDEA 1). Recession scare from May is over — Q1 was never actually a contraction. <a href="https://www.ckom.com/2026/08/28/economy-grew-3-3-annualized-in-q2-as-q1-figures-revised-higher-statcan/">CKOM/CP, Aug 28</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Preliminary July GDP 🆕</td>
+          <td>0.0% (flat)</td><td>+0.3% (June)</td><td class="tag-flat">growth already stalling</td>
+          <td class="plain-meaning">TODAY'S ONE THING (IDEA 2 lens). First month to catch the Aug 22 tariff hit. <a href="https://investinglive.com/news/canada-gdp-q2-annualized-3-3-vs-3-4-estimate/">investingLive</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25%</td><td>2.25%</td><td class="tag-flat">no change (next Sep 2)</td>
+          <td class="plain-meaning">Sets the prime rate and variable mortgages. Strong GDP = little reason to cut. <a href="https://www.bankofcanada.ca/2025/08/bank-canada-publishes-2026-schedule-policy-interest-rate-announcements-other-major-publications/">Bank of Canada schedule</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.30%</td><td>~3.24% (Aug 25)</td><td class="tag-up">ticked back up</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. Still below the recent tariff-driven high. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed / variable mortgage</td>
+          <td>~4.02% fixed / ~3.40% variable</td><td>3.94% fixed / 3.30% variable (Aug 25)</td><td class="tag-up">both ticked up slightly</td>
+          <td class="plain-meaning">Best nationally advertised rates. Variable still cheaper than fixed. <a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — mortgage rate forecast</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI) — July</td>
+          <td>3.0% headline / ~2.0% core</td><td>2.8% June</td><td class="tag-flat">no new print (next mid-Sept)</td>
+          <td class="plain-meaning">Unchanged since last release. Headline near the top of the BoC's comfort zone; core near target. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260817/dq260817a-eng.htm">StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CMHC housing starts (July)</td>
+          <td>229,074 units SAAR</td><td>240,773 (June)</td><td class="tag-down">−5% MoM</td>
+          <td class="plain-meaning">Actual urban starts −19% YoY. Fewer new homes = longer-term upward pressure on rents. <a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-july-2026">CMHC</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~$0.725 (1.38/USD)</td><td>~$0.727 (3-mo high, Aug 21)</td><td class="tag-down">weakened on trade tensions</td>
+          <td class="plain-meaning">GDP strength briefly boosted the loonie, but tariff fallout is winning out. <a href="https://tradingeconomics.com/canada/currency">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB / CREA (GTA & national)</td>
+          <td>No new release this week</td><td>TRREB July: avg $1,003,956 (−4.5% YoY)</td><td class="tag-flat">next TRREB report ~Sep 4</td>
+          <td class="plain-meaning">Nothing new since the July numbers already covered — flagged so you know it's not missing, just not due yet. <a href="https://trreb.ca/market-data/market-watch/">TRREB Market Watch</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>Anyone with a mortgage coming up for renewal or a fixed rate to lock:</strong> a strong economy gives the Bank of Canada no reason to cut rates on September 2. If your plan has been "wait for rates to drop because the economy's weak," that argument is weaker today than it was yesterday — but a flat July means it could reverse again by the next print.</p>
+    <p><strong>First-time buyer who's been scared off by recession talk:</strong> the contraction StatCan reported back in May never actually happened — it's been revised away. That fear shouldn't be part of your decision anymore. What should be: your own budget, and the fact that growth already slowed to zero in July.</p>
+    <p><strong>Renter or newcomer watching where people are moving:</strong> more people left Toronto than moved into it from elsewhere in Canada last year (see Idea 2 below) — even as the broader economy grows. That's a real tension worth understanding before you decide where to plant roots.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch <span style="font-size:0.8rem;font-weight:500;color:var(--muted);">(last 24–36h)</span></div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen <span class="creator-platform">· Toronto Property Finders, YouTube</span></div>
+      <div>"Toronto Is Bleeding Residents (77,492 Left In One Year)" (<a href="https://www.youtube.com/watch?v=h-WsX5QYKUc">watch</a>, Aug 27)</div>
+      <p class="creator-note">Summary: Breaks down net migration data showing 77,492 more people left the City of Toronto than moved in from elsewhere in Canada over the past year.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair the outflow number with what your audience already knows about landlords offering free months and rising vacancy — frame it as "less competition for you, but here's the honest reason why locals are leaving."</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Zhen Liang <span class="creator-platform">· Prime Properties TO, YouTube</span></div>
+      <div>"8 in 10 Homes in Toronto Sell Below Asking — But It Gets WORSE" (<a href="https://www.youtube.com/watch?v=-dFTogVdVTc">watch</a>, Aug 27)</div>
+      <p class="creator-note">Summary: Data-driven breakdown showing roughly 8 in 10 GTA homes are closing below their listed asking price right now.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: translate the stat into a concrete newcomer/beginner takeaway — listed price isn't the "real" price, and offering below asking is normal right now, not rude.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mike Carpino <span class="creator-platform">· Ontario Real Estate with Mike Carpino, YouTube</span></div>
+      <div>"Ontario's Condo NIGHTMARE Returns! CAN'T SELL. CAN'T RENT. CAN'T KEEP IT." (<a href="https://www.youtube.com/watch?v=j10yasUFelQ">watch</a>, Aug 27)</div>
+      <p class="creator-note">Summary: Another warning on investor-owned Ontario condos stuck unable to sell or rent profitably.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">The condo-crisis angle has already featured multiple times this month (Aug 11, Aug 24) — not built into a full video today to avoid a repeat, but worth a future check-in once new data lands.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi <span class="creator-platform">· YouTube</span></div>
+      <div>"DO NOT Buy a House in These 4 Mississauga Areas" (<a href="https://www.youtube.com/watch?v=2b6eUDIz9DE">watch</a>, Aug 27)</div>
+      <p class="creator-note">Summary: Neighbourhood-specific buyer-beware breakdown for Mississauga.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Strong future "areas to know before you buy" format for a slower news day — held back today so the lineup stays focused on today's fresher national/data stories.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage Clips (Ron Butler) <span class="creator-platform">· YouTube</span></div>
+      <div>"Trade Talks BLOW UP" (<a href="https://www.youtube.com/watch?v=UjG25Zwrw_0">watch</a>, Aug 28)</div>
+      <p class="creator-note">Summary: Reaction to the trade-talk collapse and tariff escalation.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Tariffs have led this brief 11 of the last 12 days — used only as supporting context above (July GDP note), not built into a full video today to force a fresh lineup.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Canada's economy just grew 3.3% — the fastest in 3 years. Here's the catch hiding in the same report.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fresh national data released today, flips a fear the whole country's been sitting with since May, and ties directly to next week's rate decision — strong save/share and comment potential.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Number shock</strong><span class="hook-num">1.</span> On-screen: "Canada's economy just grew 3.3%." / Spoken: "Statistics Canada just said the economy grew 3.3% last quarter — the fastest in three years. But there's a number hiding right under it that should worry you."</div>
+        <div class="hook-box"><strong>Variant 2 · Contrarian</strong><span class="hook-num">2.</span> On-screen: "Everyone said we're in a recession. Wrong." / Spoken: "Back in May, everyone was talking recession. Today Statistics Canada quietly admitted that never actually happened. Here's what changed."</div>
+        <div class="hook-box"><strong>Variant 3 · Stakes / this costs you</strong><span class="hook-num">3.</span> On-screen: "This number just decided your mortgage rate." / Spoken: "The Bank of Canada meets in five days. This morning's GDP number just made a rate cut a lot less likely — here's why that matters to you."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–50s)</div>
+        <p><strong>Hook:</strong> "Statistics Canada just said the economy grew 3.3% last quarter — the fastest in three years. But there's a number hiding right under it that should worry you."</p>
+        <p><strong>Body:</strong> "GDP is just the total value of everything Canada makes and sells. When it's rising fast, that usually means more jobs and more money moving around. This quarter, it jumped 3.3%, mostly because car exports bounced back and businesses started investing again after over a year of pulling back. StatCan also quietly revised away the small contraction it reported back in May — so the recession scare from this spring never actually happened. Good news, right? Here's the catch: their first look at July — the very next month — already shows growth flat at zero. That's the first month where the new US tariffs really start showing up in the numbers. And the Bank of Canada meets September 2nd. A strong quarter like this gives them zero reason to cut rates, so if your plan was 'wait for rates to drop because the economy's struggling' — that story just got weaker."</p>
+        <p><strong>CTA:</strong> "Comment 'GDP' and I'll send you what to expect from the Bank of Canada on September 2nd. Follow — I break down every number before it hits your mortgage."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">Q2 GDP: +3.3%</span>
+          <span class="onscreen-tag">Fastest in 3+ years</span>
+          <span class="onscreen-tag">Q1 recession: cancelled</span>
+          <span class="onscreen-tag">July: already flat (0.0%)</span>
+          <span class="onscreen-tag">BoC decides Sept 2</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>Toronto financial district Bay Street · stock ticker screen close-up · auto assembly line factory · person checking banking app on phone · Bank of Canada building Ottawa exterior</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://www.ckom.com/2026/08/28/economy-grew-3-3-annualized-in-q2-as-q1-figures-revised-higher-statcan/">The Canadian Press via 650 CKOM — Economy grew 3.3% annualized in Q2 as Q1 figures revised higher (Aug 28)</a> · <a href="https://investinglive.com/news/canada-gdp-q2-annualized-3-3-vs-3-4-estimate/">investingLive — Canada GDP Q2 data release (Aug 28)</a> · <a href="https://www.bankofcanada.ca/2025/08/bank-canada-publishes-2026-schedule-policy-interest-rate-announcements-other-major-publications/">Bank of Canada — 2026 rate announcement schedule</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">77,492 people left Toronto in one year. Should you still move here?</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a jarring, specific number that flips the "Toronto is overcrowded" assumption, directly relevant to Dmytro's newcomer audience deciding where to land.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Number shock</strong><span class="hook-num">1.</span> On-screen: "77,492 people left Toronto." / Spoken: "Seventy-seven thousand, four hundred ninety-two more people left Toronto than moved in from the rest of Canada last year. Let that sink in."</div>
+        <div class="hook-box"><strong>Variant 2 · Newcomer lens</strong><span class="hook-num">2.</span> On-screen: "People are leaving Toronto. Should you still come?" / Spoken: "If you're thinking about moving to Toronto, you should know something first — a lot of people who already live here are leaving."</div>
+        <div class="hook-box"><strong>Variant 3 · Contrarian</strong><span class="hook-num">3.</span> On-screen: "Everyone thinks Toronto is too crowded." / Spoken: "Everyone assumes Toronto only gets more crowded. The newest numbers say the opposite is happening — and here's why that's not all good news."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–55s)</div>
+        <p><strong>Hook:</strong> "Seventy-seven thousand, four hundred ninety-two more people left Toronto than moved in from the rest of Canada last year. Let that sink in."</p>
+        <p><strong>Body:</strong> "This is net migration — meaning even counting everyone who moved to Toronto from other parts of Canada, way more existing residents packed up and left for other cities and provinces than came in. That's on top of everything you already know about this rental market: landlords offering two months free rent, vacancy at its highest since 2021, one-bedroom rents down over 4%. So why are people leaving a city that's supposedly getting cheaper to rent in? Mostly affordability that's still out of reach for buying, and jobs opening up elsewhere. Here's the honest double-edged version: if you're a newcomer, less competition for rentals is genuinely good for you right now. But it's also worth asking the same questions the people leaving are asking — about cost of living, and whether your job or business plan actually works here long-term."</p>
+        <p><strong>CTA:</strong> "Comment 'STAY' or 'LEAVE' — would you stick it out in Toronto right now? Follow — I cover the real numbers behind who's coming and who's going."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">−77,492 net residents</span>
+          <span class="onscreen-tag">In just ONE year</span>
+          <span class="onscreen-tag">Vacancy at 5-year high</span>
+          <span class="onscreen-tag">Less competition for renters</span>
+          <span class="onscreen-tag">But ask why they're leaving</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>Toronto skyline time-lapse · moving truck loading boxes · U-Haul rental lot · apartment for rent sign · GO Train departing Union Station</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://www.youtube.com/watch?v=h-WsX5QYKUc">Karl Nielsen (Toronto Property Finders) — "Toronto Is Bleeding Residents (77,492 Left In One Year)"</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">8 out of 10 Toronto homes just sold for less than asking. Here's what that actually means for you.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: gives buyers a concrete, actionable negotiating number right now — practical "decision test" content with strong save potential.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Number shock</strong><span class="hook-num">1.</span> On-screen: "8 out of 10 homes sold below asking." / Spoken: "Right now, 8 out of 10 homes in Toronto are selling for less than what they were listed for. Here's why that matters for you."</div>
+        <div class="hook-box"><strong>Variant 2 · Nobody's telling you</strong><span class="hook-num">2.</span> On-screen: "Your agent won't explain this trick." / Spoken: "A lot of Toronto listings aren't priced to sell at that number — they're priced to get you to look. Here's how to tell the difference."</div>
+        <div class="hook-box"><strong>Variant 3 · Stakes</strong><span class="hook-num">3.</span> On-screen: "Offering below asking isn't rude anymore." / Spoken: "If you're scared to offer below the asking price because it feels disrespectful — stop. Right now, it's normal. Here's the data."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–50s)</div>
+        <p><strong>Hook:</strong> "Right now, 8 out of 10 homes in Toronto are selling for less than what they were listed for. Here's why that matters for you."</p>
+        <p><strong>Body:</strong> "A lot of sellers list a home under what they actually expect to get, just to attract more eyes and more offers — it's a pricing strategy, not the 'real' price. Combine that with what we already know about this market: TRREB's last report showed the average GTA price down 4.5% year over year, and listings piling up faster than they're selling. That's why most homes are now closing below their asking price instead of above it, like they used to during the bidding-war years. My advice if you're buying: don't panic and offer full asking price out of fear of losing the home. Look at what similar homes on the same street actually sold for in the last month or two — that number tells you far more than the listing price does."</p>
+        <p><strong>CTA:</strong> "DM me 'OFFER' and I'll send you my 3-step guide for figuring out what to actually offer. Follow — I break down the negotiating tricks nobody explains to first-time buyers."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">8/10 homes sold below asking</span>
+          <span class="onscreen-tag">Listed high. Sold low.</span>
+          <span class="onscreen-tag">Check recent comparable sales</span>
+          <span class="onscreen-tag">This is normal right now</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>for sale sign with sold sticker · open house walkthrough · laptop showing real estate listings · handshake at closing table · residential Toronto street</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://www.youtube.com/watch?v=-dFTogVdVTc">Zhen Liang (Prime Properties TO) — "8 in 10 Homes in Toronto Sell Below Asking — But It Gets WORSE"</a> · <a href="https://trreb.ca/market-data/market-watch/">TRREB Market Watch (July avg $1,003,956, −4.5% YoY)</a></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.ckom.com/2026/08/28/economy-grew-3-3-annualized-in-q2-as-q1-figures-revised-higher-statcan/">The Canadian Press via 650 CKOM — Economy grew 3.3% annualized in Q2 as Q1 figures revised higher (Aug 28)</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/economics/2026/08/28/statcan-set-to-report-q2-gdp-results-after-surprise-q1-contraction/">BNN Bloomberg — StatCan set to report Q2 GDP results (Aug 28)</a></li>
+      <li><a href="https://investinglive.com/news/canada-gdp-q2-annualized-3-3-vs-3-4-estimate/">investingLive — Canada GDP Q2 annualized 3.3% vs 3.4% estimate, incl. July prelim 0.0% (Aug 28)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2025/08/bank-canada-publishes-2026-schedule-policy-interest-rate-announcements-other-major-publications/">Bank of Canada — 2026 policy rate announcement schedule</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-yr bond yield</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — Canadian dollar (CAD/USD)</a></li>
+      <li><a href="https://www.nesto.ca/mortgage-basics/mortgage-rates-forecast-canada/">nesto — Mortgage rates forecast Canada</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260817/dq260817a-eng.htm">Statistics Canada — Consumer Price Index, July 2026</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-july-2026">CMHC — Housing starts and construction data, July 2026</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — Market Watch (July report)</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=h-WsX5QYKUc">Karl Nielsen (Toronto Property Finders) — "Toronto Is Bleeding Residents (77,492 Left In One Year)"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=-dFTogVdVTc">Zhen Liang (Prime Properties TO) — "8 in 10 Homes in Toronto Sell Below Asking — But It Gets WORSE"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=j10yasUFelQ">Mike Carpino (Ontario Real Estate) — "Ontario's Condo NIGHTMARE Returns!"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=2b6eUDIz9DE">Ilan Portnoi — "DO NOT Buy a House in These 4 Mississauga Areas"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=UjG25Zwrw_0">Angry Mortgage Clips (Ron Butler) — "Trade Talks BLOW UP"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
