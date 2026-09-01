@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, September 1, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, September 1, 2026</div>
+  <div class="canada-day-badge">LIBERALS SWEEP 3 BYELECTIONS, MAJORITY RESTORED (173/343) · STUDY PERMIT FUNDS BAR UP TO $23,448 TODAY · BoC DECIDES TOMORROW (HOLD EXPECTED) · BOND ~3.34% (FLAT) · CAD ~$0.72</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Overnight, Mark Carney's Liberals went from a minority to a majority government — and flipped a Quebec seat while doing it.</div>
+    <p>Three federal byelections were held Monday, and the Liberals won all three: they held Beaches-East York in Toronto (about 55% of the vote) and North Vancouver-Capilano in B.C., and — the real headline — they flipped Chicoutimi-Le Fjord, Quebec away from Pierre Poilievre's Conservatives, who fell to a distant third place (<a href="https://www.cp24.com/news/canada/2026/09/01/a-great-time-to-be-a-liberal-pm-carney-sweeps-all-three-byelections-holds-onto-majority/">CP24, Sept 1</a>). That gives the Liberals 173 of 343 seats in the House of Commons — a solid majority, meaning Carney's government can now govern without the constant risk of losing a confidence vote, all the way to the next scheduled election in 2029 (<a href="https://www.cbc.ca/news/politics/livestory/live-updates-byelection-chicoutimi-le-fjord-vancouver-capilano-beaches-east-york-9.7327074">CBC News, live coverage</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this is the kind of headline that reaches people who never watch a housing or finance video — "the government just got a majority overnight" is a story anyone with a passport cares about. And for newcomers specifically, a government that can't be knocked over by a snap election means more predictable rules on immigration, housing policy and the trade fight for the next few years, not less.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Today is the day the money bar for studying in Canada went up — and almost nobody explains where that number comes from.</div>
+    <p style="margin-top:10px;">Effective today, September 1, 2026, anyone submitting a new study permit application must prove they have at least $23,448 in savings for living expenses — up from $22,895 (<a href="https://moving2canada.com/2026/08/proof-of-funds-requirement-for-canadian-study-permit-increasing/">Moving2Canada, Aug 2026</a>). That's on top of first-year tuition and return travel costs. IRCC updates this "proof of funds" number every year to track the actual cost of living in Canada — it's not a random hike, but it is a real and rising bar (<a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html">IRCC — financial support requirements</a>, official government page). If you applied yesterday, the old number still applies to you. If you apply from today onward, this is the new floor — and it's a detail a lot of families budgeting for a move here never see coming until it's too late.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the byelection sweep is the single biggest Canadian story of the last 24 hours — nothing any watchlist creator posted comes close to "the government just moved from minority to majority overnight" — so it leads even though it's not a housing story. The study-permit threshold jump earns the One Thing slot because it's dated to today specifically, is genuinely new territory for this brief, and hits the newcomer wallet directly and immediately (a decision, not just a data point). Idea 3 is creator-driven: Alex Applegate's mortgage-break explainer from the last 24 hours passed the decision-relevance test cleanly — it's the kind of thing someone should check before they act, not after.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> this is the first time this brief has led with federal electoral politics — Quebec's provincial election was the Big Story yesterday (Aug 31), but a national byelection sweep restoring a House majority is a different story with different stakes. The bond-yield/fixed-rate storyline that has run repeatedly through August (most recently leading Aug 31) sits out entirely today — the 5-year yield is flat at 3.34%, nothing new to report there. Immigration financial-threshold coverage and a federal byelection result have never appeared in this brief before.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (decides tomorrow, Sep 2)</td><td>2.25% (Jul 15)</td><td class="tag-flat">hold expected, ~3% odds of a hike priced in</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://continuumeconomics.com/a/6f20e41e/bank-of-canada-preview-for-september-2-risks-on-both-sides-argue-for-steady-policy">Continuum Economics preview</a> / <a href="https://www.bankofcanada.ca/press/upcoming-events/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.34% (Aug 31)</td><td>3.33% (Aug 28)</td><td class="tag-flat">flat — first plateau after a 2-week climb</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. No fresh move to report today, unlike the last two weeks. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>~4.15–4.19%+</td><td>same (Aug 31)</td><td class="tag-flat">no change since yesterday</td>
+          <td class="plain-meaning">Brokers still calling anything under 4.19% a good number. <a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">Canadian Mortgage Trends</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.35–3.45%</td><td>same since Oct 2025</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Frozen until at least tomorrow's decision. <a href="https://wowa.ca/banks/prime-rates-canada">WOWA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI) — July</td>
+          <td>3.0% headline / ~2.0% core</td><td>2.8% (June)</td><td class="tag-flat">no new print (next mid-Sept)</td>
+          <td class="plain-meaning">Unchanged since last release. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260817/dq260817a-eng.htm">StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price + sales (TRREB, July)</td>
+          <td>$1,003,956 avg (−4.5% YoY), 5,995 sales</td><td>same, no new report</td><td class="tag-flat">August report expected ~Sep 4</td>
+          <td class="plain-meaning">New listings −17.8% YoY — market quietly tightening. <a href="https://trreb.ca/market-data/market-watch/">TRREB Market Watch</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA national (July)</td>
+          <td>Sales +0.5% MoM (4th straight gain)</td><td>listings −1.6% MoM</td><td class="tag-flat">no new data (next Sep 15)</td>
+          <td class="plain-meaning">2026 forecast: ~463,336 sales nationally. <a href="https://stats.crea.ca/en-ca/">CREA Stats</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CMHC housing starts (July)</td>
+          <td>229,074 units SAAR</td><td>240,773 (June)</td><td class="tag-down">−5% MoM</td>
+          <td class="plain-meaning">Fewer new homes = upward pressure on rents long-term. August data lands Sep 16. <a href="https://www.canadianmortgagetrends.com/2026/08/cmhc-reports-annual-pace-of-housing-starts-slowed-in-july/">CMHC data, via CMT</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~$0.721</td><td>~$0.719 (Aug 25)</td><td class="tag-flat">roughly flat</td>
+          <td class="plain-meaning">No major move despite the political news. <a href="https://tradingeconomics.com/canada/currency">Trading Economics</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-label">🧠 Why It Matters (To You)</div>
+    <p><strong>Anyone watching Canadian politics wondering "does this affect me":</strong> a majority government means fewer surprise elections and more room for multi-year policy — immigration levels, housing programs, and the tariff fight are all things this government can now commit to for longer without worrying about being toppled. Good for planning, whatever you think of the party in charge.</p>
+    <p><strong>Families budgeting for a study permit application:</strong> the $553 jump in required savings is small in isolation, but it's part of a pattern — this number has gone up every September for years. Build in a buffer above whatever number you see online, because by the time you apply it may already be out of date.</p>
+    <p><strong>Anyone with a mortgage thinking about breaking it early</strong> (to catch a better rate, sell, or refinance): the penalty math is not simple interest — it depends on your lender's specific formula, and guessing wrong can cost thousands more than expected. Ask for the exact payout number in writing before you decide anything.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch <span style="font-size:0.8rem;font-weight:500;color:var(--muted);">(last 24–36h)</span></div>
+
+    <div class="creator-item">
+      <div class="creator-name">Alex Applegate <span class="creator-platform">· YouTube (Real Estate & Mortgages)</span></div>
+      <div>"This Is What Happens If You Break Your Mortgage In Canada." (<a href="https://www.youtube.com/watch?v=eipy2E1lczk">watch</a>, Aug 31)</div>
+      <p class="creator-note">Summary: Walks through what actually happens — penalty-wise — when someone breaks a mortgage early in Canada.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: rebuild this as a plain-language "check this math before you decide" explainer, using your own near-miss story for credibility rather than just reciting the penalty formula.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">CondoWong <span class="creator-platform">· YouTube</span></div>
+      <div>"The 1500 Dollar Test Every Renter Fails" (<a href="https://www.youtube.com/watch?v=2jxbEhtaUwc">watch</a>, Sept 1)</div>
+      <p class="creator-note">Summary: A rent-vs-buy math exercise built around a specific monthly dollar figure, arguing the "renter's plan" looks better on paper than in real life.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Good future format for a rent-vs-buy day — held back today so the lineup doesn't compete with the study-permit newcomer angle.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi <span class="creator-platform">· YouTube</span></div>
+      <div>"Does making an offer on a house mean that you're going to buy it?" (<a href="https://www.youtube.com/watch?v=NjcE38pySV8">watch</a>, Aug 31)</div>
+      <p class="creator-note">Summary: Quick buyer-education piece on what an offer legally does and doesn't commit you to.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid beginner-buyer explainer to bank for a slower news day — first-time-buyer FAQ format worth adapting.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ontario Real Estate with Mike Carpino <span class="creator-platform">· YouTube</span></div>
+      <div>"You WON'T Believe What $299k Buy's You In ONTARIO Now" (<a href="https://www.youtube.com/watch?v=QHKMTQlho14">watch</a>, Aug 31)</div>
+      <p class="creator-note">Summary: A tour-style affordability piece on what's available outside the GTA at a lower price point.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Out-of-GTA affordability content performs well for newcomers weighing where to settle — keep for a dedicated "beyond Toronto" video.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">Note: Mark Mitchell posted again on the bond-yield/rate-turmoil story (same topic already covered in yesterday's brief) — skipped today as a repeat, not re-listed as a fresh STEAL.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Overnight, Canada's government went from minority to majority. Here's what that actually changes.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the single biggest Canadian story right now, genuinely new territory (first time this brief has covered federal byelections), and a natural fit for Dmytro's own "I left instability once" newcomer framing.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Number shock</strong><span class="hook-num">1.</span> On-screen: "173 seats. One word: majority." / Spoken: "Overnight, Canada's government went from minority to majority. Here's why that actually matters for you."</div>
+        <div class="hook-box"><strong>Variant 2 · Newcomer lens</strong><span class="hook-num">2.</span> On-screen: "I left one unstable government already." / Spoken: "I left a country with instability once. Last night, Canada's government just got more stable — and that changes what happens next for you."</div>
+        <div class="hook-box"><strong>Variant 3 · Question that can't be ignored</strong><span class="hook-num">3.</span> On-screen: "Why did 3 ridings just flip overnight?" / Spoken: "Three byelections happened last night, and the results just changed how this government can govern until 2029. Here's what that means for your rent, your rules, your plans."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–55s)</div>
+        <p><strong>Hook:</strong> "Overnight, Canada's government went from minority to majority. Here's why that actually matters for you."</p>
+        <p><strong>Body:</strong> "Three byelections happened Monday — one in Toronto, one in B.C., and one in Quebec. The Liberals won all three, including flipping a Quebec seat that used to belong to the Conservatives. That gives them 173 out of 343 seats in Parliament — a majority. Here's the part that actually matters if you don't follow politics closely: a minority government can be knocked over at almost any time by a lost vote, which means constant uncertainty — snap elections, stalled policy, nothing committed to for the long term. A majority government can govern all the way to 2029 without that risk. For anyone watching immigration rules, housing programs, or this tariff fight with the U.S. and wondering 'is this going to change again in six months' — the honest answer is: less likely than it was two days ago. That doesn't mean you'll agree with every decision. It means there's more room for actual multi-year plans instead of short-term politics."</p>
+        <p><strong>CTA:</strong> "Comment 'MAJORITY' if you want me to keep translating what happens in Ottawa into what it means for your life here. Follow — I explain the big Canada stories in plain English, not political spin."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">3 byelections, 3 Liberal wins</span>
+          <span class="onscreen-tag">Quebec seat flipped from Conservatives</span>
+          <span class="onscreen-tag">173 / 343 seats = majority</span>
+          <span class="onscreen-tag">Can govern to 2029</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>Parliament Hill exterior Ottawa · Canadian flag on government building · ballot box / voting stock footage · House of Commons chamber · newspaper headline close-up</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://www.cp24.com/news/canada/2026/09/01/a-great-time-to-be-a-liberal-pm-carney-sweeps-all-three-byelections-holds-onto-majority/">CP24 — "'A great time to be a Liberal': PM Carney sweeps all three byelections, holds onto majority" (Sept 1)</a> · <a href="https://www.cbc.ca/news/politics/livestory/live-updates-byelection-chicoutimi-le-fjord-vancouver-capilano-beaches-east-york-9.7327074">CBC News — live byelection results coverage</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Today's the day it got $553 more expensive to study in Canada. Here's the number and where it comes from.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: dated to today specifically (urgency), directly wallet-relevant for the newcomer/student segment of the audience, and a lane this brief has never covered before.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Stakes</strong><span class="hook-num">1.</span> On-screen: "Today, studying here got $553 pricier." / Spoken: "As of today, if you're applying for a study permit, you need to prove $23,448 in savings, not $22,895. Here's what changed and why."</div>
+        <div class="hook-box"><strong>Variant 2 · Number shock</strong><span class="hook-num">2.</span> On-screen: "$23,448. That's the new number." / Spoken: "Starting today, Canada raised how much money international students must prove they have. Here's the new number, and where it actually has to go."</div>
+        <div class="hook-box"><strong>Variant 3 · Nobody's telling you</strong><span class="hook-num">3.</span> On-screen: "Nobody told me this rule changes every year." / Spoken: "If you're planning to study in Canada, this number went up again today, and almost nobody explains why it keeps climbing or what it actually covers."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 30–50s)</div>
+        <p><strong>Hook:</strong> "As of today, if you're applying for a study permit, you need to prove $23,448 in savings, not $22,895."</p>
+        <p><strong>Body:</strong> "This is Canada's 'proof of funds' requirement — the government wants to see that you can actually afford to live here before they'll approve your study permit, on top of your first year of tuition and a return ticket. That number goes up every September to track the real cost of living, and this year it climbed by $553. If you already submitted your application before today, the old number still applies to you — you're fine. If you're applying from today onward, this is your new floor, and it's separate from tuition. The mistake I see families make: they budget the number they saw online six months ago, not the number that's actually current when they file. Always check the exact current figure on the government's own site before you submit, not a blog post or a friend's advice from last year."</p>
+        <p><strong>CTA:</strong> "Comment 'STUDY' and I'll send you the direct government link with the current requirement, plus what actually counts as proof. Follow — I track these small rule changes so you don't get surprised by them."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">Old: $22,895</span>
+          <span class="onscreen-tag">New (today): $23,448</span>
+          <span class="onscreen-tag">Separate from tuition + travel</span>
+          <span class="onscreen-tag">Updates every September</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>student with backpack at airport arrivals · university campus Canada exterior · calculator and bank statement · passport and documents on desk · IRCC/government website on laptop screen (screen-record)</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://moving2canada.com/2026/08/proof-of-funds-requirement-for-canadian-study-permit-increasing/">Moving2Canada — "Proof of Funds Requirement for Canadian Study Permit Increasing Starting September 1"</a> · <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html">IRCC — official financial support requirements page</a> · <a href="https://dailyhive.com/canada/canada-new-laws-september-2026">Daily Hive — "Canadians will see these new laws take effect this September" (Aug 29)</a></div>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Breaking your mortgage early can cost you thousands more than you think. Check this math first.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: creator-driven steal turned into an actionable, decision-relevant explainer — high save-and-comment potential from anyone weighing a move, sale, or refinance right now.</div>
+
+      <div class="script-block">
+        <div class="script-label">Hook — 3 variants (first-frame text + spoken)</div>
+        <div class="hook-box"><strong>Variant 1 · Stakes</strong><span class="hook-num">1.</span> On-screen: "Breaking your mortgage can cost $15k+." / Spoken: "If you break your mortgage early in Canada, the penalty can run into the thousands, and almost nobody checks the math before they do it."</div>
+        <div class="hook-box"><strong>Variant 2 · Nobody's telling you</strong><span class="hook-num">2.</span> On-screen: "Your bank won't walk you through this." / Spoken: "There's a specific formula banks use to calculate your mortgage-break penalty, and it's usually not the one most people assume. Here's how it actually works."</div>
+        <div class="hook-box"><strong>Variant 3 · Personal stakes</strong><span class="hook-num">3.</span> On-screen: "I almost broke my mortgage. Glad I didn't." / Spoken: "I looked into breaking my own mortgage before I fully understood the penalty. Here's the math that changed my mind, and it might change yours too."</div>
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script (target 35–55s)</div>
+        <p><strong>Hook:</strong> "If you break your mortgage early in Canada, the penalty can run into the thousands, and almost nobody checks the math before they do it."</p>
+        <p><strong>Body:</strong> "Breaking a mortgage means paying it off before your term is up — because you're selling, refinancing, or you found a better rate. For a variable mortgage, the penalty is usually simple: three months of interest. For a fixed mortgage, it's not simple at all — lenders use something called the Interest Rate Differential, which compares your rate to their current rate on a similar term, and it can be much bigger than three months of interest, sometimes tens of thousands of dollars depending on your balance and how much time is left. The mistake I see people make is assuming the penalty they saw in a comment section or a friend's story applies to them. It doesn't. Every lender calculates this differently, and your penalty depends on your specific mortgage, your specific balance, and the day you ask. Before you decide anything, call your lender and get the exact payout number in writing — not an estimate."</p>
+        <p><strong>CTA:</strong> "Comment 'BREAK' and I'll send you the questions to ask your lender before you break a mortgage. Follow — I check the fine print so you don't get an expensive surprise."</p>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">On-screen text cues</div>
+        <div class="onscreen-tags">
+          <span class="onscreen-tag">Variable penalty: ~3 months interest</span>
+          <span class="onscreen-tag">Fixed penalty: Interest Rate Differential</span>
+          <span class="onscreen-tag">Can total tens of thousands</span>
+          <span class="onscreen-tag">Get the exact number in writing</span>
+        </div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">B-roll (real footage search terms)</div>
+        <div>person on phone call with bank looking concerned · mortgage document close-up with pen · calculator with house-shaped keychain · laptop with banking app open · "for sale" sign on house</div>
+      </div>
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <div><a href="https://www.youtube.com/watch?v=eipy2E1lczk">Alex Applegate — "This Is What Happens If You Break Your Mortgage In Canada." (steal basis, Aug 31)</a></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cp24.com/news/canada/2026/09/01/a-great-time-to-be-a-liberal-pm-carney-sweeps-all-three-byelections-holds-onto-majority/">CP24 — "'A great time to be a Liberal': PM Carney sweeps all three byelections, holds onto majority" (Sept 1)</a></li>
+      <li><a href="https://www.cbc.ca/news/politics/livestory/live-updates-byelection-chicoutimi-le-fjord-vancouver-capilano-beaches-east-york-9.7327074">CBC News — live byelection results coverage (Sept 1)</a></li>
+      <li><a href="https://lethbridgeherald.com/news/national-news/2026/09/01/in-the-news-today-liberals-sweep-byelections-canadians-buy-local-auto-talks-begin/">The Canadian Press via Lethbridge Herald — "In the news today" roundup (Sept 1)</a></li>
+      <li><a href="https://moving2canada.com/2026/08/proof-of-funds-requirement-for-canadian-study-permit-increasing/">Moving2Canada — "Proof of Funds Requirement for Canadian Study Permit Increasing Starting September 1"</a></li>
+      <li><a href="https://dailyhive.com/canada/canada-new-laws-september-2026">Daily Hive — "Canadians will see these new laws take effect this September" (Aug 29)</a></li>
+      <li><a href="https://continuumeconomics.com/a/6f20e41e/bank-of-canada-preview-for-september-2-risks-on-both-sides-argue-for-steady-policy">Continuum Economics — Bank of Canada preview for September 2</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html">IRCC — official financial support requirements for study permits</a></li>
+      <li><a href="https://www.bankofcanada.ca/press/upcoming-events/">Bank of Canada — upcoming events (Sep 2 rate announcement)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/07/fad-press-release-2026-07-15/">Bank of Canada — rate hold announcement, Jul 15</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-yr bond yield</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — CAD/USD</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">Canadian Mortgage Trends — fixed mortgage rate levels</a></li>
+      <li><a href="https://wowa.ca/banks/prime-rates-canada">WOWA — Canada prime rate history</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260817/dq260817a-eng.htm">Statistics Canada — CPI, July 2026</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — Market Watch (July report)</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA Stats — national sales/price data</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/08/cmhc-reports-annual-pace-of-housing-starts-slowed-in-july/">Canadian Mortgage Trends — CMHC starts, July 2026</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=eipy2E1lczk">Alex Applegate — "This Is What Happens If You Break Your Mortgage In Canada." (Aug 31)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=2jxbEhtaUwc">CondoWong — "The 1500 Dollar Test Every Renter Fails" (Sept 1)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=NjcE38pySV8">Ilan Portnoi — "Does making an offer on a house mean that you're going to buy it?" (Aug 31)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=QHKMTQlho14">Ontario Real Estate with Mike Carpino — "You WON'T Believe What $299k Buy's You In ONTARIO Now" (Aug 31)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
