@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, September 2, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, September 2, 2026</div>
+  <div class="canada-day-badge">GAS TAX HOLIDAY EXTENDED PAST LABOUR DAY · BoC HOLDS 2.25% (7TH STRAIGHT) — NEXT MOVE COULD BE EITHER WAY · BOND ~3.35% (FLAT) · CAD ~$0.72</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Ottawa just quietly gave every driver in Canada their money back — again.</div>
+    <p>The federal government paused the 10-cent-per-litre excise tax on gasoline back in April, when the war in Iran sent oil prices spiking. That pause was supposed to expire right after Labour Day — meaning gas was about to get 10 cents a litre more expensive at the pump starting next week. This morning, Finance Minister François-Philippe Champagne confirmed Ottawa is extending it: the tax stays paused, no reversal (<a href="https://www.cjme.com/2026/09/02/ottawa-to-announce-extension-of-gas-tax-holiday-beyond-labour-day/">CJME/The Canadian Press, Sept 2</a>). The Conservatives had been pushing to extend the pause to the end of the year and add GST relief on top (they say that combo would cut pump prices by 25 cents a litre); Ontario Premier Doug Ford welcomed the extension and is now publicly asking Ottawa to make it permanent.</p>
+    <p><strong>Why it's video-worthy:</strong> this is money-in-your-pocket news that needs zero explanation — everyone who drives, Ubers, or gets groceries delivered feels gas prices. It's also a rare "government gives you something" story in the middle of a year that's mostly been about tariffs taking things away, and it plays into a live political fight (three parties all claiming credit) that's easy to summarize in 30 seconds.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The Bank of Canada held rates today for the 7th straight time — but for the first time all year, its own economists say the next move could go either direction.</div>
+    <p style="margin-top:10px;">At 9:45 AM ET today, the Bank of Canada kept its key interest rate at 2.25%, exactly as expected (<a href="https://www.cjme.com/2026/09/02/bank-of-canada-holds-key-rate-at-2-25-per-cent-once-again/">CJME/The Canadian Press, Sept 2</a>). What's different this time: inflation is running hot at 3% because of oil prices tied to the Iran war, which normally would push the Bank to hike. But Canada's trade war with the US — 50% tariffs on $20B of our goods, with our own retaliation landing September 8 — is dragging on growth, which normally would push the Bank to cut. Economists are calling it a "stagflationary shock": both pressures at once, cancelling each other out into a hold (<a href="https://www.canadianmortgagetrends.com/2026/09/bank-of-canada-set-to-hold-as-trade-war-creates-new-dilemma-for-macklem/">Canadian Mortgage Trends/Bloomberg, Sept 1</a>). In a Bloomberg survey of economists, 63% now expect the Bank's next move to actually be a <em>hike</em> in the first half of 2027 — not the cut most people assume is coming. If you're holding a variable-rate mortgage or HELOC assuming rates only go one way from here, today's decision is a signal to stop assuming.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> today had an unusually strong news morning — the gas tax reversal and the BoC decision both landed before 10 AM. The gas tax story takes the Big Story slot because it needs no financial background to understand and hits literally every driver in Canada, not just homeowners. The BoC decision earns the One Thing slot for the fresh "either direction" framing — Ron Butler's Angry Mortgage Clips posted a same-day video on the trade war's effect on real estate, which corroborates and sharpens the angle, so Idea 2 below leans on both the news and his take. Idea 3 goes to CondoWong's renter math video from the last 24 hours, since nothing in today's news covers the rental side of the wallet test as directly.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the Bank of Canada has been a recurring topic (most recently leading Aug 31 with "unanimous hold vs. rising fixed rates," a story about the gap between the policy rate and bond-driven mortgage rates). Today's angle is different: it's the actual decision, not a preview, and the takeaway is about direction-uncertainty (hike or cut both live) rather than the fixed/variable gap. The federal gas tax has never been a story in this brief before — today is the first time.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held today, Sep 2)</td><td>2.25% (Jul 15)</td><td class="tag-flat">7th straight hold — but hike AND cut both live for next time</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.cjme.com/2026/09/02/bank-of-canada-holds-key-rate-at-2-25-per-cent-once-again/">CJME/CP, Sept 2</a> / <a href="https://www.bankofcanada.ca/2026/09/bank-of-canada-interest-rate-announcement-2026-09-2/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Federal gas excise tax</td>
+          <td>0¢/L — pause extended past Labour Day</td><td>Was set to snap back to 10¢/L</td><td class="tag-down">Extended, not reversed — real savings continue</td>
+          <td class="plain-meaning">Direct pump savings for every driver, no application needed. <a href="https://www.cjme.com/2026/09/02/ottawa-to-announce-extension-of-gas-tax-holiday-beyond-labour-day/">CJME/CP, Sept 2</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.35% (Sept 1)</td><td>3.34% (Aug 31)</td><td class="tag-flat">essentially flat</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. No fresh move today. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>~4.15–4.19%+</td><td>same</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Brokers still calling anything under 4.19% a good number. <a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">Canadian Mortgage Trends</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.35–3.45%</td><td>same since Oct 2025</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Moves in lockstep with the BoC rate — unchanged today. <a href="https://www.bankofcanada.ca/rates/interest-rates/">Bank of Canada rates</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI, July)</td>
+          <td>3.0%</td><td>2.8% (June)</td><td class="tag-up">up, driven by gas/oil</td>
+          <td class="plain-meaning">The reason the BoC won't cut yet. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260819/dq260819a-eng.htm">StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~$0.72</td><td>~$0.72</td><td class="tag-flat">no material move</td>
+          <td class="plain-meaning">Affects import prices and cross-border shopping. <a href="https://www.bankofcanada.ca/rates/exchange/">Bank of Canada</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you drive:</strong> the gas tax pause staying in place is real, ongoing money back every single week — not a one-time rebate. No forms, no waiting. <strong>If you have a variable mortgage or HELOC:</strong> today's "could go either way" framing from the Bank of Canada means don't assume your payment is about to drop — budget as if it could just as easily rise. <strong>If you're renting and weighing whether to buy:</strong> the math isn't as simple as "rent is cheaper" — see Idea 3 below for the exact number that trips most renters up. <strong>If you're a newcomer:</strong> both stories are useful proof points that Canada's cost-of-living fights (gas, rates) are genuinely two-sided right now — not doom, not relief, just uncertainty you can plan around.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler <span class="creator-platform">· Angry Mortgage Clips · YouTube</span></div>
+      <div>"Real Estate In A Trade War" (<a href="https://www.youtube.com/watch?v=83gtYpVH2Cw">watch</a>) — posted 7:00 AM ET today</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <p class="creator-note">Summary: Butler pushes back on real estate agents who blamed 2025's slow Ontario/BC market entirely on trade-war jitters, arguing it's more complicated than "buyers were scared." Same-day topic as the BoC's stagflation dilemma — perfect corroboration.<br>Your angle: don't let "trade war" become the catch-all excuse buyers and sellers use to freeze — pair Butler's skepticism with your own "I bought at the peak and the excuses don't help you" story.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">CondoWong <span class="creator-platform">· YouTube</span></div>
+      <div>"The $1,500 Test Every Renter Fails" (<a href="https://www.youtube.com/shorts/2jxbEhtaUwc">watch</a>) — posted yesterday</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <p class="creator-note">Summary: "The renter's plan is beautiful on paper. Then real life happens" — walks through why the simple rent-vs-buy math renters do in their head misses a real cost that shows up later.<br>Your angle: rebuild this as a 3-line napkin-math test newcomers can actually do on their phone before signing a lease, in your beginner voice.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi <span class="creator-platform">· YouTube</span></div>
+      <div>"5 Toronto Buyer Mistakes Nobody Warns You About" (<a href="https://www.youtube.com/watch?v=eTnT9oBhqog">watch</a>) — posted yesterday</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <p class="creator-note">Solid evergreen buyer-education listicle, well made, but not urgent enough to bump today's two news-driven leads. Good bank for a slower news day.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily <span class="creator-platform">· YouTube</span></div>
+      <div>"Why Calgary Just Banned 300,000 Multiplexes Overnight" (<a href="https://www.youtube.com/watch?v=oXV_uQQ0NSo">watch</a>) — posted yesterday</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <p class="creator-note">Genuinely interesting national zoning-policy reversal, but Calgary-specific and not GTA-relevant enough to earn a slot today — worth a national-housing-policy video on a quieter day.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Ottawa just gave you your gas money back (again)</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: zero-jargon, universal wallet win, easy share bait ("send this to whoever complains about gas prices")</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Stakes / "this saves you"</strong>
+        On-screen: "The government just gave you money back" <br>Spoken: "The 10-cent gas tax was supposed to come back this week. It's not."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "Everyone expected this tax to return. It didn't." <br>Spoken: "The federal gas tax was set to snap back after Labour Day — Ottawa just quietly cancelled that."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Number shock</strong>
+        On-screen: "10 cents a litre. Still free." <br>Spoken: "That gas tax break you've had since April? Still not coming back — here's why, and how long it'll last."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "The 10-cent gas tax was supposed to come back this week. It's not."</p>
+        <p><strong>Body:</strong> "Back in April, when the war in Iran sent oil prices flying, Ottawa paused the federal gas tax — 10 cents off every litre. That pause was supposed to end right after Labour Day. This morning, the Finance Minister confirmed it's staying paused — no reversal. The Conservatives wanted it extended to the end of the year plus GST relief on top, which they say would knock 25 cents off a litre total. Ontario's premier is now asking for this to be made permanent. Politics aside — if you drive, this is real, ongoing savings, not a one-time rebate, and it starts right now, this week."</p>
+        <p><strong>CTA:</strong> "Comment GAS and I'll send you the link to check today's price where you live — and follow for tomorrow's brief."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">10¢/L tax — STILL paused</span>
+        <span class="onscreen-tag">Was ending Sept 7</span>
+        <span class="onscreen-tag">Now: extended</span>
+        <span class="onscreen-tag">Ford wants it permanent</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        gas station pump close-up · car fueling up · Toronto highway traffic · hand holding gas receipt · downtown Toronto skyline driving shot
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source</div>
+        <a href="https://www.cjme.com/2026/09/02/ottawa-to-announce-extension-of-gas-tax-holiday-beyond-labour-day/">CJME/The Canadian Press — "Ottawa to announce extension of gas tax holiday beyond Labour Day," Sept 2, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">The Bank of Canada's rate could go either way now</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: rare "uncertainty is the news" framing challenges the assumption most viewers have that rates only go down from here</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Question that can't be ignored</strong>
+        On-screen: "Why didn't the Bank of Canada move today?" <br>Spoken: "The Bank of Canada just held rates for the 7th time in a row — but for the first time, it could go either way next."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "Rates aren't 'stuck.' They're stuck between two threats." <br>Spoken: "Everyone says the Bank of Canada is just waiting to cut. Today they basically admitted the next move could be a hike."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes</strong>
+        On-screen: "Your variable-rate bet might be wrong." <br>Spoken: "If you've got a variable mortgage betting on a rate cut — the Bank of Canada just told you a hike is just as likely."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "The Bank of Canada just held rates for the 7th time in a row — but for the first time, it could go either way next."</p>
+        <p><strong>Body:</strong> "Today at 9:45 in the morning, the Bank of Canada kept its rate at 2.25%, exactly as expected. Here's the part that matters: inflation is at 3% because of oil prices from the Iran war — normally that pushes the Bank to raise rates. But our trade war with the US is dragging on growth — normally that pushes the Bank to cut. Both pressures are hitting at once. Economists call this a stagflationary shock, and in a recent survey, 63% of them now think the NEXT move is actually a hike, sometime in the first half of 2027 — not the cut most people are waiting for. If you're on variable and assuming your payment only goes one direction, today is your sign to stop assuming and check your numbers both ways."</p>
+        <p><strong>CTA:</strong> "Comment RATE and I'll walk you through what a hike vs. a cut would actually do to your payment — save this for renewal season."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">7th straight hold</span>
+        <span class="onscreen-tag">Inflation 3%</span>
+        <span class="onscreen-tag">Trade war drags growth</span>
+        <span class="onscreen-tag">63% expect a HIKE, not a cut</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Bank of Canada building Ottawa · stock ticker close-up · mortgage documents on table · calculator and bills · person checking banking app on phone
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.cjme.com/2026/09/02/bank-of-canada-holds-key-rate-at-2-25-per-cent-once-again/">CJME/The Canadian Press — "Bank of Canada holds key rate at 2.25 per cent once again," Sept 2, 2026</a><br>
+        <a href="https://www.canadianmortgagetrends.com/2026/09/bank-of-canada-set-to-hold-as-trade-war-creates-new-dilemma-for-macklem/">Canadian Mortgage Trends/Bloomberg — "Bank of Canada set to hold as trade war creates new dilemma for Macklem," Sept 1, 2026</a><br>
+        Steal angle from: <a href="https://www.youtube.com/watch?v=83gtYpVH2Cw">Ron Butler / Angry Mortgage Clips — "Real Estate In A Trade War"</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">The $1,500 test every renter fails</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: quiz-style hook ("do you pass or fail") drives comments and rewatches, directly serves newcomers weighing rent vs. buy</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock</strong>
+        On-screen: "$1,500. Most renters fail this test." <br>Spoken: "There's a simple $1,500 test that shows if renting is actually saving you money — and most people fail it."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Newcomer lens</strong>
+        On-screen: "New to Canada? Do this math first." <br>Spoken: "Nobody explained this renter's math to me when I moved here — and it changes what 'renting is cheaper' actually means."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — "Nobody's telling you"</strong>
+        On-screen: "Your landlord hopes you never do this math." <br>Spoken: "Renting looks cheap on paper. There's one number your landlord hopes you never calculate."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "There's a simple $1,500 test that shows if renting is actually saving you money — and most people fail it."</p>
+        <p><strong>Body:</strong> "Here's the test: take what you're saving every month by renting instead of owning — after mortgage, taxes, maintenance, everything. If that number isn't at least $1,500 a month AND you're actually investing the difference, not just spending it, renting isn't saving you anything long-term, it's just delaying the decision. Most renters do the first half of this math — 'my rent is $500 less than a mortgage would be' — and stop there. They never check whether that $500 is going into an investment account or into takeout and subscriptions. That's the part your landlord never has to explain to you, and it's the part that decides whether renting was actually the smart move or just the comfortable one."</p>
+        <p><strong>CTA:</strong> "Comment TEST and I'll send you the simple 3-line version of this math you can do on your phone tonight."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Rent − Own = the gap</span>
+        <span class="onscreen-tag">Is the gap invested?</span>
+        <span class="onscreen-tag">$1,500/mo threshold</span>
+        <span class="onscreen-tag">If no → renting isn't "winning"</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        person reviewing rent statement · Toronto apartment building exterior · calculator with cash · notebook budget planning · young couple looking at laptop finances
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source</div>
+        Steal from: <a href="https://www.youtube.com/shorts/2jxbEhtaUwc">CondoWong — "The $1,500 Test Every Renter Fails"</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cjme.com/2026/09/02/ottawa-to-announce-extension-of-gas-tax-holiday-beyond-labour-day/">CJME/The Canadian Press — Ottawa to announce extension of gas tax holiday beyond Labour Day</a></li>
+      <li><a href="https://www.cjme.com/2026/09/02/bank-of-canada-holds-key-rate-at-2-25-per-cent-once-again/">CJME/The Canadian Press — Bank of Canada holds key rate at 2.25 per cent once again</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/bank-of-canada-set-to-hold-as-trade-war-creates-new-dilemma-for-macklem/">Canadian Mortgage Trends/Bloomberg — Bank of Canada set to hold as trade war creates new dilemma for Macklem</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/bank-of-canada-interest-rate-announcement-2026-09-2/">Bank of Canada — interest rate announcement, Sept 2, 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">Canadian Mortgage Trends — fixed mortgage rate tracker</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260819/dq260819a-eng.htm">Statistics Canada — Consumer Price Index, July 2026</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/exchange/">Bank of Canada — exchange rates</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=83gtYpVH2Cw">Ron Butler / Angry Mortgage Clips — Real Estate In A Trade War</a></li>
+      <li><a href="https://www.youtube.com/shorts/2jxbEhtaUwc">CondoWong — The $1,500 Test Every Renter Fails</a></li>
+      <li><a href="https://www.youtube.com/watch?v=eTnT9oBhqog">Ilan Portnoi — 5 Toronto Buyer Mistakes Nobody Warns You About</a></li>
+      <li><a href="https://www.youtube.com/watch?v=oXV_uQQ0NSo">Property Daily — Why Calgary Just Banned 300,000 Multiplexes Overnight</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
