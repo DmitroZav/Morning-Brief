@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Thursday, September 3, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, September 3, 2026</div>
+  <div class="canada-day-badge">GTA LISTINGS −14.1% YoY, RENEWED PRICE GROWTH SIGNALLED · NEW $20 BILL UNVEILED (KING CHARLES) · BOND 3.42% (UP) · CAD ~$0.72</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">The face on your $20 bill just changed for the first time in your life.</div>
+    <p>This morning the Bank of Canada unveiled the design of the new $20 bank note — and for the first time ever, it features King Charles III instead of Queen Elizabeth II, who died in September 2022 after 70 years on the throne (<a href="https://www.cjme.com/2026/09/03/bank-of-canada-to-unveil-new-20-bill-featuring-king-charles/">980 CJME/The Canadian Press, Sept 3</a>). The new bill is green, vertical (same modern layout as the Viola Desmond $10 from 2018), with King Charles on the front and the Canadian National Vimy Memorial on the back (<a href="https://www.bankofcanada.ca/2026/09/unveil-canadas-new-vertical-20-bank-note/">Bank of Canada, Sept 3</a>). It won't actually start circulating until early 2027, but today is the reveal. The reigning monarch has appeared on Canadian bills since 1935 — so this is only the second face-change most people alive today have ever seen.</p>
+    <p><strong>Why it's video-worthy:</strong> zero financial literacy required, genuinely interesting for a newcomer building a mental map of Canadian symbols and history, and it's a nice break from tariffs and interest rates — pure "did you know" content that still gets someone to stop scrolling.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Toronto's home listings just fell 14% in a year — and the board that tracks the market says that's exactly the kind of squeeze that pushes prices back up.</div>
+    <p style="margin-top:10px;">TRREB's August 2026 Market Watch report landed at 5 AM this morning (<a href="https://www.globenewswire.com/news-release/2026/09/03/3355690/0/en/a-noticeable-dip-in-gta-home-sales-and-listings-pointing-to-renewed-price-growth.html">TRREB/GlobeNewswire, Sept 3</a>). GTA REALTORS® reported 5,057 home sales in August — down 2.1% from a year ago. But the real headline is new listings: only 12,075 homes came onto the market, down 14.1% year-over-year — a much sharper drop than sales. Fewer homes for sale plus roughly the same number of buyers means less choice, and TRREB's own economist points out that's the exact setup that tends to push prices higher, not lower. The average price, at $993,410, is still down 2.7% year-over-year, and the benchmark price index (a more accurate "typical home" measure) is down 4.5% — so today's market is still cheaper than a year ago. But the direction of travel — sellers pulling back, not buyers rushing in — is the thing to watch. TRREB's CEO also used the report to push governments to cut zoning barriers, taxes, and approval delays that are keeping new supply from being built in the first place (<a href="https://trreb.ca/hlfiles/pdf/mw_august_2026_325687485111559.pdf">Full TRREB Market Watch PDF, August 2026</a>).</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> today's TRREB release is the freshest, most decision-relevant real estate data of the last 24 hours — it landed at 5 AM and hasn't been covered by any creator yet, so it leads. The King Charles $20 bill takes the Big Story slot because it's the most universally interesting non-housing story of the day and fits the "get to know Canada" side of this brand. For Idea 3, RBC's "recovery" call (published Sept 1–2) directly contradicts realtor Mike Carpino's "death spiral" video posted yesterday — that tension is a stronger, more honest video than picking either side alone, and it ties back to the same TRREB numbers driving Idea 1.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the last real TRREB monthly release covered in this brief was the July numbers back on Aug 19 (inflation/CREA-focused) and Aug 6 (July "tightening" framing) — this is new August data with a different, sharper signal (listings falling faster than sales). Currency/culture has never been a story here before. The RBC-vs-realtor contradiction is a new "who do you believe" format not used in the past week, distinct from the arrears-myth (Aug 30) and bottom-calling (Aug 27) myth-busting angles.</p>
+  </div>
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2)</td><td>2.25% (Jul 15)</td><td class="tag-flat">no change since yesterday</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.bankofcanada.ca/2026/09/bank-of-canada-interest-rate-announcement-2026-09-2/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.42% (Sept 2)</td><td>3.35% (Sept 1)</td><td class="tag-up">up 0.07 pts</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. Ticked up on oil/stagflation talk after the BoC hold. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>~4.09–4.19%</td><td>same range</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Lowest advertised 5-yr fixed sits around 4.09%. <a href="https://www.canadianmortgagetrends.com/2026/08/global-bond-selloff-pushes-canadian-fixed-mortgage-rates-higher/">Canadian Mortgage Trends</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.35–3.45%</td><td>same since Oct 2025</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Moves with the BoC rate — unchanged today. <a href="https://www.bankofcanada.ca/rates/interest-rates/">Bank of Canada rates</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA home sales / listings (TRREB, Aug)</td>
+          <td>5,057 sales (−2.1% YoY) / 12,075 new listings (−14.1% YoY)</td><td>July 2026 levels</td><td class="tag-down">listings falling faster than sales</td>
+          <td class="plain-meaning">Fewer homes for sale = tighter market ahead. <a href="https://www.globenewswire.com/news-release/2026/09/03/3355690/0/en/a-noticeable-dip-in-gta-home-sales-and-listings-pointing-to-renewed-price-growth.html">TRREB, Sept 3</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA avg price / HPI (TRREB, Aug)</td>
+          <td>$993,410 avg (−2.7% YoY) / HPI −4.5% YoY</td><td>July 2026</td><td class="tag-flat">essentially flat month-over-month</td>
+          <td class="plain-meaning">Still cheaper than last year, but no longer falling month to month. <a href="https://www.globenewswire.com/news-release/2026/09/03/3355690/0/en/a-noticeable-dip-in-gta-home-sales-and-listings-pointing-to-renewed-price-growth.html">TRREB, Sept 3</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">National housing (RBC forecast)</td>
+          <td>2026: resales −3.6% to 453,200 units; prices −2.3% to $794,200</td><td>2025 levels</td><td class="tag-flat">"finally" turning, but slowly</td>
+          <td class="plain-meaning">Real recovery isn't expected to show clearly until 2027. <a href="https://www.canadianmortgagetrends.com/2026/09/canadas-housing-market-finally-moving-toward-recovery-this-year-rbc/">Canadian Mortgage Trends, Sept 1</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CMHC-insured mortgages, 30-yr amortization</td>
+          <td>58.6% of new volume (Q2 2026)</td><td>51.0% a year ago</td><td class="tag-up">rising fast</td>
+          <td class="plain-meaning">More first-time buyers stretching payments over 30 years to afford the same home. <a href="https://www.canadianmortgagetrends.com/2026/09/nearly-60-of-new-cmhc-insured-mortgage-volume-has-longer-amortizations/">Canadian Mortgage Trends</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~$0.72</td><td>~$0.72</td><td class="tag-flat">no material move</td>
+          <td class="plain-meaning">Affects import prices and cross-border shopping. <a href="https://www.bankofcanada.ca/rates/exchange/">Bank of Canada</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer waiting for prices to keep dropping:</strong> today's TRREB numbers are the clearest sign yet that the "wait and it gets cheaper" bet is getting riskier — sellers are pulling listings faster than buyers are disappearing. <strong>If you're stretching to afford a home:</strong> nearly 6 in 10 new CMHC-insured mortgages now run 30 years instead of 25 — a real tool, but it means paying more interest over time, so know what you're trading off. <strong>If you're confused by conflicting headlines:</strong> you're not wrong to be — a big bank calling this a "recovery" and a realtor calling it a "death spiral" can both be using real numbers; see Idea 3 for how to read past the headline. <strong>If you're just here to understand Canada better:</strong> today's new $20 bill is a small, fun piece of the country's story worth knowing, newcomer or not.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mike Carpino <span class="creator-platform">· Ontario Real Estate with Mike Carpino · YouTube</span></div>
+      <div>"Ontario Real Estate Death Spiral: Sellers Are LOSING Everything" (<a href="https://www.youtube.com/watch?v=cqhIBR6vtHo">watch</a>) — posted yesterday, 4:00 PM ET</div>
+      <div class="verdict verdict-steal">STEAL</div>
+      <p class="creator-note">Summary: sensational, high-urgency framing that sellers are getting crushed on price — posted the same week RBC published a "market finally recovering" report. Same underlying data (TRREB/CREA), opposite spin.<br>Your angle: don't pick a side — use both takes to teach viewers how to read conflicting real estate headlines instead of panicking or celebrating based on one video.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">CondoWong <span class="creator-platform">· YouTube</span></div>
+      <div>"Would You Still Buy If Nobody Could See It" (<a href="https://www.youtube.com/shorts/b_kFoh7lZFc">watch</a>) — posted this morning</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <p class="creator-note">Thoughtful status-vs-substance buying psychology angle. Good evergreen bank for a slower news day, not urgent enough to bump today's data-driven leads.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Toronto Realty Group (David Fleming) <span class="creator-platform">· YouTube</span></div>
+      <div>"First-Time Buyer Alert: Toronto Condos With Great Terraces Under $550K" (<a href="https://www.youtube.com/watch?v=-qk_xwDPUp8">watch</a>) — posted this morning</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <p class="creator-note">Solid evergreen listicle format for first-time buyers. Bank for a future "under $X" video.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky <span class="creator-platform">· YouTube</span></div>
+      <div>"A 2.2% Rent Cap for BC 2027 — What It Means for the Future" (<a href="https://www.youtube.com/shorts/vsmzqLBfRm4">watch</a>) — posted yesterday</div>
+      <div class="verdict verdict-watch">WATCH</div>
+      <p class="creator-note">BC-specific policy, not GTA, but worth banking — Ontario doesn't have a hard rent cap number like this, which is itself a good compare-the-provinces video for renters on a future day.</p>
+    </div>
+  </div>
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Toronto listings just fell 14% — here's why that matters more than the price drop</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: fresh breaking data (this morning), directly answers "should I wait or buy now," counters the still-common assumption that less choice for sellers = better for buyers</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock</strong>
+        On-screen: "Toronto listings just fell 14%." <br>Spoken: "New data out this morning: the number of Toronto homes for sale just dropped 14% in a single year — and the real estate board says that's exactly what tips prices back up."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "Still think it's all a buyer's market?" <br>Spoken: "Everyone keeps telling you it's a buyer's market in Toronto — the board that tracks the data just said the opposite is starting."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes</strong>
+        On-screen: "This number decides if you overpay next year." <br>Spoken: "If you're waiting for prices to drop further, this morning's report is the first real sign that window might be closing."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "New data out this morning: the number of Toronto homes for sale just dropped 14% in a single year."</p>
+        <p><strong>Body:</strong> "This morning the Toronto Regional Real Estate Board released August's numbers. Sales were down a little — 2.1% from last year. But that's not the story. New listings — homes actually coming up for sale — fell 14.1%, way more than sales did. That matters because it means the number of buyers didn't really change, but the number of choices for those buyers just shrank. Toronto's own real estate board said this exact combination — less choice, steady demand — is what usually pushes prices back up. Prices are still down about 2.7% from a year ago, so today's not expensive yet. But 'still cheap' and 'about to get more expensive' can both be true at the same time, and this report is the first real evidence of the second one."</p>
+        <p><strong>CTA:</strong> "Comment LISTINGS and I'll send you this month's full report — and follow for tomorrow's numbers before they hit the news."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Listings −14.1% YoY</span>
+        <span class="onscreen-tag">Sales only −2.1%</span>
+        <span class="onscreen-tag">Avg price $993,410 (−2.7%)</span>
+        <span class="onscreen-tag">Less choice → prices tick up</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        for sale sign front yard Toronto · GTA neighborhood aerial · open house sign · realtor showing house keys · person scrolling real estate app on phone
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source</div>
+        <a href="https://www.globenewswire.com/news-release/2026/09/03/3355690/0/en/a-noticeable-dip-in-gta-home-sales-and-listings-pointing-to-renewed-price-growth.html">TRREB/GlobeNewswire — "A Noticeable Dip in GTA Home Sales and Listings, Pointing to Renewed Price Growth," Sept 3, 2026</a><br>
+        <a href="https://trreb.ca/hlfiles/pdf/mw_august_2026_325687485111559.pdf">Full TRREB Market Watch report, August 2026 (PDF)</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Meet the new face on your $20 bill</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: zero jargon, pure curiosity/culture content, easy for newcomers and long-time Canadians alike to share, a break from money-stress topics that still builds trust and watch time</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Question that can't be ignored</strong>
+        On-screen: "Who's the new face on your $20?" <br>Spoken: "Today the Bank of Canada revealed who's replacing the Queen on your $20 bill — the first time this has happened in your lifetime."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Newcomer lens</strong>
+        On-screen: "New to Canada? Know this face." <br>Spoken: "If you're new here, this is worth knowing — the face on your money just changed for the first time since most of us started paying attention."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Number shock</strong>
+        On-screen: "70 years. One face. Now it's changing." <br>Spoken: "For 70 years, one woman was on every Canadian bill. As of this morning, that's officially changing — here's the story."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Today the Bank of Canada revealed who's replacing the Queen on your $20 bill — the first time this has happened in your lifetime."</p>
+        <p><strong>Body:</strong> "Queen Elizabeth II was on Canadian money for basically your whole life — she passed away in September 2022 after 70 years on the throne. This morning, the Bank of Canada unveiled the new $20 bill, and it's King Charles III on the front, with the Vimy Memorial — a huge Canadian war monument in France — on the back. It's green, and it's vertical, same modern style as the Viola Desmond $10 bill from 2018. It won't actually show up in your wallet until early 2027, but today is the official reveal. Small thing, but if you're building your picture of this country — this is a piece of it."</p>
+        <p><strong>CTA:</strong> "Comment $20 and I'll show you what the full bill looks like when I get my hands on one — follow so you don't miss when it's actually in circulation."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">New $20 bill unveiled</span>
+        <span class="onscreen-tag">King Charles III, first time</span>
+        <span class="onscreen-tag">Vimy Memorial on back</span>
+        <span class="onscreen-tag">Circulating early 2027</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Canadian $20 bill close-up · wallet with cash · Bank of Canada building Ottawa · Canadian flag waving · hand counting Canadian currency
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.cjme.com/2026/09/03/bank-of-canada-to-unveil-new-20-bill-featuring-king-charles/">980 CJME/The Canadian Press — "Bank of Canada to unveil new $20 bill featuring King Charles," Sept 3, 2026</a><br>
+        <a href="https://www.bankofcanada.ca/2026/09/unveil-canadas-new-vertical-20-bank-note/">Bank of Canada — "Unveil of Canada's new vertical $20 bank note," Sept 3, 2026</a>
+      </div>
+    </div>
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">One bank says "recovery." One realtor says "death spiral." Same week.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the "who do I believe" tension is genuinely relatable, positions Dmytro as the honest translator between hype and doom, drives comments from people who've seen both kinds of headlines</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Contrarian</strong>
+        On-screen: "Recovery or death spiral? Pick one." <br>Spoken: "This week, one of Canada's biggest banks said the housing market is finally recovering — and a Toronto realtor said the exact opposite, on the same week."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — "Nobody's telling you"</strong>
+        On-screen: "Both of these are 'true.' Here's how." <br>Spoken: "RBC just called this a housing recovery. Another agent is calling it a death spiral. Both are using real numbers — here's how that's possible."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Personal stakes</strong>
+        On-screen: "I won't tell you it's simple. It's not." <br>Spoken: "I'm not going to tell you the market is recovering or collapsing — because right now, honestly, it's kind of both, depending where you're standing."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "This week, one of Canada's biggest banks said the housing market is finally recovering — and a Toronto realtor said the exact opposite, on the same week."</p>
+        <p><strong>Body:</strong> "RBC Economics published a report saying Canada's housing market is 'finally taking steps' toward recovery — resales have been climbing since April. But in the same breath, they say national resales will still end this year down 3.6%, and prices down 2.3%. Real recovery, in their own words, doesn't show up clearly until 2027. Meanwhile, a Toronto realtor posted a video the same week calling this an Ontario 'death spiral' for sellers. Here's the trick: they're not really disagreeing — they're describing different timelines and different local markets. National averages can tick up while Toronto specifically is still working through extra listings, like we saw in this morning's TRREB report. When you see one headline screaming recovery and another screaming collapse, the real answer is usually 'it depends where and when' — not pick a side."</p>
+        <p><strong>CTA:</strong> "Comment WHICH and tell me which headline you saw this week — I'll break down your local market in a future video."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">RBC: "finally" a recovery</span>
+        <span class="onscreen-tag">Realtor: "death spiral"</span>
+        <span class="onscreen-tag">Same data, different lens</span>
+        <span class="onscreen-tag">Real recovery: not until 2027</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        newspaper headlines real estate · person reading news on phone confused · Toronto skyline dusk · stock chart up and down · realtor sign being installed
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.canadianmortgagetrends.com/2026/09/canadas-housing-market-finally-moving-toward-recovery-this-year-rbc/">Canadian Mortgage Trends/The Canadian Press — "Canada's housing market 'finally' moving toward recovery this year: RBC," Sept 1, 2026</a><br>
+        Steal angle from: <a href="https://www.youtube.com/watch?v=cqhIBR6vtHo">Mike Carpino — "Ontario Real Estate Death Spiral: Sellers Are LOSING Everything"</a><br>
+        Supporting data: <a href="https://www.globenewswire.com/news-release/2026/09/03/3355690/0/en/a-noticeable-dip-in-gta-home-sales-and-listings-pointing-to-renewed-price-growth.html">TRREB August 2026 Market Watch, Sept 3, 2026</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cjme.com/2026/09/03/bank-of-canada-to-unveil-new-20-bill-featuring-king-charles/">980 CJME/The Canadian Press — Bank of Canada to unveil new $20 bill featuring King Charles</a></li>
+      <li><a href="https://lethbridgeherald.com/news/national-news/2026/09/03/in-the-news-today-ontario-storms-byelections-gas-tax-holiday-extended/">The Canadian Press (via Lethbridge Herald) — In the news today, Sept 3, 2026</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/canadas-housing-market-finally-moving-toward-recovery-this-year-rbc/">Canadian Mortgage Trends/The Canadian Press — Canada's housing market "finally" moving toward recovery this year: RBC</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/nearly-60-of-new-cmhc-insured-mortgage-volume-has-longer-amortizations/">Canadian Mortgage Trends — Nearly 60% of new CMHC-insured mortgage volume has longer amortizations</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.globenewswire.com/news-release/2026/09/03/3355690/0/en/a-noticeable-dip-in-gta-home-sales-and-listings-pointing-to-renewed-price-growth.html">TRREB — August 2026 Market Watch news release, Sept 3, 2026</a></li>
+      <li><a href="https://trreb.ca/hlfiles/pdf/mw_august_2026_325687485111559.pdf">TRREB — Full Market Watch report, August 2026 (PDF)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/unveil-canadas-new-vertical-20-bank-note/">Bank of Canada — Unveil of Canada's new vertical $20 bank note</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/bank-of-canada-interest-rate-announcement-2026-09-2/">Bank of Canada — interest rate announcement, Sept 2, 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/exchange/">Bank of Canada — exchange rates</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=cqhIBR6vtHo">Mike Carpino / Ontario Real Estate — Ontario Real Estate Death Spiral: Sellers Are LOSING Everything</a></li>
+      <li><a href="https://www.youtube.com/shorts/b_kFoh7lZFc">CondoWong — Would You Still Buy If Nobody Could See It</a></li>
+      <li><a href="https://www.youtube.com/watch?v=-qk_xwDPUp8">Toronto Realty Group (David Fleming) — First-Time Buyer Alert: Toronto Condos With Great Terraces Under $550K</a></li>
+      <li><a href="https://www.youtube.com/shorts/vsmzqLBfRm4">Steve Saretsky — A 2.2% Rent Cap for BC 2027, What It Means for the Future</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
