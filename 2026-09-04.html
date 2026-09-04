@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Friday, September 4, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Friday, September 4, 2026</div>
+  <div class="canada-day-badge">CANADA LOST 42,000 JOBS IN AUGUST · WAGE GROWTH AT 9-YR LOW (2%) · VIA RAIL $4.7B BUILT-IN-CANADA · BOND 3.42%</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada just bet $4.7 billion that it can build its own trains again.</div>
+    <p>Yesterday in Thunder Bay, Prime Minister Mark Carney announced that for the first time in four decades, VIA Rail's passenger cars will actually be built in Canada. The federal government is putting more than $4.7 billion toward 313 new rail cars from Alstom Canada, manufactured in Thunder Bay, Ontario and La Pocatière, Québec (<a href="https://www.pm.gc.ca/en/news/news-releases/2026/09/03/prime-minister-carney-announces-largest-investment-rails-history">Prime Minister of Canada, Sept 3</a>). Up to now, a lot of VIA Rail's fleet was built in the United States. This is the "Buy Canadian Policy" in action — Canadian steel, Canadian companies, Canadian workers — and it lands nearly 700 jobs directly in Ontario and Québec, plus work for over 900 Canadian suppliers. Combined with an earlier $1.95 billion investment in new locomotives announced in July, that's $6.6 billion going into Canadian-built trains total.</p>
+    <p><strong>Why it's video-worthy:</strong> it's a genuinely positive, easy-to-explain story in the middle of a trade war people are anxious about — proof the response to tariffs isn't only "tax them back," it's also "build it here." Zero jargon, easy for newcomers to grab onto, and it's never been covered on this account before.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canada's hot job market just stalled hard — the economy lost 42,000 jobs in August, and that's the first real hint the Bank of Canada might actually cut rates.</div>
+    <p style="margin-top:10px;">Statistics Canada released the Labour Force Survey for August this morning (<a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260904/dq260904a-eng.htm">StatCan, Sept 4</a>; reported via <a href="https://www.bnnbloomberg.ca/business/economics/2026/09/04/statistics-canada-to-release-labour-force-survey-for-august-today/">BNN Bloomberg/The Canadian Press</a>). Economists were expecting a gain of roughly 15,000 jobs. Instead, Canada lost 42,000 — a huge miss. The unemployment rate held at 6.4%, but that's mostly because people stopped actively job-hunting, not because things improved. This snaps a hot streak: from April through July, the economy had added 181,000 jobs and unemployment had been falling. The public sector shed jobs for a third straight month (−20,000 in August), and workers aged 15–24 lost 19,000 positions. One bright spot: manufacturing actually gained 22,000 jobs despite the US tariffs — a surprise pocket of strength. Crucially, this data barely captures the impact of the new 50% US tariffs that hit mid-August, so next month's report could look worse. For anyone waiting on a fixed or variable rate to drop, a weakening job market is exactly the kind of signal that nudges the Bank of Canada toward a cut.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> this morning's StatCan jobs report is the freshest, most decision-relevant number of the day — it directly feeds into whether the Bank of Canada cuts rates next, so it leads as the One Thing. VIA Rail's $4.7B "Buy Canadian" investment is the most nationally significant, universally interesting story of the last 24 hours — positive news, easy for anyone to understand, and it takes the Big Story slot. Video 3 digs into a number buried in the same jobs report — wage growth cooling to a 9-year low — because it's the sharpest wallet-first angle nobody else is talking about yet, distinct from the jobs-lost headline. Creator Watch came up empty today (browser tools were unreachable this run — see note below), so all three ideas are news-driven by necessity, not choice; each still clears the wallet/decision bar on its own.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the last time this brief covered jobs data was Aug 7 (+75,000 in July, "hot economy = no rate cut"). Today's −42,000 is a genuine reversal, not a repeat — the takeaway flips from "no reason to cut" to "first real crack in the labour market." VIA Rail/manufacturing investment and wage-growth-cooling are both brand-new lanes never touched in this brief before. The bond-yield/fixed-rate-creep, tariff-deadline, and TRREB-data storylines — all recent leads — sit out entirely today.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2)</td><td>2.25% (Jul 15)</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.bankofcanada.ca/2026/09/bank-of-canada-interest-rate-announcement-2026-09-2/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Employment (StatCan LFS, Aug)</td>
+          <td>−42,000 jobs</td><td>+75,000 (Jul)</td><td class="tag-down">sharp reversal</td>
+          <td class="plain-meaning">Biggest labour-market swing in over a year — hints at a possible rate cut ahead. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260904/dq260904a-eng.htm">StatCan, Sept 4</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Unemployment rate</td>
+          <td>6.4% (Aug)</td><td>6.4% (Jul)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">Flat only because fewer people are actively job-hunting. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260904/dq260904a-eng.htm">StatCan, Sept 4</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Average hourly wage growth</td>
+          <td>+2.0% YoY (Aug)</td><td>+2.8% (Jul)</td><td class="tag-down">cooling fast</td>
+          <td class="plain-meaning">Slowest wage growth since Nov 2017 — raises are barely keeping up with prices. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260904/dq260904a-eng.htm">StatCan, Sept 4</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.42%</td><td>~3.42%</td><td class="tag-flat">no material move</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. Sitting near a 12-month high. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>~4.04–4.09%</td><td>same range</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Lowest advertised 5-yr fixed rates. <a href="https://www.bankofcanada.ca/rates/interest-rates/">Bank of Canada rates</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.35–3.45%</td><td>same since Oct 2025</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Moves with the BoC rate — unchanged today. <a href="https://www.bankofcanada.ca/rates/interest-rates/">Bank of Canada rates</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CMHC housing starts (Jul)</td>
+          <td>~229,074 SAAR, −5% MoM / −19% YoY (actual)</td><td>June 2026 levels</td><td class="tag-down">still falling</td>
+          <td class="plain-meaning">Fewer new homes being started — a longer-term supply squeeze. <a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-july-2026">CMHC, Aug 18</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~$0.726</td><td>~$0.72</td><td class="tag-flat">no material move</td>
+          <td class="plain-meaning">Affects import prices and cross-border shopping. <a href="https://www.bankofcanada.ca/rates/exchange/">Bank of Canada</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're worried about job security:</strong> today's report is the clearest sign in months that the labour market is cooling, and it barely reflects the mid-August tariff hit yet — stay cautious about big financial commitments this fall. <strong>If you're hoping for a lower mortgage rate:</strong> a weaker jobs market is exactly the kind of pressure that pushes the Bank of Canada toward a cut — this is the first real evidence in that direction since spring. <strong>If you just got a raise:</strong> check the math in Video 3 — a 2% raise when prices are still running hotter than that is a quiet pay cut, not a win. <strong>If you're building a new life here:</strong> VIA Rail's $4.7 billion bet on Thunder Bay and Québec manufacturing is a reminder that not every headline this fall is about tariffs and job losses — there's real investment and real hiring happening in Canadian-made industries too.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+    <p class="creator-note">Empty today, and here's the honest reason why: both the Claude in Chrome extension and the built-in browser were unreachable this run, so the YouTube RSS sweep of the ~29-channel watchlist couldn't run. Web-search fallback checks on a few primary creators (Daniel Foch, Ron Butler/Angry Mortgage, Ilan Portnoi) turned up nothing verifiable from the last 24 hours — rather than guess, this section is being left empty as instructed. All three video ideas below are news-driven as a result, not by editorial choice.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Canada just lost 42,000 jobs — is this the crack the rate-cut crowd was waiting for?</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: breaking data (this morning), directly answers "will rates finally drop," reverses a story this account already told in July — built-in hook for anyone who saw the +75K jobs video</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock</strong>
+        On-screen: "Canada just lost 42,000 jobs." <br>Spoken: "This morning Statistics Canada said the economy lost 42,000 jobs in August — and it caught almost everyone off guard."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "Remember the 'hot job market'? It just stalled." <br>Spoken: "A few weeks ago everyone was saying Canada's job market was too hot for a rate cut. This morning's numbers just told a very different story."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes</strong>
+        On-screen: "This number decides your next mortgage rate." <br>Spoken: "If you're holding out for a rate cut, today's jobs report might be the number that finally moves the needle."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "This morning Statistics Canada said the economy lost 42,000 jobs in August — and it caught almost everyone off guard."</p>
+        <p><strong>Body:</strong> "Economists were expecting Canada to ADD about 15,000 jobs. Instead we lost 42,000 — a huge miss. Unemployment held at 6.4%, but mostly because people stopped actively job-hunting, not because things got better. Context: from April through July, Canada added 181,000 jobs and unemployment was falling — that's the story I told you here about why the Bank of Canada had no reason to cut. This flips it. The public sector lost jobs for a third straight month, 20,000 in August alone. Workers 15 to 24 lost 19,000 jobs. And this barely captures the new 50% US tariffs that hit in the middle of August — next month could be worse. For anyone with a variable mortgage or waiting on a fixed rate to drop: a weaker job market is exactly the kind of signal that makes the Bank of Canada more likely to cut. This is the first real crack we've seen in months."</p>
+        <p><strong>CTA:</strong> "Comment JOBS and I'll send you the full provincial breakdown — follow so you don't miss what the Bank of Canada does with this next month."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">−42,000 jobs (Aug)</span>
+        <span class="onscreen-tag">Unemployment steady 6.4%</span>
+        <span class="onscreen-tag">Expected: +15,000</span>
+        <span class="onscreen-tag">3rd straight month of public-sector losses</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        person leaving office with box of belongings · "now hiring" sign in storefront window · person scrolling job listings on phone · Bay Street Toronto financial district exterior · Service Canada office exterior
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source</div>
+        <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260904/dq260904a-eng.htm">Statistics Canada — Labour Force Survey, August 2026 (Daily release, Sept 4, 2026)</a><br>
+        <a href="https://www.bnnbloomberg.ca/business/economics/2026/09/04/statistics-canada-to-release-labour-force-survey-for-august-today/">BNN Bloomberg/The Canadian Press — "Economy sheds 42,000 jobs, unemployment rate steady in August," Sept 4, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">For the first time in 40 years, your train is going to be Made in Canada</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: rare good-news story in a trade-war news cycle, easy for newcomers to grab onto, positions Dmytro as someone who covers all of Canada, not just doom-and-gloom housing</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Personal stakes / newcomer lens</strong>
+        On-screen: "Canada just stopped buying trains from the US." <br>Spoken: "Yesterday the government made a $4.7 billion bet that says a lot about where this country is heading — and it's not about housing for once."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "$4.7 BILLION. Built in Canada. First time in 40 years." <br>Spoken: "For the first time in four decades, the trains you ride across this country will actually be built here — and it just got a $4.7 billion budget."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Question that can't be ignored</strong>
+        On-screen: "Why is Canada suddenly building its own trains?" <br>Spoken: "In the middle of a trade war with the US, Canada just announced it's building its own passenger trains for the first time in 40 years — here's why that timing isn't an accident."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Yesterday the government made a $4.7 billion bet that says a lot about where this country is heading — and it's not about housing for once."</p>
+        <p><strong>Body:</strong> "For the first time in 40 years, VIA Rail's passenger cars are going to be built right here in Canada. The federal government committed more than $4.7 billion for 313 new rail cars from Alstom, manufactured in Thunder Bay, Ontario and La Pocatière, Quebec. A lot of VIA Rail's current fleet was actually built in the US — this is part of the 'Buy Canadian' policy: Canadian steel, Canadian workers, Canadian companies instead of importing everything. It supports about 700 jobs directly, plus work for over 900 Canadian suppliers. Add an earlier $1.95 billion investment in new locomotives from July, and that's $6.6 billion going into Canadian-made trains total. Why does this matter if you're new here? This is exactly the kind of manufacturing job creation opening up in smaller cities like Thunder Bay — not just Toronto and Vancouver — right when the trade war with the US has a lot of Canadians nervous about jobs. It's proof the response to tariffs isn't only tariffs back — it's also building things here instead."</p>
+        <p><strong>CTA:</strong> "Comment TRAIN if you've ridden VIA Rail, and follow for more on what 'Buy Canadian' actually means for jobs — not just politics."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">$4.7 billion investment</span>
+        <span class="onscreen-tag">First Canadian-built cars in 40 yrs</span>
+        <span class="onscreen-tag">~700 jobs, Thunder Bay & Québec</span>
+        <span class="onscreen-tag">900+ Canadian suppliers</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        VIA Rail train pulling into station · train tracks aerial view · steel manufacturing plant floor · welder at work · Canadian flag on factory building · Thunder Bay Ontario skyline
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.pm.gc.ca/en/news/news-releases/2026/09/03/prime-minister-carney-announces-largest-investment-rails-history">Prime Minister of Canada — "Prime Minister Carney announces the largest investment in VIA Rail's history," Sept 3, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Your raise just got smaller — and it's buried in this morning's jobs report</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: everyone with a paycheque feels this one, "hidden number" framing drives curiosity, natural pairing/sequel to Video 1 without repeating it — different data point, same release</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — "Nobody's telling you"</strong>
+        On-screen: "Your raise just got smaller. Nobody's talking about it." <br>Spoken: "Buried in this morning's jobs report is a number that affects your paycheque more than the headline does — and almost nobody's talking about it."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "Wage growth: 2%. Lowest since 2017." <br>Spoken: "Wages in Canada just grew at their slowest pace since November 2017 — barely 2 percent in a year."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes</strong>
+        On-screen: "Is your raise even beating inflation?" <br>Spoken: "If your last raise was around 2 percent, here's the uncomfortable math on whether you actually got ahead this year."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Buried in this morning's jobs report is a number that affects your paycheque more than the headline does — and almost nobody's talking about it."</p>
+        <p><strong>Body:</strong> "Everyone's going to talk about the 42,000 jobs lost in August. But there's a quieter number in the same report: average hourly wages only grew 2 percent over the past year. That's down from 2.8% in July, and 3.3% in June. The last time wage growth was this slow was November 2017 — almost nine years ago. Here's why that matters: if your wages are growing 2% and prices have been running closer to 3%, a 2% raise isn't really a raise — it's a pay cut in real terms. You bring home more dollars, but each one buys a little less than it did last year. This hits renters and anyone carrying debt the hardest, because rent and groceries don't slow down just because your raise did. If you're negotiating a salary or budgeting for next year, this is the number to actually watch — not the flashy jobs-lost headline."</p>
+        <p><strong>CTA:</strong> "Comment RAISE and tell me what your last increase was — I'll tell you honestly if you're ahead or behind inflation."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Wage growth: +2.0% (Aug)</span>
+        <span class="onscreen-tag">Down from 2.8% in July</span>
+        <span class="onscreen-tag">Lowest since Nov 2017</span>
+        <span class="onscreen-tag">Inflation ~3% — do the math</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        person looking at pay stub · calculator and bills on kitchen table · grocery store price tags close-up · person budgeting on laptop · empty wallet close-up
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260904/dq260904a-eng.htm">Statistics Canada — Labour Force Survey, August 2026 (Daily release, Sept 4, 2026)</a><br>
+        <a href="https://www.bnnbloomberg.ca/business/economics/2026/09/04/statistics-canada-to-release-labour-force-survey-for-august-today/">BNN Bloomberg/The Canadian Press — "Economy sheds 42,000 jobs, unemployment rate steady in August," Sept 4, 2026</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bnnbloomberg.ca/business/economics/2026/09/04/statistics-canada-to-release-labour-force-survey-for-august-today/">BNN Bloomberg/The Canadian Press — Economy sheds 42,000 jobs, unemployment rate steady in August: StatCan</a></li>
+      <li><a href="https://www.pm.gc.ca/en/news/news-releases/2026/09/03/prime-minister-carney-announces-largest-investment-rails-history">Prime Minister of Canada — Prime Minister Carney announces the largest investment in VIA Rail's history</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260904/dq260904a-eng.htm">Statistics Canada — Labour Force Survey, August 2026</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/bank-of-canada-interest-rate-announcement-2026-09-2/">Bank of Canada — interest rate announcement, Sept 2, 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-july-2026">CMHC — Housing starts and construction data for July 2026</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/exchange/">Bank of Canada — exchange rates</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/">Bank of Canada — interest rates</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li>None today — Claude in Chrome and the built-in browser were both unreachable this run, so the YouTube RSS watchlist sweep could not be completed. Web-search fallback found nothing verifiable from the last 24 hours.</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
