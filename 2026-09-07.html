@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Monday, September 7, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, September 7, 2026</div>
+  <div class="canada-day-badge">TRUMP CALLS CAD "UNACCEPTABLE" · CANADA'S OWN TARIFFS HIT MIDNIGHT · CAD $0.724 USD · BOND ~3.4%</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Trump just called Canada's dollar "unacceptable" — two days before Canada's own tariffs hit back.</div>
+    <p>On Sunday, President Trump posted on Truth Social that "Canada's (currency) Dollar imbalance with the U.S. is unacceptable. It has been that way for years — but no longer!" (<a href="https://www.cp24.com/news/world/2026/09/06/canadas-exchange-rate-with-us-is-unacceptable-trump/">CP24, Sept 6</a>; <a href="https://thehill.com/homenews/administration/6074097-trump-calls-canada-dollar-imbalance-unacceptable/">The Hill, Sept 6</a>). Right now, one Canadian dollar buys about 72 US cents — a gap that's existed for years and helps Canadian exporters, but Trump is framing it as unfair. He didn't announce any new policy, just a warning. The timing isn't random: it lands two days before Canada's own retaliatory tariffs take effect at 12:01 AM tonight (more on that below).</p>
+    <p><strong>Why it's video-worthy:</strong> a sitting US president publicly threatening another country's currency is the kind of story that reaches people who don't follow real estate or economic news at all — and it directly explains why the loonie has been stuck near 72 cents. Nobody on this account has ever covered the currency angle of the trade war before.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canada's own tariffs on US goods hit at 12:01 AM tonight — and steel, aluminum, and lumber-adjacent materials just jumped to 50%, which means your renovation or new-build home is about to cost more.</div>
+    <p style="margin-top:10px;">Starting at 12:01 AM September 8, Canada is applying counter-tariffs of 15%, 25%, and 50% on roughly $27.6 billion of US goods — steel, aluminum, furniture, and clothing get hit hardest at 50%, while appliances, dairy, and seafood are taxed at 25% (<a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Department of Finance Canada, Aug 25</a>). Steel and aluminum are core inputs for home construction and renovation — framing, siding, appliances, fixtures. Industry analysis already estimates tariffs (both US and Canadian rounds combined) have pushed construction material costs up roughly 9% and total project costs up as much as 8-12% depending on the material mix (<a href="https://www.cushmanwakefield.com/en/canada/insights/impact-of-tariffs-on-canadian-cre-construction-costs">Cushman & Wakefield</a>). If you're building new, renovating, or waiting on a pre-construction home to finish, tonight's deadline is the moment those costs lock in further.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> Trump's Sunday currency post is the freshest, most nationally-significant story of the weekend — it's the kind of headline that reaches people who tune out real estate news entirely, so it leads as the Big Story. Canada's own tariffs actually landing at midnight tonight is the sharpest wallet-and-decision story for this audience specifically, because it hits construction costs, not just grocery prices — that takes the One Thing slot. Angry Mortgage Clips (Ron Butler) posted a video today that connects the trade war directly to mortgage rates, which made it the strongest STEAL of the day and shaped Video 2. Karl Nielsen's buyer red-flags video is creator-driven but fills a real gap: pure beginner buyer education, something this brief hasn't focused a whole video on in weeks.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the trade war has been a recurring theme (Aug 8, 13, 24-27), but every previous angle was about the list being negotiated, finalized, or tweaked, or about consumer goods at the store. Today is the actual implementation night for Canada's retaliation, and both the currency angle (never covered) and the construction-cost-to-mortgage angle (never covered) are brand new lenses. The bond-yield/fixed-rate-creep storyline and TRREB's August data (already led Sept 2-4) both sit out today entirely.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Canada's counter-tariffs</td>
+          <td>Live 12:01 AM Sept 8 — 15/25/50% on $27.6B US goods</td><td>Announced Aug 25, tweaked Aug 27</td><td class="tag-up">landing tonight</td>
+          <td class="plain-meaning">Steel/aluminum/furniture/clothing hit hardest (50%) — raises building & reno costs. <a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Canada.ca, Aug 25</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~$0.724 USD (USD/CAD ~1.382)</td><td>similar range for weeks</td><td class="tag-flat">near 52-wk low vs USD</td>
+          <td class="plain-meaning">Now a political flashpoint after Trump's Sunday post. <a href="https://tradingeconomics.com/canada/currency">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25% (Jul 15)</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://money.ca/news/economy/bank-of-canada-interest-rate-hold-september-2026">Money.ca, Sept 2</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.35–3.42%</td><td>similar for 2 weeks</td><td class="tag-flat">near 12-mo high</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. Trade-war uncertainty could push it either way. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>~4.09% (best insured)</td><td>same range</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Lowest advertised 5-yr fixed rates. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.35–3.45%</td><td>unchanged since Oct 2025</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Ron Butler (Angry Mortgage) says this is "100% guaranteed" not to move for the rest of the year. <a href="https://www.youtube.com/watch?v=c3pZhAwZ64s">Angry Mortgage Clips, Sept 7</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB August (GTA)</td>
+          <td>Avg $993,410 (−2.7% YoY), HPI −4.5% YoY</td><td>July 2026</td><td class="tag-down">sharpest drop of 2026</td>
+          <td class="plain-meaning">Inventory highest since 2008. Already covered Sept 3 — included here for context only. <a href="https://trreb.ca/market-data/market-watch/">TRREB Market Watch</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you send money back home:</strong> a weaker Canadian dollar means every dollar you convert buys less than it did a year ago — worth checking your transfer timing this week. <strong>If you're planning a renovation or buying pre-construction:</strong> tonight's tariffs on steel, aluminum, and furniture are exactly the inputs that go into a build, so costs that were already up ~9% could keep climbing — get quotes locked in sooner rather than later. <strong>If you're holding a variable mortgage:</strong> Ron Butler's read is that you're safe from BoC moves through year-end — the real uncertainty is on the fixed side, where bond yields react to trade-war headlines. <strong>If you're a first-time buyer:</strong> none of this changes the fundamentals overnight, but it's one more reason fixed-rate offers could move around more than usual this month — don't assume the rate you saw last week is still on the table.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage Clips (Ron Butler) · YouTube</div>
+      <div class="creator-platform">"Trade WAR: What Happens To Mortgage Rates?" — <a href="https://www.youtube.com/watch?v=c3pZhAwZ64s">posted today, Sept 7</a></div>
+      <p class="creator-note">Summary: Ron says variable mortgages are "100% guaranteed" not to move for the rest of 2026 since the BoC just held — but fixed rates are "a whole new story" because bond yields are reacting to the trade war, and even a 31-year mortgage veteran says he doesn't know where they land.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: this is the perfect creator pairing for tonight's tariff deadline — turn his variable-vs-fixed split into your own explainer, adding the construction-cost angle he doesn't cover (see Video 2).</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen · Toronto Property Finders · YouTube</div>
+      <div class="creator-platform">"12 Homes I Would NEVER Buy in Toronto!" — <a href="https://www.youtube.com/watch?v=d2kbAxIvn0o">posted Sept 6</a></div>
+      <p class="creator-note">Summary: A 20-year Toronto agent walks through homes he'd personally avoid, making the point that "not every scary-looking home is a bad buy and not every pretty one is safe."</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: reframe as 5 beginner-friendly red flags for newcomers who've never bought a resale home before — pure buyer education, no news hook needed (see Video 3).</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"The Silent Reason the Housing Market Is Not Bouncing Back" — <a href="https://www.youtube.com/watch?v=jkUfQ2X-DH4">posted today, Sept 7</a></div>
+      <p class="creator-note">Summary: Vancouver-based analyst arguing there's a structural reason (beyond rates) the market hasn't recovered. Worth a full watch before stealing — title is strong but Saretsky's takes lean BC-specific some weeks.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Held back today because Videos 1-3 already cover currency, tariffs/mortgages, and buyer education — worth revisiting this angle later in the week if the GTA data lines up.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist (Tatiana Londono, Ron the mortgage guy, Christian Moretuzzo) — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Trump says our dollar is "unacceptable" — here's what a weak loonie actually costs you</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a sitting president threatening our currency is inherently shareable outside the real estate niche, and the remittance angle speaks directly to Dmytro's core Ukrainian audience.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Stakes / this costs you</strong>
+        On-screen: "Trump just complained about our dollar." <br>Spoken: "Trump says our dollar is 'unacceptable' — here's what that actually costs you this week."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "1 Canadian dollar = 72 cents US. Feel that?" <br>Spoken: "Right now, one Canadian dollar only buys 72 cents in the US — and Trump just called that a problem."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Newcomer lens</strong>
+        On-screen: "Sending money home just got more expensive." <br>Spoken: "If you send money back home, a weaker Canadian dollar means every transfer buys less than it did last year."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Trump says our dollar is 'unacceptable' — here's what that actually costs you this week."</p>
+        <p><strong>Body:</strong> "Yesterday, President Trump posted that Canada's dollar imbalance with the US is 'unacceptable' and said it won't continue. Right now, one Canadian dollar buys about 72 cents in the US — that gap has existed for years and it's actually good for Canadian exporters, but Trump is framing it as unfair. He didn't announce a new policy, just a warning, but the timing matters: it landed two days before Canada's own tariffs hit back tonight. Here's what a weak dollar means for you directly. If you shop on US sites or travel to the States, everything costs more in Canadian dollars. If you send money back home — to Ukraine or anywhere outside Canada — every dollar you convert buys less than it did a year ago. And if you're buying anything imported, from electronics to cars, expect that to keep feeling expensive. This isn't going away overnight, and it's now tangled up with the trade war too."</p>
+        <p><strong>CTA:</strong> "Comment DOLLAR and I'll send you the best times this month to convert money if you're sending funds home — follow for the tariff story landing tonight."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">CAD = $0.72 USD</span>
+        <span class="onscreen-tag">Trump: "unacceptable"</span>
+        <span class="onscreen-tag">2 days before tariffs hit</span>
+        <span class="onscreen-tag">Remittances cost more</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        currency exchange kiosk sign · Canadian and US dollar bills side by side · person using money transfer app on phone · airport currency exchange counter · online shopping checkout page on laptop
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.cp24.com/news/world/2026/09/06/canadas-exchange-rate-with-us-is-unacceptable-trump/">CP24 — "Canada's exchange rate with US is 'unacceptable': Trump," Sept 6, 2026</a><br>
+        <a href="https://thehill.com/homenews/administration/6074097-trump-calls-canada-dollar-imbalance-unacceptable/">The Hill — "Trump calls Canada dollar imbalance unacceptable," Sept 6, 2026</a><br>
+        <a href="https://tradingeconomics.com/canada/currency">Trading Economics — Canadian Dollar</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Midnight tonight, Canada's tariffs hit — a 31-year mortgage broker says half your rate is safe, half isn't</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a real deadline (tonight) plus a credible creator source makes this feel urgent and trustworthy, and it's the only version of the tariff story that connects directly to mortgages and construction costs.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Stakes</strong>
+        On-screen: "Midnight tonight, prices go up." <br>Spoken: "At 12:01 tonight, Canada's own tariffs kick in — and one mortgage broker says it changes your rate too."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — "Nobody's telling you"</strong>
+        On-screen: "Your mortgage broker won't say this part." <br>Spoken: "Everyone's talking about the tariffs landing tonight. Almost nobody's connecting it to your mortgage rate — a broker with 31 years in the business just did."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Contrarian / number shock</strong>
+        On-screen: "Variable: locked. Fixed: nobody knows." <br>Spoken: "As of tonight, one part of your mortgage is 100% guaranteed not to move this year — the other part, nobody actually knows."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "At 12:01 tonight, Canada's own tariffs kick in — and one mortgage broker says it changes your rate too."</p>
+        <p><strong>Body:</strong> "Starting at midnight, Canada is putting tariffs of 15, 25, and even 50 percent on about $27.6 billion of US goods — steel, aluminum, furniture, and clothing get hit hardest. Steel and aluminum aren't just factory inputs — they're what goes into framing, siding, and fixtures for new homes and renovations. Industry data already shows tariffs have pushed construction costs up roughly 9 percent, and tonight's list adds more pressure. So what does this mean for your mortgage? I watched a video today from Ron Butler — Angry Mortgage — who's been doing this for 31 years. His read: variable mortgages are 100 percent guaranteed not to move for the rest of the year, because the Bank of Canada just held its rate. But fixed mortgages are a different story entirely — they follow bond yields, and bond yields react to trade-war headlines like tonight's. Even he says he doesn't know exactly where fixed rates go next. If you're renovating, building new, or shopping for a mortgage this month, that combination — pricier materials plus unpredictable fixed rates — is worth planning around now, not after."</p>
+        <p><strong>CTA:</strong> "Comment TARIFF and I'll send you today's actual fixed vs. variable numbers — follow so you catch what happens to rates this week."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Tariffs live 12:01 AM</span>
+        <span class="onscreen-tag">Steel/aluminum to 50%</span>
+        <span class="onscreen-tag">Construction costs +9%</span>
+        <span class="onscreen-tag">Variable safe · Fixed unclear</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        construction site steel framing · home renovation in progress · lumber and building materials stacked · hardware store aisle · person reviewing mortgage documents at kitchen table
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Department of Finance Canada — list of products subject to counter-tariffs effective Sept 8, 2026</a><br>
+        <a href="https://www.cushmanwakefield.com/en/canada/insights/impact-of-tariffs-on-canadian-cre-construction-costs">Cushman & Wakefield — Impact of Tariffs on Canadian Construction Costs</a><br>
+        <a href="https://www.youtube.com/watch?v=c3pZhAwZ64s">Angry Mortgage Clips — "Trade WAR: What Happens To Mortgage Rates?" Sept 7, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">A 20-year Toronto agent listed 12 homes he'd never buy — here are the 5 red flags newcomers need to know</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: pure buyer education with zero news dependency, built on a strong creator source, and it's a fresh evergreen lane this account hasn't leaned on in weeks — great for newcomers who've never toured a resale home before.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Personal stakes / newcomer lens</strong>
+        On-screen: "I almost bought the wrong house." <br>Spoken: "When I bought my place, nobody told me what to actually watch for — a 20-year Toronto agent just did, and I wish I'd seen this first."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "The 'perfect' house might be the trap." <br>Spoken: "Not every pretty house in Toronto is a safe buy — and not every scary-looking one is a bad idea. Here's how to tell the difference."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Number shock / list</strong>
+        On-screen: "5 red flags before you buy in Toronto." <br>Spoken: "A Toronto agent just listed 12 homes he'd never buy — here are the 5 red flags every newcomer should know before making an offer."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "A Toronto agent just listed 12 homes he'd never buy — here are the 5 red flags every newcomer should know before making an offer."</p>
+        <p><strong>Body:</strong> "Karl Nielsen, a Toronto agent with 20 years of experience, just put out a video walking through homes he personally wouldn't touch — and his point stuck with me: not every scary-looking home is a bad buy, and not every pretty one is safe. When I bought my own place, I didn't know what to look for beyond 'does it look nice.' Here are 5 things worth checking before you fall in love with a listing: first, water stains on ceilings or basement walls — cosmetic paint jobs hide a lot. Second, uneven floors or doors that don't close right — can mean foundation issues. Third, a house that's been relisted multiple times at a lower price — ask why it isn't selling. Fourth, homes right next to major roads or train tracks — great price, but resale and daily life get harder. Fifth, anything with a suspiciously fresh renovation right before selling — sometimes that's pride of ownership, sometimes it's covering something up. None of this means walk away automatically. It means ask more questions and bring an inspector you trust."</p>
+        <p><strong>CTA:</strong> "Comment REDFLAG and I'll send you my full home-inspection checklist — follow if you're planning to buy in the next year."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">20 years of agent experience</span>
+        <span class="onscreen-tag">5 red flags</span>
+        <span class="onscreen-tag">Pretty ≠ safe</span>
+        <span class="onscreen-tag">Bring an inspector</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        water stain on ceiling close-up · home inspector checking basement · uneven hardwood floor · house near busy road exterior · real estate open house walkthrough
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=d2kbAxIvn0o">Karl Nielsen / Toronto Property Finders — "12 Homes I Would NEVER Buy in Toronto!" Sept 6, 2026</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cp24.com/news/world/2026/09/06/canadas-exchange-rate-with-us-is-unacceptable-trump/">CP24 — Canada's exchange rate with US is "unacceptable": Trump</a></li>
+      <li><a href="https://thehill.com/homenews/administration/6074097-trump-calls-canada-dollar-imbalance-unacceptable/">The Hill — Trump calls Canada dollar imbalance unacceptable</a></li>
+      <li><a href="https://money.ca/news/economy/bank-of-canada-interest-rate-hold-september-2026">Money.ca — Bank of Canada holds rate at 2.25% for 7th straight decision</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Department of Finance Canada — list of products subject to counter-tariffs effective Sept 8, 2026</a></li>
+      <li><a href="https://www.cushmanwakefield.com/en/canada/insights/impact-of-tariffs-on-canadian-cre-construction-costs">Cushman & Wakefield — Impact of Tariffs on Canadian Construction Costs</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — Canadian Dollar</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-Year Fixed Mortgage Rates</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — Market Watch</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=c3pZhAwZ64s">Angry Mortgage Clips (Ron Butler) — "Trade WAR: What Happens To Mortgage Rates?"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=d2kbAxIvn0o">Karl Nielsen / Toronto Property Finders — "12 Homes I Would NEVER Buy in Toronto!"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=jkUfQ2X-DH4">Steve Saretsky — "The Silent Reason the Housing Market Is Not Bouncing Back" (WATCH, not used today)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
