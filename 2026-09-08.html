@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, September 8, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, September 8, 2026</div>
+  <div class="canada-day-badge">TARIFFS LIVE 12:01 AM · CARNEY ADDRESSES NATION · STEEL/ALUM → 50% · CAD $0.724 USD</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Ontario just put a real financial-literacy test between your teenager and their high school diploma.</div>
+    <p>Starting this school year (2026-2027), Ontario Grade 10 students must complete a brand-new Financial Literacy Graduation Requirement built into their mandatory Career Studies course — modules developed by TVO for the Ministry of Education, and students need 70% or higher to pass it, worth 5% of the course's final grade (<a href="https://www.cbc.ca/news/canada/toronto/ontario-high-school-students-financial-literacy-test-9.7173344">CBC News</a>). It's part of a bigger back-to-school shake-up: mandatory written final exams are back for Grades 9-12 (20% of the mark in Grades 9/10), report cards now grade attendance, and kindergarten got a revised curriculum (<a href="https://www.cbc.ca/news/canada/toronto/schools-back-policy-changes-9.7331352">CBC News</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this reaches every newcomer parent with a teenager in an Ontario school, has zero connection to the trade-war news cycle everyone's been covering for two weeks, and "my kid needs to pass a money test to graduate" is the kind of surprising, shareable fact that travels outside the real estate niche entirely.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canada's tariffs actually went live at 12:01 this morning — and Carney told the country flat out there's real pain coming.</div>
+    <p style="margin-top:10px;">At one minute past midnight, Canada's retaliatory tariffs on $27.6 billion of US goods took effect: 15%, 25%, or 50% depending on the product, with steel and aluminum duties doubling from 25% to 50% to match the US (<a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Department of Finance Canada</a>). Hours later, Prime Minister Carney released a national video address saying Canada's pivot away from relying on the US "will come at a cost" but that the alternative is worse, and calling Trump's tariffs "designed to harm some Canadians more than others" (<a href="https://lethbridgeherald.com/news/national-news/2026/09/08/carney-warns-of-tough-times-ahead-in-national-address-as-retaliatory-tariffs-kick-in/">Lethbridge Herald</a>; <a href="https://www.cjme.com/2026/09/08/carney-warns-of-tough-times-ahead-in-national-address-as-retaliatory-tariffs-kick-in/">980 CJME</a>). This is no longer a countdown — steel and aluminum are core inputs for framing, siding, and fixtures, so any renovation or new-build quote you got last month may already be out of date.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the financial-literacy story is the freshest, broadest story available today — a genuinely new policy with zero repeat risk, landing for anyone raising kids in Ontario — so it takes the Big Story slot instead of another tariff headline. Tariffs actually landing plus Carney's own words is still the sharpest real-estate-and-wallet story of the day, so it holds the One Thing slot and leads the video lineup. David Fleming posted a video this morning directly rebutting trade-war housing panic — the strongest STEAL today, because a calm, credible counter-narrative is rarer (and more useful to a beginner) than another "this will hurt you" take.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> yesterday's brief (Sept 7) led with Trump's currency comment and tariffs landing "at midnight tonight" — forward-looking. Tariffs have now been the throughline for two straight days, so today's Big Story deliberately moves to a completely different lane (Ontario education policy, never covered before). The tariff coverage that remains is narrowed to what's genuinely new since yesterday: they're live, not pending; Carney addressed the nation for the first time specifically about today's implementation, with new quotes; and the construction-cost hit is now a current fact, not a forecast.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Canada's counter-tariffs</td>
+          <td>LIVE since 12:01 AM today — 15/25/50% on $27.6B US goods</td><td>Announced Aug 25, tweaked Aug 27</td><td class="tag-up">now in effect</td>
+          <td class="plain-meaning">Steel/aluminum doubled to 50% — raises building & reno material costs starting today. <a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Canada.ca, Aug 25</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25% (Jul 15)</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.nesto.ca/home-buying/bank-of-canada-rate-announcement/">nesto, Sept 2</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.35–3.42%</td><td>same range for 2+ weeks</td><td class="tag-flat">near 12-mo high</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates, not the BoC rate. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>~4.09% (best insured)</td><td>same range</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Lowest advertised 5-yr fixed rates. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.3–3.35%</td><td>unchanged since Oct 2025</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Variable holders are safe through year-end per the BoC hold. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~$0.724 USD (1 USD ≈ $1.379 CAD)</td><td>similar range for weeks</td><td class="tag-flat">near multi-month low</td>
+          <td class="plain-meaning">Political flashpoint since Trump's Sept 6 currency comment. <a href="https://tradingeconomics.com/canada/currency">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA / CMHC data</td>
+          <td>Nothing released today</td><td>—</td><td class="tag-flat">no release</td>
+          <td class="plain-meaning">Next CREA national sales data Sept 15; CMHC August housing starts Sept 16. <a href="https://stats.crea.ca/en-ca/">CREA Stats</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're renovating or building:</strong> steel and aluminum tariffs doubled to 50% as of this morning, so a materials quote from last month may already be stale — get contractor pricing locked in before you sign anything. <strong>If you have a teenager in an Ontario school:</strong> the new financial-literacy graduation requirement starts this year — it's actually a good excuse to talk money at home before the school does it for you. <strong>If you're watching your mortgage:</strong> nothing moved this week — variable holders are safe through year-end per the BoC's hold, and fixed-rate shoppers should keep comparing lenders since bond yields are sitting near a 12-month high. <strong>If you're feeling anxious about "trade war" headlines wrecking home prices:</strong> David Fleming's video today is a useful gut check — a lot of the fear is louder than the actual data.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">David Fleming · Toronto Realty Group · YouTube</div>
+      <div class="creator-platform">"Is the Canada–U.S. Trade War Really Going to Wreck Toronto Real Estate? | The Last Honest Realtor" — <a href="https://www.youtube.com/watch?v=jgteDAM8auU">posted today, Sept 8</a></div>
+      <p class="creator-note">Summary: A 20-year Toronto agent argues the connection between the trade war and Toronto real estate is being overstated, driven by fear, confirmation bias, and headlines that don't hold up against the actual numbers.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair it with your own "check the facts before you panic" take — separate what tariffs actually touch (materials, specific goods) from what they don't (mortgage rates, GTA resale supply/demand) — see Video 2.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"Vancouver's Slowest Month Since 2012... & Realtors are leaving" — <a href="https://www.youtube.com/watch?v=ND4WVH0wmKY">posted yesterday, Sept 7</a></div>
+      <p class="creator-note">Summary: Vancouver-specific slowdown data and commentary on realtors exiting the industry — strong data, but not a GTA story for this audience today.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Held back today because it's BC-specific and Videos 1-3 already cover tariffs, real-estate fear-vs-fact, and newcomer parenting — worth revisiting if a GTA-specific version of this trend shows up.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mike Carpino · Ontario Real Estate with Mike Carpino · YouTube</div>
+      <div class="creator-platform">"You Won't Believe What's Happening in Brampton's Real Estate Market" — <a href="https://www.youtube.com/watch?v=LySDwJY1-zg">posted yesterday, Sept 7</a></div>
+      <p class="creator-note">Summary: Clickbait-style title on a Brampton market update — the video's own description didn't reveal specifics, and the page hadn't finished loading its transcript in time to verify the actual claim before this brief went out.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Noting honestly rather than guessing: worth a full watch tomorrow before stealing anything from it.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist (Tatiana Londono, Ron the mortgage guy, Christian Moretuzzo) — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Tariffs went live at midnight and Carney just told Canadians the truth about it</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a real deadline that already passed plus a national address from the PM feels urgent and credible, and the construction-cost angle is the one version of this story that actually changes what a homeowner should do this week.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Stakes / this costs you</strong>
+        On-screen: "Midnight tariffs just landed." <br>Spoken: "At 12:01 last night, Canada's own tariffs on the US went live — and steel just jumped to 50%, which means your reno or new build costs more starting today."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — "Nobody's telling you"</strong>
+        On-screen: "Carney just said the quiet part." <br>Spoken: "The Prime Minister went on national video last night and said something nobody selling you a house will admit: this trade war is designed to hurt some Canadians more than others."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Number shock</strong>
+        On-screen: "Steel & aluminum: 50%. Today." <br>Spoken: "As of this morning, steel and aluminum coming in from the US cost 50% more — and that's exactly what goes into your kitchen reno or new build."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "At 12:01 last night, Canada's own tariffs on the US went live — and the Prime Minister just told the country there's real pain coming."</p>
+        <p><strong>Body:</strong> "Starting at one minute past midnight today, Canada put tariffs of 15, 25, and even 50 percent on $27.6 billion of US goods — steel and aluminum tariffs doubled from 25 to 50 percent to match the US. A few hours later, Prime Minister Carney released a national video address. He said Canada's shift away from relying on the US 'will come at a cost,' but that the alternative is worse, and he called Trump's tariffs something designed to hurt some Canadians more than others. Here's why this matters if you're not a factory owner: steel and aluminum aren't abstract trade numbers, they're what goes into framing, siding, railings, and appliances for any home you're building or renovating. Contractors were already quoting roughly 9 percent higher on materials because of the earlier rounds of this trade war — today's doubling adds more pressure on top of that. If you got a renovation quote last month, it's worth calling your contractor back before you sign anything."</p>
+        <p><strong>CTA:</strong> "Comment TARIFF and I'll send you today's actual list of what got more expensive — follow for what happens to material costs this month."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Tariffs live 12:01 AM</span>
+        <span class="onscreen-tag">Steel/aluminum → 50%</span>
+        <span class="onscreen-tag">Carney: "cost coming"</span>
+        <span class="onscreen-tag">Reno quotes may be stale</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        construction site steel framing close-up · aluminum siding installation · contractor reviewing quote with clipboard · Canadian Parliament building exterior · home renovation materials stacked in driveway
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Department of Finance Canada — list of products subject to counter-tariffs effective Sept 8, 2026</a><br>
+        <a href="https://lethbridgeherald.com/news/national-news/2026/09/08/carney-warns-of-tough-times-ahead-in-national-address-as-retaliatory-tariffs-kick-in/">Lethbridge Herald — "Carney warns of tough times ahead in national address," Sept 8, 2026</a><br>
+        <a href="https://www.cjme.com/2026/09/08/carney-warns-of-tough-times-ahead-in-national-address-as-retaliatory-tariffs-kick-in/">980 CJME — same story, Sept 8, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">A 20-year Toronto agent just told trade-war panickers to check the numbers first</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it's a rare "don't panic" contrarian take backed by a credible, established creator, and it directly answers the fear his own comment sections are probably filling up with today.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Contrarian</strong>
+        On-screen: "Is the trade war actually killing Toronto homes?" <br>Spoken: "Everyone's saying the trade war is about to wreck Toronto real estate. A 20-year agent looked at the actual numbers today and says: not so fast."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — "Nobody's telling you"</strong>
+        On-screen: "The fear is bigger than the facts." <br>Spoken: "A Toronto realtor just called out something I think is true too — most of the trade-war housing panic is headlines, not data."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Personal stakes (his edge)</strong>
+        On-screen: "I almost panicked too." <br>Spoken: "When the tariffs hit this morning, my first thought was 'there goes the market.' A veteran agent's new video made me actually go check the numbers — here's what I found."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "A 20-year Toronto real estate agent just told everyone panicking about the trade war: check your facts first."</p>
+        <p><strong>Body:</strong> "This morning, David Fleming — a longtime Toronto realtor — posted a video calling out the panic around the trade war and Toronto real estate. His argument: most of what's being said about tariffs wrecking the housing market is fear, confirmation bias, and headlines that don't hold up once you look at the actual numbers. I think he's onto something. Every time there's scary economic news, I see comments on my own videos assuming home prices are about to crash because of it. But tariffs mostly hit construction materials and specific imported goods — they don't directly touch mortgage rates, which are driven by bond yields, or the real supply-and-demand numbers in the GTA resale market. That doesn't mean nothing is happening. It means you should separate 'this headline is scary' from 'this actually changes what I should do this month.' Before you make a buying or selling decision based on trade-war news, ask yourself: does this actually move rates, inventory, or my own finances? Usually the honest answer is no."</p>
+        <p><strong>CTA:</strong> "Comment CALM and I'll send you the 3 numbers that actually move the Toronto market — not headlines. Follow for the real data every week."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">20 years as an agent</span>
+        <span class="onscreen-tag">Fear ≠ data</span>
+        <span class="onscreen-tag">Tariffs ≠ mortgage rates</span>
+        <span class="onscreen-tag">Check before you panic</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto skyline wide shot · "for sale" sign in front yard · realtor reviewing listings on laptop · open house walkthrough · person scrolling news headlines on phone, concerned expression
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=jgteDAM8auU">David Fleming / Toronto Realty Group — "Is the Canada–U.S. Trade War Really Going to Wreck Toronto Real Estate?" Sept 8, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Ontario teens now need to pass a money test to graduate — here's what's in it</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: pure newcomer-parent value with zero news-cycle dependency, a genuinely surprising fact ("my kid needs 70% on a money test to graduate"), and it's a brand-new lane that has nothing to do with tariffs or rates.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Newcomer lens</strong>
+        On-screen: "Your kid needs to pass THIS to graduate." <br>Spoken: "If you're raising a teenager in Ontario, there's a brand-new rule starting this year that nobody explained to newcomer parents."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "70% or they don't pass." <br>Spoken: "Starting this school year, Ontario Grade 10 students need 70% on a financial-literacy test just to graduate — here's what's actually on it."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — "Nobody's telling you"</strong>
+        On-screen: "Ontario just changed report cards." <br>Spoken: "Nobody explained this to me when I got here: this year Ontario added mandatory exams, attendance grades, AND a money test before your kid can graduate high school."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "If you're raising a teenager in Ontario, there's a new rule this year nobody explained to newcomer parents."</p>
+        <p><strong>Body:</strong> "Starting this school year, Ontario Grade 10 students have to pass a brand-new Financial Literacy Graduation Requirement — it's built into their mandatory Career Studies course, made by TVO for the Ministry of Education, and students need 70 percent or higher on it just to get that piece of the credit. It's worth 5 percent of their final grade in that course, but if they don't hit 70, they don't pass the requirement. This is part of a bigger shift this year: mandatory final written exams are back for grades 9 through 12, report cards now grade attendance, and even kindergarten got a new curriculum. When I moved to Canada, nobody sat me down and explained how the school system actually worked — you learn as you go, usually after your kid comes home confused about something. If you're a newcomer parent, get ahead of this one: ask your teenager's school for the Career Studies course outline, and honestly, use it as an excuse to talk about money at home before the school does it for you."</p>
+        <p><strong>CTA:</strong> "Comment SCHOOL and I'll send you what's actually covered in the financial-literacy module — follow for more 'nobody told me this' Canada parenting moments."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">New for 2026-27</span>
+        <span class="onscreen-tag">70% to pass</span>
+        <span class="onscreen-tag">Grade 10 requirement</span>
+        <span class="onscreen-tag">Exams + attendance grades back</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Ontario high school hallway · teenager doing homework with calculator · report card close-up · parent and teen talking at kitchen table · high school classroom exterior sign
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.cbc.ca/news/canada/toronto/ontario-high-school-students-financial-literacy-test-9.7173344">CBC News — "Ontario high school students will soon need to pass financial literacy test to graduate"</a><br>
+        <a href="https://www.cbc.ca/news/canada/toronto/schools-back-policy-changes-9.7331352">CBC News — "Back to school: Everything you need to know about Ontario's education policy changes"</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://lethbridgeherald.com/news/national-news/2026/09/08/carney-warns-of-tough-times-ahead-in-national-address-as-retaliatory-tariffs-kick-in/">Lethbridge Herald — Carney warns of tough times ahead in national address as retaliatory tariffs kick in</a></li>
+      <li><a href="https://www.cjme.com/2026/09/08/carney-warns-of-tough-times-ahead-in-national-address-as-retaliatory-tariffs-kick-in/">980 CJME — same story</a></li>
+      <li><a href="https://www.cbc.ca/news/canada/toronto/ontario-high-school-students-financial-literacy-test-9.7173344">CBC News — Ontario high school students will soon need to pass financial literacy test to graduate</a></li>
+      <li><a href="https://www.cbc.ca/news/canada/toronto/schools-back-policy-changes-9.7331352">CBC News — Back to school: Ontario's education policy changes</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Department of Finance Canada — list of products subject to counter-tariffs effective Sept 8, 2026</a></li>
+      <li><a href="https://www.nesto.ca/home-buying/bank-of-canada-rate-announcement/">nesto — Bank of Canada holds rate at 2.25%, September 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-Year Fixed Mortgage Rates</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — Canadian Dollar</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA Stats — national housing data (next release Sept 15)</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=jgteDAM8auU">David Fleming / Toronto Realty Group — "Is the Canada–U.S. Trade War Really Going to Wreck Toronto Real Estate?"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=ND4WVH0wmKY">Steve Saretsky — "Vancouver's Slowest Month Since 2012... & Realtors are leaving" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=LySDwJY1-zg">Mike Carpino — "You Won't Believe What's Happening in Brampton's Real Estate Market" (WATCH, not verified in time)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
