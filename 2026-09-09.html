@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, September 9, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, September 9, 2026</div>
+  <div class="canada-day-badge">BOND YIELD HITS FRESH HIGH 3.47% · DOW -628 PTS · CAD $0.726 USD</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Wall Street just had its worst day in weeks — and Canada's trade war is the reason.</div>
+    <p>The day Canada's counter-tariffs actually took effect, US markets sold off hard: the Dow Jones fell 628 points (−1.18%) to close at 52,786, the S&P 500 dropped 0.58%, and the Nasdaq slipped 0.32% (<a href="https://www.investing.com/news/stock-market-news/canada-tariffs-put-loonie-supply-chains-in-focus-as-trade-war-deepens-4892126">Investing.com</a>). Investors are pricing in disrupted North American supply chains — steel, aluminum, autos, and copper are all deeply tangled between the two countries, and copper futures actually hit an all-time high on tariff fears while broader markets fell. The Canadian dollar swung too, briefly touching its weakest level since August 19 during the session before steadying (<a href="https://www.investing.com/news/stock-market-news/canada-tariffs-put-loonie-supply-chains-in-focus-as-trade-war-deepens-4892126">Investing.com</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this is the first time the trade war has shown up as an actual number in people's investment accounts rather than a policy headline — and most Canadians don't realize their RRSP or TFSA has US stock exposure even if they never bought a single American company directly.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canada's bond yield — the number that actually sets your fixed mortgage rate — just hit a fresh high, right as most new mortgages are betting rates will fall.</div>
+    <p style="margin-top:10px;">The 5-year Government of Canada bond yield closed at 3.47% today, up from the roughly 3.35–3.42% range it's held for weeks and the highest level we've tracked in this brief all year (<a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a>). This is the number lenders actually watch to price fixed mortgages — not the Bank of Canada's overnight rate. At the same time, a new CMHC report shows more than 85% of new uninsured mortgages in early 2026 were either variable-rate (35.5%) or fixed for less than 5 years (49.5%) — meaning most people signing a mortgage today are quietly betting that rates come down before their term is up (<a href="https://www.canadianmortgagetrends.com/2026/09/shift-to-variable-shorter-term-mortgages-raises-borrowers-rate-exposure-cmhc/">Canadian Mortgage Trends / CMHC</a>). Today's yield spike is a reminder that bet isn't guaranteed to pay off.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the bond yield hitting a fresh high on the same week CMHC flagged record numbers of Canadians choosing variable and short-term mortgages is a genuinely new combination — real-time market data plus a structural warning nobody's covered yet — so it takes the One Thing and top video slot. The Wall Street selloff is the sharpest, most nationally-significant story of the day and the clearest "trade war meets your wallet" moment since tariffs actually landed, so it leads as Big Story. Property Daily's condo-fees video posted just hours ago and is the strongest STEAL: a brand-new topic for this brief, directly useful for anyone buying into the GTA's softest segment.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> tariffs have been the throughline for three straight days (Sept 7 currency threat, Sept 8 implementation + Carney's address). Today deliberately does not lead with "tariffs are live" again — the trade war only appears today as market fallout (stocks, the loonie), while the real estate lead moves to mortgage-market structure, a data point never used in this brief before. Condo fees are also a first for this brief.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.47%</td><td>~3.35–3.42% (held for weeks)</td><td class="tag-up">fresh high</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates, not the BoC. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25% (Jul 15)</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">no change yet</td>
+          <td class="plain-meaning">Hasn't moved yet, but today's bond spike puts upward pressure on it. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub, Sept 9</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.3%</td><td>unchanged since Oct 2025</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Stable while BoC holds. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">New mortgages: variable / short fixed</td>
+          <td>85% (35.5% variable + 49.5% under 5-yr fixed)</td><td>77.2% in Q1 2022</td><td class="tag-up">record high</td>
+          <td class="plain-meaning">Most new borrowers are betting rates fall soon. <a href="https://www.canadianmortgagetrends.com/2026/09/shift-to-variable-shorter-term-mortgages-raises-borrowers-rate-exposure-cmhc/">CMT / CMHC</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">US stock markets (Tue close)</td>
+          <td>Dow −628 pts (−1.18%), S&P −0.58%, Nasdaq −0.32%</td><td>previous session</td><td class="tag-down">worst day in weeks</td>
+          <td class="plain-meaning">Trade-war supply chain fears hit markets. <a href="https://www.investing.com/news/stock-market-news/canada-tariffs-put-loonie-supply-chains-in-focus-as-trade-war-deepens-4892126">Investing.com</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD</td>
+          <td>~$0.726 USD (1 USD ≈ $1.378 CAD)</td><td>similar range</td><td class="tag-flat">volatile but flat</td>
+          <td class="plain-meaning">Touched weakest since Aug 19 intraday Tuesday, then steadied on broad US dollar weakness. <a href="https://tradingeconomics.com/canada/currency">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB / CREA data</td>
+          <td>Nothing released today</td><td>—</td><td class="tag-flat">no release</td>
+          <td class="plain-meaning">Next CREA national sales data Sept 15. <a href="https://stats.crea.ca/en-ca/">CREA Stats</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're shopping for a mortgage right now:</strong> the safest read of today is "don't assume rates are about to fall" — the bond market, the thing that actually prices fixed mortgages, just moved the opposite direction. <strong>If you already have a variable or short-term mortgage</strong> (and odds are high you do — 85% of new borrowers now do), today's data is a nudge to build a buffer into your budget rather than count on renewal being cheaper. <strong>If you have a TFSA, RRSP, or workplace pension:</strong> yesterday's market selloff likely touched it even if you never bought a US stock yourself — most Canadian retirement funds hold American companies. <strong>If you're buying a condo:</strong> Property Daily's video today is worth ten minutes — condo fees are climbing for reasons that have nothing to do with your unit getting nicer, and it changes how you should read a status certificate before you buy.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"Why Your Condo Fees Are Skyrocketing (And Where the Money Actually Goes)" — <a href="https://www.youtube.com/watch?v=9PNZrskX4AE">posted yesterday, Sept 8</a></div>
+      <p class="creator-note">Summary: Breaks down why condo fees across Canada are climbing well beyond inflation — reserve funds, aging buildings, and what condo boards actually spend the money on.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair it with your own newcomer story — most people moving to Canada have never lived somewhere with a monthly fee on top of their mortgage, and nobody explains what it's actually for before they buy. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Jon Flynn Real Estate Stats · YouTube</div>
+      <div class="creator-platform">"'Great Time to Buy' Is a Lie, Bank Sales Up 55%" — <a href="https://www.youtube.com/watch?v=IW5gGqmnI38">posted yesterday, Sept 8</a></div>
+      <p class="creator-note">Summary: Data-driven pushback on "it's a great time to buy" talk, pointing to a 55% jump in bank-forced sales (power of sale/foreclosure) as the real story underneath.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Held back today because it overlaps with our own mortgage-risk lead (Video 1) — worth its own video tomorrow if forced-sale numbers get a fresh data release to hang it on.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Nawar Naji · Toronto Real Estate · YouTube</div>
+      <div class="creator-platform">"Toronto Sellers Are Panicking Right Now (Here's What They Know)" — <a href="https://www.youtube.com/watch?v=tpW4npe2WbI">posted yesterday, Sept 8</a></div>
+      <p class="creator-note">Summary: Seller-side psychology piece on why some GTA sellers are pricing aggressively to move fast right now.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid but seller-focused; today's lineup leans buyer/mortgage-holder, revisit if the "why sellers are nervous" angle stays fresh tomorrow.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi · YouTube</div>
+      <div class="creator-platform">"You Won't Believe What's Happening in Toronto's Condo Market" — <a href="https://www.youtube.com/watch?v=YCkvc_wcsQk">posted yesterday, Sept 8</a></div>
+      <p class="creator-note">Summary: Condo market data update, overlaps thematically with Property Daily's condo-fees video today.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Not used today to avoid doubling up the condo lane — Property Daily's angle (fees, not prices) is the fresher one.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Toronto Realty Group (David Fleming) · YouTube</div>
+      <div class="creator-platform">Reposted/clipped yesterday's trade-war video as a Short — <a href="https://www.youtube.com/shorts/B2SymxqGYKQ">posted Sept 8</a></div>
+      <p class="creator-note">Summary: Same "trade war panic is overblown" video from yesterday's brief, now clipped as a Short.</p>
+      <span class="verdict verdict-skip">SKIP</span>
+      <p class="creator-note">Already covered as yesterday's STEAL — skipping to avoid repeating the same source two days running.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist (Tatiana Londono, Ron the mortgage guy, Christian Moretuzzo) — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Most new mortgages in Canada are a bet that rates will fall — that bet just got riskier</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it names a specific, surprising number (85%) that most viewers are personally part of without realizing it, and today's bond move makes the stakes concrete and current.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock</strong>
+        On-screen: "3.47%. New high." <br>Spoken: "Canada's 5-year bond yield just hit a fresh high today — and that's the number that decides your fixed mortgage rate, not the Bank of Canada."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Stakes / this costs you</strong>
+        On-screen: "85% just made a risky bet." <br>Spoken: "85 percent of new mortgages in Canada right now are variable or under 5 years — which means most people signing today are betting rates will fall. That bet just got riskier."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Contrarian</strong>
+        On-screen: "Everyone's betting on lower rates." <br>Spoken: "If you think fixed rates are about to drop, so does almost everyone else signing a mortgage right now — the bond market just told them they might be wrong."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "85 percent of new mortgages in Canada right now are variable or under 5 years — and today, the number that decides where rates actually go just moved against them."</p>
+        <p><strong>Body:</strong> "Here's the mix-up almost everyone makes: the Bank of Canada rate and your fixed mortgage rate are not the same thing. The BoC has held at 2.25 percent for seven straight decisions, so variable-rate holders haven't seen a change. But fixed mortgage rates are priced off something else entirely — the 5-year Government of Canada bond yield. Today that yield hit 3.47 percent, a fresh high compared to the 3.35 to 3.42 percent range it's held for weeks. At the same time, a new CMHC report shows something wild: 85 percent of new mortgages signed in Canada right now are either variable-rate or fixed for less than 5 years. Basically, most new borrowers are quietly betting that rates will come down again before their term is up. That's not necessarily wrong — but today's bond move is a reminder it's a bet, not a guarantee. If you're renewing or buying soon, don't assume the next few years get automatically cheaper. Build your budget like your rate might stay right where it is."</p>
+        <p><strong>CTA:</strong> "Comment RATE and I'll send you the difference between what the BoC controls and what actually sets your mortgage — follow for what this number does next."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Bond yield 3.47%</span>
+        <span class="onscreen-tag">Fresh high</span>
+        <span class="onscreen-tag">85% variable/short fixed</span>
+        <span class="onscreen-tag">Not a guaranteed bet</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        stock ticker board close-up · person reviewing mortgage documents at kitchen table · bank exterior sign Toronto · calculator and mortgage papers · financial news on TV screen
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-Year Bond Yield, Sept 9, 2026</a><br>
+        <a href="https://www.canadianmortgagetrends.com/2026/09/shift-to-variable-shorter-term-mortgages-raises-borrowers-rate-exposure-cmhc/">Canadian Mortgage Trends — "Shift to variable, shorter-term mortgages raises borrowers' rate exposure: CMHC," Sept 2026</a><br>
+        <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub — Best Mortgage Rates, Sept 9, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Wall Street just had its worst day in weeks — here's what it actually does to your RRSP</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: it connects a big, headline-grabbing number (Dow -628) to something viewers own personally, and most people genuinely don't realize their retirement savings touch US markets.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock</strong>
+        On-screen: "Dow dropped 628 points." <br>Spoken: "Wall Street just had its worst day in weeks after Canada's tariffs hit — and if you have a TFSA or RRSP with any US exposure, you felt it too."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Nobody's telling you</strong>
+        On-screen: "Nobody connects these two things." <br>Spoken: "The trade war headlines and your retirement account feel like two totally different stories. They're not — here's the actual link."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes / this costs you</strong>
+        On-screen: "Your RRSP just took a hit." <br>Spoken: "You don't need to own a single US stock directly to feel yesterday's market selloff — most Canadian retirement funds hold American companies, and they all dropped together."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Wall Street just had its worst day in weeks — and most Canadians felt it in their retirement account without even knowing why."</p>
+        <p><strong>Body:</strong> "Yesterday, the same day Canada's counter-tariffs actually took effect, the Dow Jones fell 628 points, about 1.2 percent, with the S&P 500 and Nasdaq down too. Investors are worried about steel, aluminum, cars, and other supply chains that cross the Canada-US border constantly getting more expensive and more disrupted. Here's the part that surprises people: you don't need to personally own American stocks for this to touch you. Most default RRSP and workplace pension funds in Canada hold a mix of Canadian and US companies, because that's just how diversified investing works. So when US markets drop like they did yesterday, a chunk of your retirement savings usually drops with it, even if you've never bought a single US stock on purpose. This isn't a reason to panic or make sudden changes — one bad day doesn't undo years of saving. But it is a good reason to actually open your RRSP statement once in a while instead of only looking at it during renewal season."</p>
+        <p><strong>CTA:</strong> "Comment RRSP and I'll send you 3 questions to ask before you touch your retirement account after a day like this — follow for the real link between trade-war headlines and your money."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Dow -628 pts</span>
+        <span class="onscreen-tag">Worst day in weeks</span>
+        <span class="onscreen-tag">Your RRSP is exposed</span>
+        <span class="onscreen-tag">Don't panic, do check</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        stock market ticker red numbers · person checking phone with concerned expression · bank/investment app on smartphone screen · Bay Street Toronto financial district · steel factory / shipping containers at port
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.investing.com/news/stock-market-news/canada-tariffs-put-loonie-supply-chains-in-focus-as-trade-war-deepens-4892126">Investing.com — "Canada tariffs put loonie, supply chains in focus as trade war deepens," Sept 9, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Your condo fees are climbing for a reason nobody explains before you buy</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: brand-new topic for this brief, directly useful for anyone buying into the GTA's softest, most affordable segment (condos), and it's a "nobody warned me" newcomer story Dmytro can tell from his own experience.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Newcomer lens</strong>
+        On-screen: "Nobody explained condo fees to me." <br>Spoken: "When I bought my first condo here, nobody explained why my monthly fees kept climbing — turns out it's not just inflation."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "Your condo fees, explained." <br>Spoken: "Condo fees across Canada are exploding right now, and inflation is only a small part of the real reason."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Nobody's telling you</strong>
+        On-screen: "Your condo board isn't telling you this." <br>Spoken: "There's a hidden reason condo fees keep going up that has nothing to do with your building getting nicer — it's what's happening inside the reserve fund."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "When I bought my first condo in Canada, nobody explained why my monthly fees kept climbing every single year."</p>
+        <p><strong>Body:</strong> "If you're new here, condo fees can feel like a mystery tax on top of your mortgage. A video that came out yesterday broke down where that money actually goes, and it's worth knowing before you buy, not after. Part of it is normal inflation — insurance, cleaning, landscaping all cost more than they did a few years ago. But the bigger driver is the reserve fund: the pool of money every building sets aside for major repairs, like a roof, elevators, or the parking garage. A lot of buildings underfunded their reserve for years, and now aging construction plus higher repair costs are forcing boards to catch up fast, which means bigger fee increases or special assessments — a one-time bill on top of your regular fees. Before you buy any condo, ask for the status certificate and actually read the reserve fund study, not just the monthly fee number. A building with a low fee today but an underfunded reserve can cost you more in a surprise assessment than a building with a slightly higher fee that's properly funded."</p>
+        <p><strong>CTA:</strong> "Comment CONDO and I'll send you the 3 things to check in a status certificate before you buy — follow for more things nobody explains to newcomers."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Condo fees rising</span>
+        <span class="onscreen-tag">Reserve fund, not just inflation</span>
+        <span class="onscreen-tag">Check the status certificate</span>
+        <span class="onscreen-tag">Newcomer money trap</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        condo building exterior GTA · condo hallway/lobby walkthrough · person reviewing documents/paperwork close-up · building maintenance/repair worker · elevator interior close-up
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=9PNZrskX4AE">Property Daily — "Why Your Condo Fees Are Skyrocketing (And Where the Money Actually Goes)," Sept 8, 2026</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.investing.com/news/stock-market-news/canada-tariffs-put-loonie-supply-chains-in-focus-as-trade-war-deepens-4892126">Investing.com — Canada tariffs put loonie, supply chains in focus as trade war deepens</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/shift-to-variable-shorter-term-mortgages-raises-borrowers-rate-exposure-cmhc/">Canadian Mortgage Trends — Shift to variable, shorter-term mortgages raises borrowers' rate exposure: CMHC</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">Trading Economics — Canadian Dollar</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub — Best Mortgage Rates in Canada</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA Stats — national housing data (next release Sept 15)</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=9PNZrskX4AE">Property Daily — "Why Your Condo Fees Are Skyrocketing (And Where the Money Actually Goes)"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=IW5gGqmnI38">Jon Flynn Real Estate Stats — "'Great Time to Buy' Is a Lie, Bank Sales Up 55%" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=tpW4npe2WbI">Nawar Naji — "Toronto Sellers Are Panicking Right Now (Here's What They Know)" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=YCkvc_wcsQk">Ilan Portnoi — "You Won't Believe What's Happening in Toronto's Condo Market" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/shorts/B2SymxqGYKQ">Toronto Realty Group (David Fleming) — trade-war Short, repost of yesterday's video (SKIP, repeat)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
