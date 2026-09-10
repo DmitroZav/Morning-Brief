@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Thursday, September 10, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, September 10, 2026</div>
+  <div class="canada-day-badge">ZELENSKYY IN CANADA · GAS UP 26% YoY · BOND YIELD 3.49%</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">President Zelenskyy just landed in Canada — and this week, he's coming to Toronto.</div>
+    <p>President Volodymyr Zelenskyy and First Lady Olena Zelenska arrived in Calgary Wednesday night for a three-day visit, meeting Prime Minister Mark Carney in Calgary this morning before addressing the full Canadian Cabinet at a planning forum in Banff (<a href="https://www.pm.gc.ca/en/news/statements/2026/09/09/statement-prime-minister-carney-visit-president-volodymyr-zelenskyy-and">PM's Office statement</a>). From there, the President and First Lady head to Toronto and North Bay before leaving Friday. The visit's official focus is deepening defence, economic, and energy cooperation between Canada and Ukraine — Canada has pledged $6.5 billion in military assistance for Ukraine since 2022, running through 2029 (<a href="https://www.cp24.com/news/canada/2026/09/10/ukraines-zelenskyy-arrives-in-calgary-ahead-of-meeting-with-pm-carney/">CP24/CTV News</a>). It's Zelenskyy's first visit to Canada this year; his last stop was Halifax back in December.</p>
+    <p><strong>Why it's video-worthy:</strong> this isn't a headline that stays on the news channel — the President of Ukraine is going to physically stand in Toronto, in a city with one of the largest Ukrainian communities outside Ukraine. For a huge part of this audience, that's personal in a way a policy story never is.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Gas just hit its highest point since May — and it has nothing to do with Canada's own economy.</div>
+    <p style="margin-top:10px;">Brent crude, one of the two benchmark oil prices the world watches, closed above $101.50 a barrel on Tuesday — the first time it's been that high since May (<a href="https://www.cnbc.com/2026/09/09/oil-prices-today-wti-brent-us-iran-hormuz-attacks.html">CNBC</a>). The cause: the US-Iran conflict is escalating again — Iran reportedly attempted a second, previously undisclosed attack on US Navy ships, and Iran-backed Houthi fighters struck energy facilities in Saudi Arabia. Even though Canada produces plenty of its own oil, our gas prices are still priced off these same global benchmarks. CAA's daily tracker puts today's national average at 177.2 cents a litre — up from 140.9 cents a year ago, a 26% jump, and up from 162.9 cents just a month ago (<a href="https://www.caa.ca/gas-prices/">CAA National Gas Prices</a>). President Trump has already said he doesn't expect relief before the US midterm elections in November.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> Zelenskyy's visit is the single biggest, most personally resonant Canada story of the year for this audience — a rare moment where the Big Story earns its own video instead of sitting in a headline box, so it takes the top content slot even though it isn't strictly a housing story. The gas price spike is the freshest genuine "wallet" story available today — a real, verifiable 26% year-over-year jump tied to an escalating global conflict — and it beats another bond-yield or mortgage-rate video on freshness alone. I'm Canada's PR-employer video is the strongest creator find of the sweep: a brand-new topic (immigration/PR mechanics) that speaks directly to the newcomer side of this audience, not just the real-estate side.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the bond yield / fixed-rate storyline has led or featured for three straight days (Sept 7-9) and repeatedly through August — today it's benched to a single row in Market Pulse, nothing more. Tariffs, which dominated most of last week, sit out completely today. This is also the first time this brief has covered a Ukraine-specific political story, the first time it's covered oil/gas prices at all, and the first time it's covered PR/immigration mechanics rather than real estate directly.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Brent crude oil</td>
+          <td>$101.50+/barrel</td><td>~$97-98 (last week)</td><td class="tag-up">highest since May</td>
+          <td class="plain-meaning">Global benchmark that sets what we pay at the pump, even for Canadian-made gas. <a href="https://www.cnbc.com/2026/09/09/oil-prices-today-wti-brent-us-iran-hormuz-attacks.html">CNBC</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg. gas price</td>
+          <td>177.2¢/L</td><td>140.9¢/L (year ago)</td><td class="tag-up">+26% YoY</td>
+          <td class="plain-meaning">Real cost at the pump, tracked daily. <a href="https://www.caa.ca/gas-prices/">CAA National</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.49%</td><td>3.45% (prior session)</td><td class="tag-up">still climbing</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates, not the BoC. Third straight day up, but not today's lead. <a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Hasn't moved yet despite the bond yield creeping up. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / 5-yr variable</td>
+          <td>Prime 4.45% / variable ~3.3%</td><td>unchanged</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Stable while BoC holds. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB / CREA data</td>
+          <td>Nothing released today</td><td>—</td><td class="tag-flat">no release</td>
+          <td class="plain-meaning">Next CREA national sales data Sept 15. <a href="https://stats.crea.ca/en-ca/">CREA Stats</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you drive or commute:</strong> your fill-ups are genuinely more expensive right now, and there's no clean end date — Trump himself signaled no real relief before the US midterms in November, so budget like this sticks around for a while. <strong>If you shop for groceries:</strong> higher diesel costs ripple into trucking costs, which ripple into what you pay at the store — worth padding your monthly budget a little. <strong>If you're Ukrainian and in Canada:</strong> this is a week to pay attention — the President of your home country is in your country, in your cities, meeting your Prime Minister. <strong>If you're navigating PR through a job offer:</strong> a signed offer letter isn't the finish line — your employer's own paperwork can quietly stall everything for months if nobody checks it in advance.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">I'm Canada · YouTube</div>
+      <div class="creator-platform">"If you want PR in Ontario, your employer needs this" — <a href="https://www.youtube.com/watch?v=0piggrEJpko">posted yesterday, Sept 9</a></div>
+      <p class="creator-note">Summary: Explains that Ontario Immigrant Nominee Program employer-based streams often require the employer itself to be registered (and in some cases go through an LMIA) before a nomination can move forward — a step most job seekers assume is already handled.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair it with your own "nobody explains the paperwork" newcomer story — turn it into a checklist of questions to ask an employer before counting on them for PR. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Amrit Walia · YouTube</div>
+      <div class="creator-platform">"These Townhouses Are Practically Worthless Now In Toronto!" — <a href="https://www.youtube.com/watch?v=shH4_JQOyB0">posted yesterday, Sept 9</a></div>
+      <p class="creator-note">Summary: Provocative claim about falling townhouse values in the GTA; description didn't surface hard data on first pass.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Strong headline, but needs a closer look at the underlying numbers before building a video around it — candidate for tomorrow if the data holds up.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mark Mitchell (Mortgage Broker, London ON) · YouTube</div>
+      <div class="creator-platform">"RBC Calls 2027 Housing Recovery" — <a href="https://www.youtube.com/watch?v=GWVHc9rU1YI">posted yesterday, Sept 9</a></div>
+      <p class="creator-note">Summary: Covers RBC's latest call for a housing market recovery.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Held back today — overlaps with the "RBC calls the bottom" storyline already covered Aug 27; revisit only if RBC brings genuinely new data.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate · YouTube</div>
+      <div class="creator-platform">"Avoid This Nasty Surprise (Toronto, Vaughan, Richmond Hill, Mississauga Condo Prices)" — <a href="https://www.youtube.com/watch?v=yXZFhd5FGMs">posted yesterday, Sept 9</a></div>
+      <p class="creator-note">Summary: Warns GTA condo buyers about a specific pricing surprise across several 905-area markets.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Good condo-buyer angle for a future day; not used today to avoid crowding out the three picks above.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Toronto Property Finders (Karl Nielsen) · YouTube</div>
+      <div class="creator-platform">"Something Odd Is Happening In The Toronto Housing Market!" — <a href="https://www.youtube.com/watch?v=G0emYksFaVg">posted yesterday, Sept 9</a></div>
+      <p class="creator-note">Summary: Flags an unusual pattern in current Toronto housing activity, framing not yet specific.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Vague framing on first pass — worth a closer watch before building a script around it.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Alex Applegate · YouTube</div>
+      <div class="creator-platform">"This Is What Happens If You Consolidate Your Debt Into Your Mortgage..." — <a href="https://www.youtube.com/watch?v=WmDjtbwz3rE">posted yesterday, Sept 9</a></div>
+      <p class="creator-note">Summary: Walks through the real trade-offs of rolling consumer debt into a mortgage refinance.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid personal-finance angle, good backup for a slower news day.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist (Tatiana Londono, Ron the mortgage guy, Christian Moretuzzo) — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">President Zelenskyy just landed in Canada — and he's coming to Toronto</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: massive personal relevance to the Ukrainian-Canadian core audience, a rare once-a-year national moment, and a strong reason for the community to engage and share.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock / immediacy</strong>
+        On-screen: "Zelenskyy is in Canada right now." <br>Spoken: "President Zelenskyy just landed in Calgary — and by Friday, he'll be in Toronto."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Newcomer lens</strong>
+        On-screen: "This matters if you're Ukrainian in Canada." <br>Spoken: "If you're Ukrainian and living in Canada, this is the week to pay attention — Zelenskyy is here, in our own cities."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Question that can't be ignored</strong>
+        On-screen: "Why is he really here?" <br>Spoken: "Zelenskyy didn't just come for a photo op — here's what Canada and Ukraine are actually negotiating this week."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "President Volodymyr Zelenskyy just landed in Canada — and this Friday, he's going to be in Toronto."</p>
+        <p><strong>Body:</strong> "He arrived in Calgary Wednesday night with the First Lady, Olena Zelenska, and met with Prime Minister Carney this morning. From there, he's heading to Banff to speak to the entire Canadian Cabinet, then to Toronto and North Bay before he leaves Friday. This is his first visit to Canada this year — his last stop was Halifax back in December. The visit is about three things: defence, economy, and energy — Canada has pledged 6.5 billion dollars in military help for Ukraine since 2022, running through 2029. But honestly, for a lot of us, the numbers aren't even the point this week. It's the fact that the President of Ukraine is going to physically stand in Toronto, in a city full of Ukrainians who left everything behind. If you're Ukrainian and you're in the GTA, this is worth showing up for, or at least watching for. I'll post an update the moment I know more about his Toronto schedule."</p>
+        <p><strong>CTA:</strong> "Comment ZELENSKYY and I'll DM you any Toronto schedule details the moment they're public — follow so you don't miss it."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Zelenskyy in Canada</span>
+        <span class="onscreen-tag">Calgary → Toronto</span>
+        <span class="onscreen-tag">First visit this year</span>
+        <span class="onscreen-tag">Defence + Economy + Energy</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto skyline drone shot · Canadian and Ukrainian flags together · airport arrivals gate · Ukrainian community/church event footage · news broadcast on TV screen
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.pm.gc.ca/en/news/statements/2026/09/09/statement-prime-minister-carney-visit-president-volodymyr-zelenskyy-and">Prime Minister of Canada — Statement on the visit of President Zelenskyy, Sept 9, 2026</a><br>
+        <a href="https://www.cp24.com/news/canada/2026/09/10/ukraines-zelenskyy-arrives-in-calgary-ahead-of-meeting-with-pm-carney/">CP24/CTV News — "Ukraine's Zelenskyy arrives in Calgary ahead of meeting with PM Carney," Sept 10, 2026</a><br>
+        <a href="https://unn.ua/en/news/zelenskyy-and-the-first-lady-visit-canada-itinerary-announced">UNN — "Zelenskyy and the First Lady visit Canada; itinerary announced," Sept 10, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Gas just hit a 4-month high — and it's not about Canada at all</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: universal pain point — everyone who drives feels this immediately — and it connects a scary-sounding global headline directly to something viewers can check at the pump today.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Stakes / this costs you</strong>
+        On-screen: "Your gas fill-up just got pricier." <br>Spoken: "Filling up your tank costs noticeably more this week — and it has nothing to do with Canada."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "Gas is up 26% from last year." <br>Spoken: "Canada's average gas price is up 26 percent from a year ago — and the reason has nothing to do with our own economy."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Nobody's telling you</strong>
+        On-screen: "This war is hitting your gas tank." <br>Spoken: "There's a war happening thousands of kilometres away that's quietly adding real dollars to every fill-up you make this month."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Your next fill-up is going to cost more — and it has nothing to do with anything happening in Canada."</p>
+        <p><strong>Body:</strong> "Brent crude oil, one of the two big global oil benchmarks, closed above 101 dollars a barrel yesterday — the first time it's been that high since May. Why? The US-Iran conflict is escalating again: Iran reportedly tried to hit US Navy ships, and Iran-backed fighters attacked energy facilities in Saudi Arabia. Even though Canada produces a lot of its own oil, our gas prices are still set off these same global benchmarks — so when tensions rise near the Strait of Hormuz, a key oil shipping route, we pay more here too, no matter where our own gas actually comes from. Right now, the national average is about 177 cents a litre, up from around 141 cents a year ago — that's a 26 percent jump. And it's not just your car. Higher fuel costs push up trucking costs, which push up the price of groceries and anything shipped across the country. President Trump has already said he doesn't expect this to cool off before the US midterm elections in November, so don't expect quick relief. If you're budgeting month to month, build a bit of extra room into your gas and grocery line for a while."</p>
+        <p><strong>CTA:</strong> "Comment GAS and I'll send you 3 quick ways to cut your fuel costs this month — follow for what this means for your next grocery run."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Brent crude $101+</span>
+        <span class="onscreen-tag">+26% vs. last year</span>
+        <span class="onscreen-tag">US-Iran conflict</span>
+        <span class="onscreen-tag">Groceries next</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        gas station pump close-up · price sign changing digits · highway traffic wide shot · oil tanker/shipping port footage · grocery store aisle walkthrough
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.cnbc.com/2026/09/09/oil-prices-today-wti-brent-us-iran-hormuz-attacks.html">CNBC — "Brent crude tops $100 as U.S.-Iran tit-for-tat strikes stoke oil supply worries," Sept 9, 2026</a><br>
+        <a href="https://tradingeconomics.com/commodity/brent-crude-oil">Trading Economics — Brent Crude Oil</a><br>
+        <a href="https://www.caa.ca/gas-prices/">CAA National — Daily Gas Prices, updated Sept 9, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Want PR through Ontario? Your employer needs to do this first</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: directly serves the newcomer side of the audience with actionable, save-worthy information that almost nobody explains clearly before you accept a job offer.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Newcomer lens</strong>
+        On-screen: "Nobody explained this to me when I moved here." <br>Spoken: "If you're trying to get PR through an Ontario job offer, there's a step your employer has to do first that almost nobody explains."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Nobody's telling you</strong>
+        On-screen: "Your employer isn't PR-ready yet." <br>Spoken: "Having a job offer in Ontario isn't enough for PR — your employer actually has to be registered first, and most don't know that."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes / this costs you</strong>
+        On-screen: "This one form can stall your whole PR." <br>Spoken: "One missing employer registration can stall your entire Ontario PR application for months."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "If you're trying to get permanent residency through a job offer in Ontario, there's a step almost nobody explains — and it's not even on you, it's on your employer."</p>
+        <p><strong>Body:</strong> "This came up in a video I saw this week, and it lines up with what I've seen with clients too. For a lot of employer-based PR streams through the Ontario Immigrant Nominee Program, your employer needs to be registered and, in some cases, go through a Labour Market Impact Assessment — an LMIA — before your nomination can even move forward. A lot of newcomers assume a signed job offer is the finish line. It's actually the starting line. If your employer has never sponsored someone before, this can take weeks they didn't plan for, and it can quietly stall your whole application while you're wondering why nothing's moving. When I moved here, I learned the hard way that immigration paperwork almost never depends only on you — half of it depends on people who've never done this before either. If you're job hunting for PR purposes, ask directly in the interview: has your company sponsored someone for PR before? It's not a rude question. It's the most important one."</p>
+        <p><strong>CTA:</strong> "Comment PR and I'll send you the questions to ask an employer before you count on them for your Ontario PR — follow for more things nobody explains to newcomers."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">PR ≠ job offer alone</span>
+        <span class="onscreen-tag">Employer must register</span>
+        <span class="onscreen-tag">LMIA can take weeks</span>
+        <span class="onscreen-tag">Ask before you assume</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        office interview handshake · laptop with immigration forms on screen · person reviewing documents close-up · Ontario government building exterior · Toronto commuter crowd, subway platform
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=0piggrEJpko">I'm Canada — "If you want PR in Ontario, your employer needs this," Sept 9, 2026</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.pm.gc.ca/en/news/statements/2026/09/09/statement-prime-minister-carney-visit-president-volodymyr-zelenskyy-and">Prime Minister of Canada — Statement on the visit of President Zelenskyy and First Lady Olena Zelenska</a></li>
+      <li><a href="https://www.cp24.com/news/canada/2026/09/10/ukraines-zelenskyy-arrives-in-calgary-ahead-of-meeting-with-pm-carney/">CP24/CTV News — Ukraine's Zelenskyy arrives in Calgary ahead of meeting with PM Carney</a></li>
+      <li><a href="https://unn.ua/en/news/zelenskyy-and-the-first-lady-visit-canada-itinerary-announced">UNN — Zelenskyy and the First Lady visit Canada; itinerary announced</a></li>
+      <li><a href="https://www.cnbc.com/2026/09/09/oil-prices-today-wti-brent-us-iran-hormuz-attacks.html">CNBC — Brent crude tops $100 as U.S.-Iran tit-for-tat strikes stoke oil supply worries</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">Trading Economics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://tradingeconomics.com/commodity/brent-crude-oil">Trading Economics — Brent Crude Oil</a></li>
+      <li><a href="https://www.caa.ca/gas-prices/">CAA National — Daily Gas Prices</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub — Best Mortgage Rates in Canada</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA Stats — national housing data (next release Sept 15)</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=0piggrEJpko">I'm Canada — "If you want PR in Ontario, your employer needs this" (STEAL, used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=shH4_JQOyB0">Amrit Walia — "These Townhouses Are Practically Worthless Now In Toronto!" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=GWVHc9rU1YI">Mark Mitchell — "RBC Calls 2027 Housing Recovery" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=yXZFhd5FGMs">Team Sessa Real Estate — "Avoid This Nasty Surprise (Condo Prices)" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=G0emYksFaVg">Toronto Property Finders (Karl Nielsen) — "Something Odd Is Happening In The Toronto Housing Market!" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=WmDjtbwz3rE">Alex Applegate — "This Is What Happens If You Consolidate Your Debt Into Your Mortgage..." (WATCH, not used today)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
