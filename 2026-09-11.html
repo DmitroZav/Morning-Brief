@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Friday, September 11, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Friday, September 11, 2026</div>
+  <div class="canada-day-badge">CANADA-UKRAINE 100-YEAR PACT · OIL DROPS 3.6% · MULTIPLEX BACKLASH</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada and Ukraine just signed a 100-year partnership — and it could make it easier for your family to visit.</div>
+    <p>On Thursday in Calgary, Prime Minister Mark Carney and President Volodymyr Zelenskyy signed the <strong>100 Year Partnership Declaration</strong>, elevating Canada-Ukraine ties into what's called a "Comprehensive Strategic Partnership" — basically a long-term commitment covering defence, trade, reconstruction, energy and more (<a href="https://www.pm.gc.ca/en/news/statements/2026/09/10/joint-statement-prime-minister-carney-and-president-zelenskyy">PM's Office — Joint Statement</a>). Canada is extending Operation UNIFIER (the military training mission for Ukraine's forces) through 2029, and building a new defence-industrial partnership to jointly produce drones and equipment. But the line that matters most for this audience is buried near the bottom: Canada will start a process to add Ukraine to the <strong>conditional electronic travel authorization (eTA)</strong> system as part of a new migration and mobility partnership (<a href="https://nowtoronto.com/news/canada-ukraine-100-year-partnership-carney-zelenskyy/">NOW Toronto</a>). An eTA is the light-touch, online travel permission that citizens of many visa-exempt countries use instead of applying for a full visa — if Ukraine gets added, it would make visiting Canada meaningfully faster and simpler for Ukrainian citizens than the current visa process.</p>
+    <p><strong>Why it's video-worthy:</strong> most of yesterday's coverage was about Zelenskyy's itinerary — planes, cities, photo ops. This is the actual outcome, signed and on paper, and it's the first genuinely new detail in this whole visit that could change something concrete for Ukrainian families trying to bring relatives to Canada.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Oil prices just dropped 3.6% in one morning — after the same spike that made your gas more expensive this week.</div>
+    <p style="margin-top:10px;">Brent crude, the global oil benchmark, fell 3.58% Friday morning to $103.78 a barrel, and U.S. crude (WTI) fell 2.17% to $99.23 — both pulling back sharply after Brent touched about $108 on Thursday, its highest point since May (<a href="https://www.cnbc.com/2026/09/11/oil-price-today-iran-brent-wti-trump.html">CNBC</a>). Even with Friday's drop, Brent is still on track to finish the week up roughly 8-9%, the first time it's closed a week above $100 since mid-May — this was a real spike, not a one-day blip. The whipsaw is being driven by the escalating U.S.-Iran conflict: Houthi rebels linked to Iran captured a Yemeni port city near a key Red Sea shipping route this week, and Saudi Arabia's oil output has fallen to its lowest level since 1990. Analysts told CNBC the bigger question is whether this supply squeeze is temporary or structural — and that further spikes "cannot be ruled out."</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the eTA/100-year-partnership detail is a genuine, signed government commitment with direct travel and immigration relevance to this audience's own families — stronger than yesterday's "he's arriving" framing because it's an actual outcome, not an itinerary. The oil price reversal is the freshest wallet story available, verified same-morning by CNBC — a real swing worth explaining, not a repeat of Wednesday's spike headline. The multiplex-backlash video is the strongest creator find of today's sweep and opens a brand-new housing-supply lane (zoning and gentle density) that this brief has never covered before.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> this is the second straight day featuring Ukraine, but today's beat is a signed policy outcome (visa/travel liberalization), not a repeat of yesterday's travel-itinerary story — a real escalation, not a rerun. The bond-yield/fixed-rate storyline, which has led or featured repeatedly through August and into September, sits out entirely today except for one flat row in Market Pulse. Tariffs and TRREB/CREA data also sit out — nothing new broke on either in the last 24 hours (next CREA release is Sept 15).</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">Brent crude oil</td>
+          <td>$103.78/barrel</td><td>~$108 (Thurs. peak)</td><td class="tag-down">−3.58% today</td>
+          <td class="plain-meaning">Still up ~8-9% for the week, first close above $100 since May. <a href="https://www.cnbc.com/2026/09/11/oil-price-today-iran-brent-wti-trump.html">CNBC</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">National avg. gas price</td>
+          <td>~177¢/L (last reading)</td><td>140.9¢/L (year ago)</td><td class="tag-flat">still near highs</td>
+          <td class="plain-meaning">Pump prices lag wholesale oil moves by days — no fresh drop yet. <a href="https://www.caa.ca/gas-prices/">CAA National</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.42-3.49%</td><td>similar, last few sessions</td><td class="tag-flat">no fresh move</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. No new print today — benched after leading multiple days this month. <a href="https://tradingeconomics.com/canada/government-bond-yield">Trading Economics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>~4.04-4.09%</td><td>same</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning"><a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB / CREA data</td>
+          <td>Nothing released today</td><td>—</td><td class="tag-flat">no release</td>
+          <td class="plain-meaning">Next CREA national sales data Sept 15. <a href="https://stats.crea.ca/en-ca/">CREA Stats</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're Ukrainian with family back home:</strong> an eTA (instead of a full visa) would make visiting Canada faster and less bureaucratic for your relatives — this is still a "process starting," not done yet, so don't book anything based on it, but it's real progress worth watching. <strong>If you drive or budget monthly:</strong> the oil swing this week shows how fast and how far these prices can move on geopolitics alone — don't assume this week's high gas price is now permanent, but don't assume it's over either; pad your budget either way. <strong>If you're buying, selling, or renting:</strong> the multiplex backlash story below matters because every fourplex or sixplex that gets blocked by a city council is one less unit of supply — that's a slow-motion pressure on prices and rent that most people never connect to a specific council vote.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"Why Canada's Multiplex Projects Face Severe Backlash" — <a href="https://www.youtube.com/watch?v=y56ux7vZ-TU">posted today, Sept 11</a></div>
+      <p class="creator-note">Summary: Explains how Edmonton, Toronto, Calgary and Vancouver all rewrote zoning laws to allow multiplexes (fourplexes, sixplexes) to fight the housing crisis — and how local backlash is now killing or shrinking those plans city by city (Toronto cut its sixplex zones from citywide to 9 wards; Calgary repealed its blanket upzoning; Vancouver killed its Villages Plan).</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: connect it directly to "why is there nothing to buy/rent in my price range" — most viewers have never connected a council zoning vote to their own housing options. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi · YouTube</div>
+      <div class="creator-platform">"NEVER Agree To These 5 Things When Selling Your Home" — <a href="https://www.youtube.com/watch?v=X-rRBjpslZ8">posted yesterday, Sept 10</a></div>
+      <p class="creator-note">Summary: Seller-education checklist of red-flag clauses/asks to refuse when listing a home.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid seller-side content, good backup for a slower news day — held back today since two news stories and one creator video already fill the slate.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate · YouTube</div>
+      <div class="creator-platform">"Do You Want Prices To Drop Further? (Vaughan, Richmond Hill, Markham Home Prices)" — <a href="https://www.youtube.com/watch?v=0TUCW6ic4dI">posted yesterday, Sept 10</a></div>
+      <p class="creator-note">Summary: Breaks down what would actually need to happen for 905-area prices to fall further.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Decent explainer angle, but overlaps heavily with recurring "will prices drop" content already covered this month.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"Vancouver & Toronto Real Estate Market Update September 2026" — <a href="https://www.youtube.com/watch?v=sd1w-BogKNk">posted yesterday, Sept 10</a></div>
+      <p class="creator-note">Summary: Monthly two-city market recap.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Useful as a monthly gut-check, but a routine recap rather than a fresh, single story — good source to mine later if a specific number stands out.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Toronto Realty Group (David Fleming) · YouTube</div>
+      <div class="creator-platform">"Sunnylea: What $1.5M–$4M Buys You in Toronto's West End | Pick 5 Edition" — <a href="https://www.youtube.com/watch?v=CDPaLTM1LnU">posted yesterday, Sept 10</a></div>
+      <p class="creator-note">Summary: Neighbourhood-tour format showing what different price points buy in one west-end pocket.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Nice format to borrow for a future "what your budget buys in [GTA neighbourhood]" series, not urgent news.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ontario Real Estate with Mike Carpino · YouTube</div>
+      <div class="creator-platform">"You Won't Believe What's Happening in Mississauga's Real Estate Market" — <a href="https://www.youtube.com/watch?v=cp_vAd8U-HM">posted yesterday, Sept 10</a></div>
+      <p class="creator-note">Summary: Mississauga-specific market breakdown, clickbait framing on first pass.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Worth a closer look before building a script — title overpromises versus what's confirmed in the description.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist (Tatiana Londono, Ron the mortgage guy, Christian Moretuzzo) — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Canada just signed a 100-year deal with Ukraine — and it could make visiting easier</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: directly touches the thing the core Ukrainian audience cares about most — getting family here — with a real signed commitment, not speculation.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Newcomer lens</strong>
+        On-screen: "Ukraine just got easier to visit from Canada" <br>Spoken: "If you're Ukrainian and you've been dreading the visa process to bring family here, that might be about to change."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock / nobody's telling you</strong>
+        On-screen: "100 years. One signature. Real impact." <br>Spoken: "Canada and Ukraine just signed a 100-year partnership — and buried inside it is something that actually affects your family."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Question that can't be ignored</strong>
+        On-screen: "Why did Canada just do this for Ukraine?" <br>Spoken: "Yesterday, Canada signed a 100-year partnership with Ukraine. Here's the one detail that could actually change your life."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Canada and Ukraine just signed a 100-year partnership — and there's one detail in it that actually matters for your family, not just the news headlines."</p>
+        <p><strong>Body:</strong> "Yesterday in Calgary, Prime Minister Carney and President Zelenskyy signed what's called the 100 Year Partnership Declaration. Most of it is government-to-government stuff — defence, trade, rebuilding Ukraine. But near the bottom, there's a line about migration and mobility: Canada is starting the process to add Ukraine to the eTA system. An eTA is that quick, online travel authorization that people from visa-exempt countries use — instead of the full visa process with all the paperwork and wait times. If this actually goes through, it would make it meaningfully easier and faster for your family and friends to come visit you here. I want to be honest with you: this is a process 'starting,' not something you can use tomorrow. Don't book any flights based on this yet. But this is the kind of detail that gets buried under bigger headlines, and it's the one that actually touches your life instead of just being a photo op."</p>
+        <p><strong>CTA:</strong> "Comment ETA and I'll update you the moment there's an actual timeline — follow so you don't miss it."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">100-Year Partnership</span>
+        <span class="onscreen-tag">eTA process starting</span>
+        <span class="onscreen-tag">Not live yet</span>
+        <span class="onscreen-tag">Family travel angle</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        airport arrivals gate · Canadian and Ukrainian flags together · person filling out travel documents · passport stamp close-up · Toronto skyline drone shot
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.pm.gc.ca/en/news/statements/2026/09/10/joint-statement-prime-minister-carney-and-president-zelenskyy">Prime Minister of Canada — Joint statement by PM Carney and President Zelenskyy, Sept 10, 2026</a><br>
+        <a href="https://nowtoronto.com/news/canada-ukraine-100-year-partnership-carney-zelenskyy/">NOW Toronto — "Canada and Ukraine sign 100-year partnership," Sept 10, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Oil prices just dropped 3.6% — right after the spike that made your gas pricier</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: teaches viewers how fast and unpredictable gas prices really are, with a concrete same-day number that people can check right now.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Contrarian</strong>
+        On-screen: "Gas prices spiked. Then this happened." <br>Spoken: "Everyone panicked about gas prices this week. Then oil dropped almost 4 percent overnight — here's what's actually going on."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "Oil just fell 3.6% in one morning" <br>Spoken: "Oil prices just dropped 3.6 percent in a single morning — after spiking above 100 dollars for the first time since May."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Nobody's telling you</strong>
+        On-screen: "This is why gas prices keep swinging" <br>Spoken: "Nobody's telling you this, but the reason your gas price keeps jumping around has nothing to do with Canada at all."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Oil prices just dropped 3.6 percent in one morning — right after the spike that made your last fill-up more expensive."</p>
+        <p><strong>Body:</strong> "Brent crude, the global oil benchmark, hit about 108 dollars a barrel on Thursday — its highest point since May. Friday morning, it fell 3.6 percent to just under 104. That's a big, fast swing in less than 24 hours. But don't get too excited: even with today's drop, oil is still on track to end the week up around 8 to 9 percent, the first time it's closed a week above 100 dollars since mid-May. This isn't random. Iran-linked fighters just captured a port city near a key Red Sea shipping route, and Saudi Arabia's oil output has fallen to its lowest level since 1990. Analysts are genuinely split on whether this settles down or gets worse. What this actually teaches you: gas prices can swing hard in either direction based on stuff happening thousands of kilometres away that has nothing to do with Canada's economy. Don't panic-budget based on one bad week, and don't assume relief is coming just because oil dipped one morning either."</p>
+        <p><strong>CTA:</strong> "Comment OIL and I'll keep you posted if this keeps swinging — follow for what it means for your next fill-up."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Brent −3.6% today</span>
+        <span class="onscreen-tag">Still +8-9% this week</span>
+        <span class="onscreen-tag">Red Sea shipping risk</span>
+        <span class="onscreen-tag">Don't panic-budget</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        gas station pump close-up · price sign digits changing · oil tanker at port · stock market ticker screen · highway traffic wide shot
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.cnbc.com/2026/09/11/oil-price-today-iran-brent-wti-trump.html">CNBC — "Oil prices fall but on course to end week above $100," Sept 11, 2026</a><br>
+        <a href="https://tradingeconomics.com/commodity/brent-crude-oil">Trading Economics — Brent Crude Oil</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Your city promised more homes. Here's why so many of those plans just got killed.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: connects an abstract policy fight (zoning) to the very real "why can't I find anything to buy or rent" frustration — a brand-new lane for this brief.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Nobody's telling you</strong>
+        On-screen: "Your city promised more homes. Then this." <br>Spoken: "Cities across Canada promised more homes by allowing fourplexes and sixplexes — nobody's telling you how many of those plans just got killed."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "More zoning rules ≠ more homes built" <br>Spoken: "Everyone thinks zoning reform automatically means more homes get built. Here's why that's not what's actually happening."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes / this costs you</strong>
+        On-screen: "This backlash could cost you a home" <br>Spoken: "If a fourplex near you just got blocked by city council, that's one less home for someone like you or me — here's what's really going on."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Your city probably promised to allow more homes on regular streets — fourplexes, sixplexes. A lot of those promises are quietly getting walked back."</p>
+        <p><strong>Body:</strong> "A few years ago, cities like Toronto, Calgary, and Vancouver rewrote their zoning laws to allow multiplexes almost everywhere, as part of the fight against the housing crisis. It sounded simple: more types of homes allowed, more supply, more choice. But the backlash has been real. Toronto originally agreed to allow sixplexes citywide as part of a deal with the federal government — then backtracked and only kept it in nine wards. Calgary repealed its blanket upzoning after pushback. Vancouver's council straight-up killed its 'Villages Plan' after residents pushed back hard. Most of the backlash isn't even about density — it's about design, about a boxy new building next to older homes. But here's the part that actually affects you: every one of those blocked projects is a handful of homes that don't get built. Multiply that across a whole city, and you start to understand part of why supply stays tight and prices and rent stay high, even in a 'slow' market. This is one of those quiet policy fights that never makes it into your feed, but it's shaping what you'll be able to afford in five years."</p>
+        <p><strong>CTA:</strong> "Comment MULTIPLEX and I'll send you what's actually allowed to be built on your street right now — follow for more of what's really shaping the market."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Sixplex promise, 9 wards kept</span>
+        <span class="onscreen-tag">Calgary repealed upzoning</span>
+        <span class="onscreen-tag">Vancouver killed Villages Plan</span>
+        <span class="onscreen-tag">Fewer homes built = tighter supply</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        residential street with new construction · city council meeting room · "for sale" sign on a small home · construction crane over houses · zoning map on a laptop screen
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=y56ux7vZ-TU">Property Daily — "Why Canada's Multiplex Projects Face Severe Backlash," Sept 11, 2026</a><br>
+        <a href="https://www.biv.com/news/real-estate/bcs-multiplex-rollout-hits-speed-bumps-as-cities-diverge-11493211">Business in Vancouver — "B.C.'s multiplex rollout hits speed bumps as cities diverge"</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.pm.gc.ca/en/news/statements/2026/09/10/joint-statement-prime-minister-carney-and-president-zelenskyy">Prime Minister of Canada — Joint statement by PM Carney and President Zelenskyy</a></li>
+      <li><a href="https://nowtoronto.com/news/canada-ukraine-100-year-partnership-carney-zelenskyy/">NOW Toronto — Canada and Ukraine sign 100-year partnership</a></li>
+      <li><a href="https://www.cnbc.com/2026/09/11/oil-price-today-iran-brent-wti-trump.html">CNBC — Oil prices fall but on course to end week above $100</a></li>
+      <li><a href="https://www.biv.com/news/real-estate/bcs-multiplex-rollout-hits-speed-bumps-as-cities-diverge-11493211">Business in Vancouver — B.C.'s multiplex rollout hits speed bumps as cities diverge</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://tradingeconomics.com/canada/government-bond-yield">Trading Economics — Canada Government Bond Yield</a></li>
+      <li><a href="https://tradingeconomics.com/commodity/brent-crude-oil">Trading Economics — Brent Crude Oil</a></li>
+      <li><a href="https://www.caa.ca/gas-prices/">CAA National — Daily Gas Prices</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub — Best Mortgage Rates in Canada</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA Stats — national housing data (next release Sept 15)</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=y56ux7vZ-TU">Property Daily — "Why Canada's Multiplex Projects Face Severe Backlash" (STEAL, used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=X-rRBjpslZ8">Ilan Portnoi — "NEVER Agree To These 5 Things When Selling Your Home" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=0TUCW6ic4dI">Team Sessa Real Estate — "Do You Want Prices To Drop Further?" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sd1w-BogKNk">Steve Saretsky — "Vancouver & Toronto Real Estate Market Update September 2026" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=CDPaLTM1LnU">Toronto Realty Group — "Sunnylea: What $1.5M–$4M Buys You" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=cp_vAd8U-HM">Ontario Real Estate with Mike Carpino — "You Won't Believe What's Happening in Mississauga's Real Estate Market" (WATCH, not used today)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
