@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Saturday, September 12, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Saturday, September 12, 2026</div>
+  <div class="canada-day-badge">$1 TRILLION INVESTMENT SUMMIT · AFFORDABILITY STREAK · RATES CLIMB AGAIN</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada is trying to convince the world to invest $1,000,000,000,000 here — starting this week.</div>
+    <p>Prime Minister Mark Carney will host Canada's first-ever <strong>Investment Summit</strong> in Toronto on September 14 and 15, personally pitching foreign investors alongside cabinet ministers, premiers and business leaders (<a href="https://globalnews.ca/news/12056672/carney-to-showcase-canadas-capital-agenda-at-first-ever-investment-summit/">Global News</a>, <a href="https://www.ctvnews.ca/canada/article/carney-to-showcase-canadas-capital-agenda-at-first-ever-investment-summit/">CTV News</a>). The goal: "catalyze" $1 trillion in investment into Canada over five years. Why does this matter? Carney himself has called weak business investment Canada's "Achilles heel" — years of underinvestment mean fewer new factories, slower housing construction, and fewer private-sector jobs outside government and healthcare. His pitch to investors is that Canada is a reliable supplier in an uncertain, tariff-heavy world.</p>
+    <p><strong>Why it's video-worthy:</strong> a trillion-dollar number and a Prime Minister personally selling the country grabs attention on its own — and the honest, non-hype angle ("watch what actually gets signed, not just promised") is exactly the kind of grounded take this audience trusts.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canadians' debt compared to their income just went DOWN, not up — the opposite of what the scary headlines say.</div>
+    <p style="margin-top:10px;">StatCan reported yesterday that household credit market debt as a share of disposable income fell to <strong>176.4%</strong> in Q2 2026, down from 178.6% in Q1 — because incomes grew faster than debt did (<a href="https://www.bnnbloomberg.ca/business/economics/2026/09/11/statcan-says-debt-to-income-ratio-declined-in-q2-as-income-growth-outpaced-debt/">BNN Bloomberg</a>). Mortgage borrowing also slowed to $19.4 billion for the quarter — the weakest pace since early 2024 — meaning fewer people are stretching to buy right now. This is a genuinely under-covered good-news number sitting right next to scarier "record $2.68 trillion in debt" headlines that only tell half the story.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the affordability story stacks three independent data sources (StatCan's fresh debt-to-income print, the National Bank's record 10th-straight-quarter affordability streak, and RBC's condo-back-to-2019-levels data) with two creators — Vancouver Life and Steve Saretsky — independently posting about the same underlying data within hours of each other today, which is a strong signal this is worth explaining before it gets buried. The Investment Summit is the single biggest national economic story available and passes the big-story test on its own. The rates/CMHC video pairs a real, verifiable jump in bond yields (confirmed directly on the Bank of Canada's own site) with a brand-new CMHC report most people haven't seen, giving it a genuinely fresh angle rather than repeating "yields are high."</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the Ukraine/100-year-partnership story, which led the last two days running (Sept 10–11), sits out entirely today — nothing new broke overnight. Tariffs and TRREB/CREA data also sit out (next CREA release is Sept 15). The bond-yield/fixed-rate storyline returns today for the first time since Sept 9, but it's anchored to a fresh, sharper move (3.40% → 3.63% in under a week) and a new CMHC warning, not a repeat of the "yields around 3%" framing used repeatedly through August. The debt-to-income and National Bank affordability data are both first-time angles for this brief.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.63% (Sept 10)</td><td>3.40% (Sept 4)</td><td class="tag-up">+23bps in under a week</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates — a real, fast jump. <a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>4.09%</td><td>same</td><td class="tag-flat">no change yet</td>
+          <td class="plain-meaning">Likely to creep up if the bond yield holds here. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>3.3%</td><td>similar</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Household net worth</td>
+          <td>$19.4 trillion (record)</td><td>~$18.85 trillion</td><td class="tag-up">+2.9% QoQ</td>
+          <td class="plain-meaning">Mostly stocks (TSX +6.4% in Q2) — real estate added only +0.4%. <a href="https://globalnews.ca/news/11901706/net-worth-canadian-households/">Global News</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Debt-to-income ratio</td>
+          <td>176.4%</td><td>178.6%</td><td class="tag-down">↓ improving</td>
+          <td class="plain-meaning">Income growing faster than debt. <a href="https://www.bnnbloomberg.ca/business/economics/2026/09/11/statcan-says-debt-to-income-ratio-declined-in-q2-as-income-growth-outpaced-debt/">BNN Bloomberg</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">GTA mortgage-payment-to-income (Nat'l Bank)</td>
+          <td>68.3%</td><td>70.8% (prior qtr)</td><td class="tag-down">↓ 2.5pp, 10th straight qtr</td>
+          <td class="plain-meaning">Down from a brutal 90.9% in Q4 2023. Most affordable in ~4 yrs. <a href="https://www.canadianmortgagetrends.com/2026/08/falling-home-prices-drive-record-10th-straight-quarter-of-affordability-gains/">Canadian Mortgage Trends</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB / CREA data</td>
+          <td>Nothing released today</td><td>—</td><td class="tag-flat">no release</td>
+          <td class="plain-meaning">Next CREA national sales data Sept 15. <a href="https://stats.crea.ca/en-ca/">CREA Stats</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer or newcomer:</strong> the "it's impossible to buy now" story is genuinely getting weaker — condo affordability in Toronto is now better than 2019, and mortgage payments as a share of income have fallen from 90.9% to 68.3% in under two years. Still expensive, but not the same story as 2023. <strong>If you're carrying debt or worried about a renewal:</strong> the debt-to-income improvement is real, but it's a national average — if you're one of the roughly one-in-three new borrowers who picked variable, CMHC's warning below is about you specifically, not the country in general. <strong>If you just want to know where the economy is headed:</strong> the Investment Summit this week is worth watching not for the trillion-dollar headline number, but for what specific projects and companies actually sign on — that's what would turn into real jobs in your city.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Vancouver Life Real Estate · YouTube</div>
+      <div class="creator-platform">"Just When Housing Got More Affordable… This Happened" — <a href="https://www.youtube.com/watch?v=zVxSXcgMgbg">posted today, Sept 12</a></div>
+      <p class="creator-note">Summary: Covers RBC's condo affordability data showing a national return to late-2019 levels, with Toronto and Victoria now even more affordable than 2019, while flagging new risks emerging alongside the relief.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair this with StatCan's debt-to-income improvement and the National Bank's 10-quarter affordability streak for a fuller "the data disagrees with the doom" video. See Video 1.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mark Mitchell (Mortgage Broker, London ON) · YouTube</div>
+      <div class="creator-platform">"Fixed Mortgage Rates SKYROCKET" — <a href="https://www.youtube.com/watch?v=rvRJGFB-X1A">posted yesterday, Sept 11</a></div>
+      <p class="creator-note">Summary: Explains fixed rates surging as bond yields jump, and cites CMHC's new warning that Canadians moving into variable-rate mortgages are taking on more interest-rate risk than they may realize.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: anchor it to the actual Bank of Canada bond yield move (3.40%→3.63%) and CMHC's own report for credibility. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"RBC: 'affordability is back to 2019 levels'" (x2 shorts) + "They aren't buying it anymore" + "Could the US Sanction Canadian Banks Next?" — <a href="https://www.youtube.com/shorts/11RxxyOPJ_I">posted yesterday, Sept 11</a></div>
+      <p class="creator-note">Summary: Four posts in one day — two shorts independently covering the same RBC affordability data as Vancouver Life, plus a Vancouver demand-pullback clip and a podcast episode on US-Canada bank sanction risk.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">The affordability angle is already covered via Vancouver Life above; the bank-sanction podcast is interesting but too speculative to build a video on yet — worth a follow-up if it develops.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen / Toronto Property Finders · YouTube</div>
+      <div class="creator-platform">"Is Buying a Toronto Condo In 2026 a Big Mistake?!" — <a href="https://www.youtube.com/watch?v=2AIuLlMdysg">posted yesterday, Sept 11</a></div>
+      <p class="creator-note">Summary: Buyer-education breakdown of condo-specific risks in the current Toronto market.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Good companion piece to today's affordability story for a future video — held back today since the affordability angle is already filled.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi · YouTube</div>
+      <div class="creator-platform">Mayoral-candidates awareness post — <a href="https://www.youtube.com/shorts/0_uXmLAED4o">posted yesterday, Sept 11</a></div>
+      <p class="creator-note">Summary: Encourages followers to learn about Toronto's Oct 26 mayoral election candidates before voting.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Civic-engagement angle, not wallet-specific enough for today's slate — could revisit closer to the Oct 26 election with a housing-platform comparison.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate · YouTube</div>
+      <div class="creator-platform">"The Homeowner Is Getting Robbed (Brampton, Mississauga, Ajax, Whitby, Pickering Home Prices)" — <a href="https://www.youtube.com/watch?v=L3nr62mM8oQ">posted yesterday, Sept 11</a></div>
+      <p class="creator-note">Summary: 905-area price breakdown with a seller-sympathetic framing.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Overlaps with recurring "prices dropped, sellers hurting" content already covered this month.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist (Tatiana Londono, Ron the mortgage guy, Christian Moretuzzo) — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">The affordability data nobody's talking about (it's actually good news)</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: contrarian, myth-busting, and backed by three independent data sources plus two creators covering it the same day — strong "wait, really?" hook potential.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Contrarian</strong>
+        On-screen: "Everyone says you can't afford a home. Data says otherwise." <br>Spoken: "Everyone's telling you housing got worse. New data says condo affordability just fell back to where it was in 2019."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "Toronto affordability improved 22 points. Nobody told you." <br>Spoken: "In Toronto, the share of your income going to a mortgage payment just dropped over 22 percentage points from its worst point. Here's the number."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Nobody's telling you</strong>
+        On-screen: "The good housing news nobody's posting" <br>Spoken: "Nobody's telling you this, but Canada just posted its 10th straight quarter of housing getting more affordable — the longest streak ever recorded."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Everyone's telling you buying a home got harder. New data says the opposite is happening."</p>
+        <p><strong>Body:</strong> "StatCan just confirmed Canadians' debt compared to their income actually FELL last quarter — from 178.6% down to 176.4% — because incomes grew faster than debt. Mortgage borrowing also slowed to its weakest pace since early 2024, meaning fewer people are stretching themselves thin to buy. At the same time, the National Bank's Housing Affordability Monitor just logged its 10th straight quarterly improvement — the longest winning streak on record. In the GTA, the share of income eaten up by an average mortgage payment dropped to 68.3%, down from a brutal 90.9% back in late 2023. And RBC's own condo data shows Toronto condo affordability is now BETTER than it was in 2019, before any of this craziness started. I'm not saying it's easy — 68% of your income on a mortgage is still rough. But 'it's impossible now' and 'it's been getting worse for years' just aren't true anymore. Don't let a headline from 2023 make your decision for you today."</p>
+        <p><strong>CTA:</strong> "Comment AFFORD and I'll send you the actual numbers for your area — follow for the real data, not the panic."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Debt-to-income fell to 176.4%</span>
+        <span class="onscreen-tag">10th straight quarter improving</span>
+        <span class="onscreen-tag">GTA: 90.9% → 68.3%</span>
+        <span class="onscreen-tag">Toronto condos beat 2019 levels</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        laptop showing mortgage calculator · Toronto condo buildings wide shot · young couple looking at "for sale" sign · person reviewing bank statement · line graph trending downward animation
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.bnnbloomberg.ca/business/economics/2026/09/11/statcan-says-debt-to-income-ratio-declined-in-q2-as-income-growth-outpaced-debt/">BNN Bloomberg — "StatCan says debt-to-income ratio declined in Q2," Sept 11, 2026</a><br>
+        <a href="https://www.canadianmortgagetrends.com/2026/08/falling-home-prices-drive-record-10th-straight-quarter-of-affordability-gains/">Canadian Mortgage Trends — National Bank Housing Affordability Monitor, Q2 2026</a><br>
+        <a href="https://realestatemagazine.ca/toronto-condo-affordability-back-to-2019-levels-as-smaller-markets-close-the-gap-rbc/">Real Estate Magazine — "Toronto condo affordability back to 2019 levels," RBC</a><br>
+        <a href="https://www.youtube.com/watch?v=zVxSXcgMgbg">Vancouver Life Real Estate — "Just When Housing Got More Affordable… This Happened," Sept 12, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Canada wants investors to bring $1 trillion here. Here's what's actually at stake.</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a trillion-dollar number and a PM personally selling the country is inherently attention-grabbing, and the "watch what gets signed, not promised" framing keeps it grounded and honest.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock</strong>
+        On-screen: "Canada wants $1,000,000,000,000. This week." <br>Spoken: "This week, Canada is hosting its first-ever investment summit, trying to pull in one trillion dollars over five years — here's what that could mean for your job and your rent."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Question that can't be ignored</strong>
+        On-screen: "Why is Carney inviting the world's investors to Toronto?" <br>Spoken: "Why is the Prime Minister personally flying investors into Toronto this week? Because Canada has a problem money is supposed to fix."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes / this affects you</strong>
+        On-screen: "This $1 trillion goal could shape your rent" <br>Spoken: "If this trillion-dollar plan works, it could mean more homes built and more jobs in your city. If it doesn't, we're back to square one."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "This week, Canada is trying to convince the whole world to invest one trillion dollars here. Here's why that actually matters to you."</p>
+        <p><strong>Body:</strong> "On September 14 and 15, Prime Minister Carney is hosting Canada's first-ever Investment Summit in Toronto — cabinet ministers, premiers, and business leaders pitching foreign investors directly. The goal: 'catalyze' one trillion dollars in investment over the next five years. Why does Canada need this? Business investment here has been weak for years — Carney himself has called it Canada's 'Achilles heel.' Low investment means fewer new factories, fewer new housing developments, fewer new jobs outside government and healthcare. If this actually brings in real money, it could mean more construction jobs, more housing supply getting built faster, and more reasons for companies to hire in Toronto instead of somewhere else. If it's mostly announcements and photo ops — which happens — nothing changes and we're having this same conversation again next year. I'll be watching what actually gets signed this week, not just what gets promised."</p>
+        <p><strong>CTA:</strong> "Comment SUMMIT and I'll update you after Monday on what actually got signed — follow so you don't miss the follow-up."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">$1 trillion goal</span>
+        <span class="onscreen-tag">5-year target</span>
+        <span class="onscreen-tag">Toronto, Sept 14-15</span>
+        <span class="onscreen-tag">Watch what gets SIGNED</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto financial district skyline · conference/summit room · construction site crane · business handshake meeting · downtown Toronto establishing shot
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://globalnews.ca/news/12056672/carney-to-showcase-canadas-capital-agenda-at-first-ever-investment-summit/">Global News — "Carney to showcase Canada's capital agenda at first-ever investment summit," Sept 12, 2026</a><br>
+        <a href="https://www.ctvnews.ca/canada/article/carney-to-showcase-canadas-capital-agenda-at-first-ever-investment-summit/">CTV News — same story, Sept 12, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">If you picked a variable mortgage to save money, CMHC has a warning for you</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: decision-relevant for anyone renewing or shopping for a mortgage right now, backed by a real bond-yield move and a brand-new CMHC report — not a rehash of old rate content.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Stakes</strong>
+        On-screen: "Your variable mortgage just got riskier" <br>Spoken: "If you picked a variable-rate mortgage to save money, CMHC just put out a warning you need to hear."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "Bond yields jumped in under a week" <br>Spoken: "The number that decides your fixed mortgage rate just jumped again — here's exactly how much and why."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Personal stakes</strong>
+        On-screen: "I get asked this every week: fixed or variable?" <br>Spoken: "I get asked this every single week by newcomers here — should you go fixed or variable? This week's data changes the answer a little."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "If you went variable to save money on your mortgage, CMHC just issued a warning with your name on it."</p>
+        <p><strong>Body:</strong> "Quick refresher: bond yields are the interest the government pays to borrow money, and fixed mortgage rates are priced off of them, not off the Bank of Canada's rate. In less than a week, the 5-year Government of Canada bond yield jumped from about 3.40% to 3.63% — a real, fast move, and why fixed rates have been creeping up even though the Bank of Canada has held steady at 2.25% for seven straight meetings. Here's the part that matters: CMHC just published new data showing more Canadians are choosing variable-rate or short-term mortgages to save money right now — nearly a third of new insured mortgages are variable, way up from before. CMHC's own warning is that this means more people are taking on risk, because if rates stay high or jump again, YOU absorb the shock at renewal, not the bank. Their survey found people who renewed in the last 18 months saw their payment jump by an average of $375 a month. I'm not saying fixed is automatically better — variable has genuinely been the cheaper choice lately. I'm saying go in with your eyes open about which bet you're making."</p>
+        <p><strong>CTA:</strong> "Comment RATE and I'll send you the fixed-vs-variable breakdown I give my own clients — follow for the numbers, not the sales pitch."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Bond yield: 3.40% → 3.63%</span>
+        <span class="onscreen-tag">CMHC variable-rate warning</span>
+        <span class="onscreen-tag">1/3 of new mortgages = variable</span>
+        <span class="onscreen-tag">Avg renewal shock: +$375/mo</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        mortgage documents on a table · calculator with rising numbers · bank branch exterior · person reviewing bills at kitchen table · rising line-graph animation
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — Selected bond yields</a><br>
+        <a href="https://www.canadianmortgagetrends.com/2026/09/shift-to-variable-shorter-term-mortgages-raises-borrowers-rate-exposure-cmhc/">Canadian Mortgage Trends — "Shift to variable, shorter-term mortgages raises borrowers' rate exposure: CMHC," Sept 2026</a><br>
+        <a href="https://www.youtube.com/watch?v=rvRJGFB-X1A">Mark Mitchell — "Fixed Mortgage Rates SKYROCKET," Sept 11, 2026</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://globalnews.ca/news/12056672/carney-to-showcase-canadas-capital-agenda-at-first-ever-investment-summit/">Global News — Carney to showcase Canada's capital agenda at first-ever investment summit</a></li>
+      <li><a href="https://www.ctvnews.ca/canada/article/carney-to-showcase-canadas-capital-agenda-at-first-ever-investment-summit/">CTV News — same story</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/economics/2026/09/11/statcan-says-debt-to-income-ratio-declined-in-q2-as-income-growth-outpaced-debt/">BNN Bloomberg — StatCan debt-to-income ratio declined in Q2</a></li>
+      <li><a href="https://globalnews.ca/news/11901706/net-worth-canadian-households/">Global News — Canadian household net worth jumped past $19 trillion</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/08/falling-home-prices-drive-record-10th-straight-quarter-of-affordability-gains/">Canadian Mortgage Trends — Record 10th straight quarter of affordability gains</a></li>
+      <li><a href="https://realestatemagazine.ca/toronto-condo-affordability-back-to-2019-levels-as-smaller-markets-close-the-gap-rbc/">Real Estate Magazine — Toronto condo affordability back to 2019 levels (RBC)</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/shift-to-variable-shorter-term-mortgages-raises-borrowers-rate-exposure-cmhc/">Canadian Mortgage Trends — CMHC on variable-rate mortgage risk</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — Selected bond yields</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Policy rate announcement, Sept 2, 2026</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-year fixed mortgage rates</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — Best 5-year variable mortgage rates</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA Stats — national housing data (next release Sept 15)</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=zVxSXcgMgbg">Vancouver Life Real Estate — "Just When Housing Got More Affordable… This Happened" (STEAL, used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=rvRJGFB-X1A">Mark Mitchell — "Fixed Mortgage Rates SKYROCKET" (STEAL, used today)</a></li>
+      <li><a href="https://www.youtube.com/shorts/11RxxyOPJ_I">Steve Saretsky — "RBC: affordability is back to 2019 levels" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=2AIuLlMdysg">Karl Nielsen — "Is Buying a Toronto Condo In 2026 a Big Mistake?!" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/shorts/0_uXmLAED4o">Ilan Portnoi — mayoral-candidates awareness post (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=L3nr62mM8oQ">Team Sessa Real Estate — "The Homeowner Is Getting Robbed" (WATCH, not used today)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
