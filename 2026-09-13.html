@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Sunday, September 13, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Sunday, September 13, 2026</div>
+  <div class="canada-day-badge">TORONTO PRICES: SHARPEST DROP OF 2026 · "DEAL FAIRLY SOON"? · HIDDEN CONDO BILLS</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Jean Chrétien, 92, brought a hockey arena to its feet: "we bow to no one."</div>
+    <p>On Friday, former Prime Minister Jean Chrétien delivered a fiery, deeply personal speech at the 25th-anniversary 9/11 commemoration in Gander, Newfoundland — the small town famous for taking in 38 stranded flights the day of the attacks. Chrétien was the only speaker who directly addressed the current tension between Canada and the US, telling the crowd "we embrace our friends and we help them in their moment of need, but we bow to no one," and warning Americans never to mistake Canadian kindness for weakness (<a href="https://www.cbc.ca/news/canada/newfoundland-labrador/jean-chretien-says-we-bow-to-no-one-in-fiery-9-11-speech-in-gander-n-l-9.7340903">CBC News</a>, <a href="https://www.theglobeandmail.com/canada/article-jean-chretien-speech-gander-911-ceremony-25th-anniversary/">The Globe and Mail</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this isn't a real estate story, and it doesn't need to be — a 92-year-old former PM getting a standing ovation for refusing to bow, right in the middle of a trade war, is the kind of clip that travels on its own. For an audience of newcomers who know exactly what it's like to be the smaller country standing up to a much bigger neighbour, this one lands differently.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Toronto home prices just had their sharpest monthly drop of all of 2026 — and unsold inventory hasn't been this high since 2008.</div>
+    <p style="margin-top:10px;">TRREB's August numbers (released Sept 3, still the freshest official data) showed the average GTA home price slip 0.9% in a single month to $925,900 — 4.5% below last August and 27.7% below the March 2022 peak (<a href="https://betterdwelling.com/toronto-home-prices-see-biggest-drop-of-2026-most-inventory-since-2008/">Better Dwelling</a>). Toronto realtor Zhen Liang posted her own breakdown of the exact same numbers today, framing it as a genuine turning point for buyers (<a href="https://www.youtube.com/watch?v=BnrT8xpcgXA">YouTube, Sept 13</a>) — a real news story and a creator independently landing on it the same weekend.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the price-drop story wins the lead slot because it's the single clearest wallet-and-decision story available — a real, verifiable data point (not a forecast) that changes what a buyer or seller should do this month, reinforced by a creator covering the identical numbers today. Trump's "fairly soon" trade-deal comment is the biggest pure-news story of the last 24 hours and keeps this brief honest about not being entirely creator-driven. The condo special-assessment story is a brand-new lane with real dollar stakes for anyone shopping for a first home.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the Big Story moves away from real estate and economics entirely for the first time — Chrétien's speech has never been touched by this brief. The price-drop data itself traces back to TRREB's Sept 3 release (covered here that day as a listings story, "Toronto listings fell 14%"), but today's angle is different — the PRICE move and the 18-year inventory high — and it's outside the 7-day no-repeat window besides. Yesterday's leads (the $1-trillion Investment Summit, the debt-to-income improvement, bond yields) all sit out today. The bond-yield/mortgage-rate storyline, which has led or featured three of the last five days, is intentionally benched to a single Market Pulse row today.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.65% (highest since May 2024)</td><td>3.63% (Sept 10)</td><td class="tag-flat">essentially flat this week</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates — the big move already happened Sept 4-10. <a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Ontario's best insured rate, per Ratehub. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>3.30%</td><td>3.30%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>1.3862 (72.14 US¢)</td><td>~1.383 (Sept 8-10 range)</td><td class="tag-down">9-day low, Sept 11</td>
+          <td class="plain-meaning">Weaker on Fed rate-hike bets + trade-war drag — makes imported goods pricier. <a href="http://www.kitco.com/news/off-the-wire/2026-09-11/canadian-dollar-weakens-nine-day-low-fed-rate-hike-bets">Kitco/Reuters</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Brent crude oil</td>
+          <td>~$104.6/bbl (Fri close)</td><td>~$107-108 (mid-week spike)</td><td class="tag-down">easing off the spike</td>
+          <td class="plain-meaning">Still elevated on Middle East tension — feeds into gas prices and inflation risk. <a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB August (GTA)</td>
+          <td>Avg $925,900; sales 5,060; new listings 12,080</td><td>July: sales similar, listings −14% YoY</td><td class="tag-down">sharpest price drop of 2026</td>
+          <td class="plain-meaning">Inventory highest since 2008 — a real buyer's market. <a href="https://betterdwelling.com/toronto-home-prices-see-biggest-drop-of-2026-most-inventory-since-2008/">Better Dwelling</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're buying this fall:</strong> August gave you real leverage — prices are down, inventory is the highest since 2008, and the sales-to-listings ratio is deep in buyer's-market territory. That doesn't mean lowball every seller, but it means you can negotiate harder than a year ago. <strong>If you're selling:</strong> price honestly from day one — the market is punishing anyone who tests a 2022-era number. <strong>If you're watching the trade war for your renovation or construction budget:</strong> Trump's "fairly soon" comment is a signal worth watching, not a reason to change plans — Canada already turned down one offer, and there's still no timeline. <strong>If you're shopping for a condo:</strong> don't just compare monthly fees — ask for the reserve fund study, because an under-funded building is a future five-figure bill waiting to happen.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Zhen Liang | Prime Properties TO · YouTube</div>
+      <div class="creator-platform">"Toronto Home Prices See Biggest Drop of 2026 — Here's What Happens Next" — <a href="https://www.youtube.com/watch?v=BnrT8xpcgXA">posted today, Sept 13</a></div>
+      <p class="creator-note">Summary: Breaks down TRREB's August price and inventory numbers and gives her read on where the market goes from here.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair her framing with the exact TRREB figures (inventory highest since 2008) for a data-first version with your own buyer's-market read. See Video 1.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"The Hidden $50,000 Bill Crushing Canadian Condo Owners" — <a href="https://www.youtube.com/watch?v=8W16clfJ9_o">posted Sept 12</a></div>
+      <p class="creator-note">Summary: New BC rules closing a reserve-fund-study loophole are exposing under-funded condo buildings, hitting owners with five- and six-figure special levies for deferred roof, pipe, and elevator repairs.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: BC-specific rule, but Ontario condos have their own reserve-fund-study requirement that plenty of older buildings under-fund too — translate it into a "read the reserve fund study, not just the fee" buyer checklist. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"Mortgage Rates Keep Moving Higher in Canada" + 6 shorts on bank stress, recession risk, and renewals — <a href="https://www.youtube.com/watch?v=5QQaJ9b6TFU">posted Sept 12</a></div>
+      <p class="creator-note">Summary: A big posting day — ties rising bond yields to Canada's mortgage renewal wave and flags growing stress in the purpose-built rental sector.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Rate content overlaps with Sept 9 and Sept 12 coverage already — held back today, but the purpose-built-rental-stress angle is worth its own video soon.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen | Toronto Property Finders · YouTube</div>
+      <div class="creator-platform">"How To Get a Lowball Real Estate Offer Accepted in Toronto This Fall!" — <a href="https://www.youtube.com/watch?v=hf9uQjqrnaM">posted today, Sept 13</a></div>
+      <p class="creator-note">Summary: Tactical buyer-negotiation tips timed to the softer fall market.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Good companion to today's price-drop lead — natural follow-up video for next week rather than a repeat of the same negotiating-leverage point today.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi · YouTube</div>
+      <div class="creator-platform">"You Won't Believe What's Happening In Toronto's Housing Market" — <a href="https://www.youtube.com/watch?v=btuWDFA2mLg">posted Sept 12</a></div>
+      <p class="creator-note">Summary: Clickbait-style title on current market conditions; likely overlaps with the same price/inventory story.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Held back since Zhen Liang's same-topic post gave a clearer, more specific angle to steal today.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">That Agent Kelly · YouTube</div>
+      <div class="creator-platform">"Buyers And Sellers Are Getting Frustrated" — <a href="https://www.youtube.com/watch?v=RP1cIw23N4M">posted today, Sept 13</a></div>
+      <p class="creator-note">Summary: General market-sentiment commentary on the standoff between buyers and sellers.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Same underlying story as today's lead, less specific — not needed as a second angle today.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist (Tatiana Londono, Ron the mortgage guy, Christian Moretuzzo) — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Toronto prices just had their worst month of the year — and buyers finally have leverage</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a concrete, current number ("sharpest drop of 2026") plus a same-day creator covering the identical data — strong decision-relevance for anyone buying this fall.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock</strong>
+        On-screen: "Toronto prices just did THIS in August" <br>Spoken: "Toronto home prices just posted their biggest drop of all of 2026 — and unsold inventory hasn't been this high since 2008."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "Everyone says sellers still hold the power" <br>Spoken: "Everyone still talks like sellers hold all the power here. August's numbers say otherwise."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Personal stakes</strong>
+        On-screen: "I bought near the peak. August felt familiar." <br>Spoken: "I bought near the peak and felt this exact shift happening — here's what August's numbers just confirmed."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Toronto home prices just posted their sharpest drop of all of 2026."</p>
+        <p><strong>Body:</strong> "TRREB's numbers for August showed the average home price slip 0.9% in a single month, down to $925,900 — the biggest monthly drop we've seen all year. That's 4.5% below last August, and nearly 28% below the March 2022 peak. Sales came in at 5,060, the second-weakest August since 2000. But here's the real story: new listings fell 14% while unsold inventory climbed to the highest level since 2008. Prices are falling AND fewer new homes are coming onto the market at the same time. Realtor Zhen Liang flagged this exact shift in her own video today — buyers finally have room to negotiate, but that same falling-price story is also why some sellers are holding off, afraid to sell into a soft market. If you've been waiting for 'the crash,' this isn't that — it's a slow grind lower, one month at a time. If you're buying this fall, you have leverage you didn't have a year ago. If you're selling, price it honestly — August punished anyone who didn't."</p>
+        <p><strong>CTA:</strong> "Comment PRICE and I'll send you what a home like yours is actually selling for right now — follow for the real numbers every week."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Avg price: $925,900 (-0.9% MoM)</span>
+        <span class="onscreen-tag">Sharpest drop of 2026</span>
+        <span class="onscreen-tag">Inventory: highest since 2008</span>
+        <span class="onscreen-tag">New listings -14% YoY</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto residential street with for-sale signs · open house sign closeup · realtor showing house to couple · downtown Toronto skyline wide shot · line graph trending downward animation
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://betterdwelling.com/toronto-home-prices-see-biggest-drop-of-2026-most-inventory-since-2008/">Better Dwelling — "Toronto Home Prices See Biggest Drop of 2026, Most Inventory Since 2008," Sept 3, 2026</a><br>
+        <a href="https://www.youtube.com/watch?v=BnrT8xpcgXA">Zhen Liang | Prime Properties TO — "Toronto Home Prices See Biggest Drop of 2026 — Here's What Happens Next," Sept 13, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Trump says a Canada trade deal could come "fairly soon" — should you believe it?</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the biggest pure-news story of the day, directly tied to construction costs and mortgage-rate pressure, with a healthy dose of the skepticism this audience trusts.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Question that can't be ignored</strong>
+        On-screen: "Is the trade war finally ending?" <br>Spoken: "Trump just said a trade deal with Canada could happen 'fairly soon' — should you actually believe it?"
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "Don't get your hopes up yet" <br>Spoken: "Trump says a deal is coming soon. Here's why I'm not changing any plans yet."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes</strong>
+        On-screen: "This one sentence could affect your renovation" <br>Spoken: "One comment from Trump this weekend could quietly change what your next renovation costs."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Trump just said a trade deal with Canada could come 'fairly soon.' Should you believe him?"</p>
+        <p><strong>Body:</strong> "This weekend, speaking in Ireland, President Trump said his administration could reach a trade deal with Canada 'fairly soon,' while repeating his claim that Canada has 'ripped off' the US for 50 years and demanding better treatment for American farmers. Here's why this matters even if you've never bought or sold a house: the 50% tariffs on steel, aluminum, and dozens of other goods are already pushing up the cost of building materials — part of why building a new home or doing a renovation got more expensive this year. If a real deal happens, some of that cost pressure could ease, and it would also calm the currency swings that have been nudging bond yields and mortgage rates around. But be careful — Canada already rejected one bilateral offer from Washington back in August, and neither government has published an actual timeline. I'd treat this as a signal to watch, not a reason to change any plans this week."</p>
+        <p><strong>CTA:</strong> "Comment DEAL and I'll keep you posted the moment anything actually gets signed — follow so you're not caught off guard either way."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Trump: deal "fairly soon"</span>
+        <span class="onscreen-tag">No timeline published</span>
+        <span class="onscreen-tag">Canada rejected Aug offer</span>
+        <span class="onscreen-tag">Tariffs still live at 50%</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        steel and lumber construction materials · shipping port containers · Canada-US border crossing · newspaper/laptop headline scroll · home renovation in progress
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.ctvnews.ca/world/trumps-tariffs/article/trump-says-trade-deal-with-canada-could-come-fairly-soon-says-us-has-been-ripped-off-for-50-years/">CTV News — "Trump says trade deal with Canada could come 'fairly soon,'" Sept 12, 2026</a><br>
+        <a href="https://www.bloomberg.com/news/articles/2026-09-12/trump-says-us-canada-will-probably-reach-a-deal-fairly-soon">Bloomberg — "Trump Says US, Canada Will Probably Reach a Deal 'Fairly Soon,'" Sept 12, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Your condo fee isn't the bill that gets you — the hidden special assessment is</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a brand-new angle (never covered before) with a scary, specific dollar figure, and it's genuinely actionable buyer-education for newcomers who don't know what to ask for.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — "Nobody's telling you"</strong>
+        On-screen: "Your condo fee isn't the real bill" <br>Spoken: "Nobody tells you this before you buy a condo — your monthly fee isn't the bill that gets you."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "One bill just hit owners for $50,000" <br>Spoken: "Some condo owners just got hit with a single bill for fifty thousand dollars. Here's why."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Newcomer lens</strong>
+        On-screen: "Nobody explained this to me before I bought" <br>Spoken: "When I looked at my first condo here, nobody explained this one document that could cost you tens of thousands later."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Nobody tells you this before you buy a condo — your monthly fee isn't the bill that gets you."</p>
+        <p><strong>Body:</strong> "A story blew up this week about condo owners getting hit with special levies — extra one-time bills, on top of their regular fees — sometimes for fifty thousand dollars or more, to pay for decades of deferred repairs: roofs, underground pipes, elevators. In British Columbia, new rules just closed a loophole that let buildings skip proper reserve-fund studies for years, and now those bills are finally coming due. Ontario has its own version of this: condo corporations here are required to run a reserve fund study and top up their reserve fund regularly, but plenty of older buildings still under-fund it, especially ones built in the 80s and 90s that are now hitting major-repair age. Before you buy any condo here, ask for the status certificate and actually read the reserve fund study — not just the monthly fee. A low fee on an under-funded building is a future bill with your name on it. I've seen buyers, especially newcomers who didn't know to ask, get blindsided by exactly this."</p>
+        <p><strong>CTA:</strong> "Comment CONDO and I'll send you the 3 questions to ask about any building's reserve fund before you make an offer — follow for more first-time-buyer checks."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Special levies up to $50K+</span>
+        <span class="onscreen-tag">Ask for the reserve fund study</span>
+        <span class="onscreen-tag">Low fee ≠ well-funded building</span>
+        <span class="onscreen-tag">80s/90s buildings at highest risk</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        older condo building exterior · condo hallway/elevator interior · person reading documents at table · building maintenance/repair work · condo status certificate paperwork closeup
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=8W16clfJ9_o">Property Daily — "The Hidden $50,000 Bill Crushing Canadian Condo Owners," Sept 12, 2026</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cbc.ca/news/canada/newfoundland-labrador/jean-chretien-says-we-bow-to-no-one-in-fiery-9-11-speech-in-gander-n-l-9.7340903">CBC News — Jean Chrétien's Gander 9/11 speech, "we bow to no one"</a></li>
+      <li><a href="https://www.theglobeandmail.com/canada/article-jean-chretien-speech-gander-911-ceremony-25th-anniversary/">The Globe and Mail — same story</a></li>
+      <li><a href="https://www.ctvnews.ca/world/trumps-tariffs/article/trump-says-trade-deal-with-canada-could-come-fairly-soon-says-us-has-been-ripped-off-for-50-years/">CTV News — Trump says trade deal "fairly soon"</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-09-12/trump-says-us-canada-will-probably-reach-a-deal-fairly-soon">Bloomberg — same story</a></li>
+      <li><a href="http://www.kitco.com/news/off-the-wire/2026-09-11/canadian-dollar-weakens-nine-day-low-fed-rate-hike-bets">Kitco/Reuters — Canadian dollar weakens to nine-day low</a></li>
+      <li><a href="https://betterdwelling.com/toronto-home-prices-see-biggest-drop-of-2026-most-inventory-since-2008/">Better Dwelling — Toronto home prices see biggest drop of 2026</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Policy rate announcement, Sept 2, 2026</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — Selected bond yields</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-year fixed mortgage rates</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — Best 5-year variable mortgage rates</a></li>
+      <li><a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics — Brent crude oil price</a></li>
+      <li><a href="https://stats.crea.ca/en-ca/">CREA Stats — national housing data (next release ~Oct 3)</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=BnrT8xpcgXA">Zhen Liang | Prime Properties TO — "Toronto Home Prices See Biggest Drop of 2026" (STEAL, used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=8W16clfJ9_o">Property Daily — "The Hidden $50,000 Bill Crushing Canadian Condo Owners" (STEAL, used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=5QQaJ9b6TFU">Steve Saretsky — "Mortgage Rates Keep Moving Higher in Canada" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=hf9uQjqrnaM">Karl Nielsen — "How To Get a Lowball Real Estate Offer Accepted" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=btuWDFA2mLg">Ilan Portnoi — "You Won't Believe What's Happening In Toronto's Housing Market" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RP1cIw23N4M">That Agent Kelly — "Buyers And Sellers Are Getting Frustrated" (WATCH, not used today)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
