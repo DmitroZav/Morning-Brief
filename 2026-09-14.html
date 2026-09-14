@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Monday, September 14, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, September 14, 2026</div>
+  <div class="canada-day-badge">CPI HOLDS AT 3% · FOREIGN BUYER BAN'S QUIET COUNTDOWN · TARIFF WALL GROWS TOMORROW</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">George Chuvalo, the immigrant's son who was never knocked down, has died at 89.</div>
+    <p>George Chuvalo — born Jure Cuvalo to Croatian immigrant parents who worked in Toronto's slaughterhouses and poultry factories — died Saturday, September 12, his 89th birthday. He grew up in The Junction, a working-class west-Toronto neighbourhood, and became Canada's five-time heavyweight boxing champion, fighting Muhammad Ali, Joe Frazier and George Foreman. In 93 professional fights against some of the greatest heavyweights ever, he was never once knocked down — Ali himself called him "the toughest guy I ever fought" (<a href="https://www.cp24.com/news/sports/2026/09/13/canadian-boxing-legend-george-chuvalo-dead-at-89/">CP24</a>, <a href="https://en.wikipedia.org/wiki/George_Chuvalo">Wikipedia</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this isn't a real estate story, and it doesn't need to be. A factory workers' son from Herzegovina becomes a Canadian legend by refusing to go down, in the exact working-class Toronto neighbourhoods thousands of newcomers now call home. That's a story this audience feels in their bones.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">August inflation held at 3% — it didn't get worse, and after weeks of rising bond yields, that's the win.</div>
+    <p style="margin-top:10px;">StatCan's August Consumer Price Index, released this morning, came in flat at 3.0% year-over-year — identical to July, and matching what economists expected. Food prices eased to 2.8%, the first time food inflation has dropped below 3% in 14 months. Core inflation (the number the Bank of Canada actually watches) stayed put too: CPI-median at 2.0%, CPI-trim at 1.9% — both right around target, even with oil spiking toward $108/barrel on a Saudi pipeline attack (<a href="https://www.investing.com/news/economy-news/canadas-august-inflation-holds-steady-at-3-as-crude-stays-firm-food-prices-ease-4899595">Reuters via Investing.com</a>, <a href="https://www.theglobeandmail.com/business/article-canada-inflation-rate-august-2026-statistics-canada/">Globe and Mail</a>).</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the CPI print wins the lead video slot because it's released today, it's the cleanest wallet-and-decision story of the morning (a calm inflation number is one less reason for fixed rates to keep climbing), and it's real data, not a forecast. The foreign buyer ban's countdown is a brand-new lane — a real policy deadline four and a half months out that a Vancouver creator flagged yesterday, and one that directly affects some viewers on work or study permits right now. The tariff escalation keeps this brief honest about covering real news, not just what creators post, and it's a genuine deadline (tomorrow) after 5 days of the trade story sitting out entirely.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the Big Story moves away from real estate and economics again, this time for a Canadian sports and immigrant-story angle never touched before. The bond-yield/fixed-rate storyline (led or featured Sept 9 and 12, benched Sept 13) stays benched today to a single Market Pulse row — today's CPI angle is about inflation holding steady, not rates. The foreign buyer ban has never been covered by this brief. Tariffs return after a 5-day break (last led Sept 7-9) with a genuinely new angle — an outright import ban on dairy/alcohol/motorcycles, not just higher tariffs — distinct from every tariff framing used this month.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">CPI (inflation), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">Food inflation eased to 2.8%, lowest in 14 months. <a href="https://www.investing.com/news/economy-news/canadas-august-inflation-holds-steady-at-3-as-crude-stays-firm-food-prices-ease-4899595">Reuters/StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.64% (near 16-month high)</td><td>~3.63-3.65% (Sept 10-13)</td><td class="tag-flat">holding near the high, not rising further</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. <a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Ontario's best insured rate, per Ratehub. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>3.30%</td><td>3.30%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>1.3874 (72.15 US¢)</td><td>1.3862 (Sept 11)</td><td class="tag-flat">roughly flat</td>
+          <td class="plain-meaning">Steady this week after a 9-day low. <a href="https://tradingeconomics.com/canada/currency">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Brent crude oil</td>
+          <td>~$107-108/bbl</td><td>~$104.6 (Friday close)</td><td class="tag-up">4-month high</td>
+          <td class="plain-meaning">Saudi pipeline attack cut supply — feeds gas prices, hasn't hit CPI yet. <a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Aug avg $925,900; sales 5,060</td><td>—</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/">TRREB</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're locking in a mortgage this month:</strong> a calm inflation number is genuinely good news — it gives the Bank of Canada no fresh reason to let rates drift up, even with oil spiking again. That's not a guarantee fixed rates drop, but it removes one more excuse for lenders to push them higher. <strong>If you're a newcomer on a work or study permit thinking about buying someday:</strong> pay attention to the foreign buyer ban story below — it may currently apply to you, and that's set to change. <strong>If you build, sell, or work in anything that touches the US market:</strong> the tariff wall grows again tomorrow, and a full import ban lands in two weeks — this is about Canadian jobs and manufacturing, worth watching even if you never cross the border.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Oleg Galyuk | Vancouver Real Estate Agent · YouTube</div>
+      <div class="creator-platform">"Foreign Buyer Ban Is Ending — What Happens Next?" — <a href="https://www.youtube.com/watch?v=YSrCz5jIbsU">posted Sept 13</a></div>
+      <p class="creator-note">Summary: Breaks down Canada's ban on non-Canadian home buyers, set to expire January 1, 2027, and what the federal government might replace it with.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: he's speaking to investors — flip it to the newcomer angle, since some viewers on work/study permits are currently restricted by this exact ban. See Video 2.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">3 shorts: bank money-laundering risk, mortgage renewal shock, weak presales killing projects — <a href="https://www.youtube.com/shorts/puzJt48abQU">posted Sept 13</a></div>
+      <p class="creator-note">Summary: A busy posting day covering bank risk, renewal stress, and pre-construction project cancellations.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Mortgage-renewal-shock angle overlaps recent coverage; the weak-presales/project-cancellation thread is worth its own video soon, held back today.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">CondoWong · YouTube</div>
+      <div class="creator-platform">"Toronto Condos Just Turned Cash Flow Positive" — <a href="https://www.youtube.com/watch?v=rON5HBSLM60">posted Sept 13</a></div>
+      <p class="creator-note">Summary: Argues falling prices plus steady rents have flipped some Toronto condos into positive cash flow for investors for the first time in years.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Genuinely contrarian to the "condos are dead" narrative — good follow-up video, held back today to keep the lineup from being entirely condo-focused.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">I'm Canada · YouTube</div>
+      <div class="creator-platform">"Meet Your Government, Episode 3" (Minister of Finance) + "Nobody Is Ready For What Canada Is Approaching in 2027" — <a href="https://www.youtube.com/shorts/0LMbaxOypbQ">posted Sept 14</a></div>
+      <p class="creator-note">Summary: An explainer series aimed squarely at newcomers, building civic literacy about how government works.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Not stolen today, but worth studying the format — a plain-language "how Canada works" explainer series is exactly the newcomer lane this brand should be doing more of.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist (Tatiana Londono, Ron the mortgage guy, Christian Moretuzzo) — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Inflation just did something it hasn't done in months — nothing</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: today's data release, directly decision-relevant to anyone locking a mortgage rate this month, and a rare "calm" story after weeks of rate anxiety.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock</strong>
+        On-screen: "Inflation just did something it hasn't in months" <br>Spoken: "August inflation came in at 3% again — same as July. For once, prices didn't get worse."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "Everyone braced for a worse number" <br>Spoken: "Everyone expected inflation to creep higher again today. It didn't — and here's why that actually matters for your mortgage."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes</strong>
+        On-screen: "This number decides if your rate moves" <br>Spoken: "This one number, released this morning, is a big part of whether your mortgage rate keeps climbing or finally settles down."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "August inflation came in at 3% again — same as July. For once, prices didn't get worse."</p>
+        <p><strong>Body:</strong> "Statistics Canada released August's inflation numbers this morning, and the headline number held flat at 3% — exactly where it was in July. Food prices actually eased to 2.8%, the first time in 14 months food inflation has dropped below 3%. And the number the Bank of Canada actually watches most closely, core inflation, stayed right around their target too. Here's what makes this genuinely good news: oil spiked toward a 4-month high this week after an attack on a Saudi pipeline, which usually pushes inflation up fast. It didn't happen this time. A calm inflation report doesn't force the Bank of Canada to do anything about rates, and that removes one more excuse for lenders to keep pushing fixed mortgage rates higher after weeks of bond yields climbing. This isn't the number that gets you a cheaper mortgage tomorrow. But it's the number that stops things from getting worse — and after this month, that counts as a win."</p>
+        <p><strong>CTA:</strong> "Comment CPI and I'll break down exactly what today's number means for fixed vs. variable — follow for the numbers that actually move your rate."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">CPI: 3.0% (flat)</span>
+        <span class="onscreen-tag">Food: 2.8%, 14-mo low</span>
+        <span class="onscreen-tag">Core inflation on target</span>
+        <span class="onscreen-tag">Oil spiked, CPI didn't</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        grocery store aisle price tags · gas station pump closeup · person checking banking app on phone · Canadian dollar bills closeup · line graph flat trend animation
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.investing.com/news/economy-news/canadas-august-inflation-holds-steady-at-3-as-crude-stays-firm-food-prices-ease-4899595">Reuters via Investing.com — "Canada's August inflation holds steady at 3% as crude stays firm; food prices ease," Sept 14, 2026</a><br>
+        <a href="https://www.theglobeandmail.com/business/article-canada-inflation-rate-august-2026-statistics-canada/">The Globe and Mail — "Economists expect August inflation rate of 3%," Sept 14, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Canada's foreign buyer ban quietly ends January 1 — and some of you are affected right now</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a brand-new policy lane never covered before, a real deadline (not a forecast), and a direct newcomer angle most creators are missing by talking only to investors.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — "Nobody's telling you"</strong>
+        On-screen: "The foreign buyer ban ends soon" <br>Spoken: "Nobody's talking about this — Canada's ban on foreign home buyers quietly ends January 1st."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Newcomer lens</strong>
+        On-screen: "On a work or study permit? This affects you" <br>Spoken: "If you're here on a work or study permit right now, you're actually one of the people this ban restricts — and that's about to change."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Question that can't be ignored</strong>
+        On-screen: "What happens January 1, 2027?" <br>Spoken: "What happens the day Canada's foreign buyer ban expires? Nobody in Ottawa has actually decided yet."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Nobody's talking about this — Canada's ban on foreign home buyers quietly ends January 1st."</p>
+        <p><strong>Body:</strong> "Back in 2023, Canada banned non-Canadians from buying residential property, and that ban has been extended twice — most recently through the end of 2026. As of right now, it's set to lapse on January 1, 2027, and there is no confirmed federal replacement. Here's the part most coverage of this misses: 'non-Canadian' doesn't just mean overseas investors. If you're currently here on a work permit or study permit, with some narrow exceptions, you are one of the people this ban restricts today. Once permanent residency status kicks in, that restriction goes away — but plenty of newcomers watching this are in that in-between period right now. The federal government is reportedly looking at an Australian-style model instead of just letting the ban expire outright — allowing foreign capital into new construction but keeping existing homes off-limits. Nothing is finalized. If your path to owning a home in Canada depends on your immigration status, this is worth watching over the next few months, not something to assume will resolve itself."</p>
+        <p><strong>CTA:</strong> "Comment BAN and I'll walk you through exactly who the current rules apply to and who's exempt — follow so you don't miss what Ottawa decides."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Ban expires Jan 1, 2027</span>
+        <span class="onscreen-tag">Work/study permit holders restricted now</span>
+        <span class="onscreen-tag">PRs already exempt</span>
+        <span class="onscreen-tag">No replacement law yet</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Canadian passport and PR card on table · airport arrivals newcomer with luggage · "for sale" sign on suburban home · calendar flipping to January · person filling out immigration paperwork
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=YSrCz5jIbsU">Oleg Galyuk | Vancouver Real Estate Agent — "Foreign Buyer Ban Is Ending — What Happens Next?," Sept 13, 2026</a><br>
+        <a href="https://www.mpamag.com/ca/mortgage-industry/industry-trends/canadas-foreign-buyer-ban-is-expiring-what-comes-next-could-reshape-the-market/582215">Canadian Mortgage Professional — "Canada's foreign buyer ban is expiring — what comes next could reshape the market"</a><br>
+        <a href="https://www.blg.com/en/insights/2026/07/canadas-foreign-buyer-ban-what-the-2027-expiry-signals-for-investors">BLG — "Canada's foreign buyer ban: what the 2027 expiry signals for investors," July 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Tomorrow, the US tariff wall grows again — and in 2 weeks it becomes an outright ban</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a real, imminent deadline (tomorrow) after 5 days of the trade story sitting out, and a genuinely new escalation — a ban, not just a tax.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Stakes</strong>
+        On-screen: "Tomorrow, more Canadian goods get taxed 50%" <br>Spoken: "Starting tomorrow, the US slaps a 50% tax on even more Canadian-made products — and the list keeps growing."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "In 2 weeks, this becomes a full ban" <br>Spoken: "In two weeks, the US isn't just taxing Canadian alcohol, dairy and motorcycles — they're banning them outright."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Reframe</strong>
+        On-screen: "This isn't just a trade headline" <br>Spoken: "This isn't some abstract trade story on the news — it's Canadian factory jobs, and it's part of why people feel nervous about spending right now."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Starting tomorrow, the US slaps a 50% tax on even more Canadian-made products — and the list keeps growing."</p>
+        <p><strong>Body:</strong> "Tomorrow, September 15, the US adds a fresh batch of Canadian goods to its 50% tariff list — mattresses, motorboats, golf carts, lamps, bamboo furniture and more. That's on top of the tariffs already hitting steel, aluminum, and dozens of other products since late August. But here's the escalation nobody's fully clocked yet: starting September 29, the US isn't just taxing some Canadian goods anymore — it's banning imports of most Canadian alcohol, some dairy products, and motorcycles outright. Not a tax. A ban. This all started as retaliation after Canada's own counter-tariffs took effect September 8. So why should you care if you're not exporting mattresses to Miami? Because this is about Canadian manufacturing jobs — the people who make these products for a living — and it's part of the broader economic uncertainty that's been keeping some buyers and sellers cautious this fall. You don't need to panic about your own mortgage over this. But if someone in your life works in manufacturing or cross-border trade, this is the week it gets real for them."</p>
+        <p><strong>CTA:</strong> "Comment TARIFF and I'll keep you posted as this list keeps changing — follow so you're not caught off guard either way."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">50% tariff expands Sept 15</span>
+        <span class="onscreen-tag">Full import ban Sept 29</span>
+        <span class="onscreen-tag">Alcohol, dairy, motorcycles banned</span>
+        <span class="onscreen-tag">Started as retaliation, Sept 8</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        shipping containers at port · Canadian factory production line · Canada-US border crossing truck · liquor store shelf · newspaper headline scroll on laptop
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.cnbc.com/2026/09/09/us-canada-trade-war-import-ban.html">CNBC — "US reveals import ban on slew of Canadian goods as trade war escalates," Sept 9, 2026</a><br>
+        <a href="https://www.archyde.com/us-imposes-50-tariff-on-canadian-mattresses-boats-and-golf-carts/">Archyde — "US Imposes 50% Tariff on Canadian Mattresses, Boats, and Golf Carts"</a><br>
+        <a href="https://thehill.com/business/6077886-trump-bans-canadian-dairy-vehicles/">The Hill — "Trump banning Canada's dairy products, motorcycles and many alcoholic beverages"</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cp24.com/news/sports/2026/09/13/canadian-boxing-legend-george-chuvalo-dead-at-89/">CP24 — George Chuvalo dead at 89</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/George_Chuvalo">Wikipedia — George Chuvalo</a></li>
+      <li><a href="https://www.croatiaweek.com/croatian-canadian-boxing-legend-george-chuvalo-dies-89/">Croatia Week — Croatian-Canadian boxing legend George Chuvalo dies at 89</a></li>
+      <li><a href="https://www.investing.com/news/economy-news/canadas-august-inflation-holds-steady-at-3-as-crude-stays-firm-food-prices-ease-4899595">Reuters via Investing.com — Canada's August inflation holds steady at 3%</a></li>
+      <li><a href="https://www.theglobeandmail.com/business/article-canada-inflation-rate-august-2026-statistics-canada/">The Globe and Mail — Economists expect August inflation rate of 3%</a></li>
+      <li><a href="https://www.cnbc.com/2026/09/09/us-canada-trade-war-import-ban.html">CNBC — US reveals import ban on Canadian goods</a></li>
+      <li><a href="https://www.archyde.com/us-imposes-50-tariff-on-canadian-mattresses-boats-and-golf-carts/">Archyde — US imposes 50% tariff on Canadian mattresses, boats, golf carts</a></li>
+      <li><a href="https://thehill.com/business/6077886-trump-bans-canadian-dairy-vehicles/">The Hill — Trump banning Canada's dairy products, motorcycles, alcohol</a></li>
+      <li><a href="https://www.mpamag.com/ca/mortgage-industry/industry-trends/canadas-foreign-buyer-ban-is-expiring-what-comes-next-could-reshape-the-market/582215">Canadian Mortgage Professional — Foreign buyer ban is expiring</a></li>
+      <li><a href="https://www.blg.com/en/insights/2026/07/canadas-foreign-buyer-ban-what-the-2027-expiry-signals-for-investors">BLG — Foreign buyer ban 2027 expiry signals for investors</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Policy rate announcement, Sept 2, 2026</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — Selected bond yields</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-year fixed mortgage rates</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — Best 5-year variable mortgage rates</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">TradingEconomics — CAD/USD exchange rate</a></li>
+      <li><a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics — Brent crude oil price</a></li>
+      <li><a href="https://trreb.ca/">TRREB — Toronto Regional Real Estate Board</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=YSrCz5jIbsU">Oleg Galyuk | Vancouver Real Estate Agent — "Foreign Buyer Ban Is Ending — What Happens Next?" (STEAL, used today)</a></li>
+      <li><a href="https://www.youtube.com/shorts/puzJt48abQU">Steve Saretsky — "Are Canadian banks in trouble?" + 2 more shorts (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=rON5HBSLM60">CondoWong — "Toronto Condos Just Turned Cash Flow Positive" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/shorts/0LMbaxOypbQ">I'm Canada — "Meet Your Government, Episode 3" (WATCH, not used today)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
