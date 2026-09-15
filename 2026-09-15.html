@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, September 15, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, September 15, 2026</div>
+  <div class="canada-day-badge">CREA'S SOFT AUGUST (SALES −6.9%, PRICE STILL +0.6%) · RUSSIAN DRONES NEAR NATO'S POLISH BORDER · A TORONTO AGENT'S HOUSE RED FLAGS</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Russian drones near Poland's border, and NATO just promised to do more for Ukraine.</div>
+    <p>On Sunday, Russian strikes hit close to a Warsaw-bound train and near Poland's border with Ukraine — inside or right up against NATO territory. NATO Secretary General Mark Rutte responded Monday, calling it a sign of Vladimir Putin's "desperation" and a deliberate attempt to sow fear among NATO members, and pledged the 32-nation alliance will increase support for Kyiv while also strengthening its own defenses along the eastern border with Russia (<a href="https://www.aljazeera.com/news/2026/9/14/nato-pledges-increased-support-for-ukraine-after-russia-strikes-warsaw-bound-train">Al Jazeera</a>, <a href="https://www.washingtontimes.com/news/2026/sep/14/nato-chief-rutte-vowing-support-ukraine-russian-drone-strikes-near/">Washington Times</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this isn't a real estate story, but it's the story this audience actually lies awake thinking about. Strikes creeping toward a NATO border is the closest this war has come to Poland — and by extension, to Canada's own alliance commitments — in months. Worth a direct, honest video for the Ukrainian-Canadian viewers who have family within driving distance of that border.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canada's national home sales fell 6.9% in August — but the average price still went UP, and sellers just came off the sidelines.</div>
+    <p style="margin-top:10px;">CREA (the Canadian Real Estate Association) released its August numbers this morning. Nationally, 37,504 homes sold — down 6.9% from a year ago, and down 0.7% from July once you adjust for the usual seasonal patterns. But the national average price actually rose 0.6% year-over-year to $668,219. And here's the part worth watching: new listings jumped 3.3% month-over-month, snapping three straight months of fewer homes coming onto the market (<a href="https://www.globenewswire.com/news-release/2026/09/15/3361777/0/en/canadian-home-sales-slide-down-slightly-in-august.html">CREA news release via GlobeNewswire</a>, <a href="https://www.bnnbloomberg.ca/business/real-estate/2026/09/15/august-home-sales-down-69-as-economic-headwinds-threaten-market-momentum-crea/">BNN Bloomberg</a>).</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> CREA's national August release wins the lead slot because it's brand-new data (out this morning), genuinely mixed — not another "market is crashing" or "market is booming" headline — and it's a real decision point for anyone weighing whether to list or wait. Kevin Yu's buyer red-flags video is a strong steal because it's evergreen, beginner-friendly, and pairs naturally with a market where more listings are about to show up — buyers will have more to sort through. The NATO/Ukraine story earns its own video slot for the same reason Zelenskyy's visit and the Canada-Ukraine partnership did in past weeks: this audience feels this news personally, and a brief that only ever talks about mortgages misses what actually matters to them today. A tariff scope tweak announced today (removing rock salt and cement from the list, adding ATVs and more dairy items) was considered and cut — it's a minor technical adjustment to a story already covered in depth September 7-14, not fresh enough to earn a slot.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the bond-yield/fixed-rate storyline (led or featured September 9 and 12) stays benched again today to a single Market Pulse row — yields ticked up to 3.68%, but that's a continuation, not new. The Investment Summit (led September 12) isn't repeated as today's lead even though day two brought a real $52-billion Bell Canada data-centre announcement in Saskatchewan; it's genuinely major but doesn't pass the wallet test as directly as CREA's release, and repeating the summit as a lead two days running risked feeling stale. Today's CREA angle is also the first time this brief has used CREA's national release specifically — every prior housing-data video this month pulled from TRREB's Toronto-only numbers.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA national home sales, August</td>
+          <td>37,504 sales; avg price $668,219</td><td>−6.9% YoY sales; +0.6% YoY price</td><td class="tag-flat">mixed — fewer sales, price still up</td>
+          <td class="plain-meaning">New listings +3.3% MoM, ending a 3-month slide. <a href="https://www.globenewswire.com/news-release/2026/09/15/3361777/0/en/canadian-home-sales-slide-down-slightly-in-august.html">CREA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.68% (Sept 14)</td><td>~3.64-3.65% (Sept 12-13)</td><td class="tag-up">still climbing, 16+ month high</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. Not today's lead — this angle led Sept 9 &amp; 12. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Ontario's best insured rate, per Ratehub. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>3.30%</td><td>3.30%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Aug avg $925,900; sales 5,060</td><td>−0.9% MoM, −4.5% YoY</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>1.3915 (71.86 US¢)</td><td>1.3874 (72.15 US¢, Sept 14)</td><td class="tag-down">slightly weaker</td>
+          <td class="plain-meaning">Makes US goods and travel a bit pricier. <a href="https://tradingeconomics.com/canada/currency">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Brent crude oil</td>
+          <td>~$107.46/bbl</td><td>~$104-108 (recent days)</td><td class="tag-up">up 1.2%, still elevated</td>
+          <td class="plain-meaning">Middle East tension keeps a floor under gas prices. <a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're thinking about selling:</strong> national sales are down, but your home hasn't lost value on paper — the average price is still up 0.6% from a year ago. The catch is competition is about to increase: new listings just jumped after three months of sellers holding back, so if you list, expect more company on the market. <strong>If you're buying:</strong> more listings means more choice and more leverage over the next few months — a good moment to be picky rather than rushed, which is exactly why Kevin Yu's red-flag video below is worth your two minutes. <strong>If you're a newcomer with family near Ukraine's border:</strong> today's NATO story isn't about your mortgage, but it's real, and it's okay for that to be the thing on your mind today too.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Kevin Yu | Toronto Real Estate · YouTube</div>
+      <div class="creator-platform">"NEVER Buy These Types Of Toronto Houses" — <a href="https://www.youtube.com/watch?v=OvmrUbPm__Y">posted Sept 14</a></div>
+      <p class="creator-note">Summary: Walks through specific Toronto property types and red flags to watch for, including a tip to check the Fraser Institute school ranking for any specific school catchment before buying.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: rebuild this as a beginner/newcomer checklist — most new buyers don't know school rankings, flood zones, or busy-street resale problems even exist as things to check. See Video 2.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · YouTube</div>
+      <div class="creator-platform">"The Bank Of Canada Is About To Shock The Housing Market" — <a href="https://www.youtube.com/watch?v=dKr1U41ttoE">posted Sept 14</a></div>
+      <p class="creator-note">Summary: Argues the BoC's next move will catch the housing market off guard.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Overlaps the bond-yield/rate storyline this brief has deliberately benched the last two days — held back to avoid a third straight rate-anxiety video, worth revisiting once the BoC's next decision (Oct 28) gets closer.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ontario Real Estate with Mike Carpino · YouTube</div>
+      <div class="creator-platform">"5 GTA Cities Where Condo Prices Have Fallen the Most" — <a href="https://www.youtube.com/watch?v=EdY-RWrsjDQ">posted Sept 14</a></div>
+      <p class="creator-note">Summary: Ranks specific GTA cities by how far condo prices have dropped.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Strong data-driven follow-up video for later this week — held back today so the lineup isn't two housing-data videos in one brief.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"Carney warns about the future of the Canadian Economy (for now)" + 2 more shorts — <a href="https://www.youtube.com/shorts/922kMUsUeUM">posted Sept 14</a></div>
+      <p class="creator-note">Summary: Covers Carney's economic warnings tied to the Investment Summit, a Vancouver building bankruptcy sale, and investment uncertainty.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Connects to the Investment Summit angle we deliberately didn't lead with today — worth a look once summit outcomes are finalized later this week.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist (Tatiana Londono, Ron the mortgage guy, Christian Moretuzzo) — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Canada's home sales dropped 6.9% — so why didn't prices?</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: today's data release, genuinely two-sided (not doom or hype), and directly decision-relevant for anyone deciding whether to list or wait.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock</strong>
+        On-screen: "Sales dropped 6.9%. Prices didn't." <br>Spoken: "Canada's home sales just fell almost 7% from last year. So why did the average price go UP?"
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Question that can't be ignored</strong>
+        On-screen: "Fewer sales. Higher price. How?" <br>Spoken: "Fewer people bought homes in Canada last month than a year ago — so how is the average price still higher?"
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Contrarian</strong>
+        On-screen: "This isn't the crash headline you think" <br>Spoken: "Today's housing numbers look bad in the headline. The actual data tells a completely different story."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Canada's home sales just fell almost 7% from last year. So why did the average price go UP?"</p>
+        <p><strong>Body:</strong> "CREA — the Canadian Real Estate Association — released August's numbers this morning. Nationally, 37,504 homes sold, down 6.9% from a year ago, and down 0.7% from July once you adjust for the season. That's the part that makes headlines. Here's the part that doesn't: the national average price actually rose 0.6% year-over-year, to $668,219. Fewer sales didn't drag prices down — because at the same time, new listings jumped 3.3% from July, snapping three straight months where fewer homes were coming up for sale. Put those together and you get a market that isn't crashing and isn't booming — it's sellers who held back for months finally testing the water again, and buyers who are being more selective about what they'll pay for. If you're selling, don't panic about the sales number — your home hasn't lost value. If you're buying, more listings are coming, which means more room to actually negotiate instead of getting rushed into a bidding war."</p>
+        <p><strong>CTA:</strong> "Comment DATA and I'll send you the full national and GTA breakdown — follow for the numbers before the headlines twist them."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Sales: 37,504, −6.9% YoY</span>
+        <span class="onscreen-tag">Avg price: $668,219, +0.6% YoY</span>
+        <span class="onscreen-tag">New listings +3.3% MoM</span>
+        <span class="onscreen-tag">3-month listings slide, over</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        for sale sign going up on lawn · open house sign on sidewalk · person reviewing listings on phone · calculator and house keys on table · Toronto residential street aerial
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.globenewswire.com/news-release/2026/09/15/3361777/0/en/canadian-home-sales-slide-down-slightly-in-august.html">CREA — "Canadian Home Sales Slide Down Slightly in August," news release via GlobeNewswire, Sept 15, 2026</a><br>
+        <a href="https://www.bnnbloomberg.ca/business/real-estate/2026/09/15/august-home-sales-down-69-as-economic-headwinds-threaten-market-momentum-crea/">BNN Bloomberg — "August home sales down 6.9% as economic headwinds threaten market momentum: CREA," Sept 15, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">The house types a Toronto agent says to never buy</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: evergreen buyer-education content, strong newcomer angle since most new buyers don't know these checks exist, pairs naturally with more listings hitting the market.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Nobody's telling you</strong>
+        On-screen: "Your agent might not mention this" <br>Spoken: "There are house types in Toronto that a lot of agents won't warn you about — because the listing still needs to sell."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Newcomer lens</strong>
+        On-screen: "Nobody explained this to me either" <br>Spoken: "When I first started looking at homes here, nobody explained what actually makes a house hard to resell. Here's what I wish I knew."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes</strong>
+        On-screen: "This mistake follows you for years" <br>Spoken: "Buy the wrong type of house in Toronto, and you're not just uncomfortable — you're stuck when it's time to sell."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "There are house types in Toronto that a lot of agents won't warn you about — because the listing still needs to sell."</p>
+        <p><strong>Body:</strong> "I live here. I sell here. And one thing I keep seeing, especially with newcomers, is buyers falling in love with a house before checking the things that actually decide if it's a good long-term buy. Start with the school catchment — don't just trust the listing description, check the Fraser Institute ranking for the exact school your address feeds into, because it can vary block to block. Look at what's actually next to the property, not just what's in the photos — a busy street, a laneway, or a property backing onto commercial land can quietly cost you tens of thousands at resale. And pay attention to renovation history — a flip with fresh paint over old problems looks the same in photos as a genuinely well-maintained home, but it isn't the same house. None of this means don't buy — it means slow down enough to actually check. With more listings coming onto the market right now, you have the room to be picky. Use it."</p>
+        <p><strong>CTA:</strong> "Comment CHECKLIST and I'll send you the full list of things to check before you make an offer — follow for the stuff most agents assume you already know."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Check Fraser Institute school rank</span>
+        <span class="onscreen-tag">What's actually next door</span>
+        <span class="onscreen-tag">Renovation history ≠ quality</span>
+        <span class="onscreen-tag">More listings = more leverage</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        realtor walking through empty house · exterior of Toronto semi-detached homes · person reading home inspection report · school building exterior · laneway house Toronto backyard
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=OvmrUbPm__Y">Kevin Yu | Toronto Real Estate — "NEVER Buy These Types Of Toronto Houses," Sept 14, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Russian drones just hit near a NATO border — what Canada's alliance actually promises</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the biggest story of the day for this specific audience, directly resonant with viewers who have family near that border, and never covered from this security angle before.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Newcomer lens</strong>
+        On-screen: "If your family is near that border, watch this" <br>Spoken: "If you have family anywhere near Ukraine's border with Poland, you need to know what happened this weekend — and what NATO just said about it."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Question that can't be ignored</strong>
+        On-screen: "How close did this actually get to NATO?" <br>Spoken: "Russian drones just hit close to a Warsaw-bound train, right near Poland's border. How close did that actually come to NATO territory?"
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Stakes</strong>
+        On-screen: "Canada is part of this promise too" <br>Spoken: "NATO just promised to do more for Ukraine after this weekend — and Canada, as a member, is part of that promise."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "If you have family anywhere near Ukraine's border with Poland, you need to know what happened this weekend — and what NATO just said about it."</p>
+        <p><strong>Body:</strong> "On Sunday, Russian strikes hit close to a train headed for Warsaw and near Poland's border with Ukraine — right up against NATO territory. On Monday, NATO's Secretary General, Mark Rutte, responded directly. He called it a sign of Putin's desperation, and said it was a deliberate attempt to scare NATO members. He promised the alliance — all 32 countries, Canada included — will increase support for Ukraine and strengthen defenses along its own eastern border with Russia. Nothing about this changes overnight, and I'm not a security analyst — I'm a realtor who happens to care a lot about this because so many of you do too. But when strikes start landing this close to a NATO country, it matters, and it's okay if it's the thing on your mind today instead of mortgage rates."</p>
+        <p><strong>CTA:</strong> "Comment UKRAINE if you want me to keep tracking stories like this alongside the usual housing content — you tell me if that's useful."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Strikes near Warsaw-bound train</span>
+        <span class="onscreen-tag">Near Poland's border</span>
+        <span class="onscreen-tag">NATO: more support pledged</span>
+        <span class="onscreen-tag">Canada is a NATO member</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Ukrainian and Canadian flags together · Polish border crossing sign · train station platform · news broadcast montage on screen-record · Toronto Ukrainian community landmark
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.aljazeera.com/news/2026/9/14/nato-pledges-increased-support-for-ukraine-after-russia-strikes-warsaw-bound-train">Al Jazeera — "NATO pledges increased support for Ukraine after Russia strikes Warsaw-bound train," Sept 14, 2026</a><br>
+        <a href="https://www.washingtontimes.com/news/2026/sep/14/nato-chief-rutte-vowing-support-ukraine-russian-drone-strikes-near/">Washington Times — "NATO chief Rutte vows more support for Ukraine after Russian drone strikes near Polish border," Sept 14, 2026</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.aljazeera.com/news/2026/9/14/nato-pledges-increased-support-for-ukraine-after-russia-strikes-warsaw-bound-train">Al Jazeera — NATO pledges increased support for Ukraine after Russia strikes Warsaw-bound train</a></li>
+      <li><a href="https://www.washingtontimes.com/news/2026/sep/14/nato-chief-rutte-vowing-support-ukraine-russian-drone-strikes-near/">Washington Times — NATO chief Rutte vows more support for Ukraine</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/real-estate/2026/09/15/august-home-sales-down-69-as-economic-headwinds-threaten-market-momentum-crea/">BNN Bloomberg — August home sales down 6.9% as economic headwinds threaten market momentum</a></li>
+      <li><a href="https://www.cbc.ca/news/canada/saskatoon/bell-canada-ai-data-centre-size-expansion-investment-9.7343780">CBC News — Bell plans expansion of Sask. AI data centre, largest private investment in province's history (context, not a video today)</a></li>
+      <li><a href="https://www.troutman.com/insights/from-duties-to-import-bans-president-trump-escalates-section-338-actions-against-canadian-goods/">Troutman Pepper Locke — US tariff scope modifications, Sept 15, 2026 (considered, not used — minor update)</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.globenewswire.com/news-release/2026/09/15/3361777/0/en/canadian-home-sales-slide-down-slightly-in-august.html">CREA — Canadian Home Sales Slide Down Slightly in August, Sept 15, 2026</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Policy rate announcement, Sept 2, 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-year bond yield</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-year fixed mortgage rates</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — Best 5-year variable mortgage rates</a></li>
+      <li><a href="https://trreb.ca/">TRREB — Toronto Regional Real Estate Board</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">TradingEconomics — CAD/USD exchange rate</a></li>
+      <li><a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics — Brent crude oil price</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=OvmrUbPm__Y">Kevin Yu | Toronto Real Estate — "NEVER Buy These Types Of Toronto Houses" (STEAL, used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dKr1U41ttoE">Tom Storey — "The Bank Of Canada Is About To Shock The Housing Market" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=EdY-RWrsjDQ">Ontario Real Estate with Mike Carpino — "5 GTA Cities Where Condo Prices Have Fallen the Most" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/shorts/922kMUsUeUM">Steve Saretsky — "Carney warns about the future of the Canadian Economy (for now)" (WATCH, not used today)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
