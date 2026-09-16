@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, September 16, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, September 16, 2026</div>
+  <div class="canada-day-badge">EU OFFERS CANADA "ASSOCIATE MEMBER" STATUS · NEW HOME STARTS STUCK FLAT · A SELLER'S-LOSS STORY DMYTRO KNOWS FIRSTHAND</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">The EU just offered Canada something it has never offered any country before.</div>
+    <p>At her big annual "State of the Union" speech in Strasbourg, France today, European Commission President Ursula von der Leyen told Canada's Prime Minister Mark Carney — the first foreign leader ever invited to that speech — that she wants to work with him on making Canada the European Union's first-ever "associate member." That status doesn't exist yet in the EU's rulebook; both sides would have to invent it, building on the existing Canada-EU trade deal (CETA) with a broader "Alliance for the Future" covering manufacturing, defence, energy, and AI (<a href="https://www.aljazeera.com/news/2026/9/16/eu-chief-von-der-leyen-proposes-associate-member-status-for-canada">Al Jazeera</a>, <a href="https://www.cnbc.com/2026/09/16/canada-eu-associate-member-von-der-leyen.html">CNBC</a>, <a href="https://www.bloomberg.com/news/articles/2026-09-16/eu-proposes-canada-become-the-bloc-s-first-associate-member">Bloomberg</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this is the story every major outlet in the world is running today, and it's Canada's clearest answer yet to the US trade war — a real alternative to depending on one trading partner for 70% of exports. Even non-news-followers will hear about this one.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canada barely built any more new homes in August than in July — and that's a big part of why rent isn't getting cheaper.</div>
+    <p style="margin-top:10px;">CMHC (Canada Mortgage and Housing Corporation) released August's housing starts data this morning. "Housing starts" means new homes that actually broke ground. The number: 229,046 at a seasonally adjusted annual pace, essentially flat against July's 229,360 — and actual homes started in August were down about 2% from a year earlier. The 6-month moving average also slipped 1.3% from July (<a href="https://www.cp24.com/news/canada/2026/09/16/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">CP24/CMHC</a>).</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the EU "associate member" offer wins the lead slot because it's genuinely unprecedented — a status that has never existed before, announced today, and covered by every major outlet from Al Jazeera to Bloomberg. It also gives this audience real hope in a trade-war story that's mostly felt like bad news since August. CMHC's August starts release is today's actual real-estate data, and even though the number itself is undramatic (basically flat), that flatness IS the story for renters — supply isn't catching up. Ilan Portnoi's seller-loss video earns the creator slot over Karl Nielsen's "dangerous condos" video specifically to avoid repeating yesterday's buyer red-flag checklist theme two days running, and because Dmytro can tell it from his own experience buying near the market peak — something this brief hasn't done in this personal a way before.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> bond yield/fixed-rate mortgage storyline (led Sept 9 &amp; 12) stays benched again to a single Market Pulse row — it eased slightly to ~3.65% today, a continuation, not news. Tariff-implementation coverage (led/featured Sept 7, 8, 14) sits out today; the EU story is about Canada building an alternative, not another tariff-list update. TRREB/CREA housing data (used Sept 13 &amp; 15) isn't repeated — today's real-estate data comes from CMHC starts instead, a different data source than the last two housing videos. Yesterday's buyer red-flag checklist (Kevin Yu) is deliberately not repeated with a near-identical Karl Nielsen video today.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">CMHC housing starts, August</td>
+          <td>229,046 SAAR</td><td>229,360 SAAR (July)</td><td class="tag-flat">basically flat</td>
+          <td class="plain-meaning">Actual Aug starts down ~2% YoY; 6-mo avg down 1.3%. <a href="https://www.cp24.com/news/canada/2026/09/16/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">CP24/CMHC</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.65% (Sept 16)</td><td>~3.68% (Sept 14)</td><td class="tag-down">small pullback, still elevated</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. Not today's lead — this angle led Sept 9 &amp; 12. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Ontario's best insured rate, per Ratehub. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>3.30%</td><td>3.30%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Aug avg $925,900; sales 5,060</td><td>−0.9% MoM, −4.5% YoY</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>1.3915 (71.86 US¢)</td><td>1.3915</td><td class="tag-flat">little changed</td>
+          <td class="plain-meaning">Makes US goods and travel a bit pricier. <a href="https://tradingeconomics.com/canada/currency">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Brent crude oil</td>
+          <td>~$107.06/bbl</td><td>~$108.75 (Tues close)</td><td class="tag-down">down 1.55% on surprise US inventory build</td>
+          <td class="plain-meaning">A rare pullback after weeks of elevated prices. <a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you care about the bigger picture:</strong> a closer Canada-EU relationship isn't going to change your mortgage tomorrow, but a Canadian economy that's less dependent on one trading partner's mood is a more stable economy long-term — and that stability eventually shows up in job security and how confident people feel buying a home. <strong>If you're renting, especially as a newcomer:</strong> today's flat CMHC construction numbers are the quiet reason rent keeps being expensive even in months when home prices cool off — supply just isn't catching up to how many people need a place to live. <strong>If you're thinking about buying your first home:</strong> Ilan Portnoi's video below is a reminder — from someone who's lived it — that markets move in both directions, and it's worth hearing the honest version before you sign anything.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi · YouTube</div>
+      <div class="creator-platform">"MASSIVE LOSSES in Brampton & Toronto | 5 Shocking Stories" — <a href="https://www.youtube.com/watch?v=hGZlKE4sJ3s">posted Sept 15</a></div>
+      <p class="creator-note">Summary: Walks through five real seller stories in Brampton and Toronto who bought near the market peak and are now selling at real, six-figure losses.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: tell it through your own lens — you bought near the peak too. Rebuild this as a personal, honest video rather than a checklist. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler | Angry Mortgage Clips · YouTube</div>
+      <div class="creator-platform">"Trade War Escalates" — <a href="https://www.youtube.com/watch?v=lsAaar74bfw">posted Sept 16</a></div>
+      <p class="creator-note">Summary: Commentary on Carney's messaging around trade-war escalation risk and Canada's pivot away from US dependence.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Overlaps today's EU "associate member" lead — held back so the brief isn't doubling up on the same theme; worth revisiting once EU-Canada talks progress toward the Montreal summit.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen | Toronto Property Finders · YouTube</div>
+      <div class="creator-platform">"The Most Dangerous Toronto Condos To Buy!" — <a href="https://www.youtube.com/watch?v=F6Pn7geWozY">posted Sept 15</a></div>
+      <p class="creator-note">Summary: Buyer red-flag checklist for specific Toronto condo types to avoid.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Near-identical lane to yesterday's Kevin Yu "never buy these houses" video — held back today to avoid two straight days of buyer-checklist content; strong candidate later this week.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Jon Flynn Real Estate Stats · YouTube</div>
+      <div class="creator-platform">"Losses Are Getting Bigger | $450K Average Hit in one Region" — <a href="https://www.youtube.com/watch?v=RZrDe7QFQDk">posted Sept 15</a></div>
+      <p class="creator-note">Summary: Coast-to-coast breakdown of regional price losses, claims one region's average hit is $450K.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Couldn't independently verify the $450K figure to a primary source in time for today's brief — worth a follow-up once the underlying data is confirmed rather than repeating an unverified number.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mark Mitchell | Mortgage Broker London Ontario · YouTube</div>
+      <div class="creator-platform">"Rate Hikes SINK Fall Real Estate" — <a href="https://www.youtube.com/watch?v=525MAE4-f9k">posted Sept 15</a></div>
+      <p class="creator-note">Summary: Argues rising borrowing costs are undermining the hoped-for fall market rebound.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Overlaps the bond-yield/rate storyline this brief has deliberately benched since Sept 12 — revisit once the BoC's next decision (Oct 28) gets closer.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">A few other channels posted in the last 24h but didn't clear the bar: home-staging tips, generic "how's the market" chat, and a Surrey-specific (non-GTA) location video. TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">The EU just offered Canada something no country has ever gotten before</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the single biggest global story of the day, directly tied to the trade-war narrative this audience already follows, and reframes Canada from "tariff victim" to "Canada has options."</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Number shock / historic first</strong>
+        On-screen: "Canada might join the EU. Kind of." <br>Spoken: "Today the European Union offered Canada something it has never offered any country in its history."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Contrarian</strong>
+        On-screen: "Canada's answer to Trump's tariffs?" <br>Spoken: "Everyone thinks Canada just has to sit there and take the tariffs. Today, Europe offered a different way out."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Question that can't be ignored</strong>
+        On-screen: "Why is Europe suddenly courting Canada?" <br>Spoken: "Why did the president of the European Union just stand up in front of the entire EU Parliament and invite Canada in?"
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "Today the European Union offered Canada something it has never offered any country in its history."</p>
+        <p><strong>Body:</strong> "Ursula von der Leyen — she runs the European Commission, basically the EU's government — gave her big annual speech today in France, and Canada's Prime Minister Mark Carney was sitting right there in the room, the first foreign leader ever invited to that speech. She told him she wants Canada to become the EU's first-ever 'associate member' — a status that doesn't even exist yet, they'd have to invent it. Why does this matter to you? Right now, about 70% of everything Canada sells goes to the United States. That's a huge amount of eggs in one basket, and this year's tariff war showed exactly why that's risky. A closer relationship with Europe — on trade, on manufacturing, on energy — means Canada isn't stuck depending on one country's mood. Nothing changes tomorrow: the details aren't even worked out yet, and both sides plan to talk more at a summit in Montreal next month. But when a country's economy gets more stable and less exposed to one trading partner, that eventually shows up in everything from job security to how confident people feel about buying a home."</p>
+        <p><strong>CTA:</strong> "Comment EU and I'll keep you posted as this actually gets worked out — follow so you don't miss where this goes."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">First-ever EU "associate member" offer</span>
+        <span class="onscreen-tag">70% of Canada's exports go to the US</span>
+        <span class="onscreen-tag">EU-Canada summit: Montreal, next month</span>
+        <span class="onscreen-tag">Nothing is signed yet</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        EU flag waving · Canadian flag waving · European Parliament building exterior · news broadcast montage screen-record · cargo ship at port
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.aljazeera.com/news/2026/9/16/eu-chief-von-der-leyen-proposes-associate-member-status-for-canada">Al Jazeera — "EU chief von der Leyen proposes 'associate member' status for Canada," Sept 16, 2026</a><br>
+        <a href="https://www.cnbc.com/2026/09/16/canada-eu-associate-member-von-der-leyen.html">CNBC — "Canada invited to become EU's first 'associate member' as Trump trade war intensifies," Sept 16, 2026</a><br>
+        <a href="https://www.bloomberg.com/news/articles/2026-09-16/eu-proposes-canada-become-the-bloc-s-first-associate-member">Bloomberg — "EU Proposes Canada Become the Bloc's First Associate Member," Sept 16, 2026</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">New home construction barely moved in August — here's why your rent isn't dropping</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: today's actual data release, directly explains a pain point every renter and newcomer feels, honest "flat is still bad" framing instead of a dramatic headline.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Nobody's telling you</strong>
+        On-screen: "This number explains your rent" <br>Spoken: "New numbers came out this morning that explain exactly why your rent isn't dropping anytime soon."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Number shock</strong>
+        On-screen: "229,046. Basically unchanged." <br>Spoken: "Canada just released how many new homes started construction last month — and the number barely moved."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Newcomer lens</strong>
+        On-screen: "Renters, this one's for you" <br>Spoken: "If you're renting in Canada right now, especially if you're new here, this number matters more to you than almost anyone."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "New numbers came out this morning that explain exactly why your rent isn't dropping anytime soon."</p>
+        <p><strong>Body:</strong> "CMHC — Canada Mortgage and Housing Corporation, the government agency that tracks this stuff — released August's housing starts data today. 'Housing starts' just means how many new homes actually broke ground last month. The number: 229,046 at a seasonally adjusted annual pace, basically flat compared to July's 229,360. Not a crash, not a jump — just stuck. And if you look at the actual homes built in August, it's down about 2% compared to the same month last year. Here's why that matters even if you're not buying anything: Canada needs a lot more homes built to catch up with how many people are moving here and forming new households. When construction just sits flat instead of climbing, supply doesn't catch up to demand — and that's a big part of why rent keeps being expensive even in months when home prices are cooling off. This isn't a dramatic headline. It's a quiet number that tells you the supply problem isn't getting fixed yet."</p>
+        <p><strong>CTA:</strong> "Comment RENT and I'll break down which cities are actually building enough — follow for the numbers that actually explain your bills."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Housing starts: 229,046 (Aug)</span>
+        <span class="onscreen-tag">July was 229,360 — basically flat</span>
+        <span class="onscreen-tag">Actual Aug starts down ~2% YoY</span>
+        <span class="onscreen-tag">Supply still not catching up</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        construction site with cranes · new home framing lumber · apartment building under construction · for rent sign on lawn · city skyline construction cranes
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.cp24.com/news/canada/2026/09/16/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">CP24 — "CMHC reports annual pace of housing starts edged lower in August," Sept 16, 2026 (CMHC data)</a><br>
+        <a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases">CMHC — Media Newsroom, News Releases</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">I bought near the peak too — the real stories behind 5 sellers taking a loss</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: personal, emotional, taps Dmytro's own credibility and lived experience buying near the market peak — a genuinely new angle for this brief, distinct from buyer-checklist content.</div>
+
+      <div class="hook-box">
+        <strong>Hook Variant 1 — Personal stakes</strong>
+        On-screen: "I bought at the peak too." <br>Spoken: "I bought my place near the top of the market. This week I watched five other people go through exactly what I went through."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 2 — Stakes / this costs you</strong>
+        On-screen: "These sellers lost six figures." <br>Spoken: "Five sellers in Brampton and Toronto just walked away from their homes with six-figure losses. Here's what actually happened to them."
+      </div>
+      <div class="hook-box">
+        <strong>Hook Variant 3 — Contrarian</strong>
+        On-screen: "This isn't a scare story" <br>Spoken: "I'm not telling you this to scare you off buying a home — I'm telling you because nobody told me before I bought mine."
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> "I bought my place near the top of the market. This week I watched five other people go through exactly what I went through."</p>
+        <p><strong>Body:</strong> "I don't talk about this a lot, but I bought my own condo close to when prices peaked — and I know exactly what it feels like to watch the value drop after you sign. This week, realtor Ilan Portnoi posted five real stories of sellers in Brampton and Toronto who bought near the top and are now selling for a real loss, not just 'the market's a bit soft' — actual money gone. I'm not sharing this to scare you away from buying a home. Real estate can still be one of the best long-term moves you make here. I'm sharing it because when I bought, nobody explained that markets move in both directions, that a home is a long-term hold, not a guaranteed quick win, and that it's okay to walk away from a deal that doesn't feel right just because everyone around you is buying. If you're a newcomer thinking about your first purchase, talk to someone who'll tell you the honest version, not just the exciting one."</p>
+        <p><strong>CTA:</strong> "Comment HONEST and I'll share the mistakes I made buying my own place — follow if you want the real version, not the highlight reel."</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">I bought near the market peak too</span>
+        <span class="onscreen-tag">5 real sellers, real losses</span>
+        <span class="onscreen-tag">Not a scare story — a heads up</span>
+        <span class="onscreen-tag">Talk to someone who'll be honest with you</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        for sale sign with price reduced sticker · moving boxes in empty condo · person reviewing bank statement · Brampton residential street · handshake at closing table
+      </div>
+
+      <div class="script-block">
+        <div class="script-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=hGZlKE4sJ3s">Ilan Portnoi — "MASSIVE LOSSES in Brampton & Toronto | 5 Shocking Stories," Sept 15, 2026</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.aljazeera.com/news/2026/9/16/eu-chief-von-der-leyen-proposes-associate-member-status-for-canada">Al Jazeera — EU chief von der Leyen proposes "associate member" status for Canada</a></li>
+      <li><a href="https://www.cnbc.com/2026/09/16/canada-eu-associate-member-von-der-leyen.html">CNBC — Canada invited to become EU's first "associate member" as Trump trade war intensifies</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-09-16/eu-proposes-canada-become-the-bloc-s-first-associate-member">Bloomberg — EU Proposes Canada Become the Bloc's First Associate Member</a></li>
+      <li><a href="https://www.cp24.com/news/canada/2026/09/16/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">CP24 — CMHC reports annual pace of housing starts edged lower in August</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases">CMHC — Media Newsroom, News Releases (housing starts, Aug 2026)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Policy rate announcement, Sept 2, 2026</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-year bond yield</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-year fixed mortgage rates</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — Best 5-year variable mortgage rates</a></li>
+      <li><a href="https://trreb.ca/">TRREB — Toronto Regional Real Estate Board</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">TradingEconomics — CAD/USD exchange rate</a></li>
+      <li><a href="https://tradingeconomics.com/commodity/brent-crude-oil">TradingEconomics — Brent crude oil price</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=hGZlKE4sJ3s">Ilan Portnoi — "MASSIVE LOSSES in Brampton & Toronto | 5 Shocking Stories" (STEAL, used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lsAaar74bfw">Ron Butler | Angry Mortgage Clips — "Trade War Escalates" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=F6Pn7geWozY">Karl Nielsen | Toronto Property Finders — "The Most Dangerous Toronto Condos To Buy!" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RZrDe7QFQDk">Jon Flynn Real Estate Stats — "Losses Are Getting Bigger | $450K Average Hit in one Region" (WATCH, not used today)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=525MAE4-f9k">Mark Mitchell | Mortgage Broker London Ontario — "Rate Hikes SINK Fall Real Estate" (WATCH, not used today)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
