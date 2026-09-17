@@ -1,1 +1,562 @@
-hello test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Thursday, September 17, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, September 17, 2026</div>
+  <div class="canada-day-badge">TRUMP CALLS EU-CANADA PLAN A "HOSTILE ACT" · BMO SAYS MORTGAGE RELIEF IS DONE · DID THE FALL MARKET DIE IN WEEK ONE?</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Trump just called Canada's new EU deal a "hostile act" — and threatened Europe with tariffs over it.</div>
+    <p>One day after European Commission President Ursula von der Leyen offered Canada a first-ever "associate member" status (a brand-new category built on top of the existing Canada-EU trade deal), Prime Minister Mark Carney addressed the European Parliament in Strasbourg today, calling it not a bid for full EU membership but a way for Canada and Europe to be "stronger together" and less dependent on any one trading partner (<a href="https://www.pm.gc.ca/en/news/speeches/2026/09/17/prime-minister-carney-delivers-address-european-parliament">PM's Office</a>, <a href="https://www.cbc.ca/news/politics/carney-addresses-eu-parliament-9.7346339">CBC</a>). President Trump reacted within hours, calling the plan "laughable," warning it could be treated as a "hostile act," and threatening the EU with "very heavy tariffs" if it goes ahead — while also calling Canada a "terrible trade partner" (<a href="https://www.cnbc.com/2026/09/17/trump-canada-european-union-tariffs-associate-member-ukraine-.html">CNBC</a>, <a href="https://www.theweek.in/news/world/2026/09/17/trump-calls-eu-canada-alliance-hostile-act-threatens-very-heavy-tariffs.html">The Week</a>, <a href="https://www.foxbusiness.com/politics/trump-calls-canadas-potential-eu-associate-membership-laughable-warns-europe-very-heavy-tariffs">Fox Business</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this is a real-time escalation everyone's watching today, and it directly tests whether Canada's "let's not depend on one partner" plan can survive a direct threat from that partner. Even people who don't follow trade news will hear "Trump threatens Europe" today.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">A big bank just told investors the mortgage "relief" we've had this year is over — and a mortgage broker posted the same warning hours later.</div>
+    <p style="margin-top:10px;">This morning, BMO Capital Markets told investors that whatever mortgage rate relief Canadians have felt this cycle "is done" — the market is now pricing roughly five Bank of Canada rate hikes by the end of 2027 (BMO thinks that's too aggressive, but still expects real hikes ahead), driven by inflation stuck at 3% and Government-of-Canada bond yields — the rate that sets your FIXED mortgage — up 51 basis points in the last three months (<a href="https://betterdwelling.com/canadian-mortgage-rate-relief-done-for-this-stage-of-the-cycle-bmo/">Better Dwelling / BMO Capital Markets</a>). Hours later, Toronto mortgage broker Ron Butler posted a video with almost the same warning, pointing to bond yields, oil prices and global debt worries (<a href="https://www.youtube.com/watch?v=bBdEpmyMtuA">Angry Mortgage Clips, posted today</a>).</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> Trump's "hostile act" tariff threat takes the lead because it's a real-time escalation of yesterday's EU story, not a repeat of it — it moves the story from "here's an offer" to "here's the backlash," which is a genuinely different beat with real trade-war stakes. The BMO/Ron Butler mortgage story wins the real-estate slot over the day's other creator posts because it's a rare same-morning convergence between a bank's institutional note and a mortgage broker's video, both landing on the same conclusion within hours of each other — that's a stronger signal than any single post. Robert Marsiglio's "did the fall market die in week one" earns Video 3 over Zhen Liang's seller-loss video and Alex Applegate's rate-hike video specifically to avoid tripling up on themes already used this week.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the Big Story moves from Sept 16's "EU makes an offer" framing to today's "Trump reacts and threatens tariffs" — a new development, not a repeat. The bond-yield/fixed-rate storyline has led or featured multiple times recently (Sept 9, Sept 12, benched Sept 16) and risks becoming repetitive — but today's angle is qualitatively different: a bank publicly declaring the relief phase "done" and the market pricing five hikes is a sharper, more urgent claim than "yields ticked up again," which is why it clears the bar today. Yesterday's seller-loss angle (Ilan Portnoi) and this week's buyer red-flag checklists (Kevin Yu, Karl Nielsen) are deliberately NOT repeated — Zhen Liang's near-identical seller-loss video today is held to WATCH instead.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Next decision Oct 28. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.68% (Sept 14, highest close in weeks)</td><td>~3.65% (Sept 12)</td><td class="tag-up">up, +51bps over 3 months</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates — the reason BMO says relief is over. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">flat for now</td>
+          <td class="plain-meaning">BMO and Ron Butler both say this is about to move up. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>3.30%</td><td>3.30%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">Sitting at the top of BoC's comfort zone — part of why hikes are back on the table. <a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling / StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release (Aug)</td>
+          <td>Avg $925,900; sales 5,057</td><td>−0.9% MoM, −4.5% YoY</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA (national), last release (Aug)</td>
+          <td>Avg $668,219; sales −6.9% YoY</td><td>vs. Aug 2025</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Weakest demand balance in almost 30 years. <a href="https://betterdwelling.com/canadian-real-estate-prices-fall-demand-balance-hits-29-year-low/">Better Dwelling / CREA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>1.3915 (≈71.9 US¢)</td><td>1.3915</td><td class="tag-flat">little changed</td>
+          <td class="plain-meaning">Makes US goods and travel a bit pricier. <a href="https://tradingeconomics.com/canada/currency">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Gas price, national average (CAA)</td>
+          <td>179.1¢/L</td><td>177.6¢/L (yesterday)</td><td class="tag-up">up slightly</td>
+          <td class="plain-meaning">Up ~2¢ over two weeks; not today's story, just context. <a href="https://www.caa.ca/gas-prices/">CAA</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're watching the trade story:</strong> a bigger fight between Trump and Europe over Canada's new alliance doesn't hit your bank account today, but it's another sign the US relationship isn't getting calmer — and that uncertainty is exactly what's been keeping the housing market "flat" all year, per BMO's own read. <strong>If you have a mortgage coming up for renewal or you're about to buy:</strong> today's real news is the BMO + Ron Butler convergence — two independent voices saying the cheap-money window is closing. It's worth getting your rate shopped and your numbers run in the next few weeks, not waiting. <strong>If you're a first-time buyer, especially a newcomer:</strong> don't build your plan around "the fall market always gets busy" — Video 3 below is a reality check on that assumption using this week's actual numbers.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ron Butler · Angry Mortgage Clips · YouTube</div>
+      <div class="creator-platform">"WOO-WEE!! FIXED RATES GO WILD!!" — <a href="https://www.youtube.com/watch?v=bBdEpmyMtuA">posted today, Sept 17</a></div>
+      <p class="creator-note">Summary: Fixed mortgage rates taking off as bond yields "go wild" — points to oil prices, surging long bonds worldwide, and deficit worries as the causes, warns higher fixed rates are coming.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair this directly with BMO's same-day institutional note for Video 2 — a bank and a broker agreeing hours apart is a stronger hook than either alone.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Robert Marsiglio | GTA Realtor · YouTube</div>
+      <div class="creator-platform">"Did the Fall Housing Market Just Die in Week One?" — <a href="https://www.youtube.com/watch?v=4ew_V8ezVgg">posted Sept 16</a></div>
+      <p class="creator-note">Summary: September normally kicks off the busy GTA fall market, but one week in, activity looks closer to a winter freeze than a rebound.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: turn this into an honest gut-check for anyone banking on "the fall market always picks up" — see Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Alex Applegate | Real Estate & Mortgages · YouTube</div>
+      <div class="creator-platform">"This Is What ALWAYS Happens Before the Bank of Canada Hikes Rates Again" — <a href="https://www.youtube.com/watch?v=1ItY7hTWwX8">posted Sept 16</a></div>
+      <p class="creator-note">Summary: Walks through the historical pattern that tends to precede a BoC hike.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Overlaps today's BMO/Ron Butler rate-hike lead — held back so the brief isn't tripling up on the same theme; strong candidate once the Oct 28 BoC decision gets closer.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Zhen Liang | Prime Properties TO · YouTube</div>
+      <div class="creator-platform">"80% of Toronto Home Sellers Just Lost Money — Waiting Made It WORSE" — <a href="https://www.youtube.com/watch?v=O9UeL5ofYYs">posted Sept 16</a></div>
+      <p class="creator-note">Summary: Data-driven breakdown claiming 80% of recent Toronto sellers sold below what an earlier sale would have brought.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Near-identical lane to yesterday's Ilan Portnoi seller-loss video — held back today to avoid two straight days of the same theme.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Toronto Realty Group | David Fleming · YouTube</div>
+      <div class="creator-platform">"Toronto's 3-Bedroom Condos: Do These Layouts Actually Work? | Pick 5 Edition" — <a href="https://www.youtube.com/watch?v=3wFGMNb8BqQ">posted today, Sept 17</a></div>
+      <p class="creator-note">Summary: Evergreen buyer-education breakdown of specific condo floor plans.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid evergreen buyer-education lane, but no urgency today — good candidate for a slower news day.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">Also posted in the last 24h but didn't clear the bar: a downsizing vlog (Audra Lambert), a generic Toronto-West listings tour (Kevin Yu), a probate/estate-planning explainer (RealEstateTaxTips), a personal-finance video not GTA-specific (Parallel Wealth), a Power-of-Sale listings roundup (Mike Carpino), and a second "rough fall market" take (That Agent Kelly) that covers the same ground as Marsiglio's, chosen instead for having real numbers behind it. TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Trump calls Canada's EU deal a "hostile act"</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: real-time political drama with a genuine trade-war angle everyone's talking about today.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Stakes</strong>On-screen: "Trump just threatened Europe over Canada" / Spoken: "Trump just called Canada's newest ally a 'hostile act' — and threatened tariffs that could hit your wallet too."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Question</strong>On-screen: "Why is Trump mad at Europe now?" / Spoken: "Yesterday the EU offered Canada something huge. Today Trump called it a 'hostile act.' Here's what that actually means."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Contrarian</strong>On-screen: "This isn't just political drama" / Spoken: "Everyone's treating this like just another Trump headline. It's not — here's why it could hit prices at the store."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Trump just called Canada's newest ally a "hostile act" — and threatened tariffs that could hit your wallet too.</p>
+        <p><strong>Body:</strong> Yesterday, the EU's top official offered Canada a brand-new status — "associate member" — closer trade, defence, and AI ties, built on top of our existing trade deal. Today our PM addressed the EU Parliament and said: we're not trying to join the EU, just trying to not depend on one country so much. A few hours later, Trump called the whole plan "laughable," said it could be a "hostile act," and threatened Europe with "very heavy tariffs" if it goes ahead — plus called Canada a "terrible trade partner." This is the same US-Canada trade fight from August, just on a new front. If Trump follows through, it's not just Canada that could feel it.</p>
+        <p><strong>CTA:</strong> Comment "EU" if you want me to keep tracking this deal step by step — I'll post the next update the moment something changes.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">EU offers Canada a first</span>
+        <span class="onscreen-tag">Trump: "hostile act"</span>
+        <span class="onscreen-tag">Threatens Europe with tariffs</span>
+        <span class="onscreen-tag">What it means for you</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Canadian and EU flags waving together; European Parliament building Strasbourg exterior; news broadcast montage on a TV/monitor; shipping containers at a port; Canadian dollar bills close-up.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://www.pm.gc.ca/en/news/speeches/2026/09/17/prime-minister-carney-delivers-address-european-parliament">PM's Office — Carney's EU Parliament address</a> · <a href="https://www.cnbc.com/2026/09/17/trump-canada-european-union-tariffs-associate-member-ukraine-.html">CNBC — Trump's "hostile act" reaction</a> · <a href="https://www.theweek.in/news/world/2026/09/17/trump-calls-eu-canada-alliance-hostile-act-threatens-very-heavy-tariffs.html">The Week</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">A bank and a broker just agreed: your mortgage "break" is over</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: same-day convergence between institutional data (BMO) and a trusted creator (Ron Butler) — a rare, credible double-confirmation.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Stakes</strong>On-screen: "Your mortgage 'break' just ended" / Spoken: "BMO just told investors the mortgage rate relief we've had this year? Done. Here's what's coming instead."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Number shock</strong>On-screen: "5 rate hikes. That's what's priced in." / Spoken: "The market now expects five Bank of Canada rate hikes by 2027. Let me break down what that actually does to your payment."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — "Nobody's telling you"</strong>On-screen: "Your bank won't say this part loud" / Spoken: "Two mortgage experts said almost the exact same thing on the exact same day — rates are about to move, and not in your favor."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> BMO just told investors the mortgage rate relief we've had this year? Done.</p>
+        <p><strong>Body:</strong> This morning BMO Capital Markets — one of Canada's biggest banks — told investors that whatever relief mortgage rates have had this cycle "is over." Why: inflation's stuck at 3%, the top of the Bank of Canada's comfort zone, and Government of Canada bond yields — the thing that actually sets your FIXED mortgage rate — jumped 51 basis points in just three months. The market's now pricing five rate hikes by end of 2027. BMO thinks that's a bit much, but they still expect real hikes coming. A few hours later, Toronto mortgage broker Ron Butler posted almost the same warning — bond yields, oil prices, and global debt worries pushing fixed rates up. Two independent voices, same morning, same conclusion.</p>
+        <p><strong>CTA:</strong> Save this before you talk to your bank. Comment "RATE" and I'll send you my simple renewal checklist.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Rate "relief"? Over.</span>
+        <span class="onscreen-tag">5 hikes now priced in</span>
+        <span class="onscreen-tag">Bond yields at a 3-month high</span>
+        <span class="onscreen-tag">What to do before you renew</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Bank branch exterior signage; calculator and mortgage paperwork close-up; stock/bond chart graphic on a screen; person reviewing bills at a kitchen table; Canadian coins and bills.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://betterdwelling.com/canadian-mortgage-rate-relief-done-for-this-stage-of-the-cycle-bmo/">Better Dwelling — BMO Capital Markets note</a> · <a href="https://www.youtube.com/watch?v=bBdEpmyMtuA">Angry Mortgage Clips — "Fixed Rates Go Wild" (Ron Butler)</a> · <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — 5-yr bond yield</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Did the fall market just die in week one?</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: challenges a widely repeated "rule of thumb" with real week-one data — gives buyers permission to not rush.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Number shock / contrarian</strong>On-screen: "Fall market was supposed to heat up" / Spoken: "One week into fall and the numbers already look like winter. Here's what's actually happening."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Question</strong>On-screen: "Did the fall market just die?" / Spoken: "Realtors count on a fall rebound every year. One week in — does the data actually agree?"</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Newcomer lens</strong>On-screen: "New here? Don't trust 'the fall rush'" / Spoken: "If you moved to Canada expecting a busy fall market to buy or sell into, the first week is telling a different story."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> One week into fall and the numbers already look like winter. Here's what's actually happening.</p>
+        <p><strong>Body:</strong> Every September, GTA agents talk about the "fall rebound" — buyers and sellers coming back after summer. This year, one week in, the early activity isn't matching that story: showings are slower, offers are taking longer, and listings are sitting. That doesn't mean the whole market crashed — it means the "just wait for fall, it always gets busy" advice you've probably heard isn't automatic this year. If you're a buyer, that's leverage you didn't expect yet. If you're a newcomer trying to time your first purchase around a rule of thumb, don't build your whole plan on it.</p>
+        <p><strong>CTA:</strong> Comment "FALL" and tell me your neighborhood — I'll give you my honest read, good or bad.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Fall market = busy?</span>
+        <span class="onscreen-tag">Week 1 says no.</span>
+        <span class="onscreen-tag">Buyer leverage right now</span>
+        <span class="onscreen-tag">Don't trust the rule of thumb</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        For-sale signs on GTA lawns; open house walk-through; realtor showing an empty house; suburban Toronto street in early fall; calendar page flipping to September.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=4ew_V8ezVgg">Robert Marsiglio | GTA Realtor — "Did the Fall Housing Market Just Die in Week One?"</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.pm.gc.ca/en/news/speeches/2026/09/17/prime-minister-carney-delivers-address-european-parliament">PM's Office — Carney's EU Parliament address (Sept 17)</a></li>
+      <li><a href="https://www.cbc.ca/news/politics/carney-addresses-eu-parliament-9.7346339">CBC — Carney addresses EU Parliament</a></li>
+      <li><a href="https://www.cnbc.com/2026/09/17/trump-canada-european-union-tariffs-associate-member-ukraine-.html">CNBC — Trump calls EU-Canada plan a "hostile act"</a></li>
+      <li><a href="https://www.theweek.in/news/world/2026/09/17/trump-calls-eu-canada-alliance-hostile-act-threatens-very-heavy-tariffs.html">The Week — Trump threatens "very heavy tariffs"</a></li>
+      <li><a href="https://www.foxbusiness.com/politics/trump-calls-canadas-potential-eu-associate-membership-laughable-warns-europe-very-heavy-tariffs">Fox Business — Trump calls plan "laughable"</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — rate hold, Sept 2</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-yr bond yield</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-yr fixed mortgage rates</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — best 5-yr variable mortgage rates</a></li>
+      <li><a href="https://betterdwelling.com/canadian-mortgage-rate-relief-done-for-this-stage-of-the-cycle-bmo/">Better Dwelling — BMO Capital Markets: mortgage relief "done"</a></li>
+      <li><a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling — August CPI held at 3%</a></li>
+      <li><a href="https://betterdwelling.com/canadian-real-estate-prices-fall-demand-balance-hits-29-year-low/">Better Dwelling — CREA August national data</a></li>
+      <li><a href="https://trreb.ca/">TRREB — market data portal</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">TradingEconomics — CAD/USD</a></li>
+      <li><a href="https://www.caa.ca/gas-prices/">CAA — national gas price average</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=bBdEpmyMtuA">Angry Mortgage Clips (Ron Butler) — "WOO-WEE!! FIXED RATES GO WILD!!"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=4ew_V8ezVgg">Robert Marsiglio | GTA Realtor — "Did the Fall Housing Market Just Die in Week One?"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1ItY7hTWwX8">Alex Applegate — "This Is What ALWAYS Happens Before the Bank of Canada Hikes Rates Again"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=O9UeL5ofYYs">Zhen Liang | Prime Properties TO — "80% of Toronto Home Sellers Just Lost Money"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=3wFGMNb8BqQ">Toronto Realty Group — "Toronto's 3-Bedroom Condos"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
