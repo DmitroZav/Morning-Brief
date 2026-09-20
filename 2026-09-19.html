@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Saturday, September 19, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Saturday, September 19, 2026</div>
+  <div class="canada-day-badge">CARNEY MEETS MACRON ON A FRENCH ISLAND OFF NEWFOUNDLAND · CMHC QUIETLY MOVES THE AFFORDABILITY GOALPOSTS · ALBERTA'S OCT 19 VOTE INCLUDES AN IMMIGRANT-SERVICES QUESTION</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada's PM just flew to a tiny French island 20km off Newfoundland — and it's about way more than geography.</div>
+    <p>This weekend, Prime Minister Mark Carney is meeting French President Emmanuel Macron on Saint-Pierre-et-Miquelon — three small islands, home to under 6,000 people, that belong to France and sit just off Newfoundland's south coast (<a href="https://en.wikipedia.org/wiki/Saint_Pierre_and_Miquelon">Wikipedia</a>). It's the first time a Canadian PM has ever made an official visit there, and the first visit by a French president in over a decade (<a href="https://www.theglobeandmail.com/politics/article-carneys-pivot-to-europe-takes-him-to-a-french-island-off-newfoundland/">Globe and Mail</a>). The two leaders are talking aerospace, energy, critical minerals, quantum tech, satellites and even turning the islands into a "rear base" for Arctic cooperation with Denmark and Greenland (<a href="https://www.france24.com/en/france/20260919-french-outpost-off-canada-in-the-spotlight-as-macron-hosts-carney-on-symbolic-visit">France 24</a>, <a href="https://www.cbc.ca/news/canada/newfoundland-labrador/mark-carney-to-meet-with-emmanuel-macron-in-saint-pierre-et-miquelon-9.7344860">CBC News</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> "France has islands 20 minutes from Newfoundland" is the kind of surprising-trivia hook that stops the scroll on its own — and it's backed by a real, bigger story: Canada visibly leaning toward Europe while things stay tense with the US (<a href="https://www.pm.gc.ca/en/news/news-releases/2026/09/13/prime-minister-carney-visit-saint-pierre-et-miquelon-strengthen-ties">PM's Office</a>). No direct wallet impact today, so it leads the Big Story slot rather than a full video — see "Why These Made the Cut" below.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">CMHC just quietly moved the finish line on what counts as "affordable" housing — without a single new home being built.</div>
+    <p style="margin-top:10px;">CMHC's Fall 2026 Housing Supply Report changed its own target: instead of aiming to bring prices back down to 2004-level affordability, the agency now says restoring 2019 ("pre-pandemic") affordability by 2036 is the goal — a much easier bar, since prices were already far higher by 2019 (<a href="https://betterdwelling.com/canadas-plan-to-fix-housing-just-change-what-affordable-means/">Better Dwelling</a>, <a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/market-reports/housing-market/housing-supply-report">CMHC</a>). Even with the softer target, Canada would need 417,000–469,000 new homes built every year through 2036 — but the country is only on pace for about 229,000–247,000 (<a href="https://www.canadianmortgagetrends.com/2026/09/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">Canadian Mortgage Trends</a>). Translation: the government's own definition of "success" got easier to hit on paper, while the actual homes still aren't showing up.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> CMHC's own report and Property Daily's zoning-law video both hit the wallet test hardest — one shows the government moving its own goalposts, the other explains why so few homes get built in the first place. Alberta's Oct 19 referendum earns the second news slot specifically because one of its 10 questions targets provincially funded services for people based on immigration status — a direct decision-relevant story for this audience even outside Alberta. Carney's trip to meet Macron is today's single biggest "would a non-news person care" headline, but it has no direct wallet impact, so it leads only the Big Story slot, not a full video.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> this steers completely away from the Fed-hike/loonie story that led Sept 18, the Trump/EU "hostile act" tariff story from Sept 16–17, and the bond-yield/rate storylines that have repeatedly led this brief — none of those repeat today, and the bond yield is held to a single flat Market Pulse row. First time this brief has covered CMHC's affordability-target methodology, first time covering the Alberta referendum, and first time using a 1970s farmland-protection law as the reason for the housing shortage.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Next decision Oct 28. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.58%</td><td>~3.53% (Sept 17)</td><td class="tag-flat">little changed</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates; not today's story, sources vary between ~3.4–3.6%. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Unchanged for a second week. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>3.30%</td><td>3.30%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~1.398 (≈71.5 US¢)</td><td>~1.399 (Sept 18)</td><td class="tag-flat">still near 6-week low</td>
+          <td class="plain-meaning">Hasn't recovered from this week's Fed-hike-driven dip. <a href="https://www.investing.com/news/forex-news/canadian-dollar-weakens-against-major-currencies-in-the-week-ending-september-18-93CH-4907692">Investing.com</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">No new print today; next release mid-October. <a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling / StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC), August</td>
+          <td>229,046 units SAAR</td><td>229,360 (July)</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">CMHC itself says this needs to nearly double to hit even the new, easier affordability target. <a href="https://www.canadianmortgagetrends.com/2026/09/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">Canadian Mortgage Trends / CMHC</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Avg $993,410; sales 5,057 (Aug)</td><td>−2.1% YoY sales</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA (national), last release</td>
+          <td>Avg $668,219; sales −6.9% YoY (Aug)</td><td>vs. Aug 2025</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next CREA release ~Oct 15. <a href="https://betterdwelling.com/canadian-real-estate-prices-fall-demand-balance-hits-29-year-low/">Better Dwelling / CREA</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a first-time buyer trying to time the market:</strong> the government just admitted, in its own numbers, that it isn't close to either affordability target — old or new — so "wait for it to get truly affordable" could mean waiting a decade or more; make your decision on your own budget, not on a government promise. <strong>If you're renting or house-hunting anywhere near a big city:</strong> the reason new supply is so slow to show up isn't just interest rates — it's 50-year-old farmland-protection laws in BC, Quebec and Ontario that quietly capped where cities can grow, and that's a much harder problem to fix than a rate cut. <strong>If you're a newcomer:</strong> pay attention to Alberta's Oct 19 referendum even if you live in Ontario — a question about tying provincial services to immigration status is exactly the kind of policy debate that can spread to other provinces once it's on the table.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"The 1970s Law That Quietly Froze Canada's Housing Market" — <a href="https://www.youtube.com/watch?v=D-P7sT6UQp0">posted ~5 hours ago</a></div>
+      <p class="creator-note">Summary: BC's Agricultural Land Reserve, Quebec's CPTAQ zoning and Ontario's Greenbelt were all built in the 1970s to protect farmland — but they also drew a permanent boundary around Canada's biggest cities, fueling land speculation and blocking new supply for 50 years.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: this is the "why can't we just build more" explainer nobody in your feed has done — pair it with today's CMHC goalpost story so viewers see both halves: the target moved AND the land to hit it is legally locked up. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · YouTube</div>
+      <div class="creator-platform">"Why Canadian Home Sales Are Hitting RECORD Lows | What You Need To Know" — <a href="https://www.youtube.com/watch?v=KOtdgh4xX-U">posted ~1 day ago</a></div>
+      <p class="creator-note">Summary: Breaks down why national home sales volumes are sitting near record lows despite prices holding up in many provinces.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Overlaps CREA's already-covered Sept 15 national release — held back today to avoid re-running that data, good candidate once October's CREA numbers land.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube</div>
+      <div class="creator-platform">"Vancouver Condo Developers are Sitting on $4.6B of Inventory" — <a href="https://www.youtube.com/watch?v=cRN1PBRBLZk">posted ~10 hours ago</a></div>
+      <p class="creator-note">Summary: Vancouver-specific data on unsold condo inventory piling up on developers' books.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Strong number, but Vancouver-specific and thematically close to today's Property Daily supply story — held back to avoid crowding the "supply problem" theme in one brief.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen | Toronto Property Finders · YouTube</div>
+      <div class="creator-platform">"9 Horrible Home Upgrades Toronto Buyers REGRET!" — <a href="https://www.youtube.com/watch?v=PzDeJoBCIJY">posted ~12 hours ago</a></div>
+      <p class="creator-note">Summary: Buyer-education list of renovation upgrades that don't pay off in the GTA.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Good evergreen buyer-education angle, held back today since the brief already has a full news+steal slate — strong option for a slower news day.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">Also posted in the last 24h but didn't clear the bar: Ilan Portnoi's "Most Mississauga Condos Aren't Worth It" (good but city-specific, similar lane to Karl Nielsen's pick), Tom Storey's Toronto condo neighbourhood guide, Amrit Walia's old-vs-new condo comparison, and Mike Carpino's "Never Buy A Townhouse in Ontario" (all solid, held back to keep today's brief tight). TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist — not fabricated, just not checkable today. Note: YouTube's public RSS feed (feeds/videos.xml) returned a site-wide 404 this morning, confirmed against a large control channel unrelated to this watchlist — so today's sweep used each channel's live /videos tab instead, which still verifies real post timestamps.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">The government didn't fix housing — it just changed the definition of "fixed"</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a genuine "wait, they moved the goalposts?" reveal backed by CMHC's own numbers — high shareability, zero spin needed.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Nobody's telling you</strong>On-screen: "They moved the finish line" / Spoken: "CMHC just quietly lowered the bar for what counts as an 'affordable' home — and almost nobody noticed."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Contrarian</strong>On-screen: "Canada 'fixed' housing? Read this first." / Spoken: "The government didn't fix housing. They just changed the definition of 'fixed.'"</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Number shock</strong>On-screen: "4.4 million homes. New target." / Spoken: "Canada now needs 4.4 million more homes by 2036 — but only because they quietly changed what 'affordable' means."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> CMHC just quietly lowered the bar for what counts as an "affordable" home — and almost nobody noticed.</p>
+        <p><strong>Body:</strong> For years, CMHC's own target was to bring home prices back down to what people could afford in 2004 — a much cheaper baseline than today. Their new Fall 2026 report quietly swaps that for a "pre-pandemic," meaning 2019, target instead — a bar that's way easier to clear since prices were already high by 2019. Even with the softer goal, Canada needs 417,000 to 469,000 new homes built every single year through 2036 to get there. Right now we're only building around 229,000 to 247,000 — not even half. So no matter which finish line you use, we're not close. The only thing that actually changed on paper is how good "almost there" sounds in a press release.</p>
+        <p><strong>CTA:</strong> Comment "GOALPOST" and I'll break down what either target would actually mean for prices in your city.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Target: 2004 → 2019</span>
+        <span class="onscreen-tag">Need 417K–469K homes/yr</span>
+        <span class="onscreen-tag">Only building ~230K</span>
+        <span class="onscreen-tag">Nothing built, target moved</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Suburban housing construction site aerial; blueprints and floor plans on a table; government press conference podium; calculator and mortgage papers on a desk; new subdivision under construction.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://betterdwelling.com/canadas-plan-to-fix-housing-just-change-what-affordable-means/">Better Dwelling — "Canada's Plan To Fix Housing? Just Change What Affordable Means"</a> · <a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/market-reports/housing-market/housing-supply-report">CMHC — Fall 2026 Housing Supply Report</a> · <a href="https://www.canadianmortgagetrends.com/2026/09/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">Canadian Mortgage Trends — August housing starts</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Alberta's Oct 19 vote has a question about immigrants like us — even if you don't live there</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: direct decision-relevant stakes for the exact newcomer audience this brand serves, on a story no creator on the watchlist has touched yet.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Newcomer lens</strong>On-screen: "Alberta is voting on YOUR services" / Spoken: "If you're an immigrant, Alberta's October vote could affect you — even if you've never set foot there."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Question that can't be ignored</strong>On-screen: "Could a province leave Canada?" / Spoken: "One of the 10 questions on Alberta's ballot this fall asks if they should start the legal process to separate. Here's what's actually being asked."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Stakes</strong>On-screen: "This vote could cut newcomer services" / Spoken: "On October 19th, Albertans vote on 10 questions — and one of them is specifically about people like us."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> If you're an immigrant, Alberta's October vote could affect you — even if you've never set foot there.</p>
+        <p><strong>Body:</strong> On October 19th, Alberta is holding a referendum with 10 separate questions. Nine are non-constitutional — they cover things like immigration rules and election security, including whether the province should tighten who qualifies for provincially funded services based on immigration status. The tenth question, added after pressure inside her own party, asks whether Alberta should start the legal process toward a binding vote on leaving Canada entirely. Premier Danielle Smith says she personally wants Alberta to stay in Canada, but she's actively campaigning for the other nine questions as a "third way" for people frustrated with Ottawa. Here's why it matters even if you live in Ontario or BC: a policy debate about tying services to immigration status doesn't stay contained to one province once it's on a real ballot. If you moved here recently, it's worth understanding exactly what's being asked, not just the separation headline.</p>
+        <p><strong>CTA:</strong> Comment "ALBERTA" and I'll walk through what each of the 10 questions is actually asking, one at a time.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Oct 19: 10 questions</span>
+        <span class="onscreen-tag">1 targets immigrant services</span>
+        <span class="onscreen-tag">1 asks about separation</span>
+        <span class="onscreen-tag">Not just an Alberta story</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Alberta legislature building exterior; ballot box or voting booth; Canadian and Alberta flags side by side; person filling out government paperwork; prairie skyline / Calgary or Edmonton cityscape.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://en.wikipedia.org/wiki/2026_Alberta_referendums">Wikipedia — 2026 Alberta referendums</a> · <a href="https://www.cbc.ca/news/canada/calgary/danielle-smith-alberta-immigrant-referendum-explained-9.7274985">CBC News — What some immigrants could lose if Alberta votes yes</a> · <a href="https://albertareferendum2026.ca/">2026 Alberta Referendum — official questions</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">A 1970s farmland law is still freezing Canada's housing supply</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a genuinely surprising "here's the real reason" explainer that reframes the whole housing conversation away from rates and toward a 50-year-old policy nobody talks about.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Nobody's telling you</strong>On-screen: "A 1970s law still freezes housing" / Spoken: "There's a law from the 1970s still quietly deciding how many homes get built in Canada today."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Contrarian</strong>On-screen: "It's not rates. It's not tariffs." / Spoken: "Everyone blames interest rates for the housing crisis. The real freeze started 50 years ago."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Question</strong>On-screen: "Why can't Canada just build more?" / Spoken: "Ever wonder why Canada can't just build its way out of the housing crisis? There's an old law nobody talks about."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> There's a law from the 1970s still quietly deciding how many homes get built in Canada today.</p>
+        <p><strong>Body:</strong> Back in the 1970s, BC created the Agricultural Land Reserve, Quebec set up its CPTAQ zoning rules, and Ontario later built out the Greenbelt — all with a good goal: protect farmland from being paved over. But those laws also drew a permanent, invisible boundary around our biggest, fastest-growing cities. Fifty years later, that boundary is a huge reason cities can't just expand outward to build more homes — the land right next to Toronto, Vancouver and Montreal is legally locked up for farming, whether or not it's actually being farmed. That land squeeze feeds land speculation and pushes prices up on whatever's left inside the boundary. This is a big piece of why "just build more homes" is way harder than it sounds — it's not only about interest rates or investors, it's about laws written before most of us were born.</p>
+        <p><strong>CTA:</strong> Comment "GREENBELT" and I'll show you exactly where these boundaries sit around your city.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">1970s farmland laws</span>
+        <span class="onscreen-tag">BC ALR · QC CPTAQ · ON Greenbelt</span>
+        <span class="onscreen-tag">Cities can't expand out</span>
+        <span class="onscreen-tag">Not just about interest rates</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Farmland right next to a suburban housing development; aerial shot of a city's edge meeting farmland; "Greenbelt" or agricultural zoning sign; rural farm road near a city; drone shot of urban sprawl boundary.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=D-P7sT6UQp0">Property Daily — "The 1970s Law That Quietly Froze Canada's Housing Market"</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.pm.gc.ca/en/news/news-releases/2026/09/13/prime-minister-carney-visit-saint-pierre-et-miquelon-strengthen-ties">PM's Office — Carney to visit Saint-Pierre-et-Miquelon</a></li>
+      <li><a href="https://www.cbc.ca/news/canada/newfoundland-labrador/mark-carney-to-meet-with-emmanuel-macron-in-saint-pierre-et-miquelon-9.7344860">CBC News — Carney to meet Macron in Saint-Pierre-et-Miquelon</a></li>
+      <li><a href="https://www.france24.com/en/france/20260919-french-outpost-off-canada-in-the-spotlight-as-macron-hosts-carney-on-symbolic-visit">France 24 — French outpost off Canada in the spotlight</a></li>
+      <li><a href="https://www.theglobeandmail.com/politics/article-carneys-pivot-to-europe-takes-him-to-a-french-island-off-newfoundland/">Globe and Mail — Carney's pivot to Europe</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/2026_Alberta_referendums">Wikipedia — 2026 Alberta referendums</a></li>
+      <li><a href="https://www.cbc.ca/news/canada/calgary/danielle-smith-alberta-immigrant-referendum-explained-9.7274985">CBC News — What some immigrants could lose if Alberta votes yes</a></li>
+      <li><a href="https://albertareferendum2026.ca/">2026 Alberta Referendum — official questions</a></li>
+      <li><a href="https://betterdwelling.com/canadas-plan-to-fix-housing-just-change-what-affordable-means/">Better Dwelling — Canada's affordability-target shift</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — rate hold, Sept 2</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-yr bond yield</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-yr fixed mortgage rates</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — best 5-yr variable mortgage rates</a></li>
+      <li><a href="https://www.investing.com/news/forex-news/canadian-dollar-weakens-against-major-currencies-in-the-week-ending-september-18-93CH-4907692">Investing.com — Canadian dollar weekly move</a></li>
+      <li><a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling — August CPI held at 3%</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/market-reports/housing-market/housing-supply-report">CMHC — Fall 2026 Housing Supply Report</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">Canadian Mortgage Trends — August housing starts</a></li>
+      <li><a href="https://trreb.ca/">TRREB — market data portal</a></li>
+      <li><a href="https://betterdwelling.com/canadian-real-estate-prices-fall-demand-balance-hits-29-year-low/">Better Dwelling — CREA national data</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=D-P7sT6UQp0">Property Daily — "The 1970s Law That Quietly Froze Canada's Housing Market"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=KOtdgh4xX-U">Daniel Foch — "Why Canadian Home Sales Are Hitting RECORD Lows"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=cRN1PBRBLZk">Steve Saretsky — "Vancouver Condo Developers are Sitting on $4.6B of Inventory"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=PzDeJoBCIJY">Karl Nielsen | Toronto Property Finders — "9 Horrible Home Upgrades Toronto Buyers REGRET!"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
