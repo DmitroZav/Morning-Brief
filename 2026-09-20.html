@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Sunday, September 20, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Sunday, September 20, 2026</div>
+  <div class="canada-day-badge">DIESEL HITS A RECORD HIGH, YOUR GROCERY BILL IS NEXT · QUEBEC'S PQ PROMISES A $130M REFERENDUM · TWO GTA AGENTS WARN BUYERS TODAY</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">A Quebec party just said it'll try to hold a $130-million vote on leaving Canada — even without a majority.</div>
+    <p>Quebec votes for a new government on October 5th, and the Parti Québécois (PQ) — a party that wants Quebec to separate from Canada — is leading in every recent poll: 29% in a Leger survey right after last week's debate, ahead of the governing CAQ at 24%, the Liberals at 22%, the Conservatives at 15% and Québec Solidaire at 10% (<a href="https://leger360.com/in-the-news-quebec-voting-intentions-pq-leads-caq-second/">Leger</a>). PQ leader Paul St-Pierre Plamondon has now confirmed his referendum push doesn't depend on winning a majority — "whether we're in a minority or majority, that commitment doesn't change," he said this week, and his own party has priced the vote at a minimum of $130 million (<a href="https://www.ctvnews.ca/montreal/quebec-election-2026/article/pq-leader-pledges-to-pursue-referendum-whether-in-a-minority-or-majority-government/">CTV News</a>, <a href="https://www.cbc.ca/news/canada/montreal/sovereignty-pspp-pq-quebec-cost-9.7339986">CBC News</a>). The final leaders' debate is Wednesday, September 23rd (<a href="https://en.wikipedia.org/wiki/2026_Quebec_general_election">Wikipedia</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> "a province might vote to spend $130 million trying to leave the country" is the kind of headline that grabs anyone, political-news-follower or not — and it's a live, developing story with two weeks left before the vote. No direct wallet impact for a Toronto-based viewer today, so it leads the Big Story slot rather than taking a full video — see "Why These Made the Cut" below.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Diesel just hit an all-time record high in Canada — and experts say your grocery bill is the next thing to feel it.</div>
+    <p style="margin-top:10px;">Diesel is the fuel that moves almost everything in this country — the trucks that stock grocery stores, the trains, the farm equipment bringing in this fall's harvest. It just hit a record $2.751/litre nationally, driven by Middle East conflict disruptions and global refinery shortages (<a href="https://www.ctvnews.ca/canada/article/no-end-in-sight-why-every-canadian-is-expected-to-feel-the-impacts-of-higher-diesel-prices/">CTV News</a>). "It's almost immediate" how this hits Canadians' wallets, per industry experts — the Canada Truck Operators Association says small and mid-sized carriers are under the most strain right now, and those extra shipping costs get passed straight into the price of food and goods on store shelves, typically within 30 to 60 days (<a href="https://www.realagriculture.com/2026/09/diesel-prices-in-canada-hitting-a-record-high-this-harvest/">RealAgriculture</a>). Translation: nobody needs to drive a diesel truck to feel this one.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the diesel-to-groceries story has the clearest, broadest wallet hit of anything in the last 24 hours — it touches every renter and owner, driver or not, and it's still actively developing (record broken Thursday, effects expected over the next two months). Zhen Liang's and Kevin Yu's posts both landed today with sharp, concrete buyer-protection and condo-value angles nobody in this feed has covered yet. Quebec's referendum pledge earns the Big Story slot because it clears the "would a non-political-news person care" bar — a $130 million vote on leaving Canada is a genuinely big headline — but it has no near-term wallet impact for a Toronto-based viewer, so it doesn't take a full video slot today.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> this moves completely away from the CMHC-affordability-target and Alberta-referendum leads used yesterday (Sept 19), the Fed-hike/loonie story from Sept 18, and the recurring bond-yield/fixed-rate storyline that has repeatedly led this brief — that one is held to a single flat Market Pulse row again today, the 6th time it's been benched since Sept 12. First time this brief has covered diesel-driven grocery inflation, first time featuring Zhen Liang's seller-debt-trap angle or Kevin Yu, and first time using Quebec's specific $130M referendum price tag (Aug 31 covered the broader "could elect a separatist government" story — today's angle is the concrete cost and the minority-government pledge, not a repeat).</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Next decision Oct 28. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.60%</td><td>~3.58% (Sept 19)</td><td class="tag-flat">little changed</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates; separately, this week's 30-year bond auction drew 4.201%, the highest long-term borrowing cost since 2007. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a>, <a href="https://www.canadianmortgagetrends.com/2026/09/canadas-long-term-bond-auction-draws-highest-yield-since-2007/">CMT / 30-yr auction</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Unchanged for a third week. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>3.30%</td><td>3.30%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~1.398 (≈71.5 US¢)</td><td>~1.398 (Sept 18)</td><td class="tag-flat">still near 6-week low</td>
+          <td class="plain-meaning">Hasn't recovered from last week's Fed-hike-driven dip. <a href="https://tradingeconomics.com/canada/currency">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Diesel (national average)</td>
+          <td>$2.751/L</td><td>record before this week</td><td class="tag-up">record high</td>
+          <td class="plain-meaning">Today's One Thing — expect grocery/shipping costs to follow within 30-60 days. <a href="https://www.ctvnews.ca/canada/article/no-end-in-sight-why-every-canadian-is-expected-to-feel-the-impacts-of-higher-diesel-prices/">CTV News</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">No new print today; next release mid-October. <a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling / StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC), August</td>
+          <td>229,046 units SAAR</td><td>229,360 (July)</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">No new release today; next update in October. <a href="https://www.canadianmortgagetrends.com/2026/09/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">Canadian Mortgage Trends / CMHC</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Avg $993,410; sales 5,057 (Aug)</td><td>−2.1% YoY sales</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA (national), last release</td>
+          <td>Avg $668,219; sales −6.9% YoY (Aug)</td><td>vs. Aug 2025</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next CREA release ~Oct 15. <a href="https://betterdwelling.com/canadian-real-estate-prices-fall-demand-balance-hits-29-year-low/">Better Dwelling / CREA</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're renting or budgeting month to month:</strong> the diesel spike isn't just a driver's problem — it's a grocery-bill problem, and it's coming whether or not you own a car, so build a little cushion into next month's budget now. <strong>If you're buying a home this fall:</strong> before you sign anything, learn what a "seller debt trap" looks like (Video 2) — the paperwork risks that can cost you thousands after closing are just as real as the interest rate you're locking in. <strong>If you're a newcomer choosing where to settle:</strong> Quebec's election is a reminder that provincial politics can move fast and get expensive — even if you have zero plans to live there, it's worth understanding how a $130-million referendum push actually works before it becomes dinner-table news everywhere.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Zhen Liang | Prime Properties TO · YouTube</div>
+      <div class="creator-platform">"The 3 Seller Debt TRAPS Nobody Warns Home Buyers About" — <a href="https://www.youtube.com/watch?v=Jrqwni3qqtA">posted today</a></div>
+      <p class="creator-note">Summary: Breaks down three ways a seller's outstanding debts or liens can quietly become the buyer's problem after closing if nobody catches them in advance.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: this is exactly the "nobody explained this to me" buyer-protection content that lands hardest with newcomers doing their first Canadian home purchase. See Video 2.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Kevin Yu · YouTube</div>
+      <div class="creator-platform">"These Toronto Condos Are Worthless" — <a href="https://www.youtube.com/watch?v=AW6qU7tTZNw">posted today</a></div>
+      <p class="creator-note">Summary: Identifies specific categories of Toronto condos that have lost real value and explains what made them bad buys.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair this with your own "I bought near the peak" story to make it personal rather than just a warning list. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ilan Portnoi · YouTube</div>
+      <div class="creator-platform">"Buying isn't always the right move, and renting isn't 'throwing money away.'" — <a href="https://www.youtube.com/shorts/e1ui7hsN4rE">posted today</a>, plus two more shorts on Mississauga condos and Burlington neighbourhoods</div>
+      <p class="creator-note">Summary: Pushes back on the "renting is throwing money away" myth that pressures people into buying before they're ready.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Strong myth-busting angle and very on-brand for a beginner audience — held back today since the brief already has a full news+steal slate, good pick for a slower news day.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate · YouTube</div>
+      <div class="creator-platform">"Will These Prices Continue To Drive Downward? (Q&A Video)" — <a href="https://www.youtube.com/watch?v=vkVIRwbkvKU">posted today</a></div>
+      <p class="creator-note">Summary: Q&A format addressing whether GTA home prices keep falling through the fall.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Useful general-sentiment content but less concrete than today's other picks — held back to keep the brief tight.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Living In Vancouver – Vancouver Life Real Estate · YouTube</div>
+      <div class="creator-platform">"Vancouver's Fall Housing Market Isn't Showing Up" — <a href="https://www.youtube.com/watch?v=MErRr_kqM2E">posted yesterday</a></div>
+      <p class="creator-note">Summary: Vancouver-specific read on soft fall buyer/seller activity.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid data but city-specific to Vancouver and thematically close to Team Sessa's pick — held back to avoid crowding the "is the fall market showing up" theme.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">Also posted in the last 24h but didn't clear the bar: CondoWong's two motivational shorts (too generic, no concrete real-estate angle), Steve Saretsky's Vancouver shadow-inventory and inflation shorts (repeats yesterday's already-covered Vancouver condo-inventory story), and Parallel Wealth's retirement-planning Q&A (good but not GTA/newcomer-specific enough for today's slate). Property Daily's and Karl Nielsen's latest uploads are the same posts already featured in yesterday's brief — not repeated here. TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist — not fabricated, just not checkable today. Note: YouTube's public RSS feed (feeds/videos.xml) was back up and working normally this morning after yesterday's site-wide outage.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Diesel just hit a record high — and your grocery bill is next</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a scary-but-true "this affects literally everyone" reveal with a built-in timeline (30-60 days), which drives comments asking "wait, really?"</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Number shock</strong>On-screen: "Diesel just hit an all-time high" / Spoken: "Diesel prices in Canada just broke an all-time record — and it has almost nothing to do with your car."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Nobody's telling you</strong>On-screen: "Your grocery bill is about to jump" / Spoken: "Nobody's told you why your grocery bill is about to jump in the next two months — it starts with a diesel truck."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Question that can't be ignored</strong>On-screen: "Why do groceries keep going up?" / Spoken: "Ever wonder why grocery prices keep climbing even when inflation says they shouldn't? Follow the diesel truck."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Diesel prices in Canada just broke an all-time record — and it has almost nothing to do with your car.</p>
+        <p><strong>Body:</strong> Diesel just hit $2.751 a litre nationally, the highest it's ever been. Why does that matter if you drive a regular gas car or don't drive at all? Because diesel is what moves almost everything in this country — the trucks stocking your grocery store, the trains, even the tractors bringing in this fall's harvest right now. Experts are calling the hit to Canadians' wallets "almost immediate," and trucking industry groups say small and mid-sized carriers are feeling the squeeze hardest. That extra cost doesn't just disappear — it gets passed down the chain into the price of food and everyday goods, usually within 30 to 60 days. So if your grocery bill jumps again this November, this is where it started.</p>
+        <p><strong>CTA:</strong> Comment "DIESEL" and I'll show you which grocery categories usually get hit first when shipping costs spike.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">$2.751/L record</span>
+        <span class="onscreen-tag">Moves your groceries</span>
+        <span class="onscreen-tag">30-60 day lag</span>
+        <span class="onscreen-tag">Hits everyone, not just drivers</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Transport truck fueling at a diesel pump; highway with freight trucks; grocery store shelves being restocked; farm tractor in a harvest field; gas station price sign close-up.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://www.ctvnews.ca/canada/article/no-end-in-sight-why-every-canadian-is-expected-to-feel-the-impacts-of-higher-diesel-prices/">CTV News — "How surging diesel prices could hit every Canadian's wallets"</a> · <a href="https://www.realagriculture.com/2026/09/diesel-prices-in-canada-hitting-a-record-high-this-harvest/">RealAgriculture — diesel record during harvest</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">3 seller debt traps that can cost a buyer thousands — after closing</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: concrete, protective, "save this before you sign" content — exactly the kind of practical fear-plus-solution video that gets saved and shared.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Nobody's telling you</strong>On-screen: "3 debt traps sellers hide" / Spoken: "There are three seller debt traps nobody warns home buyers about — and one of them almost got past me too."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Newcomer lens</strong>On-screen: "New to Canada? Read this first" / Spoken: "If you're new to Canada and about to buy your first home, there are three seller debt traps you need to know before you sign anything."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Stakes</strong>On-screen: "This mistake costs buyers thousands" / Spoken: "One of these seller debt traps can cost a buyer thousands of dollars after closing — and it's completely legal."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> There are three seller debt traps nobody warns home buyers about — and one of them almost got past me too.</p>
+        <p><strong>Body:</strong> When you buy a home, you're not just buying the property — you can inherit problems tied to it if nobody catches them first. A seller's unpaid property taxes, unregistered liens from unpaid contractors, or old mortgage discharges that were never properly filed can all quietly follow the home into your name. In Ontario, your lawyer is supposed to catch these during the title search before closing — but "supposed to" isn't the same as "always does," especially with a lawyer juggling a dozen files. This matters double if you're new to Canada: you don't yet have the instinct for which questions to ask, and you're trusting a system you've never used before. The fix isn't complicated — it's asking specific questions and reading your title search results yourself, not just trusting a summary email.</p>
+        <p><strong>CTA:</strong> Comment "TITLE" and I'll send you the exact questions to ask your lawyer before you close.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Unpaid property taxes</span>
+        <span class="onscreen-tag">Unregistered liens</span>
+        <span class="onscreen-tag">Old mortgage discharges</span>
+        <span class="onscreen-tag">Ask before you close</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Lawyer reviewing paperwork at a desk; house closing/signing documents close-up; keys handed over at a front door; stack of legal documents with a pen; laptop showing a property title search.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=Jrqwni3qqtA">Zhen Liang | Prime Properties TO — "The 3 Seller Debt TRAPS Nobody Warns Home Buyers About"</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Some Toronto condos are basically worthless right now — here's how to spot one</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: pairs a contrarian "not every condo is an investment" claim with Dmytro's own peak-buyer story, giving it credibility a pure warning-list video wouldn't have.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Contrarian</strong>On-screen: "Not every condo is a good buy" / Spoken: "Everyone tells you a Toronto condo is always a safe investment. Here's why some of them are basically worthless right now."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Personal stakes</strong>On-screen: "I bought near the peak too" / Spoken: "I bought a condo near the peak and felt this exact pain — here's why some Toronto condos are losing value while others hold steady."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Question that can't be ignored</strong>On-screen: "Is your condo one of these?" / Spoken: "If you're thinking about buying a condo in Toronto right now, ask yourself this one question first."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> I bought a condo near the peak and felt this exact pain — here's why some Toronto condos are losing value while others hold steady.</p>
+        <p><strong>Body:</strong> Not every condo is created equal, and treating "buy a condo" as a blanket investment strategy is how a lot of buyers, including me at one point, end up disappointed. The units losing the most value tend to share a few things in common: they're small studio or micro-units competing against a flood of nearly identical new listings, they're in buildings with rising maintenance fees and no distinguishing features, or they were bought purely on the promise of future appreciation rather than because someone actually wanted to live there. With so much unsold inventory sitting on the market right now, buildings without something that makes them stand out are the ones sitting the longest and losing value the fastest. The lesson isn't "don't buy a condo" — it's "know exactly what you're buying and why," instead of assuming any condo in Toronto is automatically a safe bet.</p>
+        <p><strong>CTA:</strong> Comment "CONDO" and I'll tell you the specific red flags I look for before showing a client a unit.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Not all condos = safe bets</span>
+        <span class="onscreen-tag">Watch: micro-units + high fees</span>
+        <span class="onscreen-tag">Flooded inventory = falling value</span>
+        <span class="onscreen-tag">Buy for living, not just hope</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto condo tower exterior wide shot; small studio apartment interior; "For Sale" sign outside a condo building; condo building maintenance/amenity room; skyline view from a condo balcony.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://www.youtube.com/watch?v=AW6qU7tTZNw">Kevin Yu — "These Toronto Condos Are Worthless"</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://leger360.com/in-the-news-quebec-voting-intentions-pq-leads-caq-second/">Leger — Quebec voting intentions poll</a></li>
+      <li><a href="https://www.ctvnews.ca/montreal/quebec-election-2026/article/pq-leader-pledges-to-pursue-referendum-whether-in-a-minority-or-majority-government/">CTV News — PQ pledges referendum regardless of majority</a></li>
+      <li><a href="https://www.cbc.ca/news/canada/montreal/sovereignty-pspp-pq-quebec-cost-9.7339986">CBC News — PQ's $130M sovereignty referendum plan</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/2026_Quebec_general_election">Wikipedia — 2026 Quebec general election</a></li>
+      <li><a href="https://www.ctvnews.ca/canada/article/no-end-in-sight-why-every-canadian-is-expected-to-feel-the-impacts-of-higher-diesel-prices/">CTV News — surging diesel prices to hit every Canadian's wallet</a></li>
+      <li><a href="https://www.realagriculture.com/2026/09/diesel-prices-in-canada-hitting-a-record-high-this-harvest/">RealAgriculture — diesel record high during harvest</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — rate hold, Sept 2</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-yr bond yield</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/canadas-long-term-bond-auction-draws-highest-yield-since-2007/">Canadian Mortgage Trends — 30-yr bond auction, highest yield since 2007</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-yr fixed mortgage rates</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — best 5-yr variable mortgage rates</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">TradingEconomics — CAD/USD</a></li>
+      <li><a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling — August CPI held at 3%</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/cmhc-reports-annual-pace-of-housing-starts-edged-lower-in-august/">Canadian Mortgage Trends — August housing starts</a></li>
+      <li><a href="https://trreb.ca/">TRREB — market data portal</a></li>
+      <li><a href="https://betterdwelling.com/canadian-real-estate-prices-fall-demand-balance-hits-29-year-low/">Better Dwelling — CREA national data</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=Jrqwni3qqtA">Zhen Liang | Prime Properties TO — "The 3 Seller Debt TRAPS Nobody Warns Home Buyers About"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=AW6qU7tTZNw">Kevin Yu — "These Toronto Condos Are Worthless"</a></li>
+      <li><a href="https://www.youtube.com/shorts/e1ui7hsN4rE">Ilan Portnoi — "Buying isn't always the right move, and renting isn't throwing money away"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=vkVIRwbkvKU">Team Sessa Real Estate — "Will These Prices Continue To Drive Downward?"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=MErRr_kqM2E">Living In Vancouver – Vancouver Life Real Estate — "Vancouver's Fall Housing Market Isn't Showing Up"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
