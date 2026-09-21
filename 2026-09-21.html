@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Monday, September 21, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, September 21, 2026</div>
+  <div class="canada-day-badge">ONTARIO'S NEW RENTAL RULES GO LIVE TODAY · CANADA CO-LAUNCHES A NEW GLOBAL ALLIANCE AT THE UN · SLOWEST AUGUST HOME SALES IN 23 YEARS</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada just co-launched a brand-new alliance at the UN — and it's still not clear if Carney will even sit down with Trump this week.</div>
+    <p>At the UN General Assembly's High-Level Week in New York, Canada joined the EU, Kenya and Brazil on September 21st to launch "Partners for Multilateralism, International Law, Peace and Prosperity" (P4M) — an open coalition meant to defend international law and modernize institutions like the UN Security Council, co-launched by Carney alongside EU Council President António Costa and Kenyan President William Ruto (<a href="https://www.japantimes.co.jp/news/2026/09/21/world/carney-lula-unite-middle-powers/">Japan Times</a>, <a href="https://mezha.net/eng/news/3b8e6332_eu-_kenya_and/">Mezha</a>). It lands the same week Carney is in New York for the UN General Assembly — where it's still unconfirmed whether he and Trump will actually meet face to face (<a href="https://www.cp24.com/news/canada/2026/09/21/carney-eyes-un-reform-in-new-york-unclear-whether-hell-meet-trump-at-unga/">CP24</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> "Canada just helped start a brand-new global club that doesn't need the US" is a headline that grabs anyone, political-news-follower or not — and the will-they-won't-they on a Carney-Trump meeting adds a cliffhanger that fits perfectly into a short video.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Ontario's new rental rules kicked in today — if you're behind on rent, you now have half as much time to catch up.</div>
+    <p style="margin-top:10px;">As of today, September 21st, a batch of changes to Ontario's Residential Tenancies Act take effect. The notice period for late rent (the "N4") drops from 14 days to 7. Three late payments within 7 days of the due date over six months can now be labelled "persistent late payment," opening the door to a different eviction notice. Landlords using an N12 to move in themselves can skip paying a tenant one month's compensation if they give 120+ days' notice instead of the usual 60. And tenants who want to raise certain defences at a rent-arrears hearing generally now have to pay 50% of the claimed arrears up front to do it (<a href="https://www.cbc.ca/news/canada/toronto/residential-tenancies-act-updates-9.7349885">CBC News</a>, <a href="https://nowtoronto.com/news/ontario-tenant-landlord-regulations-sept-21-bill-60/">NOW Toronto</a>).</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the Ontario rental changes were only previewed on Sept 18 ("rules start Monday") — today they're actually enforceable, with real mechanics (the 50% arrears deposit, the N12 120-day compensation loophole) that never got detailed before, which is why it takes the One Thing slot over the bigger-sounding UN story: it's the one with something a renter needs to act on today. The P4M alliance launch clears the "would someone who doesn't follow the news care" bar for Big Story, but it has no next-week wallet impact, so it doesn't take a full video slot. Daniel Foch's brand-new post (up at 1:47am today) reframes already-known CREA sales data with a "slowest in 23 years, per capita" angle this brief has never used, earning it a video slot without repeating a lead.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> moves away from the diesel/PQ-referendum leads used Sept 20, and specifically upgrades Sept 18's forward-looking "rules start Monday" framing into today's "rules are live, here's what actually changed" angle — a genuinely new development, not a repeat. Bond yield/fixed-rate stays benched to a single flat Market Pulse row again today, the 7th time since Sept 12.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Next decision Oct 28. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.60%</td><td>~3.58% (last week)</td><td class="tag-flat">still elevated</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates — no fresh move to lead on today, staying a single line item. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>4.09%</td><td>4.09%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Unchanged for weeks now. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>3.30%</td><td>3.30%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~1.399 (≈71.5 US¢)</td><td>~1.398</td><td class="tag-flat">little changed</td>
+          <td class="plain-meaning">Still near its recent lows. <a href="https://tradingeconomics.com/canada/currency">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">No new print today; next release mid-October. <a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling / StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC), August</td>
+          <td>229,046 units SAAR</td><td>229,360 (July)</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Released Sept 16; no new update today. <a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Avg $993,410; sales 5,057 (Aug)</td><td>−2.1% YoY sales</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/market-data/market-watch/">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA (national), last release</td>
+          <td>Avg $668,219; sales −0.7% MoM (Aug)</td><td>4.8 months inventory</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Today's Video 2 builds on this release. Next CREA release ~Oct 15. <a href="https://creastats.crea.ca/">CREA</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're renting:</strong> today's rule change cuts your grace period on late rent in half — 7 days, not 14 — so if money's tight this month, talk to your landlord before the due date, not after. And if you get an N12 saying your landlord wants to move in, check the notice period: 120+ days means they don't owe you the usual one month's compensation. <strong>If you're buying or selling:</strong> Canada's home sales just had their slowest August in over two decades, and once you factor in population growth, it may be the thinnest per-buyer market on record — if you're waiting for a "hot market" to sell into, you might be waiting past the point it makes sense to just list. <strong>If you're a newcomer watching the news:</strong> Canada is actively building a wider circle of allies beyond the US right now — not just background politics, it's the backdrop for a trade war that's already touching prices at the store and on the lot.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · YouTube</div>
+      <div class="creator-platform">"Canadian home sales just saw their slowest August in at least 23 years." — <a href="https://www.youtube.com/shorts/veBqf50wvl8">posted today, 1:47am ET</a></div>
+      <p class="creator-note">Summary: Points out August home sales were the slowest in at least 23 years, and once you adjust for population growth, it may be the fewest per-capita home sales Canada has ever recorded.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair the "slowest in 23 years" stat with a newcomer-population lens — more people arriving in Canada than ever, and a shrinking share of them actually buying. See Video 2.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">Everything else fresh in the last 24h was a repeat of yesterday's brief: Kevin Yu's "condos are worthless" video and Zhen Liang's "seller debt traps" video (both already featured Sept 20) resurfaced in the same RSS window, and Ilan Portnoi's "buying isn't always right" short is the identical post already covered Sept 20 — none repeated today. Team Sessa's Q&A ("Will Prices Continue To Drive Downward") and a couple of other watchlist channels posted, but were too generic to clear the bar. TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist — not fabricated, just not checkable today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Ontario's new rental rules are live today — here's what actually changed</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: urgent, "this affects me right now" renter content with a hard deadline (today), which is exactly what drives saves and comments asking "wait, what do I do?"</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Number shock</strong>On-screen: "14 days just became 7" / Spoken: "As of today, if you're late on rent in Ontario, you only get 7 days notice — not 14."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Nobody's telling you</strong>On-screen: "Your landlord got a new shortcut" / Spoken: "There's a new rule that lets your landlord skip paying you a month's rent when they evict you to move in — nobody's explaining this part."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Stakes</strong>On-screen: "This changes your rent deadline" / Spoken: "Ontario just changed the rules on rent, evictions, and how fast you need to act — and it started today, not next month."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> As of today, if you're late on rent in Ontario, you only get 7 days notice — not 14.</p>
+        <p><strong>Body:</strong> Ontario just changed a bunch of rental rules, and three of them matter a lot. First: if you fall behind on rent, the notice period before a landlord can start the eviction process got cut in half — from 14 days down to 7. Second: if you're late three separate times within 6 months, even if you catch up each time, that can now count as "persistent late payment" and open the door to a different kind of eviction notice. Third, and this one's sneaky: if a landlord says they're evicting you so they or a family member can move in, they used to owe you one month's rent as compensation. Now, if they give you 120 days notice instead of the usual 60, they can skip that payment entirely. None of this means panic — it means know the numbers, because the clock moves faster now.</p>
+        <p><strong>CTA:</strong> Comment "RENT" and I'll send you the exact new timeline, step by step.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">14 days → 7 days</span>
+        <span class="onscreen-tag">3 late payments = risk</span>
+        <span class="onscreen-tag">N12: 120 days = no payout</span>
+        <span class="onscreen-tag">Know your rights today</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Ontario legislature building exterior; apartment building exterior shot; tenant reading a notice letter at a kitchen table; calendar close-up with days crossed off; keys and lease documents on a table.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://www.cbc.ca/news/canada/toronto/residential-tenancies-act-updates-9.7349885">CBC News — "Rental rules in Ontario change today"</a> · <a href="https://nowtoronto.com/news/ontario-tenant-landlord-regulations-sept-21-bill-60/">NOW Toronto — Ontario tenant/landlord rules, Bill 60</a>
+      </div>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Canada's home sales just hit a 23-year low — and it's worse than the headline</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a genuinely surprising stat, paired with a newcomer-population twist nobody else is making — reframes "the market's slow" into a story specifically about people who just arrived here.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Contrarian</strong>On-screen: "The market isn't 'stable'" / Spoken: "Everyone says the market's just stable right now. It's not — it just hit its slowest August in at least 23 years."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Number shock</strong>On-screen: "23 years. Think about that." / Spoken: "You'd have to go back 23 years to find an August with fewer home sales in Canada than this one."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Newcomer lens</strong>On-screen: "More people. Fewer buyers." / Spoken: "Canada added millions of people since the last time sales were this slow — so if you're new here and not buying yet, you're not behind."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> You'd have to go back 23 years to find fewer home sales in a Canadian August.</p>
+        <p><strong>Body:</strong> A well-known housing data analyst just pointed out something wild — August home sales across Canada were the slowest in at least 23 years. On its own that's a big headline. But here's the part that actually matters if you're a newcomer: Canada has added millions more people since the last time sales were this slow. So when you adjust for population, this might be the fewest home sales per person Canada has ever recorded. That's not "nobody wants to buy a home" — it's "way more people are here, and a much smaller share of them are actually buying." If you're renting and feel like you're falling behind because everyone else seems to already own — you're not. Fewer people, per capita, are buying than maybe ever.</p>
+        <p><strong>CTA:</strong> Comment "SALES" and I'll break down what a market like this actually means if you're a first-time buyer.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">Slowest August in 23 yrs</span>
+        <span class="onscreen-tag">Population up, sales down</span>
+        <span class="onscreen-tag">Fewest sales per capita ever</span>
+        <span class="onscreen-tag">You're not behind</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto skyline wide shot; "For Sale" sign outside a house; busy city street with pedestrians (population visual); realtor walking through an empty house; line chart on a laptop or whiteboard.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://www.youtube.com/shorts/veBqf50wvl8">Daniel Foch — "Canadian home sales just saw their slowest August in at least 23 years"</a> · <a href="https://creastats.crea.ca/">CREA — August 2026 national statistics</a>
+      </div>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Canada just launched a new global alliance — and might not even meet Trump this week</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: curiosity-driven geopolitics that ties directly into the ongoing trade-war storyline the audience already cares about — a "wait, what does this mean" hook.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Question that can't be ignored</strong>On-screen: "Is Carney even meeting Trump?" / Spoken: "Canada just launched a brand-new alliance with the EU, Kenya and Brazil at the UN — and it's still not clear if Carney will even sit down with Trump this week."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Stakes</strong>On-screen: "Canada's building a Plan B" / Spoken: "While the trade war with the US drags on, Canada just teamed up with the EU, Kenya and Brazil — a signal about where this country is putting its bets."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Nobody's telling you</strong>On-screen: "Nobody's talking about this" / Spoken: "Nobody's talking about this, but Canada just helped launch a new global alliance the same week nobody knows if Trump and Carney will even meet."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Canada just launched a brand-new alliance at the UN — and nobody knows if Carney's even meeting Trump this week.</p>
+        <p><strong>Body:</strong> While Canada and the US are still stuck in a trade war, Carney just did something that says a lot about where this is headed. In New York this week, Canada joined the EU, Kenya, and Brazil to launch a brand-new group at the UN called "Partners for Multilateralism" — basically an open club of countries trying to protect international rules and reform institutions like the UN Security Council, without needing the US on board. It's part of a pattern: Canada meeting with France, signing a partnership with Ukraine, and now this — all while it's still not confirmed whether Carney will even sit down with Trump face-to-face this week. You don't need to follow world politics closely to get the signal here: Canada is spending real energy building relationships that don't run through Washington.</p>
+        <p><strong>CTA:</strong> Comment "ALLIANCE" if you want me to explain what this could mean for the trade war and prices back home.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">New alliance at the UN</span>
+        <span class="onscreen-tag">EU + Kenya + Brazil + Canada</span>
+        <span class="onscreen-tag">Trump meeting: still unclear</span>
+        <span class="onscreen-tag">Canada looking beyond the US</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        UN General Assembly building exterior, NYC; world flags waving in a row; diplomats shaking hands (stock); Canadian flag outside a government building; news broadcast montage on a phone or TV screen.
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">Source(s)</div>
+        <a href="https://www.cp24.com/news/canada/2026/09/21/carney-eyes-un-reform-in-new-york-unclear-whether-hell-meet-trump-at-unga/">CP24 — "Carney eyes UN reform in New York, unclear whether he'll meet Trump at UNGA"</a> · <a href="https://www.japantimes.co.jp/news/2026/09/21/world/carney-lula-unite-middle-powers/">Japan Times — "Carney and Lula urge nations to join group to unite middle powers"</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-label">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cbc.ca/news/canada/toronto/residential-tenancies-act-updates-9.7349885">CBC News — Ontario rental rules change today</a></li>
+      <li><a href="https://nowtoronto.com/news/ontario-tenant-landlord-regulations-sept-21-bill-60/">NOW Toronto — Ontario tenant/landlord rules changing Sept 21 (Bill 60)</a></li>
+      <li><a href="https://www.cp24.com/news/canada/2026/09/21/carney-eyes-un-reform-in-new-york-unclear-whether-hell-meet-trump-at-unga/">CP24 — Carney eyes UN reform, unclear on Trump meeting</a></li>
+      <li><a href="https://www.japantimes.co.jp/news/2026/09/21/world/carney-lula-unite-middle-powers/">Japan Times — Carney and Lula urge nations to unite middle powers</a></li>
+      <li><a href="https://mezha.net/eng/news/3b8e6332_eu-_kenya_and/">Mezha — EU, Kenya and Canada convene P4M summit in New York</a></li>
+      <li><a href="https://www.pm.gc.ca/en/news/media-advisories/2026/09/20/monday-september-21-2026">Prime Minister of Canada — media advisory, Sept 21</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — rate hold, Sept 2</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-yr bond yield</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — best 5-yr fixed mortgage rates</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub — best 5-yr variable mortgage rates</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">TradingEconomics — CAD/USD</a></li>
+      <li><a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling — August CPI held at 3%</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC — August 2026 housing starts</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — Market Watch</a></li>
+      <li><a href="https://creastats.crea.ca/">CREA — national statistics</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/shorts/veBqf50wvl8">Daniel Foch — "Canadian home sales just saw their slowest August in at least 23 years"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
