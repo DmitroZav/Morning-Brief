@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Tuesday, September 22, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Tuesday, September 22, 2026</div>
+  <div class="canada-day-badge">FOREIGN BUYER BAN'S 100-DAY COUNTDOWN · QUEBEC'S OWN VOTERS DON'T WANT ITS REFERENDUM · TORONTO'S FALL MARKET, STRAIGHT FROM A 20-YEAR AGENT</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Quebec's separatist party is leading every poll — but most of its own voters don't actually want the referendum it's promising.</div>
+    <p>The Parti Québécois sits at roughly 28% in the polls heading into the October 5th election, comfortably ahead of the pack, and its leader Paul St-Pierre Plamondon has already said a sovereignty referendum will happen even without a majority government, with a price tag of at least $130 million (<a href="https://pallas-data.ca/2026/09/21/pallas-quebec-poll-pq-28-plq-22-caq-22-pcq-16-qs-11/">Pallas Data, Sept 21</a>). But a poll reported yesterday shows support for actual independence stuck around 30% province-wide — and only 55% of people planning to vote PQ say they'd vote yes in a referendum themselves (<a href="https://www.cbc.ca/news/canada/montreal/polls-quebec-election-9.7352162">CBC News, Sept 21</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> "the party about to win doesn't even have its own voters convinced" is a contrarian twist that works whether or not someone follows Quebec politics closely — and it's the kind of political uncertainty that quietly touches the loonie and investor confidence in the rest of Canada.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">Canada's ban on foreign home buyers expires in 100 days — and right now, nobody's extended it.</div>
+    <p style="margin-top:10px;">The Prohibition on the Purchase of Residential Property by Non-Canadians Act, in place since 2023 and already extended once, is set to expire January 1, 2027 (<a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-research/consultations/prohibition-purchase-residential-property-non-canadians-act">CMHC</a>). As of this week, Ottawa hasn't announced another extension, a repeal, or a replacement — though the housing minister has floated a narrower, Australia-style model instead of a blanket ban (<a href="https://www.deeded.ca/blog/foreign-buyer-ban-expiry-2027-what-changes-at-closing">Deeded.ca</a>). A creator on the watchlist flagged the same countdown today — see Creator Watch below.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the Quebec poll data is brand new (reported yesterday) and flips the framing entirely — Sept 20's brief covered the PQ's $130M referendum pledge, but nobody had yet reported that the party's own base is split on it, which is a genuinely new and more surprising angle. The foreign buyer ban has only ever gotten a passing mention in this brief (Sept 14) — today it gets full treatment because a countdown crossed the "100 days" mark and a watchlist creator (Property Daily) posted on the identical topic the same morning, a real news-creator convergence. Toronto Realty Group's fall market update earns a slot as the one purely creator-driven idea: David Fleming is one of the most-trusted, least-hyped voices on the watchlist, and his post landed at 7am ET today.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> moves entirely away from the UN/alliance storyline that led Sept 19–21, and away from the "Ontario rental rules" and "diesel prices" leads of the past two days. Quebec returns for the first time since Sept 20, but with a materially different data point (voter-appetite mismatch, not the price tag). Bond yield/fixed-rate storyline benched to a single Market Pulse row again today — it's actually eased slightly (3.60% → 3.57%), the first pullback mentioned in over a week.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Next decision Oct 28. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.57%</td><td>3.60% (Sept 18)</td><td class="tag-down">eased slightly</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. First small pullback in weeks, not a trend yet. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>~4.09%</td><td>4.09%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Unchanged for weeks. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>~3.30%</td><td>3.30%</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Still notably cheaper than fixed. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~1.402 (≈71.3 US¢)</td><td>~1.399</td><td class="tag-down">slightly weaker</td>
+          <td class="plain-meaning">Near its recent lows since the Fed hike. <a href="https://tradingeconomics.com/canada/currency">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">No new print today; next release mid-October. <a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling / StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA (national), August release</td>
+          <td>Typical home $657,500; sales −6.9% YoY</td><td>Weakest SNLR since 1997</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Sales-to-listings ratio (buyer vs. seller demand) hit its lowest for any August in 29 years. Builds into today's Video 3. <a href="https://betterdwelling.com/canadian-real-estate-prices-fall-demand-balance-hits-29-year-low/">Better Dwelling / CREA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Avg $993,410 (Aug)</td><td>−2.1% YoY sales</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/market-data/market-watch/">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC), August</td>
+          <td>229,046 units SAAR</td><td>229,360 (July)</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">No new update today. <a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're a newcomer without citizenship or PR yet:</strong> the foreign buyer ban has been keeping you (and a lot of other non-Canadians) out of the resale market since 2023 — that countdown clock is now under 100 days, and how it plays out could change whether you're allowed to buy a home here at all next year. <strong>If you're buying or selling in the GTA this fall:</strong> the "wait for the right season" advice matters less than the actual numbers right now — the national sales-to-listings ratio just hit its weakest reading for any August since 1997, which in plain terms means there's more room to negotiate than the calendar alone would suggest. <strong>If you just want to understand what's happening around you:</strong> a Quebec government that might not have a majority is still promising a referendum most Quebecers — including most of its own supporters — don't actually want, and that kind of political uncertainty is exactly the sort of thing that quietly moves the loonie and the interest rates you pay, even if you never vote in a Quebec election.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Toronto Realty Group (David Fleming) · YouTube</div>
+      <div class="creator-platform">"Fall 2026 Toronto Real Estate Market: What Buyers &amp; Sellers Need To Know | The Last Honest Realtor" — <a href="https://www.youtube.com/watch?v=RsOcIqy6xp0">posted today, ~7:00am ET</a></div>
+      <p class="creator-note">Summary: A seasonal market breakdown from one of the GTA's most respected, least-hype agents, landed the same morning.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair his "fall isn't magic, the numbers are what matter" read with the fresh 29-year-low demand-balance stat and your own beginner-buyer checklist. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"Canada's Foreign Buyer Ban Expires in 100 Days — Here's What Happens" — <a href="https://www.youtube.com/watch?v=e_sDHwBzON8">posted yesterday, 6:58pm ET</a></div>
+      <p class="creator-note">Summary: Countdown-framed explainer on the foreign buyer ban's Jan 1, 2027 expiry, published the same window as the CMHC/Deeded.ca sourcing used in today's One Thing — a genuine news-creator convergence.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: ground it in the official CMHC source and add the newcomer-specific "what this means if you're not a citizen yet" lens. See Video 1.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen | Toronto Property Finders · YouTube</div>
+      <div class="creator-platform">"I Asked ChatGPT to Find Toronto's Best Deals Under $1M" — <a href="https://www.youtube.com/watch?v=vOW2lZq0pow">posted yesterday, 2:30pm ET</a></div>
+      <p class="creator-note">Summary: A fun AI-tool gimmick applied to real listings under $1M.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Not urgent enough to bump today's 3, but worth a future "I tried the AI tools so you don't have to" video.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Ontario Real Estate with Mike Carpino · YouTube</div>
+      <div class="creator-platform">"Why Everyone's LEAVING Toronto (2 years is enough)" — <a href="https://www.youtube.com/watch?v=fIAX-WrZt2I">posted yesterday, 4:00pm ET</a></div>
+      <p class="creator-note">Summary: Population-outflow take on why people are leaving the city.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Close to the outflow angle this brief already used Aug 28 ("77,492 people left Toronto") — holding off to avoid a repeat unless he adds new data.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">Also posted in the last 24h but too generic or off-topic for the wallet/decision filter: Ilan Portnoi's evergreen "dos and don'ts when buying a home," Alex Applegate's Burlington-specific market update, Parallel Wealth's general retirement-planning video (not GTA housing), and RealEstateTaxTips' investment-holding-structure video (tax planning, not a first-time-buyer story) — SKIP. TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Canada's foreign buyer ban ends in 100 days — here's what actually changes</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a real countdown + newcomer-specific stakes, reinforced by a same-day creator post covering the identical story — strong convergence signal.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Number shock</strong>On-screen: "100 days left" / Spoken: "In 100 days, the rule that's been blocking foreign buyers from Canadian homes disappears — here's exactly what changes."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Nobody's telling you</strong>On-screen: "Your realtor probably hasn't mentioned this" / Spoken: "There's a countdown running right now on Canada's foreign buyer ban, and almost nobody's talking about what happens when it hits zero."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Newcomer lens</strong>On-screen: "New to Canada? This affects you" / Spoken: "If you're not a citizen or permanent resident yet, there's a housing rule about to change on you — here's what you need to know before January 1st."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> In 100 days, the rule blocking most non-Canadians from buying homes here disappears.</p>
+        <p><strong>Body:</strong> Back in 2023, Canada banned most foreign nationals from buying residential property, to cool speculation and free up homes for Canadians. It already got extended once, and it's set to expire January 1, 2027. As of this week, Ottawa hasn't announced another extension. What changes at closing: once it expires, non-Canadians can go back to buying existing homes, not just new construction, in most of the country. If you're a newcomer on a work permit, study permit, or waiting on PR, this matters because it could bring more buyers back into a market where inventory is already sitting near a 29-year low relative to demand. Nothing's confirmed for what replaces it — some in government are eyeing a narrower, Australia-style version instead. But right now, the clock says January 1.</p>
+        <p><strong>CTA:</strong> Comment "BAN" and I'll send you what your specific immigration status means for buying under the current rules.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">100 DAYS LEFT</span>
+        <span class="onscreen-tag">EXPIRES JAN 1, 2027</span>
+        <span class="onscreen-tag">NO EXTENSION ANNOUNCED</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto skyline drone shot · calendar / countdown close-up · "for sale" sign on a house · hands signing closing documents · house keys handoff
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-research/consultations/prohibition-purchase-residential-property-non-canadians-act">CMHC — Prohibition on the Purchase of Residential Property by Non-Canadians Act</a>; <a href="https://www.deeded.ca/blog/foreign-buyer-ban-expiry-2027-what-changes-at-closing">Deeded.ca explainer</a>; <a href="https://www.youtube.com/watch?v=e_sDHwBzON8">Property Daily (YouTube, Sept 21)</a>.</p>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Quebec's separatist party is winning — but its own voters don't want the referendum it's promising</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a genuine contrarian twist backed by a hard number (55%), with national stakes that reach past Quebec.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Contrarian</strong>On-screen: "Even their OWN voters aren't sure" / Spoken: "Quebec's separatist party is leading every poll right now — but most of its own supporters don't actually want the vote it's promising."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Number shock</strong>On-screen: "55%. That's the number that matters." / Spoken: "Only 55% of the separatist party's own voters say they'd vote yes on independence — and they're the ones the party needs most."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Question that can't be ignored</strong>On-screen: "Why push something most people don't want?" / Spoken: "Quebec could elect a government promising a $130 million referendum in three weeks — so why does polling say most Quebecers, even inside that party, don't actually want one?"</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Quebec's separatist party is leading every poll right now — but most of its own voters don't actually want the vote it's promising.</p>
+        <p><strong>Body:</strong> The Parti Québécois is polling around 28%, ahead of every other party, with the election three weeks away on October 5th. Its leader has already said a sovereignty referendum doesn't depend on winning a majority — they'll hold it regardless, priced at a minimum of $130 million. But a poll reported yesterday shows support for actual independence stuck around 30% province-wide, and here's the twist: even among people planning to vote PQ, only 55% say they'd vote yes in a referendum. That's their own base, split nearly down the middle on the one thing the party is promising to deliver. For the rest of Canada, this matters because political uncertainty in Quebec ripples into the loonie and investor confidence — the kind of thing that touches your mortgage rate indirectly, long before it touches anything on a ballot.</p>
+        <p><strong>CTA:</strong> Comment "QUEBEC" if you want me to break down what a referendum call would actually mean for the rest of Canada.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">PQ LEADS AT 28%</span>
+        <span class="onscreen-tag">ONLY 55% OF THEIR OWN VOTERS SAY YES</span>
+        <span class="onscreen-tag">ELECTION OCT 5</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Quebec City old town · Montreal skyline · Canadian and Quebec flags together · election campaign signage · Parliament Hill Ottawa
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.cbc.ca/news/canada/montreal/polls-quebec-election-9.7352162">CBC News — "PQ leads as election day approaches" (Sept 21)</a>; <a href="https://pallas-data.ca/2026/09/21/pallas-quebec-poll-pq-28-plq-22-caq-22-pcq-16-qs-11/">Pallas Data poll (Sept 21)</a>.</p>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Toronto's fall market, straight from a 20-year agent (not the usual "wait for the season" advice)</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: piggybacks on a trusted, same-day creator post, pairs it with a hard data point (29-year-low demand balance), and lands on Dmytro's own credibility as someone who bought near the peak.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Contrarian</strong>On-screen: "Is 'fall is buying season' even true?" / Spoken: "Every September someone tells you fall is the best time to buy in Toronto. A 20-year agent just published his real read on it — and it's not what you'd expect."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Personal stakes</strong>On-screen: "I read these like my own money's on the line" / Spoken: "I bought near the peak, so I read every fall market update closely — here's what one of Toronto's most respected agents is seeing right now."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Nobody's telling you</strong>On-screen: "The honest version agents give each other" / Spoken: "There's a version of the 'fall market update' agents give clients, and a more honest version they give each other — here's the honest one."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Every September someone tells you fall is the best time to buy in Toronto — a 20-year agent just gave his real read, and it's more nuanced than that.</p>
+        <p><strong>Body:</strong> Toronto Realty Group's David Fleming posted his Fall 2026 market breakdown this morning, and the short version is: this isn't a market where "just wait for fall" or "just wait for spring" tells you much anymore. Inventory's still elevated, sales have been slow all year, and the national sales-to-listings ratio just hit its weakest reading for any August since 1997. In plain English: there are a lot of homes for sale relative to how many people are actually buying — exactly the kind of market where buyers have real room to negotiate instead of waiting for a mythical "right season." If you're a first-time buyer or a newcomer trying to time this, your own readiness — financing, down payment, knowing your must-haves — matters more than the calendar.</p>
+        <p><strong>CTA:</strong> Comment "FALL" and I'll send you the 3 questions I ask every buyer before we even look at a listing.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">FALL 2026 MARKET UPDATE</span>
+        <span class="onscreen-tag">WEAKEST DEMAND SINCE 1997</span>
+        <span class="onscreen-tag">BUYERS HAVE ROOM</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto street with fall leaves · open house sign · realtor walking through a home · laptop showing listings site · handshake at closing table
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.youtube.com/watch?v=RsOcIqy6xp0">Toronto Realty Group (YouTube, Sept 22)</a>; <a href="https://betterdwelling.com/canadian-real-estate-prices-fall-demand-balance-hits-29-year-low/">Better Dwelling / CREA — 29-year-low demand balance</a>.</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cbc.ca/news/canada/montreal/polls-quebec-election-9.7352162">CBC News — PQ leads as election day approaches (Sept 21)</a></li>
+      <li><a href="https://www.deeded.ca/blog/foreign-buyer-ban-expiry-2027-what-changes-at-closing">Deeded.ca — Foreign Buyer Ban Ends January 1, 2027: What Changes at Closing</a></li>
+      <li><a href="https://betterdwelling.com/canadian-real-estate-prices-fall-demand-balance-hits-29-year-low/">Better Dwelling — Canadian Real Estate Prices Fall, Demand Balance Hits 29-Year Low</a></li>
+      <li><a href="https://betterdwelling.com/canadian-inflation-stalled-at-3-but-its-higher-in-all-but-two-provinces/">Better Dwelling — Canadian Inflation Stalled at 3%</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-research/consultations/prohibition-purchase-residential-property-non-canadians-act">CMHC — Prohibition on the Purchase of Residential Property by Non-Canadians Act</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC — August 2026 Housing Starts</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Sept 2 Rate Decision</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">TradingEconomics — CAD/USD</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub — Best Mortgage Rates</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — Market Watch</a></li>
+      <li><a href="https://pallas-data.ca/2026/09/21/pallas-quebec-poll-pq-28-plq-22-caq-22-pcq-16-qs-11/">Pallas Data — Quebec Poll (Sept 21)</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=RsOcIqy6xp0">Toronto Realty Group (David Fleming) — Fall 2026 Market Update</a></li>
+      <li><a href="https://www.youtube.com/watch?v=e_sDHwBzON8">Property Daily — Foreign Buyer Ban Expires in 100 Days</a></li>
+      <li><a href="https://www.youtube.com/watch?v=vOW2lZq0pow">Karl Nielsen | Toronto Property Finders — ChatGPT Deals Under $1M</a></li>
+      <li><a href="https://www.youtube.com/watch?v=fIAX-WrZt2I">Mike Carpino — Why Everyone's Leaving Toronto</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
