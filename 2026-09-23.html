@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇨🇦 Morning Brief — Wednesday, September 23, 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Wednesday, September 23, 2026</div>
+  <div class="canada-day-badge">TRUMP &amp; ZELENSKY TALK PEACE AT THE UN · BoC GOVERNOR FLAGS RATE-HIKE RISK · WHAT "DETACHED" REALLY MEANS NOW</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Trump and Zelensky just sat down at the UN for 40 minutes — and Trump says "something is going to happen."</div>
+    <p>On Tuesday at the UN General Assembly in New York, President Trump and President Zelensky held a bilateral meeting focused on ending Russia's war on Ukraine, now in its fifth year — covering a possible ceasefire on energy-infrastructure attacks, more Patriot missile defence, and a new drone-cooperation agreement (<a href="https://www.jpost.com/international/internationalrussia-ukraine-war/article-909346">Jerusalem Post</a>). Afterward, Zelensky said Ukraine is ready for an energy ceasefire and called on Trump to arrange a trilateral meeting with Putin (<a href="https://www.cnbc.com/2026/09/23/ukraine-war-zelenskyy-putin-trump-russia.html">CNBC</a>, <a href="https://www.aljazeera.com/news/2026/9/23/zelenskyy-says-ukraine-ready-for-energy-truce-with-russia-after-trump-talks">Al Jazeera</a>). Trump wouldn't say what's in a deal but told reporters: "I think they're going to reach a deal... I think something is going to happen."</p>
+    <p><strong>Why it's video-worthy:</strong> nothing is signed and no Putin meeting is on the calendar yet, but this is the most concrete Trump has sounded about an actual endpoint in months — and it matters to anyone with family still living through this war, whether or not they follow Canadian politics.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The Governor of the Bank of Canada just said out loud he's more worried about hiking rates than cutting them.</div>
+    <p style="margin-top:10px;">In a speech Monday in Halifax titled "Navigating Uncertainty and Adapting to Change," Tiff Macklem said he expects inflation to drift higher in the coming months — partly because oil near $100/barrel from the Middle East conflict keeps feeding gas prices — and warned policymakers "don't want to be late" raising rates if that turns out to be stubborn (<a href="https://www.bankofcanada.ca/2026/09/navigating-uncertainty-and-adapting-to-change/">Bank of Canada</a>, <a href="https://www.canadianmortgagetrends.com/2026/09/bank-of-canadas-macklem-flags-risk-of-delaying-rate-hike-too-long/">Canadian Mortgage Trends</a>). In the same speech he warned that if U.S. tariffs stay in place, Canada's growth could get roughly cut in half next quarter (<a href="https://www.bnnbloomberg.ca/business/economics/2026/09/21/macklem-says-us-trade-unpredictability-could-set-back-recent-economic-progress/">BNN Bloomberg</a>) — the market is now pricing in as many as 5 rate hikes, though BMO itself thinks that's overdone (<a href="https://betterdwelling.com/canadian-mortgage-rate-relief-done-for-this-stage-of-the-cycle-bmo/">Better Dwelling / BMO</a>).</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> nothing broke bigger in the last 24 hours than Trump and Zelensky actually sitting down at the UN — it clears the big-story bar even for someone who ignores Canadian news entirely, and it's the kind of update this audience feels personally. The Bank of Canada angle earns Video 2 because it's the first time Macklem himself, on the record, in the Bank's own published speech, has said a hike — not a cut — is the live risk; a watchlist creator (Mark Mitchell) posted the identical read hours later, calling the housing "recovery" backtracked for the same three reasons (rates, trade war, Middle East), a genuine convergence. Jon Flynn's shrinking-lot-size video earns the one purely creator-driven slot because it's a lane this brief has never touched — what "detached" actually means on paper today versus what buyers picture in their heads.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> Quebec's election (led Sept 20, featured Sept 22) sits out today with no material new development. Ontario's rental rules, the foreign buyer ban countdown, and diesel/grocery prices all sat out too. The bond-yield/rate storyline returns after being benched to a single Market Pulse row for over a week — but today's version isn't "yields eased slightly" again, it's the actual Bank governor warning about hikes on the record, a materially different and sharper angle.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Next decision Oct 28. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.60%</td><td>~3.57% (Sept 18)</td><td class="tag-up">ticked up</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates. Direction matters more now given Macklem's hike warning. <a href="https://tradingeconomics.com/gcan5y:ind">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage (high-ratio)</td>
+          <td>~4.14%</td><td>~4.09%</td><td class="tag-up">up</td>
+          <td class="plain-meaning">Fixed rates inching higher alongside bond yields. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage (high-ratio)</td>
+          <td>~3.25%</td><td>~3.30%</td><td class="tag-down">down slightly</td>
+          <td class="plain-meaning">Still notably cheaper than fixed — but that gap could shrink fast if a hike lands. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/variable">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~1.403 (≈71.0 US¢)</td><td>~1.402</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">Holding near recent lows since the Fed hike. <a href="https://www.federalreserve.gov/releases/h10/hist/dat00_ca.htm">Federal Reserve H.10</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">No new print today, but Macklem now expects it to drift UP, not down. <a href="https://www.bankofcanada.ca/2026/09/navigating-uncertainty-and-adapting-to-change/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA (national), last release</td>
+          <td>Sales −6.9% YoY (Aug)</td><td>Weakest Aug SNLR in 29 yrs</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next national release mid-October. <a href="https://creastats.crea.ca/">CREA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Avg $993,410 (Aug)</td><td>−2.1% YoY sales</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/market-data/market-watch/">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC), August</td>
+          <td>229,046 units SAAR</td><td>229,360 (July)</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">September data due Oct 16. <a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p><strong>If you're Ukrainian, or have family still living through this war:</strong> yesterday's meeting is the most concrete "something is going to happen" language Trump has used in months — still nothing signed, no date set, but worth watching closely over the next few weeks. <strong>If you're holding out for a rate cut before you buy or renew a mortgage:</strong> the person who actually sets that rate just told the public, on the record, that a hike is the bigger risk right now, not a cut — "wait and see" just got a lot less certain, and a mortgage broker on the watchlist made the identical point hours later. <strong>If you're comparing new-build listings anywhere in the GTA or beyond:</strong> the word "detached" doesn't guarantee the yard, the space, or the privacy it used to — always ask for the actual lot width in feet before you fall for the floor plan and the render.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mark Mitchell · Mortgage Broker London Ontario · YouTube</div>
+      <div class="creator-platform">"Housing Recovery BACKTRACKS" — <a href="https://www.youtube.com/watch?v=KxlffUD48pw">posted yesterday, ~12:05pm ET</a></div>
+      <p class="creator-note">Summary: argues Canada's supposed housing recovery stalled out again, blaming higher mortgage rates, the trade war, and the Middle East conflict together — the same three forces Macklem named in his Halifax speech the day before.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair his read with Macklem's actual on-record quote for Video 2 — a mortgage broker and the Bank of Canada governor landing on the same diagnosis within 24 hours is a strong "even the experts agree" beat.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Jon Flynn Real Estate Stats · YouTube</div>
+      <div class="creator-platform">"The Canadian Dream Is Dead (27-Foot 'Detached' Homes)" — <a href="https://www.youtube.com/watch?v=YpLfViqvTzs">posted yesterday, ~1:48pm ET</a></div>
+      <p class="creator-note">Summary: walks a redeveloped Niagara Falls street where lot widths shrank from 53 feet to 27 feet across decades of new construction — all still marketed as "detached" homes at ever-higher prices.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: turn it into a newcomer-education warning — what "detached" legally and practically means in today's new-build market versus what the word implies. See Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Team Sessa Real Estate · YouTube</div>
+      <div class="creator-platform">"Thousands Of Homeowners Are Stuck (Toronto Home Prices)" — <a href="https://www.youtube.com/watch?v=eDAHEmnu4m4">posted yesterday, ~6:30pm ET</a></div>
+      <p class="creator-note">Summary: many current owners can't afford to move even if they wanted to, given today's rates and prices versus what they locked in years ago.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid "rate-lock" angle, but overlaps with ground already covered in past mortgage-renewal videos — holding for a future update if he adds new numbers.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Kevin Yu · Toronto Real Estate · YouTube</div>
+      <div class="creator-platform">"You Won't Believe What Happened w/Toronto Real Estate Market September 2026" — <a href="https://www.youtube.com/watch?v=_Y-dl5yh6EY">posted yesterday, ~11:23am ET</a></div>
+      <p class="creator-note">Summary: monthly GTA numbers update — sales and new listings both pulled back, with the balance-of-power ratio shifting in an unexpected direction.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Useful data point but too generic a "monthly numbers" format to lead a video on its own today.</p>
+    </div>
+
+    <p class="creator-note" style="margin-top:10px;">Also posted in the last 24h but too generic, off-topic, or a repeat for today's cut: Toronto Realty Group's fall market update (identical video already covered as yesterday's STEAL), Ilan Portnoi's evergreen first-time-buyer checklist and his "5 GTA Cities Crushed" listicle, Audra Lambert's AC-breakdown meme clip, "I'm Canada"'s government-explainer episode (politics, not housing/economy), and That Agent Kelly's Langley BC townhome tour (not a GTA market) — SKIP. TikTok/Instagram: no verifiable last-24h posts found via web search for the best-effort watchlist today.</p>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Trump and Zelensky just talked peace at the UN — "something is going to happen"</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the single biggest global story of the last 24h, with direct emotional resonance for the Ukrainian half of the audience.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Stakes</strong>On-screen: "40 minutes that could end a war" / Spoken: "Trump and Zelensky just spent 40 minutes at the UN talking about how to actually end this war — and Trump says something is coming."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Contrarian</strong>On-screen: "Even Trump won't say what's in it" / Spoken: "Everyone wants to know what's in the peace deal Trump and Zelensky just discussed. Even Trump won't say — but he says one's coming."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Newcomer lens</strong>On-screen: "For every Ukrainian watching this" / Spoken: "If you're Ukrainian and you've been waiting years for real movement toward peace, yesterday at the UN might be the closest we've gotten — here's exactly what was said."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Trump and Zelensky just spent 40 minutes at the UN talking about how to actually end this war — and Trump says something is coming.</p>
+        <p><strong>Body:</strong> On Tuesday, at the UN General Assembly in New York, Trump and Zelensky sat down for a bilateral meeting focused on ending Russia's war on Ukraine, now in its fifth year. They talked about a possible ceasefire on energy-infrastructure attacks, more Patriot missile defence for Ukraine, and a new drone-cooperation agreement between the two countries. Afterward, Zelensky said Ukraine is ready for an energy ceasefire and asked Trump to set up a three-way meeting with Putin. Trump wouldn't reveal details, but told reporters: "I think they're going to reach a deal... I think something is going to happen." Nothing is signed. No Putin meeting is on the calendar. But Canada has already put real money and equipment behind Ukraine's defence this year, so if this actually moves, it touches people here directly — not just headlines.</p>
+        <p><strong>CTA:</strong> Comment "PEACE" and I'll keep you posted the moment there's an actual date or deal on the table.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">TRUMP + ZELENSKY, UN, SEPT 22</span>
+        <span class="onscreen-tag">ENERGY CEASEFIRE PROPOSED</span>
+        <span class="onscreen-tag">TRILATERAL WITH PUTIN? TBD</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        UN headquarters New York exterior · UN General Assembly hall · Ukrainian flag waving · world leaders walking into a summit · news broadcast montage on a TV screen
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.jpost.com/international/internationalrussia-ukraine-war/article-909346">Jerusalem Post — Trump and Zelensky meet at UN</a>; <a href="https://www.cnbc.com/2026/09/23/ukraine-war-zelenskyy-putin-trump-russia.html">CNBC — Zelenskyy ready for energy ceasefire, calls for trilateral</a>; <a href="https://www.aljazeera.com/news/2026/9/23/zelenskyy-says-ukraine-ready-for-energy-truce-with-russia-after-trump-talks">Al Jazeera</a>.</p>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">The Bank of Canada's own governor just flagged rate-HIKE risk, not a cut</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: retires the "wait for a cut" storyline with an actual on-record quote from the person who sets the rate, reinforced same-week by a creator's independent read.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Stakes</strong>On-screen: "The head of the Bank of Canada just said this" / Spoken: "The Governor of the Bank of Canada just said out loud what nobody wanted to admit: they're more worried about hiking rates than cutting them."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Contrarian</strong>On-screen: "Stop waiting for a rate cut" / Spoken: "You've been waiting for a rate cut. The Bank of Canada's own governor just said a hike is the bigger risk right now."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Question that can't be ignored</strong>On-screen: "Why did the 'recovery' just stall?" / Spoken: "Everyone said the housing market was finally turning a corner — so why did a mortgage broker just call the recovery officially backtracked?"</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> The Governor of the Bank of Canada just said the quiet part out loud: he's more worried about hiking rates than cutting them.</p>
+        <p><strong>Body:</strong> In a speech Monday in Halifax called "Navigating Uncertainty and Adapting to Change," Tiff Macklem said he expects inflation to drift higher in the coming months, partly because oil near $100 a barrel from the Middle East conflict keeps pushing gas prices up. He said policymakers "don't want to be late" raising rates if that turns out to be stubborn — central-bank language for "a hike, not a cut, is the live risk." In the same breath, he warned that if U.S. tariffs stay in place, Canada's growth could get roughly cut in half next quarter. That's the trap: inflation risk pushes rates up, tariff risk should pull them down, and nobody knows which wins yet. A mortgage broker on my watchlist posted almost the identical read the same week, calling the so-called housing recovery "backtracked" — blaming rates, the trade war, and the Middle East all at once. If you've been waiting for rates to drop before you buy, "wait and see" just got a lot less certain.</p>
+        <p><strong>CTA:</strong> Comment "RATE" and I'll send you the plain-English breakdown of what actually moves your mortgage rate versus what's just noise.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">MACKLEM: HIKE RISK, NOT A CUT</span>
+        <span class="onscreen-tag">GROWTH COULD HALVE ON TARIFFS</span>
+        <span class="onscreen-tag">"RECOVERY" CALLED BACKTRACKED</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Bank of Canada building Ottawa · stock ticker close-up · gas station price sign · person reviewing mortgage papers at a kitchen table · Toronto skyline at dusk
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.bankofcanada.ca/2026/09/navigating-uncertainty-and-adapting-to-change/">Bank of Canada — "Navigating Uncertainty and Adapting to Change" (Macklem, Sept 21)</a>; <a href="https://www.canadianmortgagetrends.com/2026/09/bank-of-canadas-macklem-flags-risk-of-delaying-rate-hike-too-long/">Canadian Mortgage Trends</a>; <a href="https://betterdwelling.com/canadian-mortgage-rate-relief-done-for-this-stage-of-the-cycle-bmo/">Better Dwelling / BMO</a>; <a href="https://www.youtube.com/watch?v=KxlffUD48pw">Mark Mitchell (YouTube, Sept 22)</a>.</p>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">This is legally a "detached" home — and the lot is 27 feet wide</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a brand-new lane for this brief (what "detached" actually means today), tailor-made for newcomers comparing new builds without a frame of reference.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Nobody's telling you</strong>On-screen: "This is legally a 'detached' home" / Spoken: "This house sits on a 27-foot lot with a neighbour close enough to touch — and the builder still calls it detached."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Number shock</strong>On-screen: "53 feet became 27 feet" / Spoken: "Lots on this street used to be 53 feet wide. The newest ones being built right now? 27. Same price tag, though."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Newcomer lens</strong>On-screen: "New to Canada? Know this first" / Spoken: "If you're picturing a house with a real yard when someone says 'detached home,' I need to show you what that word actually means now."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> This house sits on a 27-foot lot with barely a gap to the neighbour — and it's still legally sold as a "detached" home.</p>
+        <p><strong>Body:</strong> A creator on my watchlist walked a redeveloped Niagara Falls street this week and showed the timeline: lots there used to be 53 feet wide. Then 44. Then 34. The newest homes going up right now sit on 27-foot lots — basically no yard, one builder controlling the entire street, 18 to 24 months to close — and they're still marketed and priced in the same "detached" category as the house on the 53-foot lot down the road. The land shrank. The price didn't. If you're new to Canada and someone tells you they're buying a "detached house," that word doesn't mean what it used to, and it definitely doesn't mean what it means back home. Before you fall for a floor plan or a rendering, ask for the actual lot dimensions and walk the street yourself.</p>
+        <p><strong>CTA:</strong> Comment "LOT" and I'll send you the 3 questions I ask on every new-build tour before I let a client sign anything.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">53 FT → 27 FT LOTS</span>
+        <span class="onscreen-tag">STILL CALLED "DETACHED"</span>
+        <span class="onscreen-tag">SAME PRICE, LESS LAND</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        new subdivision construction site · narrow suburban houses close together · builder sign on a new-home lot · tape measure on grass · aerial drone shot of a housing development
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.youtube.com/watch?v=YpLfViqvTzs">Jon Flynn Real Estate Stats (YouTube, Sept 22)</a>.</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.jpost.com/international/internationalrussia-ukraine-war/article-909346">Jerusalem Post — Trump and Zelensky meet at UN to discuss peace deal, Patriot missiles</a></li>
+      <li><a href="https://www.cnbc.com/2026/09/23/ukraine-war-zelenskyy-putin-trump-russia.html">CNBC — Zelenskyy says Ukraine ready for "energy ceasefire," calls for trilateral meeting</a></li>
+      <li><a href="https://www.aljazeera.com/news/2026/9/23/zelenskyy-says-ukraine-ready-for-energy-truce-with-russia-after-trump-talks">Al Jazeera — Zelenskyy says Ukraine ready for energy truce after Trump talks</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/bank-of-canadas-macklem-flags-risk-of-delaying-rate-hike-too-long/">Canadian Mortgage Trends — Macklem flags risk of delaying rate hike too long</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/economics/2026/09/21/macklem-says-us-trade-unpredictability-could-set-back-recent-economic-progress/">BNN Bloomberg — Macklem says US trade unpredictability could set back progress</a></li>
+      <li><a href="https://betterdwelling.com/canadian-mortgage-rate-relief-done-for-this-stage-of-the-cycle-bmo/">Better Dwelling — Canadian Mortgage Rate Relief Done For This Stage of the Cycle: BMO</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/navigating-uncertainty-and-adapting-to-change/">Bank of Canada — "Navigating Uncertainty and Adapting to Change" (Macklem speech, Sept 21)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Sept 2 Rate Decision</a></li>
+      <li><a href="https://tradingeconomics.com/gcan5y:ind">TradingEconomics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates">Ratehub — Best Mortgage Rates</a></li>
+      <li><a href="https://www.federalreserve.gov/releases/h10/hist/dat00_ca.htm">Federal Reserve — H.10 Foreign Exchange Rates</a></li>
+      <li><a href="https://creastats.crea.ca/">CREA — National Statistics</a></li>
+      <li><a href="https://trreb.ca/market-data/market-watch/">TRREB — Market Watch</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC — August 2026 Housing Starts</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=KxlffUD48pw">Mark Mitchell — Housing Recovery BACKTRACKS</a></li>
+      <li><a href="https://www.youtube.com/watch?v=YpLfViqvTzs">Jon Flynn Real Estate Stats — The Canadian Dream Is Dead (27-Foot Detached Homes)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=eDAHEmnu4m4">Team Sessa Real Estate — Thousands Of Homeowners Are Stuck</a></li>
+      <li><a href="https://www.youtube.com/watch?v=_Y-dl5yh6EY">Kevin Yu — Toronto Real Estate Market September 2026</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
