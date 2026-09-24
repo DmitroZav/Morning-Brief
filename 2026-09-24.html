@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Brief — Thursday, September 24, 2026</title>
+<style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Thursday, September 24, 2026</div>
+  <div class="canada-day-badge">TRUMP: CANADA "DESTROYING ITSELF" · CARNEY STUDIED INVASION RISK · BOND YIELD'S FRESH HIGH</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Trump says Canada is "destroying itself" over immigration — and on the same day, Carney admits he's studied the risk of a US invasion</div>
+    <p>On Wednesday, President Trump said Canada is "destroying itself" by letting in "millions" of immigrants "unchecked" — even though the government's own numbers show immigration levels have actually been going DOWN this year, not up. Canadian ministers called the claim "bogus" almost immediately (<a href="https://www.cbc.ca/news/politics/trump-canada-immigration-unemployment-9.7355556">CBC</a>, <a href="https://www.cp24.com/news/world/2026/09/23/trump-says-canada-is-destroying-itself-by-allowing-millions-into-country/">CP24</a>). PM Carney didn't take the bait publicly — he spent the day promoting "nations coming together" instead (<a href="https://www.ctvnews.ca/world/article/trump-says-canada-is-destroying-itself-by-allowing-millions-into-country/">CTV News</a>).</p>
+    <p>But in a separate New York Times interview released the same day, Carney revealed something much bigger: he has personally studied the possibility of Trump ordering a US-led military action against Canada, calling it an "extreme tail risk" — and saying, "That's not a base case, but it would be irresponsible not to [prepare]... just risk management" (<a href="https://www.cbc.ca/news/canada/carney-nyt-interview-9.7356284">CBC</a>, <a href="https://www.cp24.com/news/world/2026/09/24/pm-carney-prepared-for-risk-that-trump-might-order-us-led-military-invasion-of-canada-report/">CP24</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> this is the single biggest story of the day even for people who don't follow Canadian politics — a sitting US president attacking Canada's immigration policy the same day our own PM admits he's gamed out what a US invasion would look like. And for anyone who moved to Canada from somewhere else, Trump's comment lands personally.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">The number that actually sets your mortgage rate just had its biggest one-day jump in weeks — and it's not the Bank of Canada's fault this time.</div>
+    <p style="margin-top:10px;">Canada's 5-year government bond yield — what lenders actually price fixed mortgages off, not the Bank of Canada's overnight rate — jumped to 3.69% today, up 0.14 percentage points in a single session, its highest level in weeks (<a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a>, <a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada</a>). It's part of a broader global bond selloff — even the 10-year benchmark climbed to 3.86% — driven by inflation still sitting at 3% (above target), oil prices staying elevated on Middle East tension, and a more hawkish US Federal Reserve (<a href="https://finance.yahoo.com/economy/policy/articles/canada-10-yield-climbs-bond-140012137.html">Yahoo Finance</a>). This is exactly the risk Bank of Canada Governor Tiff Macklem flagged two days ago in Halifax — that inflation could run hot enough to force a rate HIKE instead of the cut everyone's been waiting for (<a href="https://www.bankofcanada.ca/2026/09/navigating-uncertainty-and-adapting-to-change/">Bank of Canada</a>). Today's jump is the first real sign that warning is showing up in the number that actually moves your renewal quote.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> two of today's three ideas come straight from breaking news (the Trump/Carney story and the bond yield spike); the third pairs that same yield spike with a Toronto realtor who posted about it the same day — so nothing here is creator-only, and the day's actual news outranked everything on the watchlist.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> bond-yield and rate-risk stories have run repeatedly this month (Sept 9, 12, 18, 21, 22, 23) but always as a "watch this" or "policy-rate-vs-bond-yield" framing — today is the first day the yield actually spiked to a fresh multi-week high, turning Macklem's warning from words into a real number. The Trump/Carney story is a brand-new lane never touched before. The tariff-hit-cities rent story is also a first for this brief.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Next decision Oct 28. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>3.69% (Sept 23, fresh high)</td><td>~3.60% (Sept 22)</td><td class="tag-up">jumped +0.14pt</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates — today's move is the one to watch. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>4.24%</td><td>~4.14%</td><td class="tag-up">up</td>
+          <td class="plain-meaning">Fixed rates climbing alongside the bond yield. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage / Prime</td>
+          <td>3.40% variable / 4.45% prime</td><td>~3.25% variable</td><td class="tag-up">variable up</td>
+          <td class="plain-meaning">Still cheaper than fixed, but the gap is shrinking. <a href="https://www.ratehub.ca/prime-rate">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~1.4075 (≈71.0 US¢)</td><td>~1.403</td><td class="tag-up">weaker</td>
+          <td class="plain-meaning">Weakest since late July — falling oil + a hawkish Fed. <a href="https://www.tradingpedia.com/2026/09/23/usd-cad-tops-1-4080-as-weak-oil-pressures-the-loonie/">Tradingpedia</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">No new print today, but Macklem expects it to drift UP, not down. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260914/dq260914a-eng.htm">StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA (national), last release</td>
+          <td>Sales −6.9% YoY (Aug)</td><td>Weakest Aug demand-balance in 29 yrs</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next national release mid-October. <a href="https://creastats.crea.ca/">CREA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Avg $993,410 (Aug)</td><td>−2.1% YoY sales</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/wp-content/files/news_releases/news2026/nr_market_watch_0826.pdf">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC), August</td>
+          <td>229,046 units SAAR</td><td>229,360 (July)</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">September data due Oct 16. <a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p>If you're renewing or shopping for a mortgage in the next few months, today's bond yield jump is the first real evidence rates could move the "wrong" way — get pre-approved or lock in sooner rather than later, and don't assume a cut is coming just because everyone's been saying so.</p>
+    <p>If you're a renter — especially outside the downtown core — you may actually be catching a break: rent is falling fastest exactly where the trade war is hitting factory jobs hardest. Just don't expect that relief in Toronto itself any time soon.</p>
+    <p>And if you moved here from another country, or you're the parent of someone who did: today's headlines about "millions" and immigration are loud, but the actual data — plus the fact that your Prime Minister spent the day on UN diplomacy, not border crackdowns — tells a calmer story than the noise suggests.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Zhen Liang · Prime Properties TO · YouTube</div>
+      <div class="creator-platform">"Fixed Rates Just Blew Up and Changed the Game... Again" — <a href="https://www.youtube.com/watch?v=ZCBlzabSC-o">posted Sept 23, ~3:00pm ET</a></div>
+      <p class="creator-note">Summary: breaks down a same-day fixed-rate jump for GTA buyers, tying it directly to bond market moves.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: perfect real-world confirmation for Video 2 — pair his read with the actual 3.69% yield number and Macklem's warning for an "even the agents feel it" beat.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Robert Marsiglio · GTA Realtor · YouTube</div>
+      <div class="creator-platform">"Durham Region Home Sales Fall 22% | September Market Update" — <a href="https://www.youtube.com/watch?v=FdZuJ6Juw4o">posted Sept 23, ~1:09pm ET</a></div>
+      <p class="creator-note">Summary: hard local data showing Durham region sales down sharply month over month.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Solid regional data point, but doesn't add a new angle beyond what August's TRREB numbers already cover — holding for a future "which GTA sub-market is worst" roundup.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Toronto Realty Group (David Fleming) · YouTube Shorts</div>
+      <div class="creator-platform">"Fall 2026 Toronto Real Estate Market: What Buyers & Sellers Need To Know" — <a href="https://www.youtube.com/shorts/HBqIrtR47cE">posted Sept 23, ~1:00pm ET</a></div>
+      <p class="creator-note">Summary: a 20-year agent's seasonal read on where fall listings and pricing are headed.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Good evergreen framing for a future "straight talk from a veteran agent" video, not urgent enough to bump today's news-driven picks.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Tom Storey · YouTube</div>
+      <div class="creator-platform">"The Biggest Housing Crash in History Has Only One Winner" — <a href="https://www.youtube.com/watch?v=lZzgj6D95mc">posted Sept 23, ~12:00pm ET</a></div>
+      <p class="creator-note">Summary: clickbait-framed take on who benefits from a prolonged market slowdown.</p>
+      <span class="verdict verdict-skip">SKIP</span>
+      <p class="creator-note">Title overpromises relative to the more measured content inside — worth revisiting only if he follows up with real numbers.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Trump says Canada is "destroying itself" — what it really means for newcomers</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: the biggest global story of the day, and it lands directly on the exact audience watching — immigrants and newcomers.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Newcomer Lens</strong>On-screen: "Trump says people like me are the problem" / Spoken: "Trump just said Canada is destroying itself because of people like me. Let's talk about what's actually true."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Stakes / This Costs You</strong>On-screen: "Our PM studied a US invasion. Really." / Spoken: "While Trump was attacking our immigration numbers, our own Prime Minister quietly admitted something way bigger."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Question That Can't Be Ignored</strong>On-screen: "Does Trump mean me?" / Spoken: "Trump says Canada is destroying itself by letting in millions. I'm one of those millions. Here's what the data actually says."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Trump just said Canada is destroying itself because of people like me. Let's talk about what's actually true — and what our own PM admitted on the same day.</p>
+        <p><strong>Body:</strong> On Wednesday, President Trump said Canada is "destroying itself" by letting in "millions" of immigrants unchecked. Canadian ministers called it bogus — the government's own numbers actually show immigration levels have been going DOWN this year. PM Carney didn't take the bait publicly; he spent the day promoting international cooperation instead. But in a separate New York Times interview released the same day, Carney revealed something wild: he's personally studied the risk of Trump ordering a US-led military action against Canada. He called it an "extreme tail risk" — not something he expects, but something irresponsible not to prepare for. Two very different stories from the same 24 hours: one is loud rhetoric about people like us, the other is our own government quietly doing risk management for the unthinkable.</p>
+        <p><strong>CTA:</strong> Comment "NEWCOMER" if you moved here too and this hit different — I'll break down what the actual immigration numbers say tomorrow.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">TRUMP: "DESTROYING ITSELF"</span>
+        <span class="onscreen-tag">CANADA'S OWN DATA: IMMIGRATION DOWN</span>
+        <span class="onscreen-tag">CARNEY TO NYT: "EXTREME TAIL RISK"</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Canadian flag waving · Parliament Hill exterior · newcomer family with luggage at airport arrivals · news broadcast montage on TV screen · UN headquarters exterior New York
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.cbc.ca/news/politics/trump-canada-immigration-unemployment-9.7355556">CBC — Trump says Canada "destroying itself" with immigration, ministers say bogus</a>; <a href="https://www.cp24.com/news/world/2026/09/23/trump-says-canada-is-destroying-itself-by-allowing-millions-into-country/">CP24 — Trump says Canada "destroying itself"</a>; <a href="https://www.cbc.ca/news/canada/carney-nyt-interview-9.7356284">CBC — Carney tells NYT he studied risk of US-led military action</a>; <a href="https://www.cp24.com/news/world/2026/09/24/pm-carney-prepared-for-risk-that-trump-might-order-us-led-military-invasion-of-canada-report/">CP24 — Carney prepared for "risk" of invasion</a>.</p>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Fixed rates just blew up — what today's bond yield spike means for your renewal</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a real, fresh data point (biggest 1-day yield jump in weeks) confirmed same-day by a Toronto realtor — urgency + credibility.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Number Shock</strong>On-screen: "This number just jumped overnight" / Spoken: "The number that actually sets your mortgage rate just had its biggest jump in weeks — today."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Nobody's Telling You</strong>On-screen: "Forget the Bank of Canada rate" / Spoken: "Everyone's watching the Bank of Canada. They should be watching this number instead — and it just moved."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Contrarian</strong>On-screen: "The 'rates are calm' story just died" / Spoken: "Everyone told you mortgage rates were finally stable. That story just changed, today."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> The number that actually sets your mortgage rate just had its biggest jump in weeks — and it happened today.</p>
+        <p><strong>Body:</strong> Forget the Bank of Canada's overnight rate for a second — the number that really decides your fixed mortgage rate is the 5-year government bond yield, and it just jumped to 3.69%, up 0.14 points in one day. That's part of a bigger global bond selloff — even the 10-year yield climbed to 3.86% — driven by sticky inflation, high oil prices, and a US Federal Reserve that just got more hawkish. Here's why it matters: two days ago, Bank of Canada Governor Tiff Macklem warned in a Halifax speech that inflation could run hot enough to force a rate HIKE instead of the cut everyone's been waiting for. Today's jump is the first real sign that warning is showing up in actual numbers — Toronto realtor Zhen Liang posted about the exact same move today, calling it "fixed rates just blew up."</p>
+        <p><strong>CTA:</strong> If you're renewing in the next 6 months, comment "LOCK" and I'll walk you through how to think about timing this.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">5-YR BOND YIELD: 3.69% (+0.14 TODAY)</span>
+        <span class="onscreen-tag">MACKLEM WARNED THIS 2 DAYS AGO</span>
+        <span class="onscreen-tag">FIXED RATE NOW 4.24%</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        stock/bond market ticker graphic · calculator and mortgage documents on a table · bank branch exterior · laptop showing a rate comparison website · handshake at a real estate closing table
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-Year Bond Yield</a>; <a href="https://finance.yahoo.com/economy/policy/articles/canada-10-yield-climbs-bond-140012137.html">Yahoo Finance — Canada 10-year yield climbs as bond selling resumes</a>; <a href="https://www.bankofcanada.ca/2026/09/navigating-uncertainty-and-adapting-to-change/">Bank of Canada — Macklem speech, Sept 21</a>; <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-Year Fixed Rates</a>; <a href="https://www.youtube.com/watch?v=ZCBlzabSC-o">Zhen Liang — "Fixed Rates Just Blew Up and Changed the Game... Again"</a>.</p>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Rent is falling almost 2x faster in these cities — and Toronto isn't one of them</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: direct wallet-relevant renter content with a real fresh report and a clear "winners vs. losers" framing that keeps people watching to the end.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Number Shock</strong>On-screen: "This city's rent just dropped 10.8%" / Spoken: "One Ontario city's rent just fell almost 11% in a year. Toronto's isn't even close."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Newcomer Lens</strong>On-screen: "Renting in Toronto? Bad news." / Spoken: "If you're apartment hunting in Toronto right now, a new report has some bad news for you specifically."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Stakes / This Costs You</strong>On-screen: "Your rent might be falling — just not here" / Spoken: "Rent is falling fast across Canada right now — just not really in Toronto, and here's exactly why."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> If you live in one Ontario city right now, your rent might be down almost 11% — but if you live in Toronto, here's the bad news.</p>
+        <p><strong>Body:</strong> A new report from Rentals.ca and Urbanation found rent is falling almost twice as fast in Canada's most tariff-exposed cities — the ones with a lot of factory and manufacturing jobs — compared to cities the trade war barely touched. Oshawa's rent dropped 10.8% over the past year, way more than the 4.8% national average. Why? Those cities lost real jobs — Ontario alone lost over 27,000 manufacturing jobs, Canada lost over 40,000, mostly because of tariffs. But here's the part that matters if you're apartment hunting in the GTA: the report specifically flags Toronto and Vancouver as "doubly exposed," because they don't have much condo construction to fall back on if things get worse. So the rent relief hitting factory towns right now isn't necessarily coming to Toronto anytime soon.</p>
+        <p><strong>CTA:</strong> Renting in the GTA right now? Comment your neighbourhood and I'll tell you honestly what I'm seeing on the ground.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">OSHAWA RENT: −10.8%</span>
+        <span class="onscreen-tag">NATIONAL AVERAGE: −4.8%</span>
+        <span class="onscreen-tag">TORONTO: "DOUBLY EXPOSED" (REPORT)</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        apartment building exteriors in small Ontario cities · "for rent" sign close-up · moving boxes in an empty apartment · factory / manufacturing plant exterior · GTA skyline wide shot
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.cp24.com/local/toronto/2026/09/22/rent-has-fallen-faster-in-the-most-tariff-exposed-areas-in-canada-report-finds/">CP24 — Rent has fallen faster in the most tariff-exposed areas in Canada, report finds</a> (Rentals.ca / Urbanation).</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.cbc.ca/news/politics/trump-canada-immigration-unemployment-9.7355556">CBC — Trump says Canada is "destroying itself" with immigration. Ministers say that's bogus</a></li>
+      <li><a href="https://www.cp24.com/news/world/2026/09/23/trump-says-canada-is-destroying-itself-by-allowing-millions-into-country/">CP24 — Trump says Canada is "destroying itself" by allowing "millions" into country</a></li>
+      <li><a href="https://www.ctvnews.ca/world/article/trump-says-canada-is-destroying-itself-by-allowing-millions-into-country/">CTV News — Carney promotes "nations coming together" as Trump takes aim at Canada's immigration</a></li>
+      <li><a href="https://www.cbc.ca/news/canada/carney-nyt-interview-9.7356284">CBC — Carney tells NYT he studied risk of US-led military action</a></li>
+      <li><a href="https://www.cp24.com/news/world/2026/09/24/pm-carney-prepared-for-risk-that-trump-might-order-us-led-military-invasion-of-canada-report/">CP24 — PM Carney prepared for "risk" that Trump might order US-led military invasion of Canada: report</a></li>
+      <li><a href="https://finance.yahoo.com/economy/policy/articles/canada-10-yield-climbs-bond-140012137.html">Yahoo Finance — Canada 10-year yield climbs as bond selling resumes</a></li>
+      <li><a href="https://www.cp24.com/local/toronto/2026/09/22/rent-has-fallen-faster-in-the-most-tariff-exposed-areas-in-canada-report-finds/">CP24 — Rent has fallen faster in the most tariff-exposed areas in Canada, report finds</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Sept 2 Rate Decision (held at 2.25%)</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/navigating-uncertainty-and-adapting-to-change/">Bank of Canada — "Navigating Uncertainty and Adapting to Change" (Macklem speech, Sept 21)</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://www.bankofcanada.ca/rates/interest-rates/canadian-bonds/">Bank of Canada — Selected Bond Yields</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-Year Fixed Mortgage Rates</a></li>
+      <li><a href="https://www.ratehub.ca/prime-rate">Ratehub — Canada Prime Rate</a></li>
+      <li><a href="https://www.tradingpedia.com/2026/09/23/usd-cad-tops-1-4080-as-weak-oil-pressures-the-loonie/">Tradingpedia — USD/CAD Tops 1.4080 as Weak Oil Pressures the Loonie</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260914/dq260914a-eng.htm">StatCan — Consumer Price Index, August 2026</a></li>
+      <li><a href="https://creastats.crea.ca/">CREA — National Statistics</a></li>
+      <li><a href="https://trreb.ca/wp-content/files/news_releases/news2026/nr_market_watch_0826.pdf">TRREB — Market Watch, August 2026</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC — August 2026 Housing Starts</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=ZCBlzabSC-o">Zhen Liang — Fixed Rates Just Blew Up and Changed the Game... Again</a></li>
+      <li><a href="https://www.youtube.com/watch?v=FdZuJ6Juw4o">Robert Marsiglio — Durham Region Home Sales Fall 22%</a></li>
+      <li><a href="https://www.youtube.com/shorts/HBqIrtR47cE">Toronto Realty Group — Fall 2026 Toronto Real Estate Market</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lZzgj6D95mc">Tom Storey — The Biggest Housing Crash in History Has Only One Winner</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
