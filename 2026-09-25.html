@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Brief — Friday, September 25, 2026</title>
+<style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Friday, September 25, 2026</div>
+  <div class="canada-day-badge">POPULATION GROWTH: SLOWEST SINCE WWI · MOST HOUSEHOLDS RUNNING A DEFICIT · TORONTO PRICES BACK TO 2021</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Canada's population growth just fell to its slowest rate since World War I — and it's the real reason the housing market went quiet</div>
+    <p>StatCan released new numbers this week showing Canada's population grew just 0.5% in the year ending July 1, 2026 — the slowest percentage growth since 1915/1916, during World War I (<a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260923/dq260923a-eng.htm">StatCan</a>, <a href="https://www.canadianmortgagetrends.com/2026/09/canadas-population-growth-hits-lowest-rate-since-world-war-i/">Canadian Mortgage Trends</a>). The population is still growing — it hit 41.8 million — but the pace has cratered because non-permanent residents (people here on study or work permits) dropped by about 154,600, with study permit holders down over 140,000 and total immigration admissions down 4.2% year-over-year (<a href="https://globalnews.ca/news/12070197/canada-population-growth-july-2026/">Global News</a>).</p>
+    <p>Here's the part that matters for this audience: BMO senior economist Robert Kavcic connected the dots directly, saying "the housing sector in particular has felt the impact from lower immigration levels, with both sales activity and home prices stalling" (<a href="https://www.canadianmortgagetrends.com/2026/09/canadas-population-growth-hits-lowest-rate-since-world-war-i/">Canadian Mortgage Trends</a>). Fewer new people means fewer new renters and buyers — that's a bigger driver of today's slow market than any single interest rate move.</p>
+    <p><strong>Why it's video-worthy:</strong> a "slowest since World War I" comparison is the kind of stat that stops a scroll even for people who don't follow housing news, and it directly explains the market Dmytro's audience is living in — plus it's personal for anyone who came to Canada on a study or work permit, since they're the ones the policy pullback is aimed at.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">New Bank of Canada research says most Canadian households are quietly going into debt every year just to keep up with inflation — even ones that look "fine."</div>
+    <p style="margin-top:10px;">A Bank of Canada researcher broke down five years of household income versus spending data and found the "average" $274 surplus Canadians ran in 2025 hides a much rougher reality underneath (<a href="https://betterdwelling.com/most-canadian-households-now-run-a-deficit-to-meet-inflation-boc/">Better Dwelling</a>). The bottom 60% of households are actually running an annual shortfall — the middle-income (2nd) quintile is down $6,805 a year, the hardest hit. By age, everyone under 35 is in the red, averaging a $4,249 annual shortfall — the only age group with negative cashflow. Even homeowners as a group are running a $1,817/year shortfall, while renters are close to breakeven at −$90. Inflation — which sat at 3.0% in the latest StatCan print, still above the Bank's 2% target — "does not erase the effects of higher prices" already baked into people's budgets (<a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260914/dq260914a-eng.htm">StatCan</a>). Translation: wages went up on paper, but for most people, especially under 35, real life still costs more than they're bringing in — so the gap gets covered with debt.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> both the Big Story and the One Thing are same-week releases from StatCan and the Bank of Canada — real news, not creator takes — and Video 1 is reinforced by a real estate creator (Steve Saretsky) who posted about the exact same population data hours before this brief went out, so it's a genuine news + creator convergence, not creator-only content. Video 3 pairs two separate GTA agents who both posted fresh market-bottom data the same day.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the bond-yield/fixed-rate storyline led or featured heavily on Sept 9, 12, 18, 21, 22, 23 and 24 — and today the 5-year yield is essentially flat (3.68%, barely moved from yesterday's 3.69% spike), so there's no fresh move to justify leading with it again; it's benched to a single Market Pulse row today. Instead, today digs into the demand side of the market (population/immigration) and household finances (deficit spending) — both angles this brief has never led with before. The Trump/Carney story that led yesterday and the Quebec election story used Sept 20 & 22 both sat out entirely today.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Next decision Oct 28. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.68% (Sept 24)</td><td>3.69% (Sept 23)</td><td class="tag-flat">essentially flat</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates — yesterday's spike didn't extend today. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>4.34%</td><td>4.24%</td><td class="tag-up">up</td>
+          <td class="plain-meaning">Still climbing on bond-market volatility even as yields level off. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr variable mortgage / Prime</td>
+          <td>~3.40% variable / 4.45% prime</td><td>3.40% / 4.45%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Still cheaper than fixed. Prime unchanged since October 2025. <a href="https://www.ratehub.ca/prime-rate">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~1.4149 (≈70.7 US¢)</td><td>~1.4075</td><td class="tag-up">weaker</td>
+          <td class="plain-meaning">Keeps sliding on the wider US-Canada rate gap (US 4.00% vs Canada 2.25%). <a href="https://tradingeconomics.com/canada/currency">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">Still above the Bank's 2% target. September print due mid-October. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260914/dq260914a-eng.htm">StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Population growth (StatCan)</td>
+          <td>+0.5% YoY (to 41.8M)</td><td>2.8% in 2023/24 peak</td><td class="tag-down">sharp slowdown</td>
+          <td class="plain-meaning">Slowest since WWI — fewer new renters/buyers entering the market. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260923/dq260923a-eng.htm">StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA (national), last release</td>
+          <td>Sales −6.9% YoY (Aug)</td><td>Weakest Aug demand-balance in 29 yrs</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next national release ~mid-October. <a href="https://creastats.crea.ca/">CREA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Avg $993,410 (Aug)</td><td>−2.1% YoY sales</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/wp-content/files/news_releases/news2026/nr_market_watch_0826.pdf">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC), August</td>
+          <td>229,046 units SAAR</td><td>229,360 (July)</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">September data due Oct 16. <a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p>If you're a buyer or a first-timer: fewer newcomers competing for homes plus condo sales at a 10-year low means genuinely less competition than the last few years — this is closer to a buyer's market than anything we've had in a while. If you're a seller or you bought near the top: prices settling back toward 2021 levels is painful, but it's the market correcting, not something you did wrong.</p>
+    <p>If you're under 35, or you just don't feel like your paycheque stretches as far as it should: the Bank of Canada's own numbers say you're not imagining it — most people your age are running an actual annual shortfall right now, not just feeling tight.</p>
+    <p>And if you came to Canada on a study or work permit, or you're the parent of someone who did: this week's population data is really about people like you — the slowdown in newcomers is a big piece of why the market and the economy both feel different than they did two years ago.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last 24h)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · YouTube Shorts</div>
+      <div class="creator-platform">"You'd have to go back to 1915 to see these numbers again..." — <a href="https://www.youtube.com/shorts/rjlS0oIpBI4">posted Sept 25, ~12:18pm ET</a></div>
+      <p class="creator-note">Summary: a quick-hit Short flagging the exact same StatCan population growth data used in today's Big Story, posted same-day.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: direct convergence with the Big Story — use his "1915" framing as proof this isn't a niche data point, a real estate creator flagged it independently the same morning.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Steve Saretsky · The Loonie Hour · YouTube</div>
+      <div class="creator-platform">"McDonald's CEO: Food Inflation Is Here to Stay | The Loonie Hour Episode 261" — <a href="https://www.youtube.com/watch?v=OTvdWwCHWj8">posted Sept 25, ~12:16pm ET</a></div>
+      <p class="creator-note">Summary: long-form breakdown of bond yields, food inflation, and Canada's slowing population growth.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Good supporting research for a future food-inflation video, but today's population/deficit angles cover the sharper points already.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen · Toronto Property Finders · YouTube</div>
+      <div class="creator-platform">"Toronto Real Estate Prices Just Hit 2021 Levels!" — <a href="https://www.youtube.com/watch?v=eiB9UPHt8ug">posted Sept 24, ~6:30pm ET</a></div>
+      <p class="creator-note">Summary: a GTA agent's on-camera reaction to prices sliding back to where they were in 2021.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair with Amrit Walia's condo-sales post below for a "the reset is real, here's the proof from two different agents" Video 3.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Amrit Walia · YouTube</div>
+      <div class="creator-platform">"Toronto Condo Sales Hit a 10-Year Low (Market Update)" — <a href="https://www.youtube.com/watch?v=FmfuD90bJJM">posted Sept 24, ~3:08pm ET</a></div>
+      <p class="creator-note">Summary: fresh market update flagging condo sales at their lowest point in a decade.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: the second half of Video 3 — condo sales at a 10-year low is the concrete number behind Karl Nielsen's "back to 2021" framing.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Kevin Yu · Toronto Real Estate · YouTube</div>
+      <div class="creator-platform">"Toronto Condo Market Update September 2026" — <a href="https://www.youtube.com/watch?v=pBb1lzkrQis">posted Sept 24, ~10:54am ET</a></div>
+      <p class="creator-note">Summary: another same-week condo-market read, asking whether prices are still in "freefall."</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Reinforces the condo-weakness convergence but doesn't add a new number beyond Amrit Walia's — holding for a future roundup.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mark Mitchell · Mortgage Broker London Ontario · YouTube</div>
+      <div class="creator-platform">"Rate HIKES Incoming!!" — <a href="https://www.youtube.com/watch?v=bFe7qSC4oXo">posted Sept 25, ~11:53am ET</a></div>
+      <p class="creator-note">Summary: warns inflation and elevated oil could push the Bank of Canada toward a hike instead of a cut.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Same rate-risk storyline this brief has already covered repeatedly this month — holding rather than leading with it again today.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Living In Vancouver · Vancouver Life Real Estate · YouTube</div>
+      <div class="creator-platform">"Vancouver Real Estate Has a Confidence Problem" — <a href="https://www.youtube.com/watch?v=c-WzrsiF7Ss">posted Sept 25, ~10:32am ET</a></div>
+      <p class="creator-note">Summary: buyer confidence dropping in Vancouver just as borrowing costs threaten to rise again.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Good national-context echo of today's GTA story, not GTA-specific enough to be today's pick.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Angry Mortgage Clips · YouTube</div>
+      <div class="creator-platform">"Bureaucracy Is Crushing Us" (with Pierre Poilievre) — <a href="https://www.youtube.com/watch?v=TKjGDHsOfj8">posted Sept 25, ~9:32am ET</a></div>
+      <p class="creator-note">Summary: political interview about red tape and the economy, not real-estate-specific.</p>
+      <span class="verdict verdict-skip">SKIP</span>
+      <p class="creator-note">Too political/tangential for this brief's lane today — revisit only if it ties to a concrete housing-policy angle.</p>
+    </div>
+  </div>  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Canada's population growth just hit its slowest pace since World War I — and that's why the market is quiet</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a historic, scroll-stopping comparison (WWI) that reframes the "why is the market slow" question everyone's asking, backed by fresh StatCan data and same-day creator convergence.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Question That Can't Be Ignored</strong>On-screen: "Why is the market actually this slow?" / Spoken: "Everyone blames interest rates for the slow market. That's not the real reason."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Number Shock</strong>On-screen: "You'd have to go back to 1915" / Spoken: "Canada's population just grew at its slowest pace since World War I. Here's why that matters more than any interest rate."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Newcomer Lens</strong>On-screen: "This is why fewer people like us are coming" / Spoken: "If you moved here recently, this number explains a lot about what's happening around you right now."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Everyone blames interest rates for the slow market. That's not the real reason — and the actual number is wild.</p>
+        <p><strong>Body:</strong> StatCan just reported Canada's population grew only 0.5% this year — the slowest percentage growth since 1915/1916, during World War I. We're still growing, we just hit 41.8 million people, but the pace collapsed because far fewer people are coming on study permits and work permits — non-permanent residents dropped by about 154,600, and total immigration admissions are down 4.2% from last year. A BMO economist said it plainly: the housing sector has felt this directly, with both sales and prices stalling because of lower immigration levels. Fewer new people means fewer new renters, fewer new buyers, less competition for the same homes. That's a bigger reason the market feels slow right now than any single Bank of Canada decision — and a realtor, Steve Saretsky, posted about this exact same data this morning, calling it a "back to 1915" moment.</p>
+        <p><strong>CTA:</strong> Comment "1915" if this surprised you — and if you came here on a study or work permit, tell me how this policy shift has actually affected you.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">POPULATION GROWTH: 0.5% (SLOWEST SINCE WWI)</span>
+        <span class="onscreen-tag">NON-PERMANENT RESIDENTS: −154,600</span>
+        <span class="onscreen-tag">BMO: "SALES AND PRICES STALLING"</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto skyline wide shot · Pearson Airport arrivals hall · "for sale" sign on a GTA street · university campus exterior · empty condo showroom
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260923/dq260923a-eng.htm">StatCan — Canada's population estimates: Age and gender, 2026</a>; <a href="https://www.canadianmortgagetrends.com/2026/09/canadas-population-growth-hits-lowest-rate-since-world-war-i/">Canadian Mortgage Trends — Canada's population growth hits lowest rate since World War I</a>; <a href="https://globalnews.ca/news/12070197/canada-population-growth-july-2026/">Global News — Canada's population growth continues its decline</a>; <a href="https://www.youtube.com/shorts/rjlS0oIpBI4">Steve Saretsky — "You'd have to go back to 1915 to see these numbers again..."</a>.</p>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">The Bank of Canada just proved most people are quietly going into debt to keep up</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: universally relatable "it's not just you" framing backed by an authoritative source (BoC), with a precise, personal dollar figure for the under-35 crowd.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Stakes / This Costs You</strong>On-screen: "You're not bad with money" / Spoken: "New Bank of Canada research says most households are going into debt every year just to keep up with inflation. Even if you're 'fine' on paper."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Number Shock</strong>On-screen: "Under 35? You're down $4,249 a year" / Spoken: "The Bank of Canada just put a number on it. If you're under 35, you're running a $4,249 a year shortfall just to live."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Personal Stakes</strong>On-screen: "I thought it was just me" / Spoken: "For a long time I thought I was just bad at budgeting. Turns out most of Canada is in the same boat — and now there's data to prove it."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> New Bank of Canada research says most households are going into debt every year just to keep up with inflation — even if you look "fine" on paper.</p>
+        <p><strong>Body:</strong> A Bank of Canada researcher looked at five years of income versus spending and found the average Canadian household only had a $274 surplus in 2025 — and that average hides the real story. The bottom 60% of households are actually running a deficit: the middle-income group is short $6,805 a year, the lowest-income group is short over $4,200. By age, everyone under 35 is in the red — averaging a $4,249 shortfall every single year, the only age group with negative cashflow. Even homeowners as a group are down $1,817 a year. Inflation has sat at 3% for months now, above the Bank's own 2% target, and the Bank's own words are that higher prices "don't erase the effects" already baked into your budget. So if it feels like your paycheque doesn't stretch the way it used to — it's not you, it's the math, and now the Bank of Canada is saying so too.</p>
+        <p><strong>CTA:</strong> Comment "DEFICIT" if this is you too — I'll share three things I actually changed in my own budget after I saw the peak-market crunch hit me the same way.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">UNDER 35: −$4,249/YR</span>
+        <span class="onscreen-tag">HOMEOWNERS: −$1,817/YR</span>
+        <span class="onscreen-tag">SOURCE: BANK OF CANADA</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        person reviewing bills at a kitchen table · grocery store checkout close-up · calculator and bank statements · young professional on a laptop at home · ATM or bank card tap
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://betterdwelling.com/most-canadian-households-now-run-a-deficit-to-meet-inflation-boc/">Better Dwelling — Most Canadian Households Now Run A Deficit To Meet Inflation: BoC</a>; <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260914/dq260914a-eng.htm">StatCan — Consumer Price Index, August 2026</a>.</p>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Two Toronto agents just confirmed it the same day: prices are back to 2021, condo sales hit a 10-year low</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: two independent GTA agents posting the same market-reset story on the same day is real social proof, and it ties directly into Dmytro's own "bought near the peak" credibility.</div>
+
+      <div class="hook-box"><strong>Hook Variant 1 — Contrarian</strong>On-screen: "The crash everyone denied is showing up now" / Spoken: "Two Toronto agents posted the same thing this week: prices are back to 2021, and condo sales just hit a 10-year low."</div>
+      <div class="hook-box"><strong>Hook Variant 2 — Personal Stakes</strong>On-screen: "I bought near the peak. Here's what it looks like now" / Spoken: "I bought my place near the top of the market. Here's what the data says is happening to buyers like me right now."</div>
+      <div class="hook-box"><strong>Hook Variant 3 — Number Shock</strong>On-screen: "Condo sales just hit a 10-year low" / Spoken: "Toronto condo sales just fell to their lowest point in a decade. If you've been waiting to buy, this is the moment people warned you about."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Two Toronto agents posted the same thing this week, on the same day, without talking to each other: the market has reset.</p>
+        <p><strong>Body:</strong> GTA agent Karl Nielsen posted that Toronto real estate prices have fallen back to where they were in 2021 — basically erasing years of gains. Hours later, agent Amrit Walia posted that Toronto condo sales just hit their lowest point in a decade. Two different corners of the same market, same conclusion, same day. I bought my own place near the top of the market, so I know exactly what this feels like from the buyer's side — the "just wait" advice everyone gives you doesn't feel real until you're the one holding it. But here's the flip side: if you've been sitting on the sidelines waiting for less competition and more room to negotiate, this is closer to that moment than anything we've seen in years. Fewer buyers, fewer bidding wars, more time to actually think before you sign.</p>
+        <p><strong>CTA:</strong> Comment "RESET" if you've been watching and waiting — I'll tell you honestly whether I think now is a smart time to start looking.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">TORONTO PRICES: BACK TO 2021</span>
+        <span class="onscreen-tag">CONDO SALES: 10-YEAR LOW</span>
+        <span class="onscreen-tag">2 AGENTS, SAME DAY</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        GTA condo tower exterior · "sold" sign being removed · open house sign on a residential street · buyer walking through an empty condo unit · downtown Toronto construction cranes
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.youtube.com/watch?v=eiB9UPHt8ug">Karl Nielsen — "Toronto Real Estate Prices Just Hit 2021 Levels!"</a>; <a href="https://www.youtube.com/watch?v=FmfuD90bJJM">Amrit Walia — "Toronto Condo Sales Hit a 10-Year Low (Market Update)"</a>.</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260923/dq260923a-eng.htm">StatCan — Canada's population estimates: Age and gender, 2026</a></li>
+      <li><a href="https://www.canadianmortgagetrends.com/2026/09/canadas-population-growth-hits-lowest-rate-since-world-war-i/">Canadian Mortgage Trends — Canada's population growth hits lowest rate since World War I</a></li>
+      <li><a href="https://globalnews.ca/news/12070197/canada-population-growth-july-2026/">Global News — Canada's population growth continues its decline</a></li>
+      <li><a href="https://betterdwelling.com/most-canadian-households-now-run-a-deficit-to-meet-inflation-boc/">Better Dwelling — Most Canadian Households Now Run A Deficit To Meet Inflation: BoC</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Sept 2 Rate Decision (held at 2.25%)</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">TradingEconomics — Canadian Dollar (USD/CAD)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-Year Fixed Mortgage Rates</a></li>
+      <li><a href="https://www.ratehub.ca/prime-rate">Ratehub — Canada Prime Rate</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260914/dq260914a-eng.htm">StatCan — Consumer Price Index, August 2026</a></li>
+      <li><a href="https://creastats.crea.ca/">CREA — National Statistics</a></li>
+      <li><a href="https://trreb.ca/wp-content/files/news_releases/news2026/nr_market_watch_0826.pdf">TRREB — Market Watch, August 2026</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC — August 2026 Housing Starts</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/shorts/rjlS0oIpBI4">Steve Saretsky — "You'd have to go back to 1915 to see these numbers again..."</a></li>
+      <li><a href="https://www.youtube.com/watch?v=OTvdWwCHWj8">Steve Saretsky — The Loonie Hour Episode 261</a></li>
+      <li><a href="https://www.youtube.com/watch?v=eiB9UPHt8ug">Karl Nielsen — "Toronto Real Estate Prices Just Hit 2021 Levels!"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=FmfuD90bJJM">Amrit Walia — "Toronto Condo Sales Hit a 10-Year Low"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=pBb1lzkrQis">Kevin Yu — "Toronto Condo Market Update September 2026"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=bFe7qSC4oXo">Mark Mitchell — "Rate HIKES Incoming!!"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=c-WzrsiF7Ss">Living In Vancouver — "Vancouver Real Estate Has a Confidence Problem"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=TKjGDHsOfj8">Angry Mortgage Clips — "Bureaucracy Is Crushing Us"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
