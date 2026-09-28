@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Brief — Monday, September 28, 2026</title>
+<style>
+    :root {
+      --red: #D52B1E;
+      --dark: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f4f6fb;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --orange: #d97706;
+      --tag-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--red) 0%, #b71c1c 100%);
+      color: white;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .header .flag { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header .date { font-size: 0.875rem; opacity: 0.85; margin-top: 4px; }
+    .header .canada-day-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); }
+    .big-story {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border: 1.5px solid #fbbf24;
+    }
+    .big-story .badge {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .one-thing {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+    }
+    .one-thing .big-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--bg);
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fafb; }
+    .tag-up { color: var(--red); font-weight: 700; }
+    .tag-down { color: var(--green); font-weight: 700; }
+    .tag-flat { color: var(--muted); }
+    .metric-name { font-weight: 600; }
+    .plain-meaning { color: var(--muted); font-size: 0.8rem; }
+    .why-matters {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+    }
+    .creator-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .creator-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .creator-name { font-weight: 700; font-size: 0.9rem; }
+    .creator-platform { color: var(--muted); font-size: 0.8rem; }
+    .verdict { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+    .verdict-watch { background: #fef9c3; color: #a16207; }
+    .verdict-skip { background: #fee2e2; color: #b91c1c; }
+    .verdict-steal { background: #dcfce7; color: #15803d; }
+    .verdict-na { background: #f3f4f6; color: #6b7280; }
+    .creator-note { font-size: 0.83rem; color: var(--muted); }
+    .creator-note a { color: var(--accent); }
+    .idea-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .idea-card:last-child { margin-bottom: 0; }
+    .idea-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .idea-num {
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .idea-title { font-weight: 700; font-size: 0.95rem; flex: 1; }
+    .format-tag {
+      background: var(--accent);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .idea-why { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .script-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+    .script-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hook-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.84rem;
+    }
+    .hook-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 2px; }
+    .hook-num { font-weight: 800; color: var(--red); }
+    .onscreen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .onscreen-tag {
+      background: var(--tag-bg);
+      border: 1px solid #fcd34d;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #92400e;
+    }
+    .broll-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .broll-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sources-card { background: #f8fafc; border: 1px solid var(--border); }
+    .sources-card a { color: var(--accent); font-size: 0.82rem; word-break: break-all; }
+    .sources-list { list-style: none; padding: 0; }
+    .sources-list li { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sources-list li:last-child { border-bottom: none; }
+    .src-group { font-weight: 800; color: var(--dark); margin: 10px 0 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .live-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .live-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.25rem; }
+      .container { padding: 14px 10px 40px; }
+      .card { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="flag">🇨🇦</span>
+  <h1>Morning Brief</h1>
+  <div class="date">Monday, September 28, 2026</div>
+  <div class="canada-day-badge">TORONTO RANKED ONE OF THE WEAKEST MARKETS IN THE WORLD · RENTERS PAY $450/MO MORE TO MOVE · CONDOS FLOODING THE GTA</div>
+</div>
+
+<div class="container">
+
+  <!-- BIG STORY -->
+  <div class="card big-story">
+    <span class="badge">☀️ Big Story of the Day</span>
+    <div class="section-title">Toronto just went from the world's strongest real estate market to one of its weakest — in four years</div>
+    <p>UBS, one of the world's biggest banks, publishes a "Global Real Estate Bubble Index" every year ranking major cities by how overheated or how weak their housing markets are. The 2026 edition (released Sept 22, widely reported across Canadian outlets Sept 27) puts Toronto and Vancouver among the weakest housing markets on the planet — a stunning reversal from 2022, when Toronto was ranked the single strongest market in the world (<a href="https://www.ubs.com/global/en/media/display-page-ndp/en-20260922-grebi26.html">UBS</a>, <a href="https://www.ctvnews.ca/toronto/article/toronto-and-vancouver-were-ranked-among-the-weakest-real-estate-markets-in-the-world-heres-why/">CTV News</a>).</p>
+    <p>The numbers: Toronto home prices are down roughly 30% since their 2022 peak, adjusted for inflation, and Vancouver is down about 20%. Both cities are now rated "moderate" bubble risk instead of "elevated." UBS economist Matthias Holzhey says "higher-for-longer financing costs are likely to cap house-price gains in the near term," while CMHC's own deputy chief economist, Aled ab Iorwerth, points to the deeper cause: years of runaway price growth made both cities "very unaffordable," so when people started relocating to cheaper metros like Ottawa and Montreal after the pandemic, demand pulled back hard (<a href="https://ca.finance.yahoo.com/news/toronto-vancouver-drop-weakest-housing-171827929.html">Yahoo Finance / Bloomberg</a>).</p>
+    <p><strong>Why it's video-worthy:</strong> "world's strongest market to one of the weakest in 4 years" is a jaw-dropping stat even for someone who's never looked at a housing chart, and it's the single cleanest explanation yet for why the GTA market has felt so quiet all year — it also gives Dmytro's own "I bought near the peak" story a headline to hang on.</p>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card one-thing">
+    <div class="section-label">🎯 The One Thing</div>
+    <div class="big-text">New government data: renters who move to a new place pay $450 MORE per month than renters who stay put — a $5,400/year "moving penalty."</div>
+    <p style="margin-top:10px;">Statistics Canada and CMHC released results from the Canadian Housing Survey (published Sept 23) comparing renters who recently moved to renters who've stayed in the same unit. Recent movers pay $1,740/month on average versus $1,290/month for people who stayed — a $450 monthly gap (<a href="https://storeys.com/canadian-housing-survey-statcan-cmhc/">STOREYS</a>). Forty percent of recent movers are now in "unaffordable" housing (spending 30%+ of income on rent) versus 32% of people who didn't move. And 44.5% of recent movers say rising rent has caused them real financial difficulty, versus 33.5% of non-movers — that gap has widened 27 percentage points since 2018. This lands directly on newcomers, since moving to a new rental is exactly what someone arriving in Canada has to do.</p>
+  </div>
+
+  <!-- WHY THESE MADE THE CUT -->
+  <div class="card">
+    <div class="section-label">🧭 Why These Made the Cut · Fresh vs. Recent</div>
+    <p style="font-size:0.9rem;"><strong>Why these beat the other candidates:</strong> the Big Story and the One Thing are both fresh, original data releases (a global bank's own index, a StatCan/CMHC survey) — not creator opinion — and Video 3 is a genuine same-day convergence: two unrelated GTA-area creators (Property Daily and Zhen Liang) posted about condo oversupply on the exact same day the UBS report hit the news, which is real social proof, not a coincidence we're manufacturing.</p>
+    <p style="font-size:0.9rem;"><strong>Fresh vs. recent:</strong> the last week led with Quebec's referendum math, Trump/Carney invasion-risk headlines, the Fed hike, and Friday's population-growth story — none of them real-estate-native. The bond yield/fixed-rate storyline stays benched again today (5-yr yield eased slightly to 3.63%, fixed rates flat at 4.34%) — that's the 9th time this month it's been held to a single Market Pulse row rather than leading. Today is the first time this brief has covered the UBS Bubble Index, the StatCan/CMHC Housing Survey rent-premium data, or a condo-oversupply story — genuinely new ground after several politics-heavy days.</p>
+  </div>
+
+  <!-- MARKET PULSE -->
+  <div class="card">
+    <div class="section-label">📊 Market Pulse</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Metric</th><th>Latest</th><th>Prior</th><th>Change</th><th>What it means (plain)</th>
+        </tr>
+        <tr>
+          <td class="metric-name">BoC overnight rate</td>
+          <td>2.25% (held Sept 2, 7th straight)</td><td>2.25%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Sets prime rate and variable mortgages. Next decision Oct 28. <a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">5-yr Gov't of Canada bond yield</td>
+          <td>~3.63% (Sept 25)</td><td>3.68% (Sept 24)</td><td class="tag-down">eased</td>
+          <td class="plain-meaning">Drives FIXED mortgage rates — small pullback, no fresh spike this weekend. <a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Best 5-yr fixed mortgage</td>
+          <td>4.34%</td><td>4.34%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Held steady over the weekend despite bond-market volatility. <a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Prime rate / best 5-yr variable</td>
+          <td>4.45% prime / ~3.40% variable</td><td>4.45% / 3.40%</td><td class="tag-flat">no change</td>
+          <td class="plain-meaning">Still cheaper than fixed. Prime unchanged since October 2025. <a href="https://www.ratehub.ca/prime-rate">Ratehub</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CAD/USD (loonie)</td>
+          <td>~1.4164</td><td>~1.4149</td><td class="tag-up">weaker</td>
+          <td class="plain-meaning">Lowest in over a month — the US-Canada rate gap keeps widening (US 4.00% vs Canada 2.25%). <a href="https://tradingeconomics.com/canada/currency">TradingEconomics</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">UBS Global Real Estate Bubble Index</td>
+          <td>Toronto & Vancouver: "moderate" bubble risk</td><td>"Elevated" risk (2024)</td><td class="tag-down">risk eased, but so did prices</td>
+          <td class="plain-meaning">Toronto −30% from peak, Vancouver −20% from peak. <a href="https://www.ubs.com/global/en/media/display-page-ndp/en-20260922-grebi26.html">UBS</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Inflation (CPI), August</td>
+          <td>3.0% YoY</td><td>3.0% (July)</td><td class="tag-flat">held steady</td>
+          <td class="plain-meaning">Still above the Bank's 2% target. September print due mid-October. <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260914/dq260914a-eng.htm">StatCan</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">TRREB (GTA), last release</td>
+          <td>Avg $993,410 (Aug)</td><td>−2.1% YoY sales</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next TRREB release ~Oct 3. <a href="https://trreb.ca/wp-content/files/news_releases/news2026/nr_market_watch_0826.pdf">TRREB</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">CREA (national), last release</td>
+          <td>Sales −6.9% YoY (Aug)</td><td>Weakest Aug demand-balance in 29 yrs</td><td class="tag-flat">no new data today</td>
+          <td class="plain-meaning">Next national release ~mid-October. <a href="https://creastats.crea.ca/">CREA</a></td>
+        </tr>
+        <tr>
+          <td class="metric-name">Housing starts (CMHC), August</td>
+          <td>229,046 units SAAR</td><td>229,360 (July)</td><td class="tag-flat">flat</td>
+          <td class="plain-meaning">September data due Oct 16. <a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card why-matters">
+    <div class="section-title">🧠 Why It Matters (To You)</div>
+    <p>If you're a buyer or a first-timer: a market that went from "world's strongest" to "one of the weakest" in four years, plus condos flooding onto the market, means real negotiating room that simply didn't exist a few years ago — this is closer to a buyer's market than most people believe.</p>
+    <p>If you're a renter, and especially if you just moved here: the data confirms what you probably already feel in your bank account — moving costs you real money every month, not just the moving truck. Knowing that going in helps you negotiate harder before you sign a new lease, or think twice about moving just to save a small amount.</p>
+    <p>If you're a condo owner or thinking about buying one: today's oversupply story is a warning to check the numbers carefully in any building with a lot of investor units, but it can also mean more room to negotiate a better price than you'd get on a freehold home right now.</p>
+  </div>
+
+  <!-- CREATOR WATCH -->
+  <div class="card">
+    <div class="section-title">👀 Creator Watch (last ~72h — weekend catch-up)</div>
+
+    <div class="creator-item">
+      <div class="creator-name">Property Daily · YouTube</div>
+      <div class="creator-platform">"Why Toronto and Vancouver Condos Are Flooding the Market" — <a href="https://www.youtube.com/watch?v=hhh6GCAT2Mg">posted Sept 27, ~2:56pm ET</a></div>
+      <p class="creator-note">Summary: breaks down why condo inventory is piling up across both cities right as the UBS report landed.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: direct convergence with today's Big Story — condo oversupply is one of the concrete reasons behind the UBS "weakest market" ranking.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Zhen Liang · Prime Properties TO · YouTube</div>
+      <div class="creator-platform">"Vaughan Metropolitan Centre: Canada's Biggest Condo Disaster!" — <a href="https://www.youtube.com/watch?v=DlMXSJf34jY">posted Sept 27, ~11:00am ET</a></div>
+      <p class="creator-note">Summary: a single, dramatic GTA example (a specific Vaughan tower) of the exact oversupply pattern Property Daily is describing city-wide, posted the same day.</p>
+      <span class="verdict verdict-steal">STEAL</span>
+      <p class="creator-note">Your angle: pair with Property Daily's post for Video 3 — one gives the city-wide trend, the other gives the concrete, scroll-stopping example.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Karl Nielsen · Toronto Property Finders · YouTube</div>
+      <div class="creator-platform">"Toronto's Real Estate Crash: What Comes Next!" — <a href="https://www.youtube.com/watch?v=_3DFY3cuqLc">posted Sept 26, ~9:15am ET</a></div>
+      <p class="creator-note">Summary: a GTA agent's take on where prices go from here, one day before the UBS story broke nationally.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Same lane as today's Big Story — holding rather than leading with a creator take when the UBS index itself is the stronger, more original source today.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Daniel Foch · YouTube</div>
+      <div class="creator-platform">"GTA New Home Sales Nearly 4x. The Economy Didn't Change." + "Builders Didn't Pocket the HST Cut" + "Resale vs New Build: The $130k Tax Difference" — <a href="https://www.youtube.com/shorts/hgVnUn9j080">posted Sept 26, ~12:00pm ET</a> / <a href="https://www.youtube.com/shorts/zt-n2VWA1iw">Sept 25, ~10:51pm ET</a> / <a href="https://www.youtube.com/watch?v=UEAGEgoWMe4">Sept 25, ~8:14pm ET</a></div>
+      <p class="creator-note">Summary: a three-post cluster on why new-build home sales spiked and how HST rebates change the new-vs-resale math for buyers.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Strong, data-driven and genuinely useful for buyers — holding for a dedicated "new build vs resale + HST rebate" video tomorrow rather than competing with today's three picks.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Oleg Galyuk · Vancouver Real Estate Agent · YouTube</div>
+      <div class="creator-platform">"Vancouver Foreclosures Are SURGING — And It's Getting MUCH Worse" — <a href="https://www.youtube.com/watch?v=DeHL0UTI4Xs">posted Sept 27, ~5:00pm ET</a></div>
+      <p class="creator-note">Summary: a Vancouver agent flags a sharp rise in foreclosures, same week as the UBS "weak market" ranking.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">National-context echo worth revisiting once we can confirm hard numbers from CMHC or a bank — holding rather than running with an agent's on-camera claim alone.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">Mike Carpino · Ontario Real Estate · YouTube</div>
+      <div class="creator-platform">"5 Ontario Cities Where Home Prices Have Fallen the Most" — <a href="https://www.youtube.com/watch?v=uRWpmk-EITU">posted Sept 25, ~4:00pm ET</a></div>
+      <p class="creator-note">Summary: a province-wide ranking of price declines outside the GTA core.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Good follow-up video once today's Toronto-specific story has had a day to land — holding to avoid crowding the feed.</p>
+    </div>
+
+    <div class="creator-item">
+      <div class="creator-name">I'm Canada · YouTube</div>
+      <div class="creator-platform">"How to Apply for Status Restoration. Step by Step with an Immigration Lawyer" — <a href="https://www.youtube.com/watch?v=is6jRLqDebc">posted Sept 27, ~11:00am ET</a></div>
+      <p class="creator-note">Summary: a practical immigration-status explainer, not real estate, but directly relevant to Dmytro's newcomer audience.</p>
+      <span class="verdict verdict-watch">WATCH</span>
+      <p class="creator-note">Outside this brief's real-estate/economy lane — flagging for a future non-real-estate "life in Canada" video rather than today's real estate picks.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT PLAY -->
+  <div class="card">
+    <div class="section-title">🎬 Content Play</div>
+
+    <!-- IDEA 1 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">1</span>
+        <span class="idea-title">Toronto went from the world's strongest real estate market to one of the weakest — in 4 years</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: a jaw-dropping global ranking reversal, straight from an original UBS report, that explains the whole "why is the market so quiet" question — plus it's Dmytro's own story.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Number Shock</strong>On-screen: "World's #1 market. Now one of the worst." / Spoken: "Four years ago Toronto was the strongest real estate market on Earth. A new global report just ranked it one of the weakest."</div>
+      <div class="hook-box"><strong>Hook 2 — Personal Stakes</strong>On-screen: "I bought near the top. This report explains it." / Spoken: "I bought my place near the peak of the Toronto market. A new report just showed me exactly how far it fell — and I'm not the only one."</div>
+      <div class="hook-box"><strong>Hook 3 — Contrarian</strong>On-screen: "Everyone thinks Toronto crashed for no reason. Wrong." / Spoken: "People assume Toronto real estate just randomly tanked. A global bank just put numbers on exactly why — and what it means if you're buying now."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Four years ago Toronto was ranked the single strongest real estate market in the entire world. A brand-new report just ranked it one of the weakest.</p>
+        <p><strong>Body:</strong> Every year, the bank UBS publishes a Global Real Estate Bubble Index ranking major cities by how overheated or how weak their housing markets are. In 2022, Toronto topped that list. The 2026 edition, released this week, puts Toronto and Vancouver among the weakest markets on the planet — prices in Toronto are down roughly 30% from their 2022 peak, adjusted for inflation, and Vancouver is down about 20%. A CMHC economist explains it simply: years of runaway price growth made both cities so unaffordable that people started moving to cheaper cities like Ottawa and Montreal, and demand pulled back hard. I bought my own place near that peak, so I felt this exact shift happen in real time — and honestly, if you've been sitting on the sidelines waiting for less competition, this report is basically confirming that moment is here.</p>
+        <p><strong>CTA:</strong> Comment "PEAK" if you bought (or almost bought) near the top too — and follow for tomorrow, where I break down what this actually means if you're buying in the next 6 months.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">TORONTO: −30% FROM PEAK</span>
+        <span class="onscreen-tag">VANCOUVER: −20% FROM PEAK</span>
+        <span class="onscreen-tag">SOURCE: UBS GLOBAL BANK</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        Toronto skyline at dusk · downtown condo towers wide shot · "for sale" sign on a GTA street · person reviewing a mortgage statement · empty condo showroom
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.ubs.com/global/en/media/display-page-ndp/en-20260922-grebi26.html">UBS — Global Real Estate Bubble Index 2026</a>; <a href="https://www.ctvnews.ca/toronto/article/toronto-and-vancouver-were-ranked-among-the-weakest-real-estate-markets-in-the-world-heres-why/">CTV News — Toronto and Vancouver ranked among the weakest real estate markets in the world</a>; <a href="https://ca.finance.yahoo.com/news/toronto-vancouver-drop-weakest-housing-171827929.html">Yahoo Finance / Bloomberg — Toronto and Vancouver drop to weakest housing markets in UBS global ranking</a>.</p>
+    </div>
+
+    <!-- IDEA 2 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">2</span>
+        <span class="idea-title">Moving apartments just cost renters $5,400 a year — and newcomers get hit hardest</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: turns an abstract government stat into a concrete yearly dollar figure that speaks directly to Dmytro's core newcomer audience, who are almost always "recent movers."</div>
+
+      <div class="hook-box"><strong>Hook 1 — Stakes / This Costs You</strong>On-screen: "Moving apartments just cost you $5,400/year" / Spoken: "New government data says renters who move pay $450 more every single month than renters who stay put. That's $5,400 a year — just for moving."</div>
+      <div class="hook-box"><strong>Hook 2 — Newcomer Lens</strong>On-screen: "New to Canada? This rent trap hits you hardest." / Spoken: "If you just moved to Canada, this one applies to you directly — new data shows recent movers pay hundreds more a month than people who never left their unit."</div>
+      <div class="hook-box"><strong>Hook 3 — Question That Can't Be Ignored</strong>On-screen: "Why does moving apartments cost you more?" / Spoken: "Why would moving into a new rental cost you hundreds more a month than just staying where you are? The government just published the answer."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> New government data says renters who move pay $450 more every single month than renters who stay put. That's $5,400 a year — just for moving.</p>
+        <p><strong>Body:</strong> Statistics Canada and CMHC just released the Canadian Housing Survey comparing recent movers to renters who stayed in the same place. Recent movers pay $1,740 a month on average, versus $1,290 for people who didn't move — a $450 gap every single month. Forty percent of recent movers are now spending more than 30% of their income on rent, the official line for "unaffordable" housing, compared to 32% of people who stayed put. And 44.5% of recent movers say the rent increase caused them real financial difficulty — that number has jumped 27 percentage points since 2018. If you're a newcomer, this is basically describing your exact situation: moving into a new rental is something almost everyone arriving in Canada has to do, and the data shows it comes with a real, measurable financial hit.</p>
+        <p><strong>CTA:</strong> Comment "MOVE" if this happened to you — and if you're apartment-hunting right now, save this so you know what to push back on before you sign anything.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">RECENT MOVERS: $1,740/MO</span>
+        <span class="onscreen-tag">STAYED PUT: $1,290/MO</span>
+        <span class="onscreen-tag">GAP: $5,400/YEAR</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        moving boxes in an apartment · "for rent" sign on a building · person signing a lease at a table · apartment building exterior GTA · calculator and rent receipts
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://storeys.com/canadian-housing-survey-statcan-cmhc/">STOREYS — Canadian Renters Caught Between Higher Rents and Homes That Don't Fit</a> (StatCan Canadian Housing Survey + CMHC).</p>
+    </div>
+
+    <!-- IDEA 3 -->
+    <div class="idea-card">
+      <div class="idea-header">
+        <span class="idea-num">3</span>
+        <span class="idea-title">Two GTA creators posted the same warning the same day: condos are flooding the market</span>
+        <span class="format-tag">Reel</span>
+      </div>
+      <div class="idea-why">Why it'll perform: real same-day social proof from two unrelated GTA creators, ties directly into today's Big Story, and gives condo buyers a genuinely actionable negotiating angle.</div>
+
+      <div class="hook-box"><strong>Hook 1 — Nobody's Telling You</strong>On-screen: "Two agents posted this the same day. Nobody talks about it." / Spoken: "Two different Toronto-area agents posted the exact same warning on the exact same day — condos are flooding the market. Here's what that means for you."</div>
+      <div class="hook-box"><strong>Hook 2 — Number Shock</strong>On-screen: "One GTA tower is being called Canada's biggest condo disaster" / Spoken: "A condo tower in Vaughan is now being called Canada's biggest condo disaster. And it's part of a much bigger pattern happening across the GTA right now."</div>
+      <div class="hook-box"><strong>Hook 3 — Stakes / This Costs You</strong>On-screen: "Thinking about buying a condo? Read this first." / Spoken: "If a condo is on your radar right now, you need to know why so many are sitting unsold across Toronto and Vancouver — it changes how you should negotiate."</div>
+
+      <div class="script-block">
+        <div class="script-label">Script</div>
+        <p><strong>Hook:</strong> Two different Toronto-area creators posted the exact same warning on the exact same day — and neither one was talking to the other.</p>
+        <p><strong>Body:</strong> On September 27, Property Daily posted a breakdown of why Toronto and Vancouver condos are flooding the market with unsold inventory. That same day, Zhen Liang posted about a specific tower in Vaughan being called "Canada's biggest condo disaster." Two different creators, same day, same underlying story — and it lines up exactly with today's bigger news, that global bank UBS just ranked Toronto and Vancouver among the weakest real estate markets in the world, partly because of exactly this kind of oversupply. If you're a condo buyer or investor, this isn't a reason to panic — it's a reason to negotiate. When inventory piles up like this, sellers have less leverage, not more.</p>
+        <p><strong>CTA:</strong> Comment "CONDO" if you're watching this market — I'll share three questions to ask before you buy into any building right now.</p>
+      </div>
+
+      <div class="onscreen-tags">
+        <span class="onscreen-tag">2 CREATORS, SAME DAY</span>
+        <span class="onscreen-tag">CONDOS FLOODING THE MARKET</span>
+        <span class="onscreen-tag">TIES TO UBS "WEAK MARKET" REPORT</span>
+      </div>
+
+      <div class="broll-block">
+        <div class="broll-label">B-Roll (real footage search terms)</div>
+        GTA condo tower exterior · Vaughan Metropolitan Centre skyline · construction cranes downtown Toronto · "unsold units" real estate sign · buyer walking through an empty condo unit
+      </div>
+
+      <p style="font-size:0.8rem; color:#6b7280; margin-top:10px;"><strong>Source(s):</strong> <a href="https://www.youtube.com/watch?v=hhh6GCAT2Mg">Property Daily — "Why Toronto and Vancouver Condos Are Flooding the Market"</a>; <a href="https://www.youtube.com/watch?v=DlMXSJf34jY">Zhen Liang — "Vaughan Metropolitan Centre: Canada's Biggest Condo Disaster!"</a>; <a href="https://www.ubs.com/global/en/media/display-page-ndp/en-20260922-grebi26.html">UBS — Global Real Estate Bubble Index 2026</a>.</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="card sources-card">
+    <div class="section-title">📌 Sources</div>
+    <div class="src-group">News</div>
+    <ul class="sources-list">
+      <li><a href="https://www.ctvnews.ca/toronto/article/toronto-and-vancouver-were-ranked-among-the-weakest-real-estate-markets-in-the-world-heres-why/">CTV News — Toronto and Vancouver ranked among the weakest real estate markets in the world</a></li>
+      <li><a href="https://ca.finance.yahoo.com/news/toronto-vancouver-drop-weakest-housing-171827929.html">Yahoo Finance / Bloomberg — Toronto and Vancouver drop to weakest housing markets in UBS global ranking</a></li>
+      <li><a href="https://storeys.com/canadian-housing-survey-statcan-cmhc/">STOREYS — Canadian Renters Caught Between Higher Rents and Homes That Don't Fit</a></li>
+    </ul>
+    <div class="src-group">Data</div>
+    <ul class="sources-list">
+      <li><a href="https://www.ubs.com/global/en/media/display-page-ndp/en-20260922-grebi26.html">UBS — Global Real Estate Bubble Index 2026</a></li>
+      <li><a href="https://www.bankofcanada.ca/2026/09/fad-press-release-2026-09-02/">Bank of Canada — Sept 2 Rate Decision (held at 2.25%)</a></li>
+      <li><a href="https://tradingeconomics.com/canada/5-year-note-yield">TradingEconomics — Canada 5-Year Bond Yield</a></li>
+      <li><a href="https://tradingeconomics.com/canada/currency">TradingEconomics — Canadian Dollar (USD/CAD)</a></li>
+      <li><a href="https://www.ratehub.ca/best-mortgage-rates/5-year/fixed">Ratehub — Best 5-Year Fixed Mortgage Rates</a></li>
+      <li><a href="https://www.ratehub.ca/prime-rate">Ratehub — Canada Prime Rate</a></li>
+      <li><a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260914/dq260914a-eng.htm">StatCan — Consumer Price Index, August 2026</a></li>
+      <li><a href="https://trreb.ca/wp-content/files/news_releases/news2026/nr_market_watch_0826.pdf">TRREB — Market Watch, August 2026</a></li>
+      <li><a href="https://creastats.crea.ca/">CREA — National Statistics</a></li>
+      <li><a href="https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2026/housing-starts-construction-data-august-2026">CMHC — August 2026 Housing Starts</a></li>
+    </ul>
+    <div class="src-group">Creators</div>
+    <ul class="sources-list">
+      <li><a href="https://www.youtube.com/watch?v=hhh6GCAT2Mg">Property Daily — "Why Toronto and Vancouver Condos Are Flooding the Market"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=DlMXSJf34jY">Zhen Liang — "Vaughan Metropolitan Centre: Canada's Biggest Condo Disaster!"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=_3DFY3cuqLc">Karl Nielsen — "Toronto's Real Estate Crash: What Comes Next!"</a></li>
+      <li><a href="https://www.youtube.com/shorts/hgVnUn9j080">Daniel Foch — "GTA New Home Sales Nearly 4x. The Economy Didn't Change."</a></li>
+      <li><a href="https://www.youtube.com/shorts/zt-n2VWA1iw">Daniel Foch — "Builders Didn't Pocket the HST Cut. Here's Why."</a></li>
+      <li><a href="https://www.youtube.com/watch?v=UEAGEgoWMe4">Daniel Foch — "Resale vs New Build: The $130k Tax Difference"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=DeHL0UTI4Xs">Oleg Galyuk — "Vancouver Foreclosures Are SURGING"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=uRWpmk-EITU">Mike Carpino — "5 Ontario Cities Where Home Prices Have Fallen the Most"</a></li>
+      <li><a href="https://www.youtube.com/watch?v=is6jRLqDebc">I'm Canada — "How to Apply for Status Restoration"</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
